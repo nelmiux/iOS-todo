@@ -1,9 +1,9 @@
 # Tasks list
 
 - [X] BrainStorm
-- [ ] Create a Skeleton UI
-- [ ] Research (IDE, API, MBaas, Libraries)
-- [ ] Choose an Idea
+- [X] Create a Skeleton UI
+- [X] Research (IDE, API, MBaas, Libraries)
+- [X] Choose an Idea
 - [ ] Create a Paper or Digital Prototype
 - [ ] Design UI/UX Components
 - [ ] Get User Feedback
