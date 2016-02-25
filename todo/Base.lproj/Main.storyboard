@@ -183,7 +183,6 @@
         <!--Navigation Controller-->
         <scene sceneID="YEa-9e-yal">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u74-Yd-Tif" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aFM-6K-d5e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="99v-Nj-AJx">
@@ -195,6 +194,7 @@
                         <segue destination="06i-aL-yrO" kind="relationship" relationship="rootViewController" id="OG7-fL-ekK"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u74-Yd-Tif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="363" y="1195"/>
         </scene>
@@ -244,6 +244,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Account Balance" id="Ypq-Jn-x1Y">
                         <barButtonItem key="backBarButtonItem" title="Back" id="WdB-RL-XHh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="mmt-A2-uif">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="showDetail" id="D2Y-Kh-GZ8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
@@ -270,11 +275,11 @@
             </objects>
             <point key="canvasLocation" x="895" y="305"/>
         </scene>
-        <!--Item 1-->
+        <!--Account Balance-->
         <scene sceneID="c0M-HL-0Y5">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SCq-nS-hQH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="qM1-w1-qTB"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SCq-nS-hQH" userLabel="Account Balance" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 1" id="qM1-w1-qTB" userLabel="Account Balance"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tRg-OR-6e1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -312,4 +317,7 @@
     <resources>
         <image name="xlarge_building1.jpg" width="1283" height="1962"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KHP-Az-l9v"/>
+    </inferredMetricsTieBreakers>
 </document>
