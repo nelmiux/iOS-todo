@@ -36,6 +36,16 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SEGOEUI</string>
+		<string>SEGOEUIB</string>
+		<string>SEGOEUIZ</string>
+		<string>segoeuii</string>
+		<string>Maiandra GD Regular</string>
+	</array>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

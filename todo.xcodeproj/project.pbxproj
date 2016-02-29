@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */; };
-		CAC482601C83D92600059FDD /* HistoryTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482561C83D92600059FDD /* HistoryTabIcon_Teal.png */; };
 		CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482571C83D92600059FDD /* HomeTabIcon_Black.png */; };
-		CAC482621C83D92600059FDD /* HomeTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482581C83D92600059FDD /* HomeTabIcon_Teal.png */; };
 		CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482591C83D92600059FDD /* NotificationsTabIcon_Black.png */; };
-		CAC482641C83D92600059FDD /* NotificationsTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825A1C83D92600059FDD /* NotificationsTabIcon_Teal.png */; };
 		CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825B1C83D92600059FDD /* ProfileTabIcon_Black.png */; };
-		CAC482661C83D92600059FDD /* ProfileTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825C1C83D92600059FDD /* ProfileTabIcon_Teal.png */; };
 		CAC482671C83D92600059FDD /* SettingsTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825D1C83D92600059FDD /* SettingsTabIcon_Black.png */; };
-		CAC482681C83D92600059FDD /* SettingsTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825E1C83D92600059FDD /* SettingsTabIcon_Teal.png */; };
-		CAC482701C83F49A00059FDD /* SEGOEUI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CAC4826C1C83F49A00059FDD /* SEGOEUI.TTF */; };
 		CAC482711C83F49A00059FDD /* SEGOEUIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CAC4826D1C83F49A00059FDD /* SEGOEUIB.TTF */; };
 		CAC482721C83F49A00059FDD /* segoeuii.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CAC4826E1C83F49A00059FDD /* segoeuii.ttf */; };
 		CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CAC4826F1C83F49A00059FDD /* SEGOEUIZ.TTF */; };
 		CAC482751C83F4A900059FDD /* Maiandra GD Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CAC482741C83F4A900059FDD /* Maiandra GD Regular.ttf */; };
+		CAC4827B1C83F85A00059FDD /* HistoryTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482761C83F85A00059FDD /* HistoryTabIcon_Teal.png */; };
+		CAC4827C1C83F85A00059FDD /* HomeTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482771C83F85A00059FDD /* HomeTabIcon_Teal.png */; };
+		CAC4827D1C83F85A00059FDD /* NotificationsTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482781C83F85A00059FDD /* NotificationsTabIcon_Teal.png */; };
+		CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482791C83F85A00059FDD /* ProfileTabIcon_Teal.png */; };
+		CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4827A1C83F85A00059FDD /* SettingsTabIcon_Teal.png */; };
+		CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CAC482821C83FED800059FDD /* SEGOEUI.TTF */; };
 		CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C421C7E46030085F014 /* AppDelegate.swift */; };
 		CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInOnViewController.swift */; };
 		CADD3C481C7E46030085F014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C461C7E46030085F014 /* Main.storyboard */; };
@@ -51,20 +51,20 @@
 
 /* Begin PBXFileReference section */
 		CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryTabIcon_Black.png; path = "images/Tab Icons/HistoryTabIcon_Black.png"; sourceTree = "<group>"; };
-		CAC482561C83D92600059FDD /* HistoryTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryTabIcon_Teal.png; path = "images/Tab Icons/HistoryTabIcon_Teal.png"; sourceTree = "<group>"; };
 		CAC482571C83D92600059FDD /* HomeTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HomeTabIcon_Black.png; path = "images/Tab Icons/HomeTabIcon_Black.png"; sourceTree = "<group>"; };
-		CAC482581C83D92600059FDD /* HomeTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HomeTabIcon_Teal.png; path = "images/Tab Icons/HomeTabIcon_Teal.png"; sourceTree = "<group>"; };
 		CAC482591C83D92600059FDD /* NotificationsTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationsTabIcon_Black.png; path = "images/Tab Icons/NotificationsTabIcon_Black.png"; sourceTree = "<group>"; };
-		CAC4825A1C83D92600059FDD /* NotificationsTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationsTabIcon_Teal.png; path = "images/Tab Icons/NotificationsTabIcon_Teal.png"; sourceTree = "<group>"; };
 		CAC4825B1C83D92600059FDD /* ProfileTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileTabIcon_Black.png; path = "images/Tab Icons/ProfileTabIcon_Black.png"; sourceTree = "<group>"; };
-		CAC4825C1C83D92600059FDD /* ProfileTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileTabIcon_Teal.png; path = "images/Tab Icons/ProfileTabIcon_Teal.png"; sourceTree = "<group>"; };
 		CAC4825D1C83D92600059FDD /* SettingsTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsTabIcon_Black.png; path = "images/Tab Icons/SettingsTabIcon_Black.png"; sourceTree = "<group>"; };
-		CAC4825E1C83D92600059FDD /* SettingsTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsTabIcon_Teal.png; path = "images/Tab Icons/SettingsTabIcon_Teal.png"; sourceTree = "<group>"; };
-		CAC4826C1C83F49A00059FDD /* SEGOEUI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SEGOEUI.TTF; path = "fonts/segoe-ui/SEGOEUI.TTF"; sourceTree = "<group>"; };
 		CAC4826D1C83F49A00059FDD /* SEGOEUIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SEGOEUIB.TTF; path = "fonts/segoe-ui/SEGOEUIB.TTF"; sourceTree = "<group>"; };
 		CAC4826E1C83F49A00059FDD /* segoeuii.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = segoeuii.ttf; path = "fonts/segoe-ui/segoeuii.ttf"; sourceTree = "<group>"; };
 		CAC4826F1C83F49A00059FDD /* SEGOEUIZ.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = SEGOEUIZ.TTF; path = "fonts/segoe-ui/SEGOEUIZ.TTF"; sourceTree = "<group>"; };
 		CAC482741C83F4A900059FDD /* Maiandra GD Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Maiandra GD Regular.ttf"; path = "fonts/Maiandra GD Regular/Maiandra GD Regular.ttf"; sourceTree = "<group>"; };
+		CAC482761C83F85A00059FDD /* HistoryTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryTabIcon_Teal.png; path = "images/Tab Icons/HistoryTabIcon_Teal.png"; sourceTree = "<group>"; };
+		CAC482771C83F85A00059FDD /* HomeTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HomeTabIcon_Teal.png; path = "images/Tab Icons/HomeTabIcon_Teal.png"; sourceTree = "<group>"; };
+		CAC482781C83F85A00059FDD /* NotificationsTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationsTabIcon_Teal.png; path = "images/Tab Icons/NotificationsTabIcon_Teal.png"; sourceTree = "<group>"; };
+		CAC482791C83F85A00059FDD /* ProfileTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileTabIcon_Teal.png; path = "images/Tab Icons/ProfileTabIcon_Teal.png"; sourceTree = "<group>"; };
+		CAC4827A1C83F85A00059FDD /* SettingsTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsTabIcon_Teal.png; path = "images/Tab Icons/SettingsTabIcon_Teal.png"; sourceTree = "<group>"; };
+		CAC482831C83FEE500059FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/SEGOEUI.TTF; sourceTree = "<group>"; };
 		CADD3C3F1C7E46030085F014 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD3C421C7E46030085F014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CADD3C441C7E46030085F014 /* SignInOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInOnViewController.swift; sourceTree = "<group>"; };
@@ -109,16 +109,16 @@
 		CAC482541C83D90B00059FDD /* Tab Icons */ = {
 			isa = PBXGroup;
 			children = (
+				CAC482761C83F85A00059FDD /* HistoryTabIcon_Teal.png */,
+				CAC482771C83F85A00059FDD /* HomeTabIcon_Teal.png */,
+				CAC482781C83F85A00059FDD /* NotificationsTabIcon_Teal.png */,
+				CAC482791C83F85A00059FDD /* ProfileTabIcon_Teal.png */,
+				CAC4827A1C83F85A00059FDD /* SettingsTabIcon_Teal.png */,
 				CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */,
-				CAC482561C83D92600059FDD /* HistoryTabIcon_Teal.png */,
 				CAC482571C83D92600059FDD /* HomeTabIcon_Black.png */,
-				CAC482581C83D92600059FDD /* HomeTabIcon_Teal.png */,
 				CAC482591C83D92600059FDD /* NotificationsTabIcon_Black.png */,
-				CAC4825A1C83D92600059FDD /* NotificationsTabIcon_Teal.png */,
 				CAC4825B1C83D92600059FDD /* ProfileTabIcon_Black.png */,
-				CAC4825C1C83D92600059FDD /* ProfileTabIcon_Teal.png */,
 				CAC4825D1C83D92600059FDD /* SettingsTabIcon_Black.png */,
-				CAC4825E1C83D92600059FDD /* SettingsTabIcon_Teal.png */,
 			);
 			name = "Tab Icons";
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 		CAC4826A1C83F45800059FDD /* segoe-ui */ = {
 			isa = PBXGroup;
 			children = (
-				CAC4826C1C83F49A00059FDD /* SEGOEUI.TTF */,
+				CAC482821C83FED800059FDD /* SEGOEUI.TTF */,
 				CAC4826D1C83F49A00059FDD /* SEGOEUIB.TTF */,
 				CAC4826E1C83F49A00059FDD /* segoeuii.ttf */,
 				CAC4826F1C83F49A00059FDD /* SEGOEUIZ.TTF */,
@@ -321,24 +321,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				CADD3C721C7E4ED70085F014 /* xlarge_building1.jpg in Resources */,
-				CAC482681C83D92600059FDD /* SettingsTabIcon_Teal.png in Resources */,
 				CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */,
-				CAC482601C83D92600059FDD /* HistoryTabIcon_Teal.png in Resources */,
-				CAC482641C83D92600059FDD /* NotificationsTabIcon_Teal.png in Resources */,
 				CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */,
 				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
+				CAC4827B1C83F85A00059FDD /* HistoryTabIcon_Teal.png in Resources */,
+				CAC4827C1C83F85A00059FDD /* HomeTabIcon_Teal.png in Resources */,
 				CAC482721C83F49A00059FDD /* segoeuii.ttf in Resources */,
 				CAC482751C83F4A900059FDD /* Maiandra GD Regular.ttf in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
-				CAC482701C83F49A00059FDD /* SEGOEUI.TTF in Resources */,
+				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
 				CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */,
-				CAC482661C83D92600059FDD /* ProfileTabIcon_Teal.png in Resources */,
 				CAC482711C83F49A00059FDD /* SEGOEUIB.TTF in Resources */,
-				CAC482621C83D92600059FDD /* HomeTabIcon_Teal.png in Resources */,
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
+				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
 				CAC482671C83D92600059FDD /* SettingsTabIcon_Black.png in Resources */,
+				CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */,
 				CADD3C481C7E46030085F014 /* Main.storyboard in Resources */,
+				CAC4827D1C83F85A00059FDD /* NotificationsTabIcon_Teal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +400,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CAC482821C83FED800059FDD /* SEGOEUI.TTF */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CAC482831C83FEE500059FDD /* Base */,
+			);
+			name = SEGOEUI.TTF;
+			path = "fonts/segoe-ui";
+			sourceTree = "<group>";
+		};
 		CADD3C461C7E46030085F014 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
