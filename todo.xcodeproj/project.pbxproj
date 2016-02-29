@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
+		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
 		CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */; };
 		CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482571C83D92600059FDD /* HomeTabIcon_Black.png */; };
 		CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482591C83D92600059FDD /* NotificationsTabIcon_Black.png */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
+		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
 		CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryTabIcon_Black.png; path = "images/Tab Icons/HistoryTabIcon_Black.png"; sourceTree = "<group>"; };
 		CAC482571C83D92600059FDD /* HomeTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HomeTabIcon_Black.png; path = "images/Tab Icons/HomeTabIcon_Black.png"; sourceTree = "<group>"; };
 		CAC482591C83D92600059FDD /* NotificationsTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationsTabIcon_Black.png; path = "images/Tab Icons/NotificationsTabIcon_Black.png"; sourceTree = "<group>"; };
@@ -112,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CAB102021C8442D400033929 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				CAB102031C8442E600033929 /* logout.png */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
 		CAC482541C83D90B00059FDD /* Tab Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +172,7 @@
 		CAC482841C84208600059FDD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CAB102051C844FA500033929 /* user-pic.png */,
 				CAC482851C84209E00059FDD /* Home Analitics.png */,
 				CAC482861C84209E00059FDD /* Home-Item1.png */,
 				CAC482871C84209E00059FDD /* Home-Item2.png */,
@@ -223,6 +236,7 @@
 		CADD3C701C7E4E7B0085F014 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CAB102021C8442D400033929 /* General */,
 				CAC482841C84208600059FDD /* Home */,
 				CAC482541C83D90B00059FDD /* Tab Icons */,
 				CADD3C711C7E4ED70085F014 /* xlarge_building1.jpg */,
@@ -338,11 +352,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CADD3C721C7E4ED70085F014 /* xlarge_building1.jpg in Resources */,
+				CAB102041C8442E600033929 /* logout.png in Resources */,
 				CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */,
 				CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */,
 				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
 				CAC4827B1C83F85A00059FDD /* HistoryTabIcon_Teal.png in Resources */,
 				CAC4827C1C83F85A00059FDD /* HomeTabIcon_Teal.png in Resources */,
+				CAB102061C844FA500033929 /* user-pic.png in Resources */,
 				CAC482721C83F49A00059FDD /* segoeuii.ttf in Resources */,
 				CAC482751C83F4A900059FDD /* Maiandra GD Regular.ttf in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
