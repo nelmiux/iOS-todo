@@ -499,7 +499,6 @@
 				CADD3C691C7E46030085F014 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		CADD3C6A1C7E46030085F014 /* Build configuration list for PBXNativeTarget "todoTests" */ = {
 			isa = XCConfigurationList;
@@ -508,7 +507,6 @@
 				CADD3C6C1C7E46030085F014 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		CADD3C6D1C7E46030085F014 /* Build configuration list for PBXNativeTarget "todoUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,7 +515,6 @@
 				CADD3C6F1C7E46030085F014 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
