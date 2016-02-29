@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */; };
+		CAC482601C83D92600059FDD /* HistoryTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482561C83D92600059FDD /* HistoryTabIcon_Teal.png */; };
+		CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482571C83D92600059FDD /* HomeTabIcon_Black.png */; };
+		CAC482621C83D92600059FDD /* HomeTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482581C83D92600059FDD /* HomeTabIcon_Teal.png */; };
+		CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482591C83D92600059FDD /* NotificationsTabIcon_Black.png */; };
+		CAC482641C83D92600059FDD /* NotificationsTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825A1C83D92600059FDD /* NotificationsTabIcon_Teal.png */; };
+		CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825B1C83D92600059FDD /* ProfileTabIcon_Black.png */; };
+		CAC482661C83D92600059FDD /* ProfileTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825C1C83D92600059FDD /* ProfileTabIcon_Teal.png */; };
+		CAC482671C83D92600059FDD /* SettingsTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825D1C83D92600059FDD /* SettingsTabIcon_Black.png */; };
+		CAC482681C83D92600059FDD /* SettingsTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4825E1C83D92600059FDD /* SettingsTabIcon_Teal.png */; };
 		CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C421C7E46030085F014 /* AppDelegate.swift */; };
 		CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInOnViewController.swift */; };
 		CADD3C481C7E46030085F014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C461C7E46030085F014 /* Main.storyboard */; };
@@ -35,6 +45,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryTabIcon_Black.png; path = "images/Tab Icons/HistoryTabIcon_Black.png"; sourceTree = "<group>"; };
+		CAC482561C83D92600059FDD /* HistoryTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryTabIcon_Teal.png; path = "images/Tab Icons/HistoryTabIcon_Teal.png"; sourceTree = "<group>"; };
+		CAC482571C83D92600059FDD /* HomeTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HomeTabIcon_Black.png; path = "images/Tab Icons/HomeTabIcon_Black.png"; sourceTree = "<group>"; };
+		CAC482581C83D92600059FDD /* HomeTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HomeTabIcon_Teal.png; path = "images/Tab Icons/HomeTabIcon_Teal.png"; sourceTree = "<group>"; };
+		CAC482591C83D92600059FDD /* NotificationsTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationsTabIcon_Black.png; path = "images/Tab Icons/NotificationsTabIcon_Black.png"; sourceTree = "<group>"; };
+		CAC4825A1C83D92600059FDD /* NotificationsTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NotificationsTabIcon_Teal.png; path = "images/Tab Icons/NotificationsTabIcon_Teal.png"; sourceTree = "<group>"; };
+		CAC4825B1C83D92600059FDD /* ProfileTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileTabIcon_Black.png; path = "images/Tab Icons/ProfileTabIcon_Black.png"; sourceTree = "<group>"; };
+		CAC4825C1C83D92600059FDD /* ProfileTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileTabIcon_Teal.png; path = "images/Tab Icons/ProfileTabIcon_Teal.png"; sourceTree = "<group>"; };
+		CAC4825D1C83D92600059FDD /* SettingsTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsTabIcon_Black.png; path = "images/Tab Icons/SettingsTabIcon_Black.png"; sourceTree = "<group>"; };
+		CAC4825E1C83D92600059FDD /* SettingsTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsTabIcon_Teal.png; path = "images/Tab Icons/SettingsTabIcon_Teal.png"; sourceTree = "<group>"; };
 		CADD3C3F1C7E46030085F014 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD3C421C7E46030085F014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CADD3C441C7E46030085F014 /* SignInOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInOnViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +96,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CAC482541C83D90B00059FDD /* Tab Icons */ = {
+			isa = PBXGroup;
+			children = (
+				CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */,
+				CAC482561C83D92600059FDD /* HistoryTabIcon_Teal.png */,
+				CAC482571C83D92600059FDD /* HomeTabIcon_Black.png */,
+				CAC482581C83D92600059FDD /* HomeTabIcon_Teal.png */,
+				CAC482591C83D92600059FDD /* NotificationsTabIcon_Black.png */,
+				CAC4825A1C83D92600059FDD /* NotificationsTabIcon_Teal.png */,
+				CAC4825B1C83D92600059FDD /* ProfileTabIcon_Black.png */,
+				CAC4825C1C83D92600059FDD /* ProfileTabIcon_Teal.png */,
+				CAC4825D1C83D92600059FDD /* SettingsTabIcon_Black.png */,
+				CAC4825E1C83D92600059FDD /* SettingsTabIcon_Teal.png */,
+			);
+			name = "Tab Icons";
+			sourceTree = "<group>";
+		};
 		CADD3C361C7E46020085F014 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +168,7 @@
 		CADD3C701C7E4E7B0085F014 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CAC482541C83D90B00059FDD /* Tab Icons */,
 				CADD3C711C7E4ED70085F014 /* xlarge_building1.jpg */,
 			);
 			name = images;
@@ -244,8 +282,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CADD3C721C7E4ED70085F014 /* xlarge_building1.jpg in Resources */,
+				CAC482681C83D92600059FDD /* SettingsTabIcon_Teal.png in Resources */,
+				CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */,
+				CAC482601C83D92600059FDD /* HistoryTabIcon_Teal.png in Resources */,
+				CAC482641C83D92600059FDD /* NotificationsTabIcon_Teal.png in Resources */,
+				CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */,
+				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
+				CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */,
+				CAC482661C83D92600059FDD /* ProfileTabIcon_Teal.png in Resources */,
+				CAC482621C83D92600059FDD /* HomeTabIcon_Teal.png in Resources */,
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
+				CAC482671C83D92600059FDD /* SettingsTabIcon_Black.png in Resources */,
 				CADD3C481C7E46030085F014 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +547,7 @@
 				CADD3C691C7E46030085F014 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CADD3C6A1C7E46030085F014 /* Build configuration list for PBXNativeTarget "todoTests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +556,7 @@
 				CADD3C6C1C7E46030085F014 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CADD3C6D1C7E46030085F014 /* Build configuration list for PBXNativeTarget "todoUITests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +565,7 @@
 				CADD3C6F1C7E46030085F014 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
