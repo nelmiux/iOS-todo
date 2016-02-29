@@ -22,6 +22,9 @@
 		CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482791C83F85A00059FDD /* ProfileTabIcon_Teal.png */; };
 		CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC4827A1C83F85A00059FDD /* SettingsTabIcon_Teal.png */; };
 		CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = CAC482821C83FED800059FDD /* SEGOEUI.TTF */; };
+		CAC482881C84209E00059FDD /* Home Analitics.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482851C84209E00059FDD /* Home Analitics.png */; };
+		CAC482891C84209E00059FDD /* Home-Item1.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482861C84209E00059FDD /* Home-Item1.png */; };
+		CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482871C84209E00059FDD /* Home-Item2.png */; };
 		CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C421C7E46030085F014 /* AppDelegate.swift */; };
 		CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInOnViewController.swift */; };
 		CADD3C481C7E46030085F014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C461C7E46030085F014 /* Main.storyboard */; };
@@ -65,6 +68,9 @@
 		CAC482791C83F85A00059FDD /* ProfileTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileTabIcon_Teal.png; path = "images/Tab Icons/ProfileTabIcon_Teal.png"; sourceTree = "<group>"; };
 		CAC4827A1C83F85A00059FDD /* SettingsTabIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingsTabIcon_Teal.png; path = "images/Tab Icons/SettingsTabIcon_Teal.png"; sourceTree = "<group>"; };
 		CAC482831C83FEE500059FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/SEGOEUI.TTF; sourceTree = "<group>"; };
+		CAC482851C84209E00059FDD /* Home Analitics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics.png"; path = "images/Home/Home Analitics.png"; sourceTree = "<group>"; };
+		CAC482861C84209E00059FDD /* Home-Item1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home-Item1.png"; path = "images/Home/Home-Item1.png"; sourceTree = "<group>"; };
+		CAC482871C84209E00059FDD /* Home-Item2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home-Item2.png"; path = "images/Home/Home-Item2.png"; sourceTree = "<group>"; };
 		CADD3C3F1C7E46030085F014 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD3C421C7E46030085F014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CADD3C441C7E46030085F014 /* SignInOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInOnViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +157,16 @@
 			name = "maiandra-gd";
 			sourceTree = "<group>";
 		};
+		CAC482841C84208600059FDD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CAC482851C84209E00059FDD /* Home Analitics.png */,
+				CAC482861C84209E00059FDD /* Home-Item1.png */,
+				CAC482871C84209E00059FDD /* Home-Item2.png */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
 		CADD3C361C7E46020085F014 = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +223,7 @@
 		CADD3C701C7E4E7B0085F014 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CAC482841C84208600059FDD /* Home */,
 				CAC482541C83D90B00059FDD /* Tab Icons */,
 				CADD3C711C7E4ED70085F014 /* xlarge_building1.jpg */,
 			);
@@ -334,11 +351,14 @@
 				CAC482711C83F49A00059FDD /* SEGOEUIB.TTF in Resources */,
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
+				CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */,
 				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
 				CAC482671C83D92600059FDD /* SettingsTabIcon_Black.png in Resources */,
 				CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */,
 				CADD3C481C7E46030085F014 /* Main.storyboard in Resources */,
+				CAC482881C84209E00059FDD /* Home Analitics.png in Resources */,
 				CAC4827D1C83F85A00059FDD /* NotificationsTabIcon_Teal.png in Resources */,
+				CAC482891C84209E00059FDD /* Home-Item1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
