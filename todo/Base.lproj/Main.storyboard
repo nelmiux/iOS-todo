@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
@@ -219,7 +220,7 @@
             </objects>
             <point key="canvasLocation" x="1473" y="-529"/>
         </scene>
-        <!--Main Tab-->
+        <!--Home-->
         <scene sceneID="GWI-kX-bKu">
             <objects>
                 <viewController id="ieH-2R-nLk" sceneMemberID="viewController">
@@ -241,7 +242,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Main Tab" id="Ypq-Jn-x1Y">
+                    <navigationItem key="navigationItem" title="Home" id="Ypq-Jn-x1Y">
                         <barButtonItem key="backBarButtonItem" title="Back" id="WdB-RL-XHh"/>
                         <barButtonItem key="rightBarButtonItem" title="Sign Out" id="mmt-A2-uif">
                             <connections>
@@ -299,11 +300,11 @@
             </objects>
             <point key="canvasLocation" x="1473" y="305"/>
         </scene>
-        <!--Main Screen-->
+        <!--Home-->
         <scene sceneID="c0M-HL-0Y5">
             <objects>
-                <navigationController title="Main Screen" automaticallyAdjustsScrollViewInsets="NO" id="SCq-nS-hQH" userLabel="Main Screen" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Main Screen" id="qM1-w1-qTB" userLabel="Main Screen"/>
+                <navigationController title="Home" automaticallyAdjustsScrollViewInsets="NO" id="SCq-nS-hQH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="HomeTabIcon_Black" selectedImage="HomeTabIcon_Teal" id="qM1-w1-qTB" userLabel="Home"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tRg-OR-6e1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -322,7 +323,7 @@
         <scene sceneID="pkX-y5-RyD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CgC-vO-py1" userLabel="History" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="History" id="iCh-H0-Md0"/>
+                    <tabBarItem key="tabBarItem" title="History" image="HistoryTabIcon_Black" selectedImage="HistoryTabIcon_Teal" id="iCh-H0-Md0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iFg-6w-dPS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -563,7 +564,7 @@
         <scene sceneID="ma3-en-rwg">
             <objects>
                 <navigationController title="Notifications" automaticallyAdjustsScrollViewInsets="NO" id="Bgz-hW-ASS" userLabel="Notifications" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" id="GlG-fu-uBP" userLabel="Notifications"/>
+                    <tabBarItem key="tabBarItem" title="Notifications" image="NotificationsTabIcon_Black" selectedImage="NotificationsTabIcon_Teal" id="GlG-fu-uBP" userLabel="Notifications"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rXw-OF-wbG">
@@ -605,7 +606,7 @@
         <scene sceneID="3S9-Sr-pWb">
             <objects>
                 <navigationController title="Profile" automaticallyAdjustsScrollViewInsets="NO" id="Mqi-70-NEW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="e4t-Zb-ScC"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabIcon_Black" selectedImage="ProfileTabIcon_Teal" id="e4t-Zb-ScC"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Vq-yp-6ui">
@@ -625,7 +626,7 @@
         <scene sceneID="1VR-JJ-Lq3">
             <objects>
                 <navigationController title="Settings" automaticallyAdjustsScrollViewInsets="NO" id="9Pf-w3-4w3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="tXc-Gl-RGC"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="SettingsTabIcon_Black" selectedImage="SettingsTabIcon_Teal" id="tXc-Gl-RGC"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="REq-oN-XsD">
@@ -643,6 +644,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="HistoryTabIcon_Black" width="35" height="30"/>
+        <image name="HistoryTabIcon_Teal" width="35" height="30"/>
+        <image name="HomeTabIcon_Black" width="21" height="30"/>
+        <image name="HomeTabIcon_Teal" width="21" height="30"/>
+        <image name="NotificationsTabIcon_Black" width="32" height="30"/>
+        <image name="NotificationsTabIcon_Teal" width="32" height="30"/>
+        <image name="ProfileTabIcon_Black" width="25" height="30"/>
+        <image name="ProfileTabIcon_Teal" width="25" height="30"/>
+        <image name="SettingsTabIcon_Black" width="30" height="30"/>
+        <image name="SettingsTabIcon_Teal" width="30" height="30"/>
         <image name="xlarge_building1.jpg" width="1283" height="1962"/>
     </resources>
     <inferredMetricsTieBreakers>
