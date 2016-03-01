@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA2A50F41C84D9BE000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F31C84D9BE000E2E94 /* LoadingViewController.swift */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
 		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
 		CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA2A50F31C84D9BE000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingViewController.swift; path = ../LoadingViewController.swift; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
 		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
 		CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryTabIcon_Black.png; path = "images/Tab Icons/HistoryTabIcon_Black.png"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				CADD3C461C7E46030085F014 /* Main.storyboard */,
 				CADD3C491C7E46030085F014 /* Assets.xcassets */,
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
+				CA2A50F31C84D9BE000E2E94 /* LoadingViewController.swift */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
 			);
 			path = todo;
@@ -401,6 +404,7 @@
 			files = (
 				CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */,
 				CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */,
+				CA2A50F41C84D9BE000E2E94 /* LoadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
