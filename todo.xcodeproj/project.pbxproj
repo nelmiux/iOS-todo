@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0435DD6B1C857152009D3245 /* LoginButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435DD681C857152009D3245 /* LoginButton2.png */; };
+		0435DD6C1C857152009D3245 /* LoginScreenBg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0435DD691C857152009D3245 /* LoginScreenBg2.jpg */; };
+		0435DD6D1C857152009D3245 /* SignUpButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435DD6A1C857152009D3245 /* SignUpButton2.png */; };
+		04B6C3231C85786C00BA7882 /* TodoSlogan_LightGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3201C85786C00BA7882 /* TodoSlogan_LightGray.png */; };
+		04B6C3241C85786C00BA7882 /* TodoLogo_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */; };
+		04B6C3251C85786C00BA7882 /* TodoLogo_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3221C85786C00BA7882 /* TodoLogo_White.png */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
@@ -69,6 +75,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0435DD681C857152009D3245 /* LoginButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginButton2.png; sourceTree = "<group>"; };
+		0435DD691C857152009D3245 /* LoginScreenBg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginScreenBg2.jpg; sourceTree = "<group>"; };
+		0435DD6A1C857152009D3245 /* SignUpButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUpButton2.png; sourceTree = "<group>"; };
+		04B6C3201C85786C00BA7882 /* TodoSlogan_LightGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoSlogan_LightGray.png; sourceTree = "<group>"; };
+		04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_Teal.png; sourceTree = "<group>"; };
+		04B6C3221C85786C00BA7882 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_White.png; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
@@ -144,6 +156,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0435DD611C85709C009D3245 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				04B6C3201C85786C00BA7882 /* TodoSlogan_LightGray.png */,
+				0435DD681C857152009D3245 /* LoginButton2.png */,
+				0435DD691C857152009D3245 /* LoginScreenBg2.jpg */,
+				0435DD6A1C857152009D3245 /* SignUpButton2.png */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		CA2A50F71C8533BC000E2E94 /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +183,8 @@
 		CAB102021C8442D400033929 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */,
+				04B6C3221C85786C00BA7882 /* TodoLogo_White.png */,
 				CAB102031C8442E600033929 /* logout.png */,
 			);
 			name = General;
@@ -286,6 +311,7 @@
 		CADD3C701C7E4E7B0085F014 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0435DD611C85709C009D3245 /* Login */,
 				CA2A50F71C8533BC000E2E94 /* History */,
 				CAB102021C8442D400033929 /* General */,
 				CAC482841C84208600059FDD /* Home */,
@@ -404,7 +430,9 @@
 				CAC137D31C855D8E00586487 /* user1.png in Resources */,
 				CADD3C721C7E4ED70085F014 /* xlarge_building1.jpg in Resources */,
 				CAB102041C8442E600033929 /* logout.png in Resources */,
+				0435DD6C1C857152009D3245 /* LoginScreenBg2.jpg in Resources */,
 				CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */,
+				0435DD6B1C857152009D3245 /* LoginButton2.png in Resources */,
 				CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */,
 				CAC137D01C855D8E00586487 /* History Example.png in Resources */,
 				CAC137D51C855D8E00586487 /* user3.png in Resources */,
@@ -415,15 +443,19 @@
 				CAC137BD1C8552A000586487 /* Profile.storyboard in Resources */,
 				CAC4827C1C83F85A00059FDD /* HomeTabIcon_Teal.png in Resources */,
 				CAB102061C844FA500033929 /* user-pic.png in Resources */,
+				04B6C3231C85786C00BA7882 /* TodoSlogan_LightGray.png in Resources */,
 				CAC482721C83F49A00059FDD /* segoeuii.ttf in Resources */,
 				CAC482751C83F4A900059FDD /* Maiandra GD Regular.ttf in Resources */,
 				CAC137D21C855D8E00586487 /* Location.png in Resources */,
+				04B6C3241C85786C00BA7882 /* TodoLogo_Teal.png in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
 				CAC137C11C8553A300586487 /* Notifications.storyboard in Resources */,
 				CAC137BB1C854F6400586487 /* Settings.storyboard in Resources */,
 				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
 				CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */,
+				0435DD6D1C857152009D3245 /* SignUpButton2.png in Resources */,
 				CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */,
+				04B6C3251C85786C00BA7882 /* TodoLogo_White.png in Resources */,
 				CAC482711C83F49A00059FDD /* SEGOEUIB.TTF in Resources */,
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
