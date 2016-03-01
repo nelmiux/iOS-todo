@@ -11,6 +11,8 @@
 		99DEE06B1C854A830001F756 /* user2.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DEE0681C854A830001F756 /* user2.png */; };
 		99DEE06C1C854A830001F756 /* user1.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DEE0691C854A830001F756 /* user1.png */; };
 		99DEE06E1C854C670001F756 /* HistoryExample.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DEE06D1C854C670001F756 /* HistoryExample.png */; };
+		99DEE0711C854E740001F756 /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DEE06F1C854E740001F756 /* Location.png */; };
+		99DEE0721C854E740001F756 /* History Example.png in Resources */ = {isa = PBXBuildFile; fileRef = 99DEE0701C854E740001F756 /* History Example.png */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
@@ -65,6 +67,8 @@
 		99DEE0681C854A830001F756 /* user2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user2.png; sourceTree = "<group>"; };
 		99DEE0691C854A830001F756 /* user1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user1.png; sourceTree = "<group>"; };
 		99DEE06D1C854C670001F756 /* HistoryExample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HistoryExample.png; sourceTree = "<group>"; };
+		99DEE06F1C854E740001F756 /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Location.png; sourceTree = "<group>"; };
+		99DEE0701C854E740001F756 /* History Example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "History Example.png"; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 		CA2A50F71C8533BC000E2E94 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				99DEE06F1C854E740001F756 /* Location.png */,
+				99DEE0701C854E740001F756 /* History Example.png */,
 				99DEE06D1C854C670001F756 /* HistoryExample.png */,
 				99DEE0671C854A830001F756 /* user3.png */,
 				99DEE0681C854A830001F756 /* user2.png */,
@@ -384,6 +390,7 @@
 				99DEE06A1C854A830001F756 /* user3.png in Resources */,
 				CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */,
 				CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */,
+				99DEE0721C854E740001F756 /* History Example.png in Resources */,
 				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
 				CAC4827B1C83F85A00059FDD /* HistoryTabIcon_Teal.png in Resources */,
 				CAC4827C1C83F85A00059FDD /* HomeTabIcon_Teal.png in Resources */,
@@ -399,6 +406,7 @@
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
 				CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */,
 				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
+				99DEE0711C854E740001F756 /* Location.png in Resources */,
 				CAC482671C83D92600059FDD /* SettingsTabIcon_Black.png in Resources */,
 				CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */,
 				CADD3C481C7E46030085F014 /* Main.storyboard in Resources */,
