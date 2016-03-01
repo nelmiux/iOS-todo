@@ -875,7 +875,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ieH-2R-nLk" kind="show" action="showDetailViewController:sender:" id="hRl-lp-HFT"/>
+                                            <segue destination="ieH-2R-nLk" kind="showDetail" action="showViewController:sender:" id="bBh-rW-cGX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1185,6 +1185,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="D2Y-Kh-GZ8"/>
-        <segue reference="hRl-lp-HFT"/>
+        <segue reference="bBh-rW-cGX"/>
     </inferredMetricsTieBreakers>
 </document>
