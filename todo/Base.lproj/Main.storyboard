@@ -875,7 +875,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="ieH-2R-nLk" kind="showDetail" action="showViewController:sender:" id="bBh-rW-cGX"/>
+                                            <segue destination="ErG-cG-D21" kind="showDetail" id="wMW-W6-duC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1184,7 +1184,7 @@
         <image name="xlarge_building1.jpg" width="1283" height="1962"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="wMW-W6-duC"/>
         <segue reference="D2Y-Kh-GZ8"/>
-        <segue reference="bBh-rW-cGX"/>
     </inferredMetricsTieBreakers>
 </document>
