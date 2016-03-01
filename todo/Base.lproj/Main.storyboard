@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SEGOEUI.TTF">
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--Starting Point-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="generalEntry" title="Starting Point" id="BYZ-38-t0r" customClass="ViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xlarge_building1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="0sZ-HS-Nhj">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="generalEntry" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-sV-YTC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="2m9-jX-tKf">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEQ-lP-kQb">
+                                <rect key="frame" x="184" y="451" width="47" height="30"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <segue destination="ErG-cG-D21" kind="showDetail" id="xSX-h8-Ya5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="to7-bA-m8k">
+                                <rect key="frame" x="182" y="518" width="55" height="30"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                <state key="normal" title="Sign On"/>
+                                <connections>
+                                    <segue destination="a7J-WO-piz" kind="showDetail" id="s4M-8W-ail"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-871" y="-1239"/>
+        </scene>
+        <!--signonEntry-->
+        <scene sceneID="fmd-iz-35q">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignOn" referencedIdentifier="signonEntry" id="a7J-WO-piz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6O3-y8-eRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-870.5" y="-727"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="EXu-dw-uDe">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarEntry" id="ErG-cG-D21" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Rdz-Tq-PDf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.42614895320000001" green="0.80086137820000003" blue="0.59620314360000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.42614895320000001" green="0.80086137820000003" blue="0.59620314360000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.086274509799999996" green="0.56470588239999997" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="DX3-Zf-K0y" kind="relationship" relationship="viewControllers" id="DgB-jX-gLx"/>
+                        <segue destination="I9w-sM-eMs" kind="relationship" relationship="viewControllers" id="I7Y-Sf-8C0"/>
+                        <segue destination="D8Z-Me-Xbp" kind="relationship" relationship="viewControllers" id="TwY-pc-oyJ"/>
+                        <segue destination="3Fz-AN-Aqd" kind="relationship" relationship="viewControllers" id="bHB-ae-UIk"/>
+                        <segue destination="9bt-xG-8AG" kind="relationship" relationship="viewControllers" id="EMG-1n-YYn"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ygy-gY-HiM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-333" y="-1239"/>
+        </scene>
+        <!--homeEntry-->
+        <scene sceneID="HTa-QA-1WN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="homeEntry" id="DX3-Zf-K0y" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="o2D-hQ-ukh"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jAg-bO-AXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="-1593"/>
+        </scene>
+        <!--historyEntry-->
+        <scene sceneID="L7q-LU-uDC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="History" referencedIdentifier="historyEntry" id="I9w-sM-eMs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="rpC-5z-xJj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PPG-BA-euB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="154" y="-1485"/>
+        </scene>
+        <!--notificationsEntry-->
+        <scene sceneID="w9P-wT-pzH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notifications" referencedIdentifier="notificationsEntry" id="D8Z-Me-Xbp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="qdF-3F-cap"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zge-9N-Z75" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="170.5" y="-1389"/>
+        </scene>
+        <!--profileEntry-->
+        <scene sceneID="8ns-hW-u3A">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="profileEntry" id="3Fz-AN-Aqd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="5eh-N4-Juu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7eX-yS-Gus" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="152" y="-1282"/>
+        </scene>
+        <!--settingsEntry-->
+        <scene sceneID="108-49-RCb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="settingsEntry" id="9bt-xG-8AG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="av1-zp-tVr"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZJP-TP-aHU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="157" y="-1171"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="xlarge_building1.jpg" width="1283" height="1962"/>
+    </resources>
+</document>
