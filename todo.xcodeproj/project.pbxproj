@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA2A50F41C84D9BE000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F31C84D9BE000E2E94 /* LoadingViewController.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
+		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
 		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
 		CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */; };
@@ -57,8 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CA2A50F31C84D9BE000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingViewController.swift; path = ../LoadingViewController.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
+		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
 		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
 		CAC482551C83D92600059FDD /* HistoryTabIcon_Black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryTabIcon_Black.png; path = "images/Tab Icons/HistoryTabIcon_Black.png"; sourceTree = "<group>"; };
@@ -120,6 +120,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA2A50F71C8533BC000E2E94 /* History */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
 		CAB102021C8442D400033929 /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +138,7 @@
 		CAC482541C83D90B00059FDD /* Tab Icons */ = {
 			isa = PBXGroup;
 			children = (
+				CADD3C711C7E4ED70085F014 /* xlarge_building1.jpg */,
 				CAC482761C83F85A00059FDD /* HistoryTabIcon_Teal.png */,
 				CAC482771C83F85A00059FDD /* HomeTabIcon_Teal.png */,
 				CAC482781C83F85A00059FDD /* NotificationsTabIcon_Teal.png */,
@@ -208,15 +216,15 @@
 		CADD3C411C7E46030085F014 /* todo */ = {
 			isa = PBXGroup;
 			children = (
-				CAC482691C83F44A00059FDD /* fonts */,
-				CADD3C701C7E4E7B0085F014 /* images */,
+				CA2A50F81C854225000E2E94 /* LoadingViewController.swift */,
 				CADD3C421C7E46030085F014 /* AppDelegate.swift */,
 				CADD3C441C7E46030085F014 /* SignInOnViewController.swift */,
 				CADD3C461C7E46030085F014 /* Main.storyboard */,
 				CADD3C491C7E46030085F014 /* Assets.xcassets */,
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
-				CA2A50F31C84D9BE000E2E94 /* LoadingViewController.swift */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
+				CAC482691C83F44A00059FDD /* fonts */,
+				CADD3C701C7E4E7B0085F014 /* images */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -242,10 +250,10 @@
 		CADD3C701C7E4E7B0085F014 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CA2A50F71C8533BC000E2E94 /* History */,
 				CAB102021C8442D400033929 /* General */,
 				CAC482841C84208600059FDD /* Home */,
 				CAC482541C83D90B00059FDD /* Tab Icons */,
-				CADD3C711C7E4ED70085F014 /* xlarge_building1.jpg */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -408,7 +416,7 @@
 			files = (
 				CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */,
 				CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */,
-				CA2A50F41C84D9BE000E2E94 /* LoadingViewController.swift in Sources */,
+				CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
