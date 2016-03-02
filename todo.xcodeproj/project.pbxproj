@@ -20,6 +20,10 @@
 		04B6C3391C86787500BA7882 /* FrequentActivity_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3371C86787500BA7882 /* FrequentActivity_Profile.png */; };
 		04B6C33A1C86787500BA7882 /* MinimalActivity_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3381C86787500BA7882 /* MinimalActivity_Profile.png */; };
 		04B6C33C1C86793500BA7882 /* EmailButton_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C33B1C86793500BA7882 /* EmailButton_Profile.png */; };
+		04B6C33E1C86806F00BA7882 /* StandardNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */; };
+		04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */; };
+		04B6C3421C86825F00BA7882 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3411C86825F00BA7882 /* Notification.swift */; };
+		04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
@@ -95,6 +99,10 @@
 		04B6C3371C86787500BA7882 /* FrequentActivity_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FrequentActivity_Profile.png; sourceTree = "<group>"; };
 		04B6C3381C86787500BA7882 /* MinimalActivity_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MinimalActivity_Profile.png; sourceTree = "<group>"; };
 		04B6C33B1C86793500BA7882 /* EmailButton_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmailButton_Profile.png; sourceTree = "<group>"; };
+		04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardNotificationTableViewCell.swift; sourceTree = "<group>"; };
+		04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNotificationTableViewCell.swift; sourceTree = "<group>"; };
+		04B6C3411C86825F00BA7882 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
@@ -314,6 +322,10 @@
 				CAC137C51C85567A00586487 /* SignOn.storyboard */,
 				CAC137C71C8557ED00586487 /* Home.storyboard */,
 				04B6C3331C866A0600BA7882 /* ProfileViewController.swift */,
+				04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */,
+				04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */,
+				04B6C3411C86825F00BA7882 /* Notification.swift */,
+				04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -530,8 +542,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */,
+				04B6C33E1C86806F00BA7882 /* StandardNotificationTableViewCell.swift in Sources */,
+				04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */,
 				CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */,
+				04B6C3421C86825F00BA7882 /* Notification.swift in Sources */,
 				04B6C3341C866A0600BA7882 /* ProfileViewController.swift in Sources */,
+				04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */,
 				CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,27 +5,94 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Notifications-->
-        <scene sceneID="eVo-bO-7St">
+        <!--Table View Controller-->
+        <scene sceneID="oHH-dP-mQu">
             <objects>
-                <viewController title="Notifications" id="Z8i-3B-d0R" userLabel="Notifications" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2zv-gO-gy0"/>
-                        <viewControllerLayoutGuide type="bottom" id="8bo-iT-JvP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Gi9-Ay-Lhg">
+                <tableViewController id="Y4A-ch-0Qm" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="NNb-aw-88g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Notifications" id="x8z-qZ-vFp">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="6HM-hY-hP3"/>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2qa-N8-XEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="cZ6-j7-u1j" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="63"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cZ6-j7-u1j" id="sYK-6J-E59">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrR-KO-oFY">
+                                            <rect key="frame" x="322" y="8" width="84" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.25098039220000001" green="0.71764705880000002" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGq-Di-lfG">
+                                            <rect key="frame" x="8" y="0.0" width="295" height="54"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="FrR-KO-oFY" id="C54-lH-qre"/>
+                                    <outlet property="messageLabel" destination="jGq-Di-lfG" id="FlF-dO-EIl"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="102" id="DMC-BC-J7H" customClass="RequestNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="155" width="414" height="102"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DMC-BC-J7H" id="iuy-He-FFQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLc-Sl-iWn">
+                                            <rect key="frame" x="8" y="8" width="304" height="54"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZo-St-kYe">
+                                            <rect key="frame" x="340" y="8" width="66" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.25098039220000001" green="0.71764705880000002" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwd-P6-HqF">
+                                            <rect key="frame" x="90" y="63" width="49" height="30"/>
+                                            <state key="normal" title="Accept">
+                                                <color key="titleColor" red="0.23691374063491821" green="0.5432816743850708" blue="0.52734160423278809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzX-sd-7e6">
+                                            <rect key="frame" x="287" y="63" width="37" height="30"/>
+                                            <state key="normal" title="Email">
+                                                <color key="titleColor" red="0.25098039220000001" green="0.71764705880000002" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0A0-Lq-Yko">
+                                            <rect key="frame" x="189" y="63" width="43" height="30"/>
+                                            <state key="normal" title="Reject"/>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="ZZo-St-kYe" id="pSY-1I-c6U"/>
+                                    <outlet property="messageLabel" destination="hLc-Sl-iWn" id="IND-9j-LOV"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Y4A-ch-0Qm" id="r1S-k0-bku"/>
+                            <outlet property="delegate" destination="Y4A-ch-0Qm" id="yEG-2l-2Bz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="hl6-Hd-aa8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NJ1-oe-Mt5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473" y="305"/>
+            <point key="canvasLocation" x="1412" y="305"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="0dG-AZ-MWy">
@@ -41,7 +108,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Z8i-3B-d0R" kind="relationship" relationship="rootViewController" id="8f7-DC-eFS"/>
+                        <segue destination="Y4A-ch-0Qm" kind="relationship" relationship="rootViewController" id="YFf-1O-ldy"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xSu-rq-T6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -15,10 +15,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var CoursesTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.CoursesTableView.delegate      =   self
-        self.CoursesTableView.dataSource    =   self
+        self.CoursesTableView.delegate = self
+        self.CoursesTableView.dataSource = self
         self.CoursesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "courseCell")
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
