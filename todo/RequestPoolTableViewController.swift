@@ -10,9 +10,14 @@ import UIKit
 
 class RequestPoolTableViewController: UITableViewController {
 
+    private var requestPool:[TutoringRequest] = [TutoringRequest]()
+    private var isDataLoaded:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if !isDataLoaded {
+            self.loadData()
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,28 +29,36 @@ class RequestPoolTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func loadData () {
+        requestPool.append(TutoringRequest(sender: "Igor Turlough", courseName: "CS 311: Discrete Mathematics", location: "GDC Atrium", description: "Need help with set theory proofs"))
+        requestPool.append(TutoringRequest(sender: "Vijaya Angel", courseName: "CH 301: Principles of Chemistry I", location: "Welch Hall", description: "I don't understand stoichiometry"))
+        requestPool.append(TutoringRequest(sender: "Kristen Eluf", courseName: "CS 312: Introduction to Java Programming", location: "GDC 3rd Floor Lab", description: "How do I use recursion?"))
+        requestPool.append(TutoringRequest(sender: "Alexis Israel", courseName: "CS 331: Algorithms and Complexity", location: "GDC Atrium", description: "Help with dynamic programming"))
+        requestPool.append(TutoringRequest(sender: "Timothy Javan", courseName: "CS 439: Operating Systems", location: "PCL 3.002", description: "Don't understand project 3 of PintOS"))
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return requestPool.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCellWithIdentifier("requestPoolEntry", forIndexPath: indexPath) as! RequestPoolTableViewCell
+        let currRequest = self.requestPool[indexPath.row]
+        cell.nameLabel.text = currRequest.getSender()
+        cell.locationLabel.text = currRequest.getLocation()
+        cell.courseLabel.text = currRequest.getCourseName()
+        cell.detailLabel.text = currRequest.getDescription()
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
