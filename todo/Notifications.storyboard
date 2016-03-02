@@ -4,35 +4,158 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SEGOEUI.TTF">
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Notifications-->
-        <scene sceneID="SjY-Ew-zL2">
+        <scene sceneID="Nx1-Jc-N1S">
             <objects>
-                <viewController storyboardIdentifier="notificationsEntry" title="Notifications" id="P2L-nb-4gt" userLabel="Notifications" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cp1-vH-0sA"/>
-                        <viewControllerLayoutGuide type="bottom" id="wrf-Dn-lg3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="P6k-UE-4GA">
+                <tableViewController id="gVw-wf-Bz1" customClass="NotificationsTableViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="YfR-fE-JbT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Notifications" id="IsZ-9d-KSW">
-                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="z5G-pz-PT5">
-                            <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="standardNotification" rowHeight="60" id="N45-TI-v9C" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N45-TI-v9C" id="yz2-n3-8y4">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jll-pM-BaZ">
+                                            <rect key="frame" x="8" y="8" width="283" height="43"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjW-bk-vVM">
+                                            <rect key="frame" x="312" y="0.0" width="94" height="21"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <color key="textColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="sjW-bk-vVM" id="6Iz-IB-KzR"/>
+                                    <outlet property="messageLabel" destination="Jll-pM-BaZ" id="34s-ZA-C7w"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="pollingNotification" rowHeight="60" id="67d-oW-3kA" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="152" width="414" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="67d-oW-3kA" id="KPH-TM-yvW">
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaZ-yB-3nO">
+                                            <rect key="frame" x="8" y="8" width="283" height="43"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AH-qq-VLM">
+                                            <rect key="frame" x="312" y="0.0" width="94" height="21"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <color key="textColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="8AH-qq-VLM" id="p8H-yZ-iKH"/>
+                                    <outlet property="messageLabel" destination="ZaZ-yB-3nO" id="TvD-TN-xxN"/>
+                                    <segue destination="Yqv-SW-1U5" kind="push" id="gZF-uo-TKq"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="requestNotification" rowHeight="89" id="jhX-mD-gyw" customClass="RequestNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="212" width="414" height="89"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jhX-mD-gyw" id="lbP-dk-805">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Map-Q6-HqD">
+                                            <rect key="frame" x="8" y="8" width="288" height="52"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhb-o2-X9c">
+                                            <rect key="frame" x="322" y="8" width="84" height="21"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <color key="textColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yto-Tw-EBs">
+                                            <rect key="frame" x="97" y="54" width="49" height="30"/>
+                                            <state key="normal" title="Accept">
+                                                <color key="titleColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cG0-aM-rMt">
+                                            <rect key="frame" x="184" y="54" width="43" height="30"/>
+                                            <state key="normal" title="Reject">
+                                                <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfO-s8-W4m">
+                                            <rect key="frame" x="262" y="54" width="55" height="30"/>
+                                            <state key="normal" title="Contact"/>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="Yhb-o2-X9c" id="ziC-0N-rrA"/>
+                                    <outlet property="messageLabel" destination="Map-Q6-HqD" id="ibK-Nz-ssd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gVw-wf-Bz1" id="9V7-EB-Jlu"/>
+                            <outlet property="delegate" destination="gVw-wf-Bz1" id="6Zh-61-56r"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Notifications" id="KN0-vw-5fX">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="rcd-k1-wKJ"/>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yc1-k8-meh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oki-9V-rw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1473" y="305"/>
+            <point key="canvasLocation" x="1438" y="305"/>
+        </scene>
+        <!--New Tutoring Requests-->
+        <scene sceneID="9HP-nC-uhm">
+            <objects>
+                <viewController id="Yqv-SW-1U5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HPw-Qc-mar"/>
+                        <viewControllerLayoutGuide type="bottom" id="nfx-Ew-Aw6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KDI-kc-nLj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Tutoring Requests" id="Hya-Gv-yrH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SHA-sz-lDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1967" y="305"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="576-vG-yo5">
             <objects>
-                <navigationController title="Notifications" automaticallyAdjustsScrollViewInsets="NO" id="NqN-3r-7Dq" userLabel="Notifications" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="notificationsEntry" title="Notifications" automaticallyAdjustsScrollViewInsets="NO" id="NqN-3r-7Dq" userLabel="Notifications" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notifications" image="NotificationsTabIcon_Black" selectedImage="NotificationsTabIcon_Teal" id="bEM-5S-ejA" userLabel="Notifications"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -48,7 +171,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="P2L-nb-4gt" kind="relationship" relationship="rootViewController" id="2id-xh-EwQ"/>
+                        <segue destination="gVw-wf-Bz1" kind="relationship" relationship="rootViewController" id="Vbe-r3-Dbr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYA-G0-QOc" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,11 +10,14 @@ import UIKit
 
 class NotificationsTableViewController: UITableViewController {
     
-    var notifications:[Notification] = [Notification]()
+    private var notifications:[Notification] = [Notification]()
+    private var isDataLoaded:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadData()
+        if (!isDataLoaded) {
+            self.loadData()
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -32,7 +35,8 @@ class NotificationsTableViewController: UITableViewController {
         notifications.append(Notification(message: "Lucy Adams has requested you to tutor her in CS 378.", date: "2/29/16", type: "single request"))
         notifications.append(Notification(message: "Congrats! You earned 50 dots for tutoring John Smith.", date: "2/13/16"))
         notifications.append(Notification(message: "You've spent 50 dots on tutoring from Bob Wilson.", date: "2/2/16"))
-        notifications.append(Notification(message: "There are 5 new tutoring opportunities that match your qualifications.", date: "1/15/16", type: "request list"))
+        notifications.append(Notification(message: "There are 5 new tutoring opportunities that match your qualifications.", date: "1/15/16", type: "tutor poll"))
+        isDataLoaded = true
     }
     
     // MARK: - Table view data source
@@ -45,23 +49,36 @@ class NotificationsTableViewController: UITableViewController {
         return notifications.count
     }
     
+    override func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
+    {
+        let currNotification = notifications[indexPath.row]
+        if (currNotification.getType() == "single request"){
+            return 80
+        } else {
+            return 65
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // let cell = tableView.dequeueReusableCellWithIdentifier("notificationCell", forIndexPath: indexPath) as! NotificationTableViewCell
         let currNotification:Notification = notifications[indexPath.row]
         let notificationType = currNotification.getType()
-        var cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
         
         if (notificationType == "single request") {
-            cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("requestNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
             cell.messageLabel.text = currNotification.getMessage()
             cell.dateLabel.text = currNotification.getDate()
             return cell
-        } else if (notificationType == "request list") {
-            cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+        } else if (notificationType == "tutor poll") {
+            let cell = tableView.dequeueReusableCellWithIdentifier("pollingNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
+            cell.messageLabel.text = currNotification.getMessage()
+            cell.dateLabel.text = currNotification.getDate()
+            return cell
         } else {
-            cell = tableView.dequeueReusableCellWithIdentifier("notificationCell", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
+            cell.messageLabel.text = currNotification.getMessage()
+            cell.dateLabel.text = currNotification.getDate()
+            return cell
         }
-        return cell
     }
     
     /*
