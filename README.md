@@ -4,8 +4,8 @@
 - [X] Create a Skeleton UI
 - [X] Research (IDE, API, MBaas, Libraries)
 - [X] Choose an Idea
-- [ ] Create a Paper or Digital Prototype
-- [ ] Design UI/UX Components
+- [X] Create a Paper or Digital Prototype
+- [X] Design UI/UX Components
 - [ ] Get User Feedback
 - [ ] Build the App
 - [ ] Test
