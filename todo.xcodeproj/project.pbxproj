@@ -27,6 +27,8 @@
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11801C8687000039D8F3 /* Notifications.storyboard */; };
+		CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */; };
+		CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
 		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
 		CAC137BB1C854F6400586487 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BA1C854F6400586487 /* Settings.storyboard */; };
@@ -106,6 +108,8 @@
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CA8B11801C8687000039D8F3 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
+		CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorWaitingViewController.swift; sourceTree = "<group>"; };
+		CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics2.png"; path = "images/Home/Home Analitics2.png"; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
 		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
 		CAC137BA1C854F6400586487 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -274,6 +278,7 @@
 		CAC482841C84208600059FDD /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */,
 				CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */,
 				CAB102051C844FA500033929 /* user-pic.png */,
 				CAC482851C84209E00059FDD /* Home Analitics.png */,
@@ -320,6 +325,7 @@
 				CAC137BA1C854F6400586487 /* Settings.storyboard */,
 				CADD3C441C7E46030085F014 /* SignInOnViewController.swift */,
 				CA2A50F81C854225000E2E94 /* LoadingViewController.swift */,
+				CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */,
 				04B6C3331C866A0600BA7882 /* ProfileViewController.swift */,
 				04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */,
 				04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */,
@@ -469,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC137D31C855D8E00586487 /* user1.png in Resources */,
+				CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */,
 				CADD3C721C7E4ED70085F014 /* xlarge_building1.jpg in Resources */,
 				CAB102041C8442E600033929 /* logout.png in Resources */,
 				0435DD6C1C857152009D3245 /* LoginScreenBg2.jpg in Resources */,
@@ -548,6 +555,7 @@
 				04B6C3421C86825F00BA7882 /* Notification.swift in Sources */,
 				04B6C3341C866A0600BA7882 /* ProfileViewController.swift in Sources */,
 				04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */,
+				CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */,
 				CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
