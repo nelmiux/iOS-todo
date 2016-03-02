@@ -94,7 +94,7 @@
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="avY-2c-MYx">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="ujx-4q-L8G">
+                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="ujx-4q-L8G">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
