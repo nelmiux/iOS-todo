@@ -314,18 +314,18 @@
 				CADD3C441C7E46030085F014 /* SignInOnViewController.swift */,
 				CADD3C491C7E46030085F014 /* Assets.xcassets */,
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
-				CADD3C4E1C7E46030085F014 /* Info.plist */,
-				CAC137BA1C854F6400586487 /* Settings.storyboard */,
-				CAC137BC1C8552A000586487 /* Profile.storyboard */,
+				CAC137C71C8557ED00586487 /* Home.storyboard */,
 				CAC137BE1C85538D00586487 /* History.storyboard */,
 				CAC137C01C8553A300586487 /* Notifications.storyboard */,
+				CAC137BC1C8552A000586487 /* Profile.storyboard */,
+				CAC137BA1C854F6400586487 /* Settings.storyboard */,
 				CAC137C51C85567A00586487 /* SignOn.storyboard */,
-				CAC137C71C8557ED00586487 /* Home.storyboard */,
 				04B6C3331C866A0600BA7882 /* ProfileViewController.swift */,
 				04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */,
 				04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */,
 				04B6C3411C86825F00BA7882 /* Notification.swift */,
 				04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */,
+				CADD3C4E1C7E46030085F014 /* Info.plist */,
 			);
 			path = todo;
 			sourceTree = "<group>";
