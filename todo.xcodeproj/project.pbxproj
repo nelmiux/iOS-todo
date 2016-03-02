@@ -26,12 +26,12 @@
 		04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
+		CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11801C8687000039D8F3 /* Notifications.storyboard */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
 		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
 		CAC137BB1C854F6400586487 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BA1C854F6400586487 /* Settings.storyboard */; };
 		CAC137BD1C8552A000586487 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BC1C8552A000586487 /* Profile.storyboard */; };
 		CAC137BF1C85538D00586487 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BE1C85538D00586487 /* History.storyboard */; };
-		CAC137C11C8553A300586487 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C01C8553A300586487 /* Notifications.storyboard */; };
 		CAC137C41C85548B00586487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C21C85548B00586487 /* Main.storyboard */; };
 		CAC137C61C85567A00586487 /* SignOn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C51C85567A00586487 /* SignOn.storyboard */; };
 		CAC137C81C8557ED00586487 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C71C8557ED00586487 /* Home.storyboard */; };
@@ -105,12 +105,12 @@
 		04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		CA8B11801C8687000039D8F3 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
 		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
 		CAC137BA1C854F6400586487 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		CAC137BC1C8552A000586487 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		CAC137BE1C85538D00586487 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
-		CAC137C01C8553A300586487 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		CAC137C31C85548B00586487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAC137C51C85567A00586487 /* SignOn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignOn.storyboard; sourceTree = "<group>"; };
 		CAC137C71C8557ED00586487 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -316,7 +316,6 @@
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
 				CAC137C71C8557ED00586487 /* Home.storyboard */,
 				CAC137BE1C85538D00586487 /* History.storyboard */,
-				CAC137C01C8553A300586487 /* Notifications.storyboard */,
 				CAC137BC1C8552A000586487 /* Profile.storyboard */,
 				CAC137BA1C854F6400586487 /* Settings.storyboard */,
 				CAC137C51C85567A00586487 /* SignOn.storyboard */,
@@ -326,6 +325,7 @@
 				04B6C3411C86825F00BA7882 /* Notification.swift */,
 				04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
+				CA8B11801C8687000039D8F3 /* Notifications.storyboard */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -494,7 +494,6 @@
 				04B6C3391C86787500BA7882 /* FrequentActivity_Profile.png in Resources */,
 				04B6C3241C85786C00BA7882 /* TodoLogo_Teal.png in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
-				CAC137C11C8553A300586487 /* Notifications.storyboard in Resources */,
 				CAC137BB1C854F6400586487 /* Settings.storyboard in Resources */,
 				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
 				CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */,
@@ -508,6 +507,7 @@
 				CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */,
 				CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */,
 				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
+				CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */,
 				CAC482671C83D92600059FDD /* SettingsTabIcon_Black.png in Resources */,
 				CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */,
 				CAC137C41C85548B00586487 /* Main.storyboard in Resources */,

@@ -5,116 +5,38 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
-        <scene sceneID="oHH-dP-mQu">
+        <!--Notifications-->
+        <scene sceneID="SjY-Ew-zL2">
             <objects>
-                <tableViewController id="Y4A-ch-0Qm" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="NNb-aw-88g">
+                <viewController storyboardIdentifier="notificationsEntry" title="Notifications" id="P2L-nb-4gt" userLabel="Notifications" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cp1-vH-0sA"/>
+                        <viewControllerLayoutGuide type="bottom" id="wrf-Dn-lg3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P6k-UE-4GA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<<<<<<< HEAD
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="63" id="cZ6-j7-u1j" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="414" height="63"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cZ6-j7-u1j" id="sYK-6J-E59">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="62"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FrR-KO-oFY">
-                                            <rect key="frame" x="322" y="8" width="84" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.25098039220000001" green="0.71764705880000002" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGq-Di-lfG">
-                                            <rect key="frame" x="8" y="0.0" width="295" height="54"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="dateLabel" destination="FrR-KO-oFY" id="C54-lH-qre"/>
-                                    <outlet property="messageLabel" destination="jGq-Di-lfG" id="FlF-dO-EIl"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="102" id="DMC-BC-J7H" customClass="RequestNotificationTableViewCell" customModule="todo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="155" width="414" height="102"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DMC-BC-J7H" id="iuy-He-FFQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notification Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLc-Sl-iWn">
-                                            <rect key="frame" x="8" y="8" width="304" height="54"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZo-St-kYe">
-                                            <rect key="frame" x="340" y="8" width="66" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.25098039220000001" green="0.71764705880000002" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwd-P6-HqF">
-                                            <rect key="frame" x="90" y="63" width="49" height="30"/>
-                                            <state key="normal" title="Accept">
-                                                <color key="titleColor" red="0.23691374063491821" green="0.5432816743850708" blue="0.52734160423278809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HzX-sd-7e6">
-                                            <rect key="frame" x="287" y="63" width="37" height="30"/>
-                                            <state key="normal" title="Email">
-                                                <color key="titleColor" red="0.25098039220000001" green="0.71764705880000002" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0A0-Lq-Yko">
-                                            <rect key="frame" x="189" y="63" width="43" height="30"/>
-                                            <state key="normal" title="Reject"/>
-                                        </button>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="dateLabel" destination="ZZo-St-kYe" id="pSY-1I-c6U"/>
-                                    <outlet property="messageLabel" destination="hLc-Sl-iWn" id="IND-9j-LOV"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Y4A-ch-0Qm" id="r1S-k0-bku"/>
-                            <outlet property="delegate" destination="Y4A-ch-0Qm" id="yEG-2l-2Bz"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="hl6-Hd-aa8"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NJ1-oe-Mt5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-=======
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Notifications" id="x8z-qZ-vFp">
-                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="6HM-hY-hP3">
+                    <navigationItem key="navigationItem" title="Notifications" id="IsZ-9d-KSW">
+                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="z5G-pz-PT5">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2qa-N8-XEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
->>>>>>> 75443836b077a900f69438c9f0156aea4d08e743
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yc1-k8-meh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="305"/>
+            <point key="canvasLocation" x="1473" y="305"/>
         </scene>
         <!--Notifications-->
-        <scene sceneID="0dG-AZ-MWy">
+        <scene sceneID="576-vG-yo5">
             <objects>
-                <navigationController storyboardIdentifier="notificationsEntry" title="Notifications" automaticallyAdjustsScrollViewInsets="NO" id="Q81-c5-l6y" userLabel="Notifications" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notifications" image="NotificationsTabIcon_Black" selectedImage="NotificationsTabIcon_Teal" id="DPd-OO-CRs" userLabel="Notifications"/>
+                <navigationController title="Notifications" automaticallyAdjustsScrollViewInsets="NO" id="NqN-3r-7Dq" userLabel="Notifications" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notifications" image="NotificationsTabIcon_Black" selectedImage="NotificationsTabIcon_Teal" id="bEM-5S-ejA" userLabel="Notifications"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7mu-Qk-K1r">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="t2n-u4-MLC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -126,10 +48,10 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Y4A-ch-0Qm" kind="relationship" relationship="rootViewController" id="YFf-1O-ldy"/>
+                        <segue destination="P2L-nb-4gt" kind="relationship" relationship="rootViewController" id="2id-xh-EwQ"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xSu-rq-T6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dYA-G0-QOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="877" y="305"/>
         </scene>
