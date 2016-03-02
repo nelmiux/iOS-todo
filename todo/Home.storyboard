@@ -124,7 +124,9 @@
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Request for Help" id="bof-uR-JKf">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="QnE-pj-MU6"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="QnE-pj-MU6">
+                            <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
@@ -224,9 +226,11 @@
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="3AV-f0-yED">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="gyY-1n-uSu"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="gyY-1n-uSu">
+                            <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="logout" style="plain" id="Azo-tB-XtK">
-                            <color key="tintColor" red="0.92317688470000003" green="0.32955902809999998" blue="0.21469742059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.25329121469999999" green="1" blue="0.95315603500000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="paZ-zY-AmQ" kind="showDetail" id="XjK-yP-XNc"/>
                             </connections>
@@ -256,7 +260,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0BW-tM-RPF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.086274509799999996" green="0.56470588239999997" blue="0.53333333329999999" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="MaiandraGD-Regular" family="Maiandra GD" pointSize="0.0"/>
+                            <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -383,7 +392,9 @@
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="SRg-fX-S6m">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="TkM-xI-PDZ"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="TkM-xI-PDZ">
+                            <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
@@ -511,7 +522,9 @@
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="76b-dm-UlK">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="HS1-ka-ztO"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="HS1-ka-ztO">
+                            <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -652,7 +665,9 @@
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="yku-Wm-3R5">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="xuu-QQ-qIl"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="xuu-QQ-qIl">
+                            <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
@@ -747,9 +762,11 @@
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="zU5-BM-6F9">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="KR5-VV-bDu"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="KR5-VV-bDu">
+                            <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="logout" style="plain" id="1uz-Nu-zhL">
-                            <color key="tintColor" red="0.92317688470000003" green="0.32955902809999998" blue="0.21469742059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.25329121469999999" green="1" blue="0.95315603500000001" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
