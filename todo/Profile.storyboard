@@ -28,38 +28,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="as5-8A-JRs">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="170"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Maya Jones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nxa-sd-Ka8">
-                                        <rect key="frame" x="179" y="28" width="227" height="28"/>
+                                        <rect key="frame" x="179" y="33" width="227" height="28"/>
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="22"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Computer Science, 4th year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ON-SA-pyS">
-                                        <rect key="frame" x="179" y="59" width="214" height="21"/>
+                                        <rect key="frame" x="179" y="64" width="214" height="21"/>
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StudentProfileTestPhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="T1r-4E-buh">
-                                        <rect key="frame" x="8" y="8" width="151" height="151"/>
+                                        <rect key="frame" x="8" y="13" width="151" height="151"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltM-fp-Yoh">
-                                        <rect key="frame" x="187" y="88" width="198" height="51"/>
+                                        <rect key="frame" x="187" y="97" width="198" height="51"/>
                                         <state key="normal" image="EmailButton_Profile.png"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.71764705882352942" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutoring Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncW-9i-ysn">
-                                <rect key="frame" x="20" y="178" width="177" height="28"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses she can tutor for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-Xk-0M5">
+                                <rect key="frame" x="97" y="381" width="221" height="23"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="35" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F7c-MZ-VAd">
-                                <rect key="frame" x="20" y="395" width="374" height="157"/>
+                                <rect key="frame" x="20" y="412" width="374" height="157"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="courseCell" rowHeight="35" id="fkf-rY-Uug">
@@ -72,9 +72,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses she can tutor for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-Xk-0M5">
-                                <rect key="frame" x="97" y="364" width="221" height="23"/>
-                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="15"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ModerateActivity_Profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="Je6-2d-xdO">
+                                <rect key="frame" x="38" y="261" width="182" height="55"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DotsBalance_Profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="acb-Dw-ubU">
+                                <rect key="frame" x="249" y="225" width="131" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="770" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maN-Vt-1Qn">
+                                <rect key="frame" x="289" y="264" width="54" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutoring Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncW-9i-ysn">
+                                <rect key="frame" x="20" y="196" width="177" height="28"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -120,7 +132,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DotsBalance_Profile.png" width="233" height="223"/>
         <image name="EmailButton_Profile.png" width="300" height="71"/>
+        <image name="ModerateActivity_Profile.png" width="268" height="76"/>
         <image name="ProfileTabIcon_Black" width="25" height="30"/>
         <image name="ProfileTabIcon_Teal" width="25" height="30"/>
         <image name="StudentProfileTestPhoto.png" width="554" height="554"/>
