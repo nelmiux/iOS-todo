@@ -35,7 +35,7 @@ class NotificationsTableViewController: UITableViewController {
         notifications.append(Notification(message: "Lucy Adams has requested you to tutor her in CS 378.", date: "2/29/16", type: "single request"))
         notifications.append(Notification(message: "Congrats! You earned 50 dots for tutoring John Smith.", date: "2/13/16"))
         notifications.append(Notification(message: "You've spent 50 dots on tutoring from Bob Wilson.", date: "2/2/16"))
-        notifications.append(Notification(message: "There are 5 new tutoring opportunities that match your qualifications.", date: "1/15/16", type: "tutor poll"))
+        notifications.append(Notification(message: "There are 5 new tutoring opportunities that match your qualifications.", date: "1/15/16", type: "request pool"))
         isDataLoaded = true
     }
     
@@ -68,8 +68,8 @@ class NotificationsTableViewController: UITableViewController {
             cell.messageLabel.text = currNotification.getMessage()
             cell.dateLabel.text = currNotification.getDate()
             return cell
-        } else if (notificationType == "tutor poll") {
-            let cell = tableView.dequeueReusableCellWithIdentifier("pollingNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
+        } else if (notificationType == "request pool") {
+            let cell = tableView.dequeueReusableCellWithIdentifier("requestPoolNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
             cell.messageLabel.text = currNotification.getMessage()
             cell.dateLabel.text = currNotification.getDate()
             return cell

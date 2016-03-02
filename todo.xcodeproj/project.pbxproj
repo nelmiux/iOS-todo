@@ -24,6 +24,9 @@
 		04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */; };
 		04B6C3421C86825F00BA7882 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3411C86825F00BA7882 /* Notification.swift */; };
 		04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */; };
+		8780982B1C86BF88005DDE9E /* LocationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8780982A1C86BF88005DDE9E /* LocationIcon.png */; };
+		8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */; };
+		8780982F1C86C14C005DDE9E /* RequestPoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11801C8687000039D8F3 /* Notifications.storyboard */; };
@@ -105,6 +108,9 @@
 		04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		04B6C3411C86825F00BA7882 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
+		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
+		8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewController.swift; sourceTree = "<group>"; };
+		8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewCell.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CA8B11801C8687000039D8F3 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 		CAB102021C8442D400033929 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				8780982A1C86BF88005DDE9E /* LocationIcon.png */,
 				04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */,
 				04B6C3221C85786C00BA7882 /* TodoLogo_White.png */,
 				CAB102031C8442E600033929 /* logout.png */,
@@ -332,6 +339,8 @@
 				04B6C3411C86825F00BA7882 /* Notification.swift */,
 				04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
+				8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */,
+				8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -502,6 +511,7 @@
 				04B6C3241C85786C00BA7882 /* TodoLogo_Teal.png in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
 				CAC137BB1C854F6400586487 /* Settings.storyboard in Resources */,
+				8780982B1C86BF88005DDE9E /* LocationIcon.png in Resources */,
 				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
 				CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */,
 				0435DD6D1C857152009D3245 /* SignUpButton2.png in Resources */,
@@ -551,12 +561,14 @@
 				CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */,
 				04B6C33E1C86806F00BA7882 /* StandardNotificationTableViewCell.swift in Sources */,
 				04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */,
+				8780982F1C86C14C005DDE9E /* RequestPoolTableViewCell.swift in Sources */,
 				CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */,
 				04B6C3421C86825F00BA7882 /* Notification.swift in Sources */,
 				04B6C3341C866A0600BA7882 /* ProfileViewController.swift in Sources */,
 				04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */,
 				CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */,
 				CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */,
+				8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
