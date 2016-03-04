@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9941B46B1C8A39D0005554B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9941B46A1C8A39D0005554B7 /* Main.storyboard */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9941B46A1C8A39D0005554B7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		CADD3C411C7E46030085F014 /* todo */ = {
 			isa = PBXGroup;
 			children = (
+				9941B46A1C8A39D0005554B7 /* Main.storyboard */,
 				CA2A50F81C854225000E2E94 /* LoadingViewController.swift */,
 				CADD3C421C7E46030085F014 /* AppDelegate.swift */,
 				CADD3C441C7E46030085F014 /* SignInOnViewController.swift */,
@@ -363,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CADD3C721C7E4ED70085F014 /* xlarge_building1.jpg in Resources */,
+				9941B46B1C8A39D0005554B7 /* Main.storyboard in Resources */,
 				CAB102041C8442E600033929 /* logout.png in Resources */,
 				CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */,
 				CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */,
