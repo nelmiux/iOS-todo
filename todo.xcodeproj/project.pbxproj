@@ -31,7 +31,6 @@
 		CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482871C84209E00059FDD /* Home-Item2.png */; };
 		CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C421C7E46030085F014 /* AppDelegate.swift */; };
 		CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInOnViewController.swift */; };
-		CADD3C481C7E46030085F014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C461C7E46030085F014 /* Main.storyboard */; };
 		CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C491C7E46030085F014 /* Assets.xcassets */; };
 		CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */; };
 		CADD3C581C7E46030085F014 /* todoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C571C7E46030085F014 /* todoTests.swift */; };
@@ -82,7 +81,6 @@
 		CADD3C3F1C7E46030085F014 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD3C421C7E46030085F014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CADD3C441C7E46030085F014 /* SignInOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInOnViewController.swift; sourceTree = "<group>"; };
-		CADD3C471C7E46030085F014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CADD3C491C7E46030085F014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CADD3C4C1C7E46030085F014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CADD3C4E1C7E46030085F014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -219,7 +217,6 @@
 				CA2A50F81C854225000E2E94 /* LoadingViewController.swift */,
 				CADD3C421C7E46030085F014 /* AppDelegate.swift */,
 				CADD3C441C7E46030085F014 /* SignInOnViewController.swift */,
-				CADD3C461C7E46030085F014 /* Main.storyboard */,
 				CADD3C491C7E46030085F014 /* Assets.xcassets */,
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
@@ -386,7 +383,6 @@
 				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
 				CAC482671C83D92600059FDD /* SettingsTabIcon_Black.png in Resources */,
 				CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */,
-				CADD3C481C7E46030085F014 /* Main.storyboard in Resources */,
 				CAC482881C84209E00059FDD /* Home Analitics.png in Resources */,
 				CAC4827D1C83F85A00059FDD /* NotificationsTabIcon_Teal.png in Resources */,
 				CAC482891C84209E00059FDD /* Home-Item1.png in Resources */,
@@ -459,14 +455,6 @@
 			);
 			name = SEGOEUI.TTF;
 			path = "fonts/segoe-ui";
-			sourceTree = "<group>";
-		};
-		CADD3C461C7E46030085F014 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CADD3C471C7E46030085F014 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */ = {
