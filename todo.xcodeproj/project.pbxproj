@@ -31,6 +31,7 @@
 		8782F70A1C8D3E4300922859 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7091C8D3E4300922859 /* User.swift */; };
 		8782F70E1C8D406700922859 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F70D1C8D406700922859 /* SignUpViewController.swift */; };
 		8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */; };
+		8782F7131C8D514200922859 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7121C8D514200922859 /* AppSettings.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11801C8687000039D8F3 /* Notifications.storyboard */; };
@@ -119,6 +120,7 @@
 		8782F7091C8D3E4300922859 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8782F70D1C8D406700922859 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewCell.swift; sourceTree = "<group>"; };
+		8782F7121C8D514200922859 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CA8B11801C8687000039D8F3 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
@@ -369,6 +371,7 @@
 				8782F7091C8D3E4300922859 /* User.swift */,
 				8782F70D1C8D406700922859 /* SignUpViewController.swift */,
 				8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */,
+				8782F7121C8D514200922859 /* AppSettings.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */,
 				CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */,
 				8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */,
+				8782F7131C8D514200922859 /* AppSettings.swift in Sources */,
 				8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
