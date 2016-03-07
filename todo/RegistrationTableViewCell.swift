@@ -12,6 +12,7 @@ class RegistrationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var fieldLabel: UILabel!
     @IBOutlet weak var inputField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
