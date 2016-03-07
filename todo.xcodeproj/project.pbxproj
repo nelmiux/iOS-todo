@@ -24,6 +24,7 @@
 		04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */; };
 		04B6C3421C86825F00BA7882 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3411C86825F00BA7882 /* Notification.swift */; };
 		04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */; };
+		876D97651C8D6DC700DC26D5 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */; };
 		8780982B1C86BF88005DDE9E /* LocationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8780982A1C86BF88005DDE9E /* LocationIcon.png */; };
 		8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */; };
 		8780982F1C86C14C005DDE9E /* RequestPoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */; };
@@ -31,8 +32,8 @@
 		8782F70A1C8D3E4300922859 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7091C8D3E4300922859 /* User.swift */; };
 		8782F70E1C8D406700922859 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F70D1C8D406700922859 /* SignUpViewController.swift */; };
 		8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */; };
-		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		8782F7131C8D514200922859 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7121C8D514200922859 /* AppSettings.swift */; };
+		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11801C8687000039D8F3 /* Notifications.storyboard */; };
@@ -114,6 +115,7 @@
 		04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		04B6C3411C86825F00BA7882 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
+		876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultProfilePhoto.png; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
 		8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewController.swift; sourceTree = "<group>"; };
 		8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewCell.swift; sourceTree = "<group>"; };
@@ -121,9 +123,9 @@
 		8782F7091C8D3E4300922859 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8782F70D1C8D406700922859 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewCell.swift; sourceTree = "<group>"; };
+		8782F7121C8D514200922859 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		8782F7121C8D514200922859 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CA8B11801C8687000039D8F3 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				04B6C32B1C865F4000BA7882 /* StudentProfileTestPhoto.png */,
 				04B6C33B1C86793500BA7882 /* EmailButton_Profile.png */,
 				04B6C3271C865E7800BA7882 /* DotsBalance_Profile.png */,
+				876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
 				04B6C33A1C86787500BA7882 /* MinimalActivity_Profile.png in Resources */,
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
+				876D97651C8D6DC700DC26D5 /* DefaultProfilePhoto.png in Resources */,
 				CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */,
 				CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */,
 				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
