@@ -23,7 +23,6 @@ class User {
     private var role:String = ""
     private var numDots:Int = -1
     private var lastLogin:String = ""
-    private var gender:String = ""
     private var tutoringStatus:Bool = false
     
     // Constructor
@@ -103,12 +102,6 @@ class User {
         return self.lastLogin
     }; func setLastLogin (lastLogin:String) {
         self.lastLogin = lastLogin
-    }
-    
-    func getGender () -> String {
-        return self.gender
-    }; func setGender (gender:String) {
-        self.gender = gender
     }
     
     func getTutoringStatus () -> Bool {

@@ -68,20 +68,23 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Send to firebase
         let thumbnail = self.resizeImage(image, sizeChange: CGSize(width: 200, height: 200))
         
-        /* // Encode image
-        let imageData = UIImageJPEGRepresentation(thumbail, 1.0)
+        // Encode image
+        let imageData = UIImageJPEGRepresentation(thumbnail, 1.0)
         let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         
         // Send to string to database
-        let myRootRef = Firebase(url:"https://scorching-heat-4336.firebaseio.com")
+        /* let myRootRef = Firebase(url:"https://scorching-heat-4336.firebaseio.com")
         let imagesRef = myRootRef.childByAppendingPath("photoStrings")
         imagesRef.setValue(base64String)
         
+        // Read image string from database
         imagesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let imageString = snapshot.value {
                 let decodedData = NSData(base64EncodedString: snapshot.value as! String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
                 let decodedImage = UIImage(data: decodedData!)
-                
+                self.userThumbnail.image = decodedImage
+                self.userThumbnail.contentMode = .ScaleAspectFit
+                self.dismissViewControllerAnimated(true, completion: nil)
             } else {
                 // Put default image
                 print("snapshot is null")
