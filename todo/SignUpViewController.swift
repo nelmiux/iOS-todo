@@ -57,9 +57,29 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.fieldLabel.text = field.0
         cell.inputField.placeholder = field.1
         
+        // Handle special cases
+        if field.0 == "Username" {
+            var valid = false
+            while !valid {
+                if readUserData(cell.inputField.text!) != "" {
+                    
+                    cell.inputField.text! = ""
+                    
+                    let alertController = AlertController(title: "Error", message: "The Username already exist, please select other username", preferredStyle: .Alert)
+                    
+                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+                    
+                    alertController.addAction(okAction)
+                    
+                    alertController.show()
+                } else {
+                    valid = true
+                }
+            }
+        }
+        
         userData[indexPath.row].1 = cell.inputField.text!
         
-        // Handle special cases
         if field.0 == "Email Address" {
             cell.inputField.keyboardType = UIKeyboardType.EmailAddress
         }

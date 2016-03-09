@@ -73,6 +73,7 @@
 		CAC482881C84209E00059FDD /* Home Analitics.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482851C84209E00059FDD /* Home Analitics.png */; };
 		CAC482891C84209E00059FDD /* Home-Item1.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482861C84209E00059FDD /* Home-Item1.png */; };
 		CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482871C84209E00059FDD /* Home-Item2.png */; };
+		CACD43C51C905DA9002709FF /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD43C41C905DA9002709FF /* ReadData.swift */; };
 		CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C421C7E46030085F014 /* AppDelegate.swift */; };
 		CADD3C451C7E46030085F014 /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInUpViewController.swift */; };
 		CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C491C7E46030085F014 /* Assets.xcassets */; };
@@ -167,6 +168,7 @@
 		CAC482851C84209E00059FDD /* Home Analitics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics.png"; path = "images/Home/Home Analitics.png"; sourceTree = "<group>"; };
 		CAC482861C84209E00059FDD /* Home-Item1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home-Item1.png"; path = "images/Home/Home-Item1.png"; sourceTree = "<group>"; };
 		CAC482871C84209E00059FDD /* Home-Item2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home-Item2.png"; path = "images/Home/Home-Item2.png"; sourceTree = "<group>"; };
+		CACD43C41C905DA9002709FF /* ReadData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadData.swift; sourceTree = "<group>"; };
 		CADD3C3F1C7E46030085F014 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD3C421C7E46030085F014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CADD3C441C7E46030085F014 /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
 				CA03C2EB1C904BC800AE0B3F /* SaveData.swift */,
+				CACD43C41C905DA9002709FF /* ReadData.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				04B6C3421C86825F00BA7882 /* Notification.swift in Sources */,
 				877338F61C8FEF1A0069B6CA /* RegistrationViewController.swift in Sources */,
 				8782F70E1C8D406700922859 /* SignUpViewController.swift in Sources */,
+				CACD43C51C905DA9002709FF /* ReadData.swift in Sources */,
 				04B6C3341C866A0600BA7882 /* ProfileViewController.swift in Sources */,
 				04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */,
 				CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */,
