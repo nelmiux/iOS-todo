@@ -46,7 +46,7 @@
 		CAC137BD1C8552A000586487 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BC1C8552A000586487 /* Profile.storyboard */; };
 		CAC137BF1C85538D00586487 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BE1C85538D00586487 /* History.storyboard */; };
 		CAC137C41C85548B00586487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C21C85548B00586487 /* Main.storyboard */; };
-		CAC137C61C85567A00586487 /* SignOn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C51C85567A00586487 /* SignOn.storyboard */; };
+		CAC137C61C85567A00586487 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C51C85567A00586487 /* SignUp.storyboard */; };
 		CAC137C81C8557ED00586487 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C71C8557ED00586487 /* Home.storyboard */; };
 		CAC137D01C855D8E00586487 /* History Example.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CA1C855D8E00586487 /* History Example.png */; };
 		CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CB1C855D8E00586487 /* HistoryExample.png */; };
@@ -139,7 +139,7 @@
 		CAC137BC1C8552A000586487 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		CAC137BE1C85538D00586487 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		CAC137C31C85548B00586487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CAC137C51C85567A00586487 /* SignOn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignOn.storyboard; sourceTree = "<group>"; };
+		CAC137C51C85567A00586487 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		CAC137C71C8557ED00586487 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CAC137CA1C855D8E00586487 /* History Example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "History Example.png"; path = "images/History/History Example.png"; sourceTree = "<group>"; };
 		CAC137CB1C855D8E00586487 /* HistoryExample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryExample.png; path = images/History/HistoryExample.png; sourceTree = "<group>"; };
@@ -246,7 +246,7 @@
 			children = (
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
 				CAC137C21C85548B00586487 /* Main.storyboard */,
-				CAC137C51C85567A00586487 /* SignOn.storyboard */,
+				CAC137C51C85567A00586487 /* SignUp.storyboard */,
 				CAC137C71C8557ED00586487 /* Home.storyboard */,
 				CAC137BE1C85538D00586487 /* History.storyboard */,
 				CA8B11801C8687000039D8F3 /* Notifications.storyboard */,
@@ -387,13 +387,13 @@
 				CA2A50F81C854225000E2E94 /* LoadingViewController.swift */,
 				CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */,
 				04B6C3331C866A0600BA7882 /* ProfileViewController.swift */,
-				CADD3C4E1C7E46030085F014 /* Info.plist */,
 				878098301C86C21A005DDE9E /* TutoringRequest.swift */,
 				8782F7091C8D3E4300922859 /* User.swift */,
 				8782F70D1C8D406700922859 /* SignUpViewController.swift */,
 				8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */,
 				8782F7121C8D514200922859 /* AppSettings.swift */,
 				877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */,
+				CADD3C4E1C7E46030085F014 /* Info.plist */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -562,7 +562,7 @@
 				CAC137C81C8557ED00586487 /* Home.storyboard in Resources */,
 				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
 				CAC4827B1C83F85A00059FDD /* HistoryTabIcon_Teal.png in Resources */,
-				CAC137C61C85567A00586487 /* SignOn.storyboard in Resources */,
+				CAC137C61C85567A00586487 /* SignUp.storyboard in Resources */,
 				CAC137BD1C8552A000586487 /* Profile.storyboard in Resources */,
 				04B6C3291C865E7800BA7882 /* DotsBalance_Profile.png in Resources */,
 				CAC4827C1C83F85A00059FDD /* HomeTabIcon_Teal.png in Resources */,
