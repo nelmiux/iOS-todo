@@ -15,8 +15,10 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     private var registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"), ("UT EID", "abc123"), ("Email Address", "jappleseed@gmail.com"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
     
     // UI Elements
-    
-    
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var departmentButton: UIButton!
+    @IBOutlet weak var upperLowerButton: UIButton!
+    @IBOutlet weak var seeCoursesButton: UIButton!
     @IBOutlet weak var userThumbnail: UIImageView!
     @IBOutlet weak var registrationTableView: UITableView!
     
