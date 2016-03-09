@@ -25,6 +25,7 @@
 		04B6C3421C86825F00BA7882 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3411C86825F00BA7882 /* Notification.swift */; };
 		04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */; };
 		876D97651C8D6DC700DC26D5 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */; };
+		877338F61C8FEF1A0069B6CA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */; };
 		8780982B1C86BF88005DDE9E /* LocationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8780982A1C86BF88005DDE9E /* LocationIcon.png */; };
 		8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */; };
 		8780982F1C86C14C005DDE9E /* RequestPoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */; };
@@ -116,6 +117,7 @@
 		04B6C3411C86825F00BA7882 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultProfilePhoto.png; sourceTree = "<group>"; };
+		877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
 		8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewController.swift; sourceTree = "<group>"; };
 		8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewCell.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				8782F70D1C8D406700922859 /* SignUpViewController.swift */,
 				8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */,
 				8782F7121C8D514200922859 /* AppSettings.swift */,
+				877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -676,6 +679,7 @@
 				8780982F1C86C14C005DDE9E /* RequestPoolTableViewCell.swift in Sources */,
 				CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */,
 				04B6C3421C86825F00BA7882 /* Notification.swift in Sources */,
+				877338F61C8FEF1A0069B6CA /* RegistrationViewController.swift in Sources */,
 				8782F70E1C8D406700922859 /* SignUpViewController.swift in Sources */,
 				04B6C3341C866A0600BA7882 /* ProfileViewController.swift in Sources */,
 				04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */,
