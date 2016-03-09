@@ -144,7 +144,7 @@
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="Dee-er-fdt">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="JYS-wh-ajz" kind="showDetail" id="uO4-zp-mc7"/>
+                                <segue destination="JYS-wh-ajz" kind="showDetail" identifier="saveData" id="uO4-zp-mc7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

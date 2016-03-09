@@ -35,6 +35,7 @@
 		8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */; };
 		8782F7131C8D514200922859 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7121C8D514200922859 /* AppSettings.swift */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
+		CA03C2EC1C904BC800AE0B3F /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA03C2EB1C904BC800AE0B3F /* SaveData.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11801C8687000039D8F3 /* Notifications.storyboard */; };
@@ -73,7 +74,7 @@
 		CAC482891C84209E00059FDD /* Home-Item1.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482861C84209E00059FDD /* Home-Item1.png */; };
 		CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482871C84209E00059FDD /* Home-Item2.png */; };
 		CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C421C7E46030085F014 /* AppDelegate.swift */; };
-		CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInOnViewController.swift */; };
+		CADD3C451C7E46030085F014 /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInUpViewController.swift */; };
 		CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C491C7E46030085F014 /* Assets.xcassets */; };
 		CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */; };
 		CADD3C581C7E46030085F014 /* todoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C571C7E46030085F014 /* todoTests.swift */; };
@@ -128,6 +129,7 @@
 		8782F7121C8D514200922859 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CA03C2EB1C904BC800AE0B3F /* SaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CA8B11801C8687000039D8F3 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
@@ -167,7 +169,7 @@
 		CAC482871C84209E00059FDD /* Home-Item2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home-Item2.png"; path = "images/Home/Home-Item2.png"; sourceTree = "<group>"; };
 		CADD3C3F1C7E46030085F014 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD3C421C7E46030085F014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CADD3C441C7E46030085F014 /* SignInOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInOnViewController.swift; sourceTree = "<group>"; };
+		CADD3C441C7E46030085F014 /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
 		CADD3C491C7E46030085F014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CADD3C4C1C7E46030085F014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CADD3C4E1C7E46030085F014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -383,7 +385,7 @@
 				CAC482691C83F44A00059FDD /* fonts */,
 				CADD3C491C7E46030085F014 /* Assets.xcassets */,
 				CADD3C421C7E46030085F014 /* AppDelegate.swift */,
-				CADD3C441C7E46030085F014 /* SignInOnViewController.swift */,
+				CADD3C441C7E46030085F014 /* SignInUpViewController.swift */,
 				CA2A50F81C854225000E2E94 /* LoadingViewController.swift */,
 				CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */,
 				04B6C3331C866A0600BA7882 /* ProfileViewController.swift */,
@@ -394,6 +396,7 @@
 				8782F7121C8D514200922859 /* AppSettings.swift */,
 				877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
+				CA03C2EB1C904BC800AE0B3F /* SaveData.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -672,7 +675,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8782F70A1C8D3E4300922859 /* User.swift in Sources */,
-				CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */,
+				CADD3C451C7E46030085F014 /* SignInUpViewController.swift in Sources */,
 				878098311C86C21A005DDE9E /* TutoringRequest.swift in Sources */,
 				04B6C33E1C86806F00BA7882 /* StandardNotificationTableViewCell.swift in Sources */,
 				04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */,
@@ -685,6 +688,7 @@
 				04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */,
 				CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */,
 				CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */,
+				CA03C2EC1C904BC800AE0B3F /* SaveData.swift in Sources */,
 				8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */,
 				8782F7131C8D514200922859 /* AppSettings.swift in Sources */,
 				8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */,
