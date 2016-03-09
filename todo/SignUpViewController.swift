@@ -105,6 +105,11 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return scaledImage
     }
     
+    /* UIResponder Class Reference */
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
 
     /*
     // MARK: - Navigation
