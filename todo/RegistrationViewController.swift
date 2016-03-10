@@ -96,7 +96,8 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
                         self.appSettings.registrationFields[3].0: inputs[3],
                         self.appSettings.registrationFields[4].0: inputs[4],
                         self.appSettings.registrationFields[5].0: inputs[5],
-                        self.appSettings.registrationFields[6].0: inputs[6],]
+                        self.appSettings.registrationFields[6].0: inputs[6],
+                        "Courses": self.addedCourses]
         
         // Create the user
         let newUserRef = self.appSettings.usersRef.childByAppendingPath("user1")
