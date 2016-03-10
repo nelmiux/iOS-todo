@@ -63,33 +63,40 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     @IBAction func onClickSignUp(sender: AnyObject) {
         // TODO: Validate user's input for each field
         // Retrieve all of the strings
-        var inputs:[String] = [String]()
+        var inputs:[String: String] = [String: String]()
         var invalidInput = false
+        var userId:String = ""
         for cell in self.registrationTableView.visibleCells {
+            let field:String = (cell as! RegistrationTableViewCell).fieldLabel.text!
             let input:String = (cell as! RegistrationTableViewCell).inputField.text!
             if input == "" {
-                let fieldTitle = (cell as! RegistrationTableViewCell).fieldLabel.text?.lowercaseString
-                (cell as! RegistrationTableViewCell).errorLabel.text = "Invalid \(fieldTitle as String!)"
+                (cell as! RegistrationTableViewCell).errorLabel.text = "Invalid \(field.lowercaseString as String!)"
                 invalidInput = true
             } else {
-                inputs.append(input)
+                if field != "UT EID" {
+                    inputs[field] = input
+                } else {
+                    userId = input
+                }
             }
         }
         
         // If the input is VALID, create user and persist to Firebase
         if !invalidInput {
-            var newUser = [self.appSettings.registrationFields[0].0: inputs[0],
-                self.appSettings.registrationFields[1].0: inputs[1],
-                self.appSettings.registrationFields[3].0: inputs[3],
-                self.appSettings.registrationFields[4].0: inputs[4],
-                self.appSettings.registrationFields[5].0: inputs[5],
-                self.appSettings.registrationFields[6].0: inputs[6],
-                "photoString": selectedPhotoString,
-                "Courses": self.addedCourses]
+            inputs["Photo String"] = self.selectedPhotoString
             
-            // Create the user
-            let newUserRef = self.appSettings.usersRef.childByAppendingPath(inputs[2])
-            newUserRef.setValue(newUser)
+            self.appSettings.rootRef.createUser(inputs["Email Address"], password: inputs["Password"],
+                withValueCompletionBlock: { error, result in
+                    if error != nil {
+                        // There was an error creating the account
+                    } else {
+                        let uid = result["uid"] as? String
+                        // Create the user
+                        let newUserRef = self.appSettings.usersRef.childByAppendingPath(userId)
+                        newUserRef.setValue(inputs)
+                        print("Successfully created user account with uid: \(uid)")
+                    }
+            })
         }
     }
     
