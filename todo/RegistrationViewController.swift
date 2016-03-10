@@ -11,11 +11,10 @@ import Firebase
 
 class RegistrationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    // Class attributes
-    private var registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"), ("UT EID", "abc123"), ("Email Address", "jappleseed@gmail.com"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
+    private var appSettings = AppSettings()
     
+    // Class attributes
     private var upperDivisionCourses:[String] = [String]()
-    private var lowerDivisionCourses:[String] = ["312 Introduction to Programming", "314 Data Structures", "314H Data Structures Honors", "302 Computer Fluency", "105 Computer Programming", "311 Discrete Math for Computer Science", "311H Discrete Math for Computer Science: Honors", "109 Topics in Computer Science", "313E Elements of Software Design"]
     
     private var addedCourses:[String] = [String]()
     
@@ -91,23 +90,28 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         for cell in self.registrationTableView.visibleCells {
             inputs.append((cell as! RegistrationTableViewCell).inputField.text!)
         }
-        var newUser = [inputs[0]: inputs[0], inputs[1]: inputs[1]]
+        var newUser = [self.appSettings.registrationFields[0].0: inputs[0],
+                        self.appSettings.registrationFields[1].0: inputs[1],
+                        self.appSettings.registrationFields[2].0: inputs[2],
+                        self.appSettings.registrationFields[3].0: inputs[3],
+                        self.appSettings.registrationFields[4].0: inputs[4],
+                        self.appSettings.registrationFields[5].0: inputs[5],
+                        self.appSettings.registrationFields[6].0: inputs[6],]
         
         // Create the user
-        let usersRef = Firebase(url:"https://scorching-heat-4336.firebaseio.com/users")
-        let newUserRef = usersRef.childByAppendingPath("user1")
+        let newUserRef = self.appSettings.usersRef.childByAppendingPath("user1")
         newUserRef.setValue(newUser)
     }
     
     
     // TableView Functionality
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return registrationFields.count
+        return self.appSettings.registrationFields.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:RegistrationTableViewCell = self.registrationTableView.dequeueReusableCellWithIdentifier("registrationCell", forIndexPath: indexPath) as! RegistrationTableViewCell
-        let field = registrationFields[indexPath.row]
+        let field = self.appSettings.registrationFields[indexPath.row]
         cell.fieldLabel.text = field.0
         cell.inputField.placeholder = field.1
         
@@ -177,7 +181,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
                 segue.destinationViewController.navigationItem.title = "CS: Upper"
                 (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
             } else if self.upperLowerButton.titleLabel?.text as String! == "Lower" {
-                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.lowerDivisionCourses)
+                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.appSettings.lowerDivisionCourses)
                 segue.destinationViewController.navigationItem.title = "CS: Lower"
                 (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
             }
