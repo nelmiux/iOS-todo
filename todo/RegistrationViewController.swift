@@ -11,14 +11,10 @@ import Firebase
 
 class RegistrationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private var appSettings = AppSettings()
-    
     // Class attributes
-    private var upperDivisionCourses:[String] = [String]()
-    
+    private var appSettings = AppSettings()
     private var addedCourses:[String] = [String]()
-    
-    private var coursesAreLoaded:Bool = false
+    private var selectedPhotoString = ""
     
     // UI Elements
     @IBOutlet weak var mainView: UIView!
@@ -37,31 +33,11 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.registrationTableView.delegate = self
         self.registrationTableView.dataSource = self
         self.imagePicker.delegate = self
-        
-        // Load course data
-        if !coursesAreLoaded {
-            self.loadCourses()
-        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func loadCourses () {
-        var count = 0
-        if let aStreamReader_upper = StreamReader(path: "/CS_Upper.txt") {
-            defer {
-                aStreamReader_upper.close()
-            }
-            while let line = aStreamReader_upper.nextLine() {
-                print(line)
-                /* upperDivisionCourses.append(line)
-                print(lowerDivisionCourses[count])
-                count++ */
-            }
-        }
     }
     
     func addCourses (newCourses:[String]) {
@@ -85,6 +61,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func onClickSignUp(sender: AnyObject) {
+        // TODO: Validate users 
         // Retrieve all of the strings
         var inputs:[String] = [String]()
         for cell in self.registrationTableView.visibleCells {
@@ -92,15 +69,15 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         }
         var newUser = [self.appSettings.registrationFields[0].0: inputs[0],
                         self.appSettings.registrationFields[1].0: inputs[1],
-                        self.appSettings.registrationFields[2].0: inputs[2],
                         self.appSettings.registrationFields[3].0: inputs[3],
                         self.appSettings.registrationFields[4].0: inputs[4],
                         self.appSettings.registrationFields[5].0: inputs[5],
                         self.appSettings.registrationFields[6].0: inputs[6],
+                        "photoString": selectedPhotoString,
                         "Courses": self.addedCourses]
         
         // Create the user
-        let newUserRef = self.appSettings.usersRef.childByAppendingPath("user1")
+        let newUserRef = self.appSettings.usersRef.childByAppendingPath(inputs[2])
         newUserRef.setValue(newUser)
     }
     
@@ -128,32 +105,14 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     // ImagePicker Functionality
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        // Send to firebase
-        let thumbnail = self.resizeImage(image, sizeChange: CGSize(width: 200, height: 200))
         
-        // Encode image
+        // Encode the selected image
+        let thumbnail = self.resizeImage(image, sizeChange: CGSize(width: 200, height: 200))
         let imageData = UIImageJPEGRepresentation(thumbnail, 1.0)
         let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-        
-        // Send to string to database
-        /* let myRootRef = Firebase(url:"https://scorching-heat-4336.firebaseio.com")
-        let imagesRef = myRootRef.childByAppendingPath("photoStrings")
-        imagesRef.setValue(base64String)
-        
-        // Read image string from database
-        imagesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-        if let imageString = snapshot.value {
-        let decodedData = NSData(base64EncodedString: snapshot.value as! String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-        let decodedImage = UIImage(data: decodedData!)
-        self.userThumbnail.image = decodedImage
-        self.userThumbnail.contentMode = .ScaleAspectFit
-        self.dismissViewControllerAnimated(true, completion: nil)
-        } else {
-        // Put default image
-        print("snapshot is null")
-        }
-        }) */
-        
+        self.selectedPhotoString = base64String
+
+        // Update the UI to display selected photo
         self.userThumbnail.image = thumbnail
         self.userThumbnail.contentMode = .ScaleAspectFit
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -178,7 +137,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ViewCoursesToAdd" {
             if self.upperLowerButton.titleLabel?.text as String! == "Upper" {
-                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.upperDivisionCourses)
+                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.appSettings.upperDivisionCourses)
                 segue.destinationViewController.navigationItem.title = "CS: Upper"
                 (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
             } else if self.upperLowerButton.titleLabel?.text as String! == "Lower" {
