@@ -72,7 +72,6 @@
                     <connections>
                         <outlet property="emailInputField" destination="bpd-3V-rj9" id="SmH-lK-dsP"/>
                         <outlet property="passwordInputField" destination="aIh-jr-Pgi" id="PbR-Uk-HX4"/>
-                        <outlet property="userNameInputFiled" destination="bpd-3V-rj9" id="uQx-55-806"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

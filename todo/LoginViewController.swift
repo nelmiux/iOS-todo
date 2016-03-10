@@ -30,7 +30,10 @@ class LoginViewController: UIViewController {
     }
     
     func displayErrorAlertView (message:String) {
-        
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in }
+        alertController.addAction(OKAction)
+        self.presentViewController(alertController, animated: true, completion:nil)
     }
 
     // MARK: - Navigation
@@ -40,25 +43,28 @@ class LoginViewController: UIViewController {
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        var shouldPerform:Bool = true
         if identifier == "enterApplication" {
-            // Check that input is included in both fields
-            if emailInputField.text?.characters.count < 1 {
-                var errorMsg = "Please enter an email address"
-                errorMsg += passwordInputField.text?.characters.count < 1 ? " and password." : "."
-                self.displayErrorAlertView(errorMsg)
-                return false
-            }
+            let emailInput = emailInputField.text
+            let passwordInput = passwordInputField.text
             
-            self.appSettings.rootRef.authUser("jenny@example.com", password: "correcthorsebatterystaple") {
-                error, authData in
-                if error != nil {
-                    // an error occured while attempting login
-                } else {
-                    // user is logged in, check authData for data
+            // Check that input is included in both fields
+            if emailInput!.characters.count < 1 || passwordInput!.characters.count < 1{
+                self.displayErrorAlertView("Please enter an email address and password.")
+                shouldPerform = false
+            } else {
+                self.appSettings.rootRef.authUser(emailInput, password: passwordInput) {
+                    error, authData in
+                    if error != nil {
+                        self.displayErrorAlertView("Unable to login. Invalid email and/or password.")
+                        shouldPerform = false
+                    } else {
+                        shouldPerform = true
+                    }
                 }
             }
         }
-        return true
+        return shouldPerform
     }
 
 }
