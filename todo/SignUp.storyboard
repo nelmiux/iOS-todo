@@ -484,7 +484,7 @@
                                                             </mask>
                                                         </variation>
                                                         <connections>
-                                                            <action selector="onClickSeeCourses:" destination="A93-mg-gzh" eventType="touchUpInside" id="cpi-44-fo9"/>
+                                                            <segue destination="XbM-3x-yi9" kind="push" identifier="ViewCoursesToAdd" id="rEW-Jx-Em8"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

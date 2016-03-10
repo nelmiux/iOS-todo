@@ -15,7 +15,8 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     private var registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"), ("UT EID", "abc123"), ("Email Address", "jappleseed@gmail.com"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
     
     private var upperDivisionCourses:[String] = [String]()
-    private var lowerDivisionCourses:[String] = [String]()
+    private var lowerDivisionCourses:[String] = ["312 Introduction to Programming", "314 Data Structures", "314H Data Structures Honors", "302 Computer Fluency", "105 Computer Programming", "311 Discrete Math for Computer Science", "311H Discrete Math for Computer Science: Honors", "109 Topics in Computer Science", "313E Elements of Software Design"]
+    
     private var coursesAreLoaded:Bool = false
     
     // UI Elements
@@ -48,21 +49,15 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func loadCourses () {
-        if let aStreamReader_lower = StreamReader(path: "CS_Lower.txt") {
-            defer {
-                aStreamReader_lower.close()
-            }
-            while let line = aStreamReader_lower.nextLine() {
-                lowerDivisionCourses.append(line)
-            }
-        }
-        
+        var count = 0
         if let aStreamReader_upper = StreamReader(path: "CS_Upper.txt") {
             defer {
                 aStreamReader_upper.close()
             }
             while let line = aStreamReader_upper.nextLine() {
                 upperDivisionCourses.append(line)
+                print(lowerDivisionCourses[count])
+                count++
             }
         }
     }
@@ -80,10 +75,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         let popOverController = OptionsPopoverViewController()
         popOverController.setParentButton(self.upperLowerButton)
         popOverController.presentPopover(sourceController: self, sourceView: self.upperLowerButton, sourceRect: self.upperLowerButton.bounds)
-    }
-    
-    @IBAction func onClickSeeCourses(sender: AnyObject) {
-        
     }
     
     // TableView Functionality
@@ -153,14 +144,17 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     
-    /*
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        if segue.identifier == "ViewCoursesToAdd" {
+            if self.upperLowerButton.titleLabel?.text as String! == "Upper" {
+                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.upperDivisionCourses)
+            } else if self.upperLowerButton.titleLabel?.text as String! == "Lower" {
+                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.lowerDivisionCourses)
+            }
+        }
     }
-    */
     
 }

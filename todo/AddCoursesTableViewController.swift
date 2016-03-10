@@ -10,7 +10,7 @@ import UIKit
 
 class AddCoursesTableViewController: UITableViewController {
     
-    private let courses:[String] = ["CH 301: Principles of Chemistry I", "CS 378: iOS Mobile Computing", "AET 306: Digital Imaging and Visualization", "ARH 335H: Buddhist Traditions and 19th Century Art", "CS 331: Algorithms and Complexity"]
+    private var courses:[String] = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +44,10 @@ class AddCoursesTableViewController: UITableViewController {
         return cell
     }
 
+    func setCourses (courses:[String]) {
+        self.courses = courses
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

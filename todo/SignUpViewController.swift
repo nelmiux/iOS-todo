@@ -12,11 +12,7 @@ import Firebase
 class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // Class attributes
-    private var registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"), ("Email Address", "jappleseed@gmail.com"), ("Username", "username"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
-    
-    private var userData:[(String, String)] = [("First Name", ""), ("Last Name", ""),("Email Address", ""), ("Username", ""), ("Password", ""), ("Major", "") , ("Graduation Year", "")]
-    
-    var base64String: String = ""
+    private var registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"), ("Email Address", "jappleseed@gmail.com"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
     
     // UI Elements
     @IBOutlet weak var registrationTableView: UITableView!
@@ -58,36 +54,12 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.inputField.placeholder = field.1
         
         // Handle special cases
-        if field.0 == "Username" {
-            var valid = false
-            while !valid {
-                if readUserData(cell.inputField.text!) != "" {
-                    
-                    cell.inputField.text! = ""
-                    
-                    let alertController = AlertController(title: "Error", message: "The Username already exist, please select other username", preferredStyle: .Alert)
-                    
-                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-                    
-                    alertController.addAction(okAction)
-                    
-                    alertController.show()
-                } else {
-                    valid = true
-                }
-            }
-        }
-        
-        userData[indexPath.row].1 = cell.inputField.text!
-        
         if field.0 == "Email Address" {
             cell.inputField.keyboardType = UIKeyboardType.EmailAddress
         }
         if field.0 == "Password" {
             cell.inputField.secureTextEntry = true
         }
-
-        
         return cell
     }
     
@@ -96,23 +68,20 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Send to firebase
         let thumbnail = self.resizeImage(image, sizeChange: CGSize(width: 200, height: 200))
         
-        // Encode image
-        let imageData = UIImageJPEGRepresentation(thumbnail, 1.0)
-        base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        /* // Encode image
+        let imageData = UIImageJPEGRepresentation(thumbail, 1.0)
+        let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         
         // Send to string to database
-        /* let myRootRef = Firebase(url:"https://scorching-heat-4336.firebaseio.com")
+        let myRootRef = Firebase(url:"https://scorching-heat-4336.firebaseio.com")
         let imagesRef = myRootRef.childByAppendingPath("photoStrings")
         imagesRef.setValue(base64String)
         
-        // Read image string from database
         imagesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let imageString = snapshot.value {
                 let decodedData = NSData(base64EncodedString: snapshot.value as! String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
                 let decodedImage = UIImage(data: decodedData!)
-                self.userThumbnail.image = decodedImage
-                self.userThumbnail.contentMode = .ScaleAspectFit
-                self.dismissViewControllerAnimated(true, completion: nil)
+                
             } else {
                 // Put default image
                 print("snapshot is null")
@@ -136,83 +105,20 @@ class SignUpViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return scaledImage
     }
     
+    /* UIResponder Class Reference */
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+
+    /*
     // MARK: - Navigation
 
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
-        if identifier == "saveData" {
-            var empty:Bool = false
-            var i:Int = 0
-            
-            while i < userData.count {
-                if userData[i].1 == "" {
-                    empty = true
-                    i = userData.count
-                }
-                ++i
-            }
-            
-            if empty == true {
-                
-                let alertController = AlertController(title: "Error", message: "No Fields can be empty, please fill the form to continue", preferredStyle: .Alert)
-                
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
-                
-                alertController.addAction(okAction)
-                
-                alertController.show()
-                
-                return false
-            }
-            
-            var courses = []
-            i = 0
-            
-            saveUserData(userData[3].1 + "/firstname/" + userData[0].1)
-            saveUserData(userData[3].1 + "/lastname/" + userData[1].1)
-            saveUserData(userData[3].1 + "/email/" + userData[2].1)
-            saveUserData(userData[3].1 + "/pass/" + userData[4].1)
-            saveUserData(userData[3].1 + "/mayor/" + userData[5].1)
-            saveUserData(userData[3].1 + "/gradyear/" + userData[6].1)
-            saveUserData(userData[3].1 + "/pic/" + base64String)
-            while i < courses.count {
-                saveUserData(userData[3].1 + "/courses/" + (courses[i] as! String))
-                saveCoursesData((courses[i] as! String) + "/" + userData[3].1)
-                ++i
-            }
-        }
-        return true
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-    
-    private class AlertController: UIAlertController {
-    
-        private lazy var alertWindow: UIWindow = {
-            let window = UIWindow(frame: UIScreen.mainScreen().bounds)
-            window.rootViewController = ClearViewController()
-            window.backgroundColor = UIColor.clearColor()
-            return window
-        }()
-    
-        func show(animated flag: Bool = true, completion: (() -> Void)? = nil) {
-            if let rootViewController = alertWindow.rootViewController {
-                alertWindow.makeKeyAndVisible()
-                rootViewController.presentViewController(self, animated: flag, completion: completion)
-            }
-        }
-    
-        deinit {
-            alertWindow.hidden = true
-        }
-    }
-
-    private class ClearViewController: UIViewController {
-    
-        private override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIApplication.sharedApplication().statusBarStyle
-        }
-    
-        private override func prefersStatusBarHidden() -> Bool {
-        return UIApplication.sharedApplication().statusBarHidden
-        }
-    }
+    */
 
 }

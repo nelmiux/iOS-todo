@@ -1,0 +1,88 @@
+312 Introduction to Programming
+314 Data Structures
+314H Data Structures Honors
+429 Computer Organization and Architecture
+429H Computer Organization and Architecture: Honors
+439 Principles of Computer Systems 
+439H Principles of Computer Systems: Honors
+311 Discrete Math for Computer Science 
+311H Discrete Math for Computer Science: Honors
+331 Algorithms and Complexity 
+331H Algorithms and Complexity: Honors
+105 Computer Programming
+108 Software Systems
+109 Topics in Computer Science
+119S Topics in Computer Sciences
+178H/378H Undergraduate Topics in Computer Science: Honors
+301K Foundations of Logical Thought
+321H Functional and Symbolic Programming: Honors
+329W Cooperative Computer Science
+337 Theory in Programming Practice
+341 Automata Theory
+341H Automata Theory: Honors
+342 Neural Networks
+342C Computational Brain
+343 Artificial Intelligence
+343H Artificial Intelligence: Honors
+344M Autonomous Multiagent Systems
+344R Robotics
+345 Programming Languages
+345H Programming Languages: Honors
+346 Cryptography
+347 Data Management
+349 Contemporary Issues in Computer Science
+350C Advanced Computer Architecture
+350F Operating Systems
+351 LISP and Symbolic Computation
+353 Theory of Computation
+354 Computer Graphics
+354R Game Technology
+354S Game Development Capstone: 2D Games
+354T Game Development Capstone: 3D Games
+356 Computer Networks
+356R Introduction to Wireless Networks
+361 Introduction to Computer Security
+361C Information Assurance and Security
+361S Network Security and Privacy
+363D Introduction to Data Mining
+367 Numerical Methods
+369 Systems Modeling I
+370 Undergraduate Reading and Research
+371D Distributed Computing
+371M Mobile Computing
+371P Object-Oriented Programming
+371R Information Retrieval and Web Search
+371S Object-Oriented Software Engineering
+373 Software Engineering
+373S Software Design
+375 Compilers
+376 Computer Vision
+377 Principles and Applications of Parallel Programming
+378 Undergraduate Topics in Computer Science
+378 Autonomous Intelligent Robotics I
+378 Computational Brain - W
+378 Computational Intelligence in Game Research
+378 Information Assurance and Security
+378 Interdisciplinary Entrepreneurship
+378 Introduction to Cyberphysical Systems
+378 Mobile Computing
+378 Mobile News App Design
+378 Verifying and Debugging Programs
+378H Algorithms and Complexity: Honor
+379H Computer Sciences Honors Thesis
+105 Computer Programming
+108 Software Systems
+109 Topics in Computer Science
+119S Topics in Computer Sciences
+302 Computer Fluency
+303E Elements of Computers and Programming
+313E Elements of Software Design
+323E Elements of Scientific Computing
+323H Elements of Scientific Computing: Honors
+324E Elements of Graphics and Visualization
+326E Elements of Networking
+327E Elements of Databases
+329E Elements of Computing in Society
+329E Elements of Navigating Cyberspace
+329E Elements of Web Programming
+329E Topics in Elements of Computing
