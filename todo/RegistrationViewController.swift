@@ -14,6 +14,10 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     // Class attributes
     private var registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"), ("UT EID", "abc123"), ("Email Address", "jappleseed@gmail.com"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
     
+    private var upperDivisionCourses:[String] = [String]()
+    private var lowerDivisionCourses:[String] = [String]()
+    private var coursesAreLoaded:Bool = false
+    
     // UI Elements
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var departmentButton: UIButton!
@@ -31,11 +35,36 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.registrationTableView.delegate = self
         self.registrationTableView.dataSource = self
         self.imagePicker.delegate = self
+        
+        // Load course data
+        if !coursesAreLoaded {
+            self.loadCourses()
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadCourses () {
+        if let aStreamReader_lower = StreamReader(path: "CS_Lower.txt") {
+            defer {
+                aStreamReader_lower.close()
+            }
+            while let line = aStreamReader_lower.nextLine() {
+                lowerDivisionCourses.append(line)
+            }
+        }
+        
+        if let aStreamReader_upper = StreamReader(path: "CS_Upper.txt") {
+            defer {
+                aStreamReader_upper.close()
+            }
+            while let line = aStreamReader_upper.nextLine() {
+                upperDivisionCourses.append(line)
+            }
+        }
     }
     
     // UI Handlers
@@ -44,6 +73,11 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.imagePicker.sourceType = .PhotoLibrary
         
         self.presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func onClickDivision(sender: AnyObject) {
+        
     }
     
     

@@ -423,9 +423,6 @@
                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="8" y="561" width="312" height="60"/>
-                                                </variation>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLC-q4-EXT">
                                                 <rect key="frame" x="3" y="609" width="359" height="70"/>
@@ -433,11 +430,11 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGa-mc-V3v">
                                                         <rect key="frame" x="20" y="20" width="82" height="30"/>
                                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
-                                                        <state key="normal" title="Department">
+                                                        <state key="normal" title="Dpt: CS">
                                                             <color key="titleColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="15" y="8" width="82" height="30"/>
+                                                            <rect key="frame" x="30" y="8" width="50" height="32"/>
                                                         </variation>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye2-jr-Yzg">
@@ -456,13 +453,15 @@
                                                                 <exclude reference="mkn-zG-pjZ"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="120" y="8" width="89" height="30"/>
+                                                        <variation key="widthClass=compact">
                                                             <mask key="constraints">
                                                                 <exclude reference="MgL-P0-DRG"/>
                                                                 <include reference="mkn-zG-pjZ"/>
                                                             </mask>
                                                         </variation>
+                                                        <connections>
+                                                            <action selector="onClickDivision:" destination="A93-mg-gzh" eventType="touchUpInside" id="VEe-Lg-AvH"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiZ-7I-2HJ">
                                                         <rect key="frame" x="244" y="20" width="95" height="30"/>
@@ -478,8 +477,7 @@
                                                                 <exclude reference="fwe-tr-FyJ"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="217" y="8" width="95" height="30"/>
+                                                        <variation key="widthClass=compact">
                                                             <mask key="constraints">
                                                                 <exclude reference="3SW-le-G0M"/>
                                                                 <include reference="fwe-tr-FyJ"/>
@@ -513,8 +511,7 @@
                                                         <exclude reference="pMW-8D-S16"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact" misplaced="YES">
-                                                    <rect key="frame" x="0.0" y="629" width="328" height="47"/>
+                                                <variation key="widthClass=compact">
                                                     <mask key="constraints">
                                                         <include reference="rKz-Ua-XC9"/>
                                                         <include reference="CyJ-Ex-Tsf"/>
