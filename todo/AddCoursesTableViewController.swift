@@ -10,7 +10,9 @@ import UIKit
 
 class AddCoursesTableViewController: UITableViewController {
     
+    var registrationViewController:RegistrationViewController? = nil
     private var courses:[String] = [String]()
+    private var selectedCourses:[String] = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,10 @@ class AddCoursesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func setCourses (courses:[String]) {
+        self.courses = courses
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,9 +49,23 @@ class AddCoursesTableViewController: UITableViewController {
         cell.textLabel!.text = courses[indexPath.row]
         return cell
     }
-
-    func setCourses (courses:[String]) {
-        self.courses = courses
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let currCourse = courses[indexPath.row]
+        if selectedCourses.contains(currCourse) {
+            let indexInArr = selectedCourses.indexOf(currCourse)
+            selectedCourses.removeAtIndex(indexInArr!)
+        } else {
+            selectedCourses.append(currCourse)
+        }
+    }
+    
+    @IBAction func onClickAdd(sender: AnyObject) {
+        for course in selectedCourses {
+            print (course)
+        }
+        self.registrationViewController?.addCourses(self.selectedCourses)
+        navigationController?.popViewControllerAnimated(true)
     }
     
     /*
@@ -83,14 +103,10 @@ class AddCoursesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

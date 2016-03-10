@@ -423,6 +423,9 @@
                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="8" y="561" width="312" height="46"/>
+                                                </variation>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLC-q4-EXT">
                                                 <rect key="frame" x="3" y="609" width="359" height="70"/>
@@ -434,7 +437,7 @@
                                                             <color key="titleColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <variation key="widthClass=compact" misplaced="YES">
-                                                            <rect key="frame" x="30" y="8" width="50" height="32"/>
+                                                            <rect key="frame" x="15" y="8" width="54" height="30"/>
                                                         </variation>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye2-jr-Yzg">
@@ -453,7 +456,8 @@
                                                                 <exclude reference="mkn-zG-pjZ"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="widthClass=compact">
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="120" y="8" width="89" height="30"/>
                                                             <mask key="constraints">
                                                                 <exclude reference="MgL-P0-DRG"/>
                                                                 <include reference="mkn-zG-pjZ"/>
@@ -477,7 +481,8 @@
                                                                 <exclude reference="fwe-tr-FyJ"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="widthClass=compact">
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="219" y="8" width="93" height="30"/>
                                                             <mask key="constraints">
                                                                 <exclude reference="3SW-le-G0M"/>
                                                                 <include reference="fwe-tr-FyJ"/>
@@ -511,7 +516,8 @@
                                                         <exclude reference="pMW-8D-S16"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact">
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="615" width="328" height="47"/>
                                                     <mask key="constraints">
                                                         <include reference="rKz-Ua-XC9"/>
                                                         <include reference="CyJ-Ex-Tsf"/>
@@ -600,8 +606,7 @@
                                                 <exclude reference="nEZ-OZ-DHC"/>
                                             </mask>
                                         </variation>
-                                        <variation key="widthClass=compact" misplaced="YES">
-                                            <rect key="frame" x="0.0" y="-246" width="328" height="750"/>
+                                        <variation key="widthClass=compact">
                                             <mask key="subviews">
                                                 <include reference="t0Z-zK-4vj"/>
                                                 <include reference="g5X-RH-3NP"/>
@@ -754,11 +759,17 @@
                             <outlet property="delegate" destination="XbM-3x-yi9" id="adz-s2-HxL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Dept: Upper/Lower Division" id="9cg-ga-GIn"/>
+                    <navigationItem key="navigationItem" title="Dept: Upper/Lower Division" id="9cg-ga-GIn">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="ua9-1t-24W">
+                            <connections>
+                                <action selector="onClickAdd:" destination="XbM-3x-yi9" id="WvU-8n-3mf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLw-Qq-Wyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1185" y="1242"/>
+            <point key="canvasLocation" x="1239" y="1242"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3kk-iC-PDS">

@@ -17,6 +17,8 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     private var upperDivisionCourses:[String] = [String]()
     private var lowerDivisionCourses:[String] = ["312 Introduction to Programming", "314 Data Structures", "314H Data Structures Honors", "302 Computer Fluency", "105 Computer Programming", "311 Discrete Math for Computer Science", "311H Discrete Math for Computer Science: Honors", "109 Topics in Computer Science", "313E Elements of Software Design"]
     
+    private var addedCourses:[String] = [String]()
+    
     private var coursesAreLoaded:Bool = false
     
     // UI Elements
@@ -50,15 +52,22 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     func loadCourses () {
         var count = 0
-        if let aStreamReader_upper = StreamReader(path: "CS_Upper.txt") {
+        if let aStreamReader_upper = StreamReader(path: "/CS_Upper.txt") {
             defer {
                 aStreamReader_upper.close()
             }
             while let line = aStreamReader_upper.nextLine() {
-                upperDivisionCourses.append(line)
+                print(line)
+                /* upperDivisionCourses.append(line)
                 print(lowerDivisionCourses[count])
-                count++
+                count++ */
             }
+        }
+    }
+    
+    func addCourses (newCourses:[String]) {
+        for course in newCourses {
+            self.addedCourses.append(course)
         }
     }
     
@@ -151,8 +160,12 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         if segue.identifier == "ViewCoursesToAdd" {
             if self.upperLowerButton.titleLabel?.text as String! == "Upper" {
                 (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.upperDivisionCourses)
+                segue.destinationViewController.navigationItem.title = "CS: Upper"
+                (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
             } else if self.upperLowerButton.titleLabel?.text as String! == "Lower" {
                 (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.lowerDivisionCourses)
+                segue.destinationViewController.navigationItem.title = "CS: Lower"
+                (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
             }
         }
     }
