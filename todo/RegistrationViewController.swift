@@ -88,13 +88,25 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
             self.appSettings.rootRef.createUser(inputs["Email Address"], password: inputs["Password"],
                 withValueCompletionBlock: { error, result in
                     if error != nil {
-                        // There was an error creating the account
+                        // Alert the user that an error occurred upon registration
+                        let alertController = UIAlertController(title: nil, message: "An error has occurred. There may be an existing account for the provided email address.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in }
+                        alertController.addAction(OKAction)
+                        self.presentViewController(alertController, animated: true, completion:nil)
                     } else {
                         let uid = result["uid"] as? String
                         // Create the user
                         let newUserRef = self.appSettings.usersRef.childByAppendingPath(userId)
                         newUserRef.setValue(inputs)
                         print("Successfully created user account with uid: \(uid)")
+                        
+                        // Alert the user that they have succesfully registered
+                        let alertController = UIAlertController(title: nil, message: "Congrats! You are ready to start using todo.", preferredStyle: UIAlertControllerStyle.Alert)
+                        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
+                            self.navigationController?.popToRootViewControllerAnimated(true)
+                        }
+                        alertController.addAction(OKAction)
+                        self.presentViewController(alertController, animated: true, completion:nil)
                     }
             })
         }
