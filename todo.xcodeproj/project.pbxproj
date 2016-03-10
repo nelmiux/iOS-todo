@@ -24,10 +24,19 @@
 		04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */; };
 		04B6C3421C86825F00BA7882 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3411C86825F00BA7882 /* Notification.swift */; };
 		04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */; };
+		8742B0C61C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8742B0C51C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift */; };
+		876D97651C8D6DC700DC26D5 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */; };
+		877338F61C8FEF1A0069B6CA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */; };
 		8780982B1C86BF88005DDE9E /* LocationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8780982A1C86BF88005DDE9E /* LocationIcon.png */; };
 		8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */; };
 		8780982F1C86C14C005DDE9E /* RequestPoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */; };
 		878098311C86C21A005DDE9E /* TutoringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878098301C86C21A005DDE9E /* TutoringRequest.swift */; };
+		8782F70A1C8D3E4300922859 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7091C8D3E4300922859 /* User.swift */; };
+		8782F70E1C8D406700922859 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F70D1C8D406700922859 /* SignUpViewController.swift */; };
+		8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */; };
+		8782F7131C8D514200922859 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7121C8D514200922859 /* AppSettings.swift */; };
+		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
+		CA03C2EC1C904BC800AE0B3F /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA03C2EB1C904BC800AE0B3F /* SaveData.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
 		CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11801C8687000039D8F3 /* Notifications.storyboard */; };
@@ -39,7 +48,7 @@
 		CAC137BD1C8552A000586487 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BC1C8552A000586487 /* Profile.storyboard */; };
 		CAC137BF1C85538D00586487 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BE1C85538D00586487 /* History.storyboard */; };
 		CAC137C41C85548B00586487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C21C85548B00586487 /* Main.storyboard */; };
-		CAC137C61C85567A00586487 /* SignOn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C51C85567A00586487 /* SignOn.storyboard */; };
+		CAC137C61C85567A00586487 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C51C85567A00586487 /* SignUp.storyboard */; };
 		CAC137C81C8557ED00586487 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C71C8557ED00586487 /* Home.storyboard */; };
 		CAC137D01C855D8E00586487 /* History Example.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CA1C855D8E00586487 /* History Example.png */; };
 		CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CB1C855D8E00586487 /* HistoryExample.png */; };
@@ -65,8 +74,9 @@
 		CAC482881C84209E00059FDD /* Home Analitics.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482851C84209E00059FDD /* Home Analitics.png */; };
 		CAC482891C84209E00059FDD /* Home-Item1.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482861C84209E00059FDD /* Home-Item1.png */; };
 		CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482871C84209E00059FDD /* Home-Item2.png */; };
+		CACD43C51C905DA9002709FF /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD43C41C905DA9002709FF /* ReadData.swift */; };
 		CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C421C7E46030085F014 /* AppDelegate.swift */; };
-		CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInOnViewController.swift */; };
+		CADD3C451C7E46030085F014 /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInUpViewController.swift */; };
 		CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C491C7E46030085F014 /* Assets.xcassets */; };
 		CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */; };
 		CADD3C581C7E46030085F014 /* todoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C571C7E46030085F014 /* todoTests.swift */; };
@@ -109,10 +119,20 @@
 		04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		04B6C3411C86825F00BA7882 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
+		8742B0C51C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCoursesTableViewController.swift; sourceTree = "<group>"; };
+		876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultProfilePhoto.png; sourceTree = "<group>"; };
+		877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
 		8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewController.swift; sourceTree = "<group>"; };
 		8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewCell.swift; sourceTree = "<group>"; };
 		878098301C86C21A005DDE9E /* TutoringRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutoringRequest.swift; sourceTree = "<group>"; };
+		8782F7091C8D3E4300922859 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8782F70D1C8D406700922859 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewCell.swift; sourceTree = "<group>"; };
+		8782F7121C8D514200922859 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CA03C2EB1C904BC800AE0B3F /* SaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		CA8B11801C8687000039D8F3 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
@@ -124,7 +144,7 @@
 		CAC137BC1C8552A000586487 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		CAC137BE1C85538D00586487 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		CAC137C31C85548B00586487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CAC137C51C85567A00586487 /* SignOn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignOn.storyboard; sourceTree = "<group>"; };
+		CAC137C51C85567A00586487 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		CAC137C71C8557ED00586487 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CAC137CA1C855D8E00586487 /* History Example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "History Example.png"; path = "images/History/History Example.png"; sourceTree = "<group>"; };
 		CAC137CB1C855D8E00586487 /* HistoryExample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryExample.png; path = images/History/HistoryExample.png; sourceTree = "<group>"; };
@@ -150,9 +170,10 @@
 		CAC482851C84209E00059FDD /* Home Analitics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics.png"; path = "images/Home/Home Analitics.png"; sourceTree = "<group>"; };
 		CAC482861C84209E00059FDD /* Home-Item1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home-Item1.png"; path = "images/Home/Home-Item1.png"; sourceTree = "<group>"; };
 		CAC482871C84209E00059FDD /* Home-Item2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home-Item2.png"; path = "images/Home/Home-Item2.png"; sourceTree = "<group>"; };
+		CACD43C41C905DA9002709FF /* ReadData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadData.swift; sourceTree = "<group>"; };
 		CADD3C3F1C7E46030085F014 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD3C421C7E46030085F014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CADD3C441C7E46030085F014 /* SignInOnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInOnViewController.swift; sourceTree = "<group>"; };
+		CADD3C441C7E46030085F014 /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
 		CADD3C491C7E46030085F014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CADD3C4C1C7E46030085F014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CADD3C4E1C7E46030085F014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -163,6 +184,7 @@
 		CADD3C621C7E46030085F014 /* todoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoUITests.swift; sourceTree = "<group>"; };
 		CADD3C641C7E46030085F014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CADD3C711C7E4ED70085F014 /* xlarge_building1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xlarge_building1.jpg; path = images/xlarge_building1.jpg; sourceTree = "<group>"; };
+		D5618CBE1DE39FAE33E6B2AE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,8 +233,46 @@
 				04B6C32B1C865F4000BA7882 /* StudentProfileTestPhoto.png */,
 				04B6C33B1C86793500BA7882 /* EmailButton_Profile.png */,
 				04B6C3271C865E7800BA7882 /* DotsBalance_Profile.png */,
+				876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */,
 			);
 			name = Profile;
+			sourceTree = "<group>";
+		};
+		41835B598CA1DFBFD73BBDF5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5618CBE1DE39FAE33E6B2AE /* Pods.debug.xcconfig */,
+				B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8782F70B1C8D3EE300922859 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
+				CAC137C21C85548B00586487 /* Main.storyboard */,
+				CAC137C51C85567A00586487 /* SignUp.storyboard */,
+				CAC137C71C8557ED00586487 /* Home.storyboard */,
+				CAC137BE1C85538D00586487 /* History.storyboard */,
+				CA8B11801C8687000039D8F3 /* Notifications.storyboard */,
+				CAC137BC1C8552A000586487 /* Profile.storyboard */,
+				CAC137BA1C854F6400586487 /* Settings.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		8782F70C1C8D3F3600922859 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */,
+				8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */,
+				04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */,
+				04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */,
+				04B6C3411C86825F00BA7882 /* Notification.swift */,
+				04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */,
+			);
+			name = Notifications;
 			sourceTree = "<group>";
 		};
 		CA2A50F71C8533BC000E2E94 /* History */ = {
@@ -304,6 +365,8 @@
 				CADD3C561C7E46030085F014 /* todoTests */,
 				CADD3C611C7E46030085F014 /* todoUITests */,
 				CADD3C401C7E46030085F014 /* Products */,
+				41835B598CA1DFBFD73BBDF5 /* Pods */,
+				DA1A7DCB3A8DFFF3FFA0E2FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,30 +383,26 @@
 		CADD3C411C7E46030085F014 /* todo */ = {
 			isa = PBXGroup;
 			children = (
+				8782F70C1C8D3F3600922859 /* Notifications */,
+				8782F70B1C8D3EE300922859 /* Storyboards */,
 				CADD3C701C7E4E7B0085F014 /* images */,
 				CAC482691C83F44A00059FDD /* fonts */,
 				CADD3C491C7E46030085F014 /* Assets.xcassets */,
 				CADD3C421C7E46030085F014 /* AppDelegate.swift */,
-				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
-				CAC137C21C85548B00586487 /* Main.storyboard */,
-				CAC137C51C85567A00586487 /* SignOn.storyboard */,
-				CAC137C71C8557ED00586487 /* Home.storyboard */,
-				CAC137BE1C85538D00586487 /* History.storyboard */,
-				CA8B11801C8687000039D8F3 /* Notifications.storyboard */,
-				CAC137BC1C8552A000586487 /* Profile.storyboard */,
-				CAC137BA1C854F6400586487 /* Settings.storyboard */,
-				CADD3C441C7E46030085F014 /* SignInOnViewController.swift */,
+				CADD3C441C7E46030085F014 /* SignInUpViewController.swift */,
 				CA2A50F81C854225000E2E94 /* LoadingViewController.swift */,
 				CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */,
 				04B6C3331C866A0600BA7882 /* ProfileViewController.swift */,
-				04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */,
-				04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */,
-				04B6C3411C86825F00BA7882 /* Notification.swift */,
-				04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */,
-				CADD3C4E1C7E46030085F014 /* Info.plist */,
-				8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */,
-				8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */,
 				878098301C86C21A005DDE9E /* TutoringRequest.swift */,
+				8782F7091C8D3E4300922859 /* User.swift */,
+				8782F70D1C8D406700922859 /* SignUpViewController.swift */,
+				8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */,
+				8782F7121C8D514200922859 /* AppSettings.swift */,
+				877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */,
+				CADD3C4E1C7E46030085F014 /* Info.plist */,
+				CA03C2EB1C904BC800AE0B3F /* SaveData.swift */,
+				CACD43C41C905DA9002709FF /* ReadData.swift */,
+				8742B0C51C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -379,6 +438,14 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		DA1A7DCB3A8DFFF3FFA0E2FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8C38DF7D0F490F56A7AA3F93 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -386,9 +453,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CADD3C671C7E46030085F014 /* Build configuration list for PBXNativeTarget "todo" */;
 			buildPhases = (
+				8DD35B263C99900ABE1754B7 /* Check Pods Manifest.lock */,
 				CADD3C3B1C7E46030085F014 /* Sources */,
 				CADD3C3C1C7E46030085F014 /* Frameworks */,
 				CADD3C3D1C7E46030085F014 /* Resources */,
+				BB9ED2FA4D7810A618651D65 /* Embed Pods Frameworks */,
+				6DBEDA66C4F3DF87C7350062 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -501,7 +571,7 @@
 				CAC137C81C8557ED00586487 /* Home.storyboard in Resources */,
 				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
 				CAC4827B1C83F85A00059FDD /* HistoryTabIcon_Teal.png in Resources */,
-				CAC137C61C85567A00586487 /* SignOn.storyboard in Resources */,
+				CAC137C61C85567A00586487 /* SignUp.storyboard in Resources */,
 				CAC137BD1C8552A000586487 /* Profile.storyboard in Resources */,
 				04B6C3291C865E7800BA7882 /* DotsBalance_Profile.png in Resources */,
 				CAC4827C1C83F85A00059FDD /* HomeTabIcon_Teal.png in Resources */,
@@ -524,6 +594,7 @@
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
 				04B6C33A1C86787500BA7882 /* MinimalActivity_Profile.png in Resources */,
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
+				876D97651C8D6DC700DC26D5 /* DefaultProfilePhoto.png in Resources */,
 				CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */,
 				CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */,
 				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
@@ -556,22 +627,78 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6DBEDA66C4F3DF87C7350062 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DD35B263C99900ABE1754B7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB9ED2FA4D7810A618651D65 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CADD3C3B1C7E46030085F014 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CADD3C451C7E46030085F014 /* SignInOnViewController.swift in Sources */,
+				8782F70A1C8D3E4300922859 /* User.swift in Sources */,
+				CADD3C451C7E46030085F014 /* SignInUpViewController.swift in Sources */,
 				878098311C86C21A005DDE9E /* TutoringRequest.swift in Sources */,
 				04B6C33E1C86806F00BA7882 /* StandardNotificationTableViewCell.swift in Sources */,
+				8742B0C61C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift in Sources */,
 				04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */,
 				8780982F1C86C14C005DDE9E /* RequestPoolTableViewCell.swift in Sources */,
 				CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */,
 				04B6C3421C86825F00BA7882 /* Notification.swift in Sources */,
+				877338F61C8FEF1A0069B6CA /* RegistrationViewController.swift in Sources */,
+				8782F70E1C8D406700922859 /* SignUpViewController.swift in Sources */,
+				CACD43C51C905DA9002709FF /* ReadData.swift in Sources */,
 				04B6C3341C866A0600BA7882 /* ProfileViewController.swift in Sources */,
 				04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */,
 				CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */,
 				CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */,
+				CA03C2EC1C904BC800AE0B3F /* SaveData.swift in Sources */,
+				8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */,
+				8782F7131C8D514200922859 /* AppSettings.swift in Sources */,
 				8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -721,6 +848,7 @@
 		};
 		CADD3C681C7E46030085F014 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5618CBE1DE39FAE33E6B2AE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todo/Info.plist;
@@ -732,6 +860,7 @@
 		};
 		CADD3C691C7E46030085F014 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todo/Info.plist;
