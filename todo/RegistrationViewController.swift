@@ -77,9 +77,14 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     
     @IBAction func onClickDivision(sender: AnyObject) {
-        
+        let popOverController = OptionsPopoverViewController()
+        popOverController.setParentButton(self.upperLowerButton)
+        popOverController.presentPopover(sourceController: self, sourceView: self.upperLowerButton, sourceRect: self.upperLowerButton.bounds)
     }
     
+    @IBAction func onClickSeeCourses(sender: AnyObject) {
+        
+    }
     
     // TableView Functionality
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
