@@ -40,6 +40,7 @@
 		879474491C90FF2C008F9F64 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879474481C90FF2C008F9F64 /* StreamReader.swift */; };
 		8794744D1C910390008F9F64 /* OptionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8794744C1C910390008F9F64 /* OptionsListViewController.swift */; };
 		8794744F1C91045D008F9F64 /* OptionsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8794744E1C91045D008F9F64 /* OptionsPopoverViewController.swift */; };
+		879474511C91513D008F9F64 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879474501C91513D008F9F64 /* LoginViewController.swift */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		CA03C2EC1C904BC800AE0B3F /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA03C2EB1C904BC800AE0B3F /* SaveData.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
@@ -140,6 +141,7 @@
 		879474481C90FF2C008F9F64 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
 		8794744C1C910390008F9F64 /* OptionsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsListViewController.swift; sourceTree = "<group>"; };
 		8794744E1C91045D008F9F64 /* OptionsPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsPopoverViewController.swift; sourceTree = "<group>"; };
+		879474501C91513D008F9F64 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA03C2EB1C904BC800AE0B3F /* SaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				879474481C90FF2C008F9F64 /* StreamReader.swift */,
 				8794744C1C910390008F9F64 /* OptionsListViewController.swift */,
 				8794744E1C91045D008F9F64 /* OptionsPopoverViewController.swift */,
+				879474501C91513D008F9F64 /* LoginViewController.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */,
 				04B6C3421C86825F00BA7882 /* Notification.swift in Sources */,
 				877338F61C8FEF1A0069B6CA /* RegistrationViewController.swift in Sources */,
+				879474511C91513D008F9F64 /* LoginViewController.swift in Sources */,
 				8794744F1C91045D008F9F64 /* OptionsPopoverViewController.swift in Sources */,
 				8782F70E1C8D406700922859 /* SignUpViewController.swift in Sources */,
 				CACD43C51C905DA9002709FF /* ReadData.swift in Sources */,

@@ -14,7 +14,7 @@
         <!--Starting Point-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="generalEntry" title="Starting Point" id="BYZ-38-t0r" customClass="ViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="generalEntry" title="Starting Point" id="BYZ-38-t0r" customClass="LoginViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -33,7 +33,7 @@
                                 <rect key="frame" x="93" y="483" width="229" height="45"/>
                                 <state key="normal" image="LoginButton2.png"/>
                                 <connections>
-                                    <segue destination="ErG-cG-D21" kind="showDetail" id="xSX-h8-Ya5"/>
+                                    <segue destination="ErG-cG-D21" kind="showDetail" identifier="enterApplication" id="xSX-h8-Ya5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="to7-bA-m8k">
@@ -43,7 +43,7 @@
                                     <segue destination="a7J-WO-piz" kind="showDetail" id="s4M-8W-ail"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpd-3V-rj9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpd-3V-rj9">
                                 <rect key="frame" x="81" y="412" width="253" height="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
@@ -69,6 +69,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="emailInputField" destination="bpd-3V-rj9" id="SmH-lK-dsP"/>
+                        <outlet property="passwordInputField" destination="aIh-jr-Pgi" id="PbR-Uk-HX4"/>
+                        <outlet property="userNameInputFiled" destination="bpd-3V-rj9" id="uQx-55-806"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
