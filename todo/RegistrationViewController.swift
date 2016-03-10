@@ -79,12 +79,26 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    
     @IBAction func onClickDivision(sender: AnyObject) {
         let popOverController = OptionsPopoverViewController()
         popOverController.setParentButton(self.upperLowerButton)
         popOverController.presentPopover(sourceController: self, sourceView: self.upperLowerButton, sourceRect: self.upperLowerButton.bounds)
     }
+    
+    @IBAction func onClickSignUp(sender: AnyObject) {
+        // Retrieve all of the strings
+        var inputs:[String] = [String]()
+        for cell in self.registrationTableView.visibleCells {
+            inputs.append((cell as! RegistrationTableViewCell).inputField.text!)
+        }
+        var newUser = [inputs[0]: inputs[0], inputs[1]: inputs[1]]
+        
+        // Create the user
+        let usersRef = Firebase(url:"https://scorching-heat-4336.firebaseio.com/users")
+        let newUserRef = usersRef.childByAppendingPath("user1")
+        newUserRef.setValue(newUser)
+    }
+    
     
     // TableView Functionality
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
