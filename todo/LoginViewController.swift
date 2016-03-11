@@ -16,7 +16,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordInputField: UITextField!
     
     // Class variables
-    let appSettings = AppSettings()
+    private let appSettings = AppSettings()
+    private var validInput = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class LoginViewController: UIViewController {
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        var shouldPerform:Bool = true
+       //  var shouldPerform:Bool = false
         if identifier == "enterApplication" {
             let emailInput = emailInputField.text
             let passwordInput = passwordInputField.text
@@ -51,20 +52,24 @@ class LoginViewController: UIViewController {
             // Check that input is included in both fields
             if emailInput!.characters.count < 1 || passwordInput!.characters.count < 1{
                 self.displayErrorAlertView("Please enter an email address and password.")
-                shouldPerform = false
+                // shouldPerform = false
+                self.validInput = false
             } else {
                 self.appSettings.rootRef.authUser(emailInput, password: passwordInput) {
                     error, authData in
                     if error != nil {
+                        print("Unable to login. Invalid email and/or password.")
                         self.displayErrorAlertView("Unable to login. Invalid email and/or password.")
-                        shouldPerform = false
+                        // shouldPerform = false
+                        self.validInput = false
                     } else {
-                        shouldPerform = true
+                        // shouldPerform = true
+                        self.validInput = true
                     }
                 }
             }
         }
-        return shouldPerform
+        return self.validInput
     }
 
 }

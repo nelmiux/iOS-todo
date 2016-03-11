@@ -65,7 +65,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         // Retrieve all of the strings
         var inputs:[String: String] = [String: String]()
         var invalidInput = false
-        var userId:String = ""
         for cell in self.registrationTableView.visibleCells {
             let field:String = (cell as! RegistrationTableViewCell).fieldLabel.text!
             let input:String = (cell as! RegistrationTableViewCell).inputField.text!
@@ -73,11 +72,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
                 (cell as! RegistrationTableViewCell).errorLabel.text = "Invalid \(field.lowercaseString as String!)"
                 invalidInput = true
             } else {
-                if field != "UT EID" {
-                    inputs[field] = input
-                } else {
-                    userId = input
-                }
+                inputs[field] = input
             }
         }
         
@@ -88,6 +83,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
             self.appSettings.rootRef.createUser(inputs["Email Address"], password: inputs["Password"],
                 withValueCompletionBlock: { error, result in
                     if error != nil {
+                        
                         // Alert the user that an error occurred upon registration
                         let alertController = UIAlertController(title: nil, message: "An error has occurred. There may be an existing account for the provided email address.", preferredStyle: UIAlertControllerStyle.Alert)
                         let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in }
@@ -95,8 +91,9 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
                         self.presentViewController(alertController, animated: true, completion:nil)
                     } else {
                         let uid = result["uid"] as? String
-                        // Create the user
-                        let newUserRef = self.appSettings.usersRef.childByAppendingPath(userId)
+                        
+                        // Insert the user data
+                        let newUserRef = self.appSettings.usersRef.childByAppendingPath(uid)
                         newUserRef.setValue(inputs)
                         print("Successfully created user account with uid: \(uid)")
                         

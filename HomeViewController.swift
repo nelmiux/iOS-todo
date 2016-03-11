@@ -1,0 +1,37 @@
+//
+//  HomeViewController.swift
+//  todo
+//
+//  Created by Quyen Castellanos on 3/11/16.
+//  Copyright © 2016 cs378. All rights reserved.
+//
+
+import UIKit
+import Firebase
+
+class HomeViewController: UIViewController {
+
+    // Class variables
+    private let appSettings = AppSettings()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "logout" {
+            self.appSettings.rootRef.unauth()
+        }
+    }
+
+}

@@ -162,7 +162,7 @@
         <!--Requester Home-->
         <scene sceneID="Mtv-w4-1n4">
             <objects>
-                <viewController id="Fbh-oW-a4S" userLabel="Requester Home" sceneMemberID="viewController">
+                <viewController id="Fbh-oW-a4S" userLabel="Requester Home" customClass="HomeViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qTn-IA-1n2"/>
                         <viewControllerLayoutGuide type="bottom" id="mbc-6Q-SST"/>
@@ -263,7 +263,7 @@
                         <barButtonItem key="rightBarButtonItem" image="logout" style="plain" id="Azo-tB-XtK">
                             <color key="tintColor" red="0.25329121469999999" green="1" blue="0.95315603500000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="paZ-zY-AmQ" kind="showDetail" id="XjK-yP-XNc"/>
+                                <segue destination="paZ-zY-AmQ" kind="showDetail" identifier="logout" id="XjK-yP-XNc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1354,6 +1354,6 @@
         <image name="user-pic" width="250" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="d54-bb-IHF"/>
+        <segue reference="4CC-xw-Dcx"/>
     </inferredMetricsTieBreakers>
 </document>
