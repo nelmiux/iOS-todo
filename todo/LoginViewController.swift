@@ -12,7 +12,8 @@ import Firebase
 class LoginViewController: UIViewController {
 
     // UI Elements
-    @IBOutlet weak var emailInputField: UITextField!
+    
+    @IBOutlet weak var usernameInputField: UITextField!
     @IBOutlet weak var passwordInputField: UITextField!
     
     // Class variables
@@ -44,26 +45,26 @@ class LoginViewController: UIViewController {
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-       //  var shouldPerform:Bool = false
         if identifier == "enterApplication" {
-            let emailInput = emailInputField.text
-            let passwordInput = passwordInputField.text
+            let usernameInput = usernameInputField.text!
+            let passwordInput = passwordInputField.text!
             
             // Check that input is included in both fields
-            if emailInput!.characters.count < 1 || passwordInput!.characters.count < 1{
-                self.displayErrorAlertView("Please enter an email address and password.")
-                // shouldPerform = false
+            if usernameInput.characters.count < 1 || passwordInput.characters.count < 1{
+                self.displayErrorAlertView("Please enter a username and password.")
                 self.validInput = false
             } else {
-                self.appSettings.rootRef.authUser(emailInput, password: passwordInput) {
+                let usersRef = self.appSettings.usersRef
+                let currUserRef = usersRef.
+                let email = currUserRef!.valueForKey("Email Address")
+                print("Email found in Firebase: \(email)")
+                self.appSettings.rootRef.authUser(email as! String!, password: passwordInput) {
                     error, authData in
                     if error != nil {
                         print("Unable to login. Invalid email and/or password.")
                         self.displayErrorAlertView("Unable to login. Invalid email and/or password.")
-                        // shouldPerform = false
                         self.validInput = false
                     } else {
-                        // shouldPerform = true
                         self.validInput = true
                     }
                 }
