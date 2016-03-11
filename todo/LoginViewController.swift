@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     
     // Class variables
     private let appSettings = AppSettings()
-    private var validInput = false
+    private var validInput = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,15 +49,23 @@ class LoginViewController: UIViewController {
             let usernameInput = usernameInputField.text!
             let passwordInput = passwordInputField.text!
             
-            // Check that input is included in both fields
+            // Check that username and password are non-empty
             if usernameInput.characters.count < 1 || passwordInput.characters.count < 1{
                 self.displayErrorAlertView("Please enter a username and password.")
                 self.validInput = false
-            } else {
-                print("usernameInput = \(usernameInput)")
+            }
+            
+            // If not empty, continue with user authentication
+            else {
+                // Look up the email address according to username
+                print("username = \(usernameInput)")
+                
                 let currUserRef = Firebase(url:"https://scorching-heat-4336.firebaseio.com/users/" + usernameInput)
                 currUserRef.observeEventType(.Value, withBlock: { snapshot in
                     let email = snapshot.value["Email Address"] as! String
+                    print("email = \(email)")
+                    
+                    // Attempt to log the user in
                     self.appSettings.rootRef.authUser(email as! String!, password: passwordInput) {
                         error, authData in
                         if error != nil {
