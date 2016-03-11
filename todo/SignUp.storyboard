@@ -17,13 +17,6 @@
             <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
         </mutableArray>
         <mutableArray key="SEGOEUIB.TTF">
             <string>SegoeUI-Bold</string>
@@ -35,133 +28,12 @@
         <!--generalEntry-->
         <scene sceneID="9bY-8u-kjV">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="generalEntry" id="JYS-wh-ajz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cro-Ro-Koa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="generalEntry" id="JYS-wh-ajz" sceneMemberID="viewController"/>
             </objects>
-            <point key="canvasLocation" x="-115.5" y="673"/>
+            <point key="canvasLocation" x="-42" y="787"/>
         </scene>
-        <!--Sign Up-->
-        <scene sceneID="fSg-P5-VWp">
-            <objects>
-                <viewController id="7Rg-85-Ega" userLabel="Sign Up" customClass="SignUpViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FPI-x0-WZV"/>
-                        <viewControllerLayoutGuide type="bottom" id="Y27-6Y-i74"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6Sq-2m-5QD">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6se-hT-ccc">
-                                <rect key="frame" x="14" y="204" width="386" height="293"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="registrationCell" rowHeight="58" id="sPs-Sa-z2r" customClass="RegistrationTableViewCell" customModule="todo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="386" height="58"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sPs-Sa-z2r" id="gJI-bl-g0b">
-                                            <rect key="frame" x="0.0" y="0.0" width="386" height="57"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoC-Qv-S8y">
-                                                    <rect key="frame" x="8" y="11" width="150" height="21"/>
-                                                    <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zzy-rA-yVX">
-                                                    <rect key="frame" x="198" y="8" width="180" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rah-nQ-VPW">
-                                                    <rect key="frame" x="198" y="31" width="180" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="errorLabel" destination="Rah-nQ-VPW" id="Q4X-cN-ZrK"/>
-                                            <outlet property="fieldLabel" destination="SoC-Qv-S8y" id="t6A-Tb-vAb"/>
-                                            <outlet property="inputField" destination="Zzy-rA-yVX" id="r0R-jI-bwr"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="   Basic Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVh-lk-PYM">
-                                <rect key="frame" x="0.0" y="72" width="414" height="25"/>
-                                <color key="backgroundColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="   Skills" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fw-mV-06b">
-                                <rect key="frame" x="0.0" y="505" width="414" height="25"/>
-                                <color key="backgroundColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfilePhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="Goy-yJ-oMs">
-                                <rect key="frame" x="92" y="105" width="100" height="100"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eu7-L9-AcC">
-                                <rect key="frame" x="245" y="130" width="94" height="30"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
-                                <state key="normal" title="Upload Photo">
-                                    <color key="titleColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClickUploadPhoto:" destination="7Rg-85-Ega" eventType="touchUpInside" id="l1U-C9-2gr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCH-5f-ssO">
-                                <rect key="frame" x="107" y="658" width="212" height="39"/>
-                                <color key="backgroundColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
-                                <state key="normal" title="DONE">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPb-8y-PIw">
-                                <rect key="frame" x="200" y="160" width="200" height="41"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
-                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPg-r3-m6n">
-                                <rect key="frame" x="20" y="538" width="111" height="30"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
-                                <state key="normal" title="+ Add Courses">
-                                    <color key="titleColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="A93-mg-gzh" kind="push" id="BJE-l9-vTl"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Sign Up" id="QEa-RP-wTO">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="Dee-er-fdt">
-                            <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <segue destination="JYS-wh-ajz" kind="showDetail" identifier="saveData" id="uO4-zp-mc7"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="registrationTableView" destination="6se-hT-ccc" id="wF3-Wc-JQ7"/>
-                        <outlet property="userThumbnail" destination="Goy-yJ-oMs" id="CHf-NQ-Yh5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6mf-S1-ZPY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-116" y="1219"/>
-        </scene>
-        <!--Registration View Controller-->
+        <!--Registration-->
         <scene sceneID="Lih-KR-5bB">
             <objects>
                 <viewController id="A93-mg-gzh" customClass="RegistrationViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
@@ -604,16 +476,8 @@
                                             <mask key="constraints">
                                                 <exclude reference="eiU-TV-fzh"/>
                                                 <exclude reference="mUT-XQ-FHf"/>
-                                                <exclude reference="78j-JC-A2W"/>
-                                                <exclude reference="Q3r-En-fh9"/>
-                                                <exclude reference="sv7-eN-dTR"/>
-                                                <exclude reference="Dsz-qA-LXP"/>
-                                                <exclude reference="MvE-3E-C0I"/>
-                                                <exclude reference="cuu-15-eYU"/>
-                                                <exclude reference="fPo-TJ-9sh"/>
-                                                <exclude reference="nEZ-OZ-DHC"/>
-                                                <exclude reference="LXo-EK-0pU"/>
-                                                <exclude reference="djn-YF-Co5"/>
+                                                <exclude reference="B2q-yS-4ig"/>
+                                                <exclude reference="eEn-RN-FJe"/>
                                                 <exclude reference="O3h-BT-QTK"/>
                                                 <exclude reference="aPj-Ak-Tbk"/>
                                                 <exclude reference="dqq-7d-D22"/>
@@ -622,11 +486,19 @@
                                                 <exclude reference="8sZ-73-aWj"/>
                                                 <exclude reference="atB-BQ-Onw"/>
                                                 <exclude reference="sT0-bM-LWb"/>
+                                                <exclude reference="LXo-EK-0pU"/>
+                                                <exclude reference="djn-YF-Co5"/>
+                                                <exclude reference="78j-JC-A2W"/>
+                                                <exclude reference="Q3r-En-fh9"/>
+                                                <exclude reference="sv7-eN-dTR"/>
+                                                <exclude reference="Dsz-qA-LXP"/>
+                                                <exclude reference="MvE-3E-C0I"/>
                                                 <exclude reference="I6W-hg-BnT"/>
                                                 <exclude reference="fSf-kJ-Zzf"/>
                                                 <exclude reference="hWf-0d-AUd"/>
-                                                <exclude reference="B2q-yS-4ig"/>
-                                                <exclude reference="eEn-RN-FJe"/>
+                                                <exclude reference="cuu-15-eYU"/>
+                                                <exclude reference="fPo-TJ-9sh"/>
+                                                <exclude reference="nEZ-OZ-DHC"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
@@ -643,16 +515,8 @@
                                             <mask key="constraints">
                                                 <exclude reference="eiU-TV-fzh"/>
                                                 <include reference="mUT-XQ-FHf"/>
-                                                <include reference="78j-JC-A2W"/>
-                                                <include reference="Q3r-En-fh9"/>
-                                                <include reference="sv7-eN-dTR"/>
-                                                <include reference="Dsz-qA-LXP"/>
-                                                <include reference="MvE-3E-C0I"/>
-                                                <include reference="cuu-15-eYU"/>
-                                                <include reference="fPo-TJ-9sh"/>
-                                                <include reference="nEZ-OZ-DHC"/>
-                                                <include reference="LXo-EK-0pU"/>
-                                                <include reference="djn-YF-Co5"/>
+                                                <include reference="B2q-yS-4ig"/>
+                                                <include reference="eEn-RN-FJe"/>
                                                 <include reference="O3h-BT-QTK"/>
                                                 <include reference="aPj-Ak-Tbk"/>
                                                 <include reference="dqq-7d-D22"/>
@@ -661,11 +525,19 @@
                                                 <include reference="8sZ-73-aWj"/>
                                                 <include reference="atB-BQ-Onw"/>
                                                 <include reference="sT0-bM-LWb"/>
+                                                <include reference="LXo-EK-0pU"/>
+                                                <include reference="djn-YF-Co5"/>
+                                                <include reference="78j-JC-A2W"/>
+                                                <include reference="Q3r-En-fh9"/>
+                                                <include reference="sv7-eN-dTR"/>
+                                                <include reference="Dsz-qA-LXP"/>
+                                                <include reference="MvE-3E-C0I"/>
                                                 <include reference="I6W-hg-BnT"/>
                                                 <include reference="fSf-kJ-Zzf"/>
                                                 <include reference="hWf-0d-AUd"/>
-                                                <include reference="B2q-yS-4ig"/>
-                                                <include reference="eEn-RN-FJe"/>
+                                                <include reference="cuu-15-eYU"/>
+                                                <include reference="fPo-TJ-9sh"/>
+                                                <include reference="nEZ-OZ-DHC"/>
                                             </mask>
                                         </variation>
                                     </view>
@@ -733,7 +605,18 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="CcX-HO-gQw"/>
+                    <navigationItem key="navigationItem" title="Registration" id="9xf-Bm-ux2">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="Idj-Hk-SUX">
+                            <connections>
+                                <segue destination="JYS-wh-ajz" kind="showDetail" identifier="registerUser" id="3gN-NG-gpI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="pQW-Wx-7xA">
+                            <connections>
+                                <segue destination="JYS-wh-ajz" kind="showDetail" id="b0d-YC-6zH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
@@ -747,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyG-hz-JCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="561" y="1242"/>
+            <point key="canvasLocation" x="402" y="1204"/>
         </scene>
         <!--Dept: Upper/Lower Division-->
         <scene sceneID="e3K-Ad-cHY">
@@ -813,15 +696,18 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="7Rg-85-Ega" kind="relationship" relationship="rootViewController" id="sBW-F9-12O"/>
+                        <segue destination="A93-mg-gzh" kind="relationship" relationship="rootViewController" id="Lrf-kR-eaa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4K-Sk-TdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-789" y="1219"/>
+            <point key="canvasLocation" x="-573" y="1197"/>
         </scene>
     </scenes>
     <resources>
         <image name="DefaultProfilePhoto.png" width="512" height="512"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="3gN-NG-gpI"/>
+    </inferredMetricsTieBreakers>
 </document>

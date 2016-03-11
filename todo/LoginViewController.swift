@@ -68,8 +68,9 @@ class LoginViewController: UIViewController {
                     }
                 }
             }
+            return self.validInput
         }
-        return self.validInput
+        return true
     }
 
 }

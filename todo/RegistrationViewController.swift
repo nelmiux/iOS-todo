@@ -15,6 +15,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     private var appSettings = AppSettings()
     private var addedCourses:[String] = [String]()
     private var selectedPhotoString = ""
+    private var shouldRegisterUser:Bool = false
     
     // UI Elements
     @IBOutlet weak var mainView: UIView!
@@ -61,52 +62,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func onClickSignUp(sender: AnyObject) {
-        // TODO: Validate user's input for each field
-        // Retrieve all of the strings
-        var inputs:[String: String] = [String: String]()
-        var invalidInput = false
-        for cell in self.registrationTableView.visibleCells {
-            let field:String = (cell as! RegistrationTableViewCell).fieldLabel.text!
-            let input:String = (cell as! RegistrationTableViewCell).inputField.text!
-            if input == "" {
-                (cell as! RegistrationTableViewCell).errorLabel.text = "Invalid \(field.lowercaseString as String!)"
-                invalidInput = true
-            } else {
-                inputs[field] = input
-            }
-        }
-        
-        // If the input is VALID, create user and persist to Firebase
-        if !invalidInput {
-            inputs["Photo String"] = self.selectedPhotoString
-            
-            self.appSettings.rootRef.createUser(inputs["Email Address"], password: inputs["Password"],
-                withValueCompletionBlock: { error, result in
-                    if error != nil {
-                        
-                        // Alert the user that an error occurred upon registration
-                        let alertController = UIAlertController(title: nil, message: "An error has occurred. There may be an existing account for the provided email address.", preferredStyle: UIAlertControllerStyle.Alert)
-                        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in }
-                        alertController.addAction(OKAction)
-                        self.presentViewController(alertController, animated: true, completion:nil)
-                    } else {
-                        let uid = result["uid"] as? String
-                        
-                        // Insert the user data
-                        let newUserRef = self.appSettings.usersRef.childByAppendingPath(uid)
-                        newUserRef.setValue(inputs)
-                        print("Successfully created user account with uid: \(uid)")
-                        
-                        // Alert the user that they have succesfully registered
-                        let alertController = UIAlertController(title: nil, message: "Congrats! You are ready to start using todo.", preferredStyle: UIAlertControllerStyle.Alert)
-                        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in
-                            self.navigationController?.popToRootViewControllerAnimated(true)
-                        }
-                        alertController.addAction(OKAction)
-                        self.presentViewController(alertController, animated: true, completion:nil)
-                    }
-            })
-        }
+    
     }
     
     
@@ -160,6 +116,58 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     
     // MARK: - Navigation
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        // Check that the user tapped the "Done" button
+        if identifier == "registerUser" {
+            // TODO: Validate user's input for each field
+            // Retrieve all of the strings
+            var inputs:[String: String] = [String: String]()
+            var invalidInput = false
+            for cell in self.registrationTableView.visibleCells {
+                let field:String = (cell as! RegistrationTableViewCell).fieldLabel.text!
+                let input:String = (cell as! RegistrationTableViewCell).inputField.text!
+                if input == "" {
+                    (cell as! RegistrationTableViewCell).errorLabel.text = "Invalid \(field.lowercaseString as String!)"
+                    invalidInput = true
+                } else {
+                    inputs[field] = input
+                }
+            }
+            
+            // If the input is VALID, create user and persist to Firebase
+            if !invalidInput {
+                inputs["Photo String"] = self.selectedPhotoString
+                
+                self.appSettings.rootRef.createUser(inputs["Email Address"], password: inputs["Password"],
+                    withValueCompletionBlock: { error, result in
+                        if error != nil {
+                            self.shouldRegisterUser = false
+                            // Alert the user that an error occurred upon registration
+                            let alertController = UIAlertController(title: nil, message: "An error has occurred. There may be an existing account for the provided email address.", preferredStyle: UIAlertControllerStyle.Alert)
+                            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in }
+                            alertController.addAction(OKAction)
+                            self.presentViewController(alertController, animated: true, completion:nil)
+                        } else {
+                            self.shouldRegisterUser = true
+                            
+                            // Insert the user data
+                            let newUserRef = self.appSettings.usersRef.childByAppendingPath(inputs["Username"])
+                            newUserRef.setValue(inputs)
+                            print("Successfully created user account with username: \(inputs["Username"])")
+                            
+                            // Alert the user that they have succesfully registered
+                            let alertController = UIAlertController(title: nil, message: "Congrats! You are ready to start using todo.", preferredStyle: UIAlertControllerStyle.Alert)
+                            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in }
+                            alertController.addAction(OKAction)
+                            self.presentViewController(alertController, animated: true, completion:nil)
+                        }
+                })
+            }
+            return self.shouldRegisterUser
+        }
+        return true
+    }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
