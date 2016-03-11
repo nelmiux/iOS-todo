@@ -54,20 +54,21 @@ class LoginViewController: UIViewController {
                 self.displayErrorAlertView("Please enter a username and password.")
                 self.validInput = false
             } else {
-                let usersRef = self.appSettings.usersRef
-                let currUserRef = usersRef.
-                let email = currUserRef!.valueForKey("Email Address")
-                print("Email found in Firebase: \(email)")
-                self.appSettings.rootRef.authUser(email as! String!, password: passwordInput) {
-                    error, authData in
-                    if error != nil {
-                        print("Unable to login. Invalid email and/or password.")
-                        self.displayErrorAlertView("Unable to login. Invalid email and/or password.")
-                        self.validInput = false
-                    } else {
-                        self.validInput = true
+                print("usernameInput = \(usernameInput)")
+                let currUserRef = Firebase(url:"https://scorching-heat-4336.firebaseio.com/users/" + usernameInput)
+                currUserRef.observeEventType(.Value, withBlock: { snapshot in
+                    let email = snapshot.value["Email Address"] as! String
+                    self.appSettings.rootRef.authUser(email as! String!, password: passwordInput) {
+                        error, authData in
+                        if error != nil {
+                            print("Unable to login. Invalid email and/or password.")
+                            self.displayErrorAlertView("Unable to login. Invalid email and/or password.")
+                            self.validInput = false
+                        } else {
+                            self.validInput = true
+                        }
                     }
-                }
+                })
             }
             return self.validInput
         }
