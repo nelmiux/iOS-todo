@@ -16,7 +16,6 @@
             <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
-            <string>SegoeUI</string>
         </mutableArray>
         <mutableArray key="SEGOEUIB.TTF">
             <string>SegoeUI-Bold</string>
@@ -31,7 +30,7 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="generalEntry" id="JYS-wh-ajz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cro-Ro-Koa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-42" y="787"/>
+            <point key="canvasLocation" x="-237" y="742"/>
         </scene>
         <!--Registration-->
         <scene sceneID="Lih-KR-5bB">
@@ -41,8 +40,8 @@
                         <viewControllerLayoutGuide type="top" id="elN-KS-2U9"/>
                         <viewControllerLayoutGuide type="bottom" id="KCW-kI-Y2H"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="wC4-iM-HuE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <view key="view" contentMode="scaleAspectFit" id="wC4-iM-HuE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-mH-QdA">
@@ -142,7 +141,7 @@
                                                     </mask>
                                                 </variation>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VJN-Wq-RW8">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VJN-Wq-RW8">
                                                 <rect key="frame" x="14" y="204" width="386" height="293"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -155,7 +154,7 @@
                                                         <rect key="frame" x="0.0" y="92" width="386" height="58"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJ4-Ns-GlY" id="Yer-eI-LwZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="50.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnE-AY-k1H">
@@ -393,38 +392,10 @@
                                                     </mask>
                                                 </variation>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gih-ZL-6e8">
-                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                <color key="backgroundColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="165" id="BRP-Kc-gnO"/>
-                                                    <constraint firstAttribute="height" constant="42" id="pch-GV-35L"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
-                                                <state key="normal" title="SIGN UP">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                </state>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="BRP-Kc-gnO"/>
-                                                        <exclude reference="pch-GV-35L"/>
-                                                    </mask>
-                                                </variation>
-                                                <variation key="widthClass=compact">
-                                                    <mask key="constraints">
-                                                        <include reference="BRP-Kc-gnO"/>
-                                                        <include reference="pch-GV-35L"/>
-                                                    </mask>
-                                                </variation>
-                                                <connections>
-                                                    <action selector="onClickSignUp:" destination="A93-mg-gzh" eventType="touchUpInside" id="ULL-Ct-8ZO"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="t0Z-zK-4vj" firstAttribute="leading" secondItem="HW0-hU-2bM" secondAttribute="leading" id="78j-JC-A2W"/>
                                             <constraint firstAttribute="trailing" secondItem="bc5-Gi-EmA" secondAttribute="trailing" constant="8" id="8sZ-73-aWj"/>
-                                            <constraint firstAttribute="bottom" secondItem="gih-ZL-6e8" secondAttribute="bottom" constant="8" id="B2q-yS-4ig"/>
                                             <constraint firstItem="ryw-HZ-UlS" firstAttribute="top" secondItem="t0Z-zK-4vj" secondAttribute="bottom" constant="8" id="Dsz-qA-LXP"/>
                                             <constraint firstItem="vLC-q4-EXT" firstAttribute="top" secondItem="bc5-Gi-EmA" secondAttribute="bottom" id="I6W-hg-BnT">
                                                 <variation key="widthClass=compact" constant="8"/>
@@ -450,7 +421,6 @@
                                                 <variation key="widthClass=compact" constant="5"/>
                                             </constraint>
                                             <constraint firstAttribute="trailing" secondItem="bKf-eA-goa" secondAttribute="trailing" id="dqq-7d-D22"/>
-                                            <constraint firstItem="gih-ZL-6e8" firstAttribute="centerX" secondItem="HW0-hU-2bM" secondAttribute="centerX" id="eEn-RN-FJe"/>
                                             <constraint firstAttribute="height" constant="750" id="eiU-TV-fzh"/>
                                             <constraint firstAttribute="trailing" secondItem="VJN-Wq-RW8" secondAttribute="trailing" id="fPo-TJ-9sh"/>
                                             <constraint firstAttribute="trailing" secondItem="vLC-q4-EXT" secondAttribute="trailing" id="fSf-kJ-Zzf"/>
@@ -471,13 +441,10 @@
                                                 <exclude reference="VJN-Wq-RW8"/>
                                                 <exclude reference="bKf-eA-goa"/>
                                                 <exclude reference="bc5-Gi-EmA"/>
-                                                <exclude reference="gih-ZL-6e8"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="eiU-TV-fzh"/>
                                                 <exclude reference="mUT-XQ-FHf"/>
-                                                <exclude reference="B2q-yS-4ig"/>
-                                                <exclude reference="eEn-RN-FJe"/>
                                                 <exclude reference="O3h-BT-QTK"/>
                                                 <exclude reference="aPj-Ak-Tbk"/>
                                                 <exclude reference="dqq-7d-D22"/>
@@ -510,13 +477,10 @@
                                                 <include reference="VJN-Wq-RW8"/>
                                                 <include reference="bKf-eA-goa"/>
                                                 <include reference="bc5-Gi-EmA"/>
-                                                <include reference="gih-ZL-6e8"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="eiU-TV-fzh"/>
                                                 <include reference="mUT-XQ-FHf"/>
-                                                <include reference="B2q-yS-4ig"/>
-                                                <include reference="eEn-RN-FJe"/>
                                                 <include reference="O3h-BT-QTK"/>
                                                 <include reference="aPj-Ak-Tbk"/>
                                                 <include reference="dqq-7d-D22"/>
@@ -606,19 +570,19 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="9xf-Bm-ux2">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="Idj-Hk-SUX">
-                            <connections>
-                                <segue destination="JYS-wh-ajz" kind="showDetail" identifier="registerUser" id="3gN-NG-gpI"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="cancel" id="pQW-Wx-7xA">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="pQW-Wx-7xA">
                             <connections>
                                 <segue destination="JYS-wh-ajz" kind="showDetail" id="b0d-YC-6zH"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Idj-Hk-SUX">
+                            <connections>
+                                <action selector="onClickDone:" destination="A93-mg-gzh" id="1AA-HA-Vuf"/>
+                                <segue destination="JYS-wh-ajz" kind="showDetail" identifier="registerUser" id="3gN-NG-gpI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="568"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="departmentButton" destination="jGa-mc-V3v" id="0Ab-Yw-17y"/>
                         <outlet property="mainView" destination="HW0-hU-2bM" id="pPS-YA-l1A"/>
@@ -630,29 +594,29 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyG-hz-JCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="402" y="1204"/>
+            <point key="canvasLocation" x="-100" y="1197"/>
         </scene>
         <!--Dept: Upper/Lower Division-->
         <scene sceneID="e3K-Ad-cHY">
             <objects>
                 <tableViewController id="XbM-3x-yi9" customClass="AddCoursesTableViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qln-ok-mCA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCourseCell" textLabel="f5X-wN-H3f" style="IBUITableViewCellStyleDefault" id="pyO-Qd-1gR">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pyO-Qd-1gR" id="jp6-dR-Nq9">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f5X-wN-H3f">
-                                            <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="384" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="widthClass=compact">
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -674,16 +638,18 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLw-Qq-Wyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1239" y="1242"/>
+            <point key="canvasLocation" x="391" y="1197"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3kk-iC-PDS">
             <objects>
                 <navigationController storyboardIdentifier="signUpEntry" automaticallyAdjustsScrollViewInsets="NO" id="74O-Gf-ijo" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ry0-JZ-fsG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

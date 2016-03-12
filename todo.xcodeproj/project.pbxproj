@@ -46,6 +46,7 @@
 		CA03C2EC1C904BC800AE0B3F /* SaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA03C2EB1C904BC800AE0B3F /* SaveData.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
+		CA7B00C91C94B5380001D0F4 /* ValidData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B00C81C94B5380001D0F4 /* ValidData.swift */; };
 		CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11801C8687000039D8F3 /* Notifications.storyboard */; };
 		CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */; };
 		CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */; };
@@ -83,7 +84,6 @@
 		CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482871C84209E00059FDD /* Home-Item2.png */; };
 		CACD43C51C905DA9002709FF /* ReadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CACD43C41C905DA9002709FF /* ReadData.swift */; };
 		CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C421C7E46030085F014 /* AppDelegate.swift */; };
-		CADD3C451C7E46030085F014 /* SignInUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C441C7E46030085F014 /* SignInUpViewController.swift */; };
 		CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C491C7E46030085F014 /* Assets.xcassets */; };
 		CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */; };
 		CADD3C581C7E46030085F014 /* todoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C571C7E46030085F014 /* todoTests.swift */; };
@@ -149,6 +149,7 @@
 		CA03C2EB1C904BC800AE0B3F /* SaveData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveData.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		CA7B00C81C94B5380001D0F4 /* ValidData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidData.swift; sourceTree = "<group>"; };
 		CA8B11801C8687000039D8F3 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
 		CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorWaitingViewController.swift; sourceTree = "<group>"; };
 		CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics2.png"; path = "images/Home/Home Analitics2.png"; sourceTree = "<group>"; };
@@ -187,7 +188,6 @@
 		CACD43C41C905DA9002709FF /* ReadData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadData.swift; sourceTree = "<group>"; };
 		CADD3C3F1C7E46030085F014 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD3C421C7E46030085F014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CADD3C441C7E46030085F014 /* SignInUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpViewController.swift; sourceTree = "<group>"; };
 		CADD3C491C7E46030085F014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CADD3C4C1C7E46030085F014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CADD3C4E1C7E46030085F014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -405,7 +405,6 @@
 				879474441C90FDB6008F9F64 /* CS_Lower.txt */,
 				879474451C90FDB6008F9F64 /* CS_Upper.txt */,
 				CADD3C421C7E46030085F014 /* AppDelegate.swift */,
-				CADD3C441C7E46030085F014 /* SignInUpViewController.swift */,
 				CA2A50F81C854225000E2E94 /* LoadingViewController.swift */,
 				CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */,
 				879474521C932907008F9F64 /* HomeViewController.swift */,
@@ -417,6 +416,7 @@
 				8782F7121C8D514200922859 /* AppSettings.swift */,
 				877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
+				CA7B00C81C94B5380001D0F4 /* ValidData.swift */,
 				CA03C2EB1C904BC800AE0B3F /* SaveData.swift */,
 				CACD43C41C905DA9002709FF /* ReadData.swift */,
 				8742B0C51C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift */,
@@ -705,7 +705,6 @@
 			files = (
 				879474531C932907008F9F64 /* HomeViewController.swift in Sources */,
 				8782F70A1C8D3E4300922859 /* User.swift in Sources */,
-				CADD3C451C7E46030085F014 /* SignInUpViewController.swift in Sources */,
 				878098311C86C21A005DDE9E /* TutoringRequest.swift in Sources */,
 				879474491C90FF2C008F9F64 /* StreamReader.swift in Sources */,
 				04B6C33E1C86806F00BA7882 /* StandardNotificationTableViewCell.swift in Sources */,
@@ -726,6 +725,7 @@
 				CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */,
 				CA03C2EC1C904BC800AE0B3F /* SaveData.swift in Sources */,
 				8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */,
+				CA7B00C91C94B5380001D0F4 /* ValidData.swift in Sources */,
 				8782F7131C8D514200922859 /* AppSettings.swift in Sources */,
 				8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */,
 			);

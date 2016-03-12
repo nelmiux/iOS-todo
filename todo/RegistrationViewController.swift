@@ -7,15 +7,12 @@
 //
 
 import UIKit
-import Firebase
 
-class RegistrationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class RegistrationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     // Class attributes
-    private var appSettings = AppSettings()
     private var addedCourses:[String] = [String]()
     private var selectedPhotoString = ""
-    private var shouldRegisterUser:Bool = false
     
     // UI Elements
     @IBOutlet weak var mainView: UIView!
@@ -29,6 +26,10 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("hideKeyboard"))
+        tapGesture.cancelsTouchesInView = true
+        self.view.addGestureRecognizer(tapGesture)
         
         // Instantiate UI element data components
         self.registrationTableView.delegate = self
@@ -61,19 +62,15 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         popOverController.presentPopover(sourceController: self, sourceView: self.upperLowerButton, sourceRect: self.upperLowerButton.bounds)
     }
     
-    @IBAction func onClickSignUp(sender: AnyObject) {
-    
-    }
-    
-    
     // TableView Functionality
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.appSettings.registrationFields.count
+        return registrationFields.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:RegistrationTableViewCell = self.registrationTableView.dequeueReusableCellWithIdentifier("registrationCell", forIndexPath: indexPath) as! RegistrationTableViewCell
-        let field = self.appSettings.registrationFields[indexPath.row]
+        let field = registrationFields[indexPath.row]
+        cell.inputField.delegate = self
         cell.fieldLabel.text = field.0
         cell.inputField.placeholder = field.1
         
@@ -84,6 +81,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         if field.0 == "Password" {
             cell.inputField.secureTextEntry = true
         }
+
         return cell
     }
     
@@ -114,74 +112,55 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         return scaledImage
     }
     
-    
     // MARK: - Navigation
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        hideKeyboard()
         // Check that the user tapped the "Done" button
         if identifier == "registerUser" {
             // TODO: Validate user's input for each field
             // Retrieve all of the strings
             var inputs:[String: String] = [String: String]()
-            var invalidInput = false
             for cell in self.registrationTableView.visibleCells {
-                let field:String = (cell as! RegistrationTableViewCell).fieldLabel.text!
-                let input:String = (cell as! RegistrationTableViewCell).inputField.text!
-                if input == "" {
-                    (cell as! RegistrationTableViewCell).errorLabel.text = "Invalid \(field.lowercaseString as String!)"
-                    invalidInput = true
-                } else {
-                    inputs[field] = input
+                let currentCell = (cell as! RegistrationTableViewCell)
+                currentCell.errorLabel.text = "Invalid \(currentCell.fieldLabel.text!.lowercaseString as String!)"
+                currentCell.errorLabel.hidden = true
+                if currentCell.inputField.text! == "" {
+                    currentCell.errorLabel.hidden = false
+                    return false
                 }
+                inputs[currentCell.fieldLabel.text!] = currentCell.inputField.text!
             }
             
             // If the input is VALID, create user and persist to Firebase
-            if !invalidInput {
-                inputs["Photo String"] = self.selectedPhotoString
-                
-                self.appSettings.rootRef.createUser(inputs["Email Address"], password: inputs["Password"],
-                    withValueCompletionBlock: { error, result in
-                        if error != nil {
-                            self.shouldRegisterUser = false
-                            // Alert the user that an error occurred upon registration
-                            let alertController = UIAlertController(title: nil, message: "An error has occurred. There may be an existing account for the provided email address.", preferredStyle: UIAlertControllerStyle.Alert)
-                            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in }
-                            alertController.addAction(OKAction)
-                            self.presentViewController(alertController, animated: true, completion:nil)
-                        } else {
-                            self.shouldRegisterUser = true
-                            
-                            // Insert the user data
-                            let newUserRef = self.appSettings.usersRef.childByAppendingPath(inputs["Username"])
-                            newUserRef.setValue(inputs)
-                            print("Successfully created user account with username: \(inputs["Username"])")
-                            
-                            // Alert the user that they have succesfully registered
-                            let alertController = UIAlertController(title: nil, message: "Congrats! You are ready to start using todo.", preferredStyle: UIAlertControllerStyle.Alert)
-                            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action:UIAlertAction) in }
-                            alertController.addAction(OKAction)
-                            self.presentViewController(alertController, animated: true, completion:nil)
-                        }
-                })
-            }
-            return self.shouldRegisterUser
+            inputs["Photo String"] = self.selectedPhotoString
+            
+            createUser(self, inputs: inputs)
         }
-        return true
+        return false
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ViewCoursesToAdd" {
             if self.upperLowerButton.titleLabel?.text as String! == "Upper" {
-                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.appSettings.upperDivisionCourses)
+                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(upperDivisionCourses)
                 segue.destinationViewController.navigationItem.title = "CS: Upper"
                 (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
             } else if self.upperLowerButton.titleLabel?.text as String! == "Lower" {
-                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(self.appSettings.lowerDivisionCourses)
+                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(lowerDivisionCourses)
                 segue.destinationViewController.navigationItem.title = "CS: Lower"
                 (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
             }
         }
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func hideKeyboard() {
+        self.view.endEditing(true)
+    }
 }

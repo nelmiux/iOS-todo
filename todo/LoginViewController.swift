@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordInputField: UITextField!
     
     // Class variables
-    private let appSettings = AppSettings()
     private var validInput = true
     
     override func viewDidLoad() {
@@ -66,7 +65,7 @@ class LoginViewController: UIViewController {
                     print("email = \(email)")
                     
                     // Attempt to log the user in
-                    self.appSettings.rootRef.authUser(email as! String!, password: passwordInput) {
+                    rootRef.authUser(email as String, password: passwordInput) {
                         error, authData in
                         if error != nil {
                             print("Unable to login. Invalid email and/or password.")

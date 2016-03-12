@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationTableViewCell: UITableViewCell {
+class RegistrationTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var fieldLabel: UILabel!
     @IBOutlet weak var inputField: UITextField!
@@ -24,5 +24,5 @@ class RegistrationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
