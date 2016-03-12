@@ -21,6 +21,26 @@ let lowerDivisionCourses:[String] = ["CS 312: Introduction to Programming", "CS 
 let upperDivisionCourses:[String] = [String]()
 
 
+func createUser(view: AnyObject, inputs: [String: String]) {
+    rootRef.createUser(inputs["Email Address"], password: inputs["Password"], withValueCompletionBlock: {
+        error, result in
+        if error == nil {
+            // Insert the user data
+            let newUserRef = usersRef.childByAppendingPath(inputs["Username"])
+            newUserRef.setValue(inputs)
+            print("Successfully created user account with username: \(inputs["Username"]!)")
+            alert(view, description: "Congrats! You are ready to start using todo.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                result in
+                view.performSegueWithIdentifier("registerUser", sender: nil)
+                }
+            )
+            return
+        }
+        alert(view, description: "An error has occurred. There may be an existing account for the provided email address.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        }
+    )
+}
+
 func alert (view: AnyObject, description: String, action: UIAlertAction) {
     let alertController = UIAlertController(title: nil, message: description, preferredStyle: UIAlertControllerStyle.Alert)
     let OKAction = action
