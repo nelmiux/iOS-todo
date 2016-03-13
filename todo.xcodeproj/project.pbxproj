@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		879474461C90FDB6008F9F64 /* CS_Lower.txt in Resources */ = {isa = PBXBuildFile; fileRef = 879474441C90FDB6008F9F64 /* CS_Lower.txt */; };
-		879474471C90FDB6008F9F64 /* CS_Upper.txt in Resources */ = {isa = PBXBuildFile; fileRef = 879474451C90FDB6008F9F64 /* CS_Upper.txt */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */; };
@@ -55,6 +53,10 @@
 		CA7B019D1C951AF20001D0F4 /* TutoringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01881C951AF20001D0F4 /* TutoringRequest.swift */; };
 		CA7B019E1C951AF20001D0F4 /* TutorWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */; };
 		CA7B019F1C951AF20001D0F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B018A1C951AF20001D0F4 /* User.swift */; };
+		CA7B01A51C951CCC0001D0F4 /* UTCSCourses.json in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A11C951CCC0001D0F4 /* UTCSCourses.json */; };
+		CA7B01A61C951CCC0001D0F4 /* CS_Lower.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A21C951CCC0001D0F4 /* CS_Lower.txt */; };
+		CA7B01A71C951CCC0001D0F4 /* CS_Upper.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A31C951CCC0001D0F4 /* CS_Upper.txt */; };
+		CA7B01A81C951CCC0001D0F4 /* UTCS_Course_schedule.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A41C951CCC0001D0F4 /* UTCS_Course_schedule.txt */; };
 		CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
 		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
@@ -109,15 +111,7 @@
 /* Begin PBXFileReference section */
 		04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_Teal.png; sourceTree = "<group>"; };
 		04B6C3221C85786C00BA7882 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_White.png; sourceTree = "<group>"; };
-		04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardNotificationTableViewCell.swift; sourceTree = "<group>"; };
-		04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNotificationTableViewCell.swift; sourceTree = "<group>"; };
-		04B6C3411C86825F00BA7882 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
-		04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
-		8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewController.swift; sourceTree = "<group>"; };
-		8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewCell.swift; sourceTree = "<group>"; };
-		879474441C90FDB6008F9F64 /* CS_Lower.txt */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = CS_Lower.txt; sourceTree = "<group>"; };
-		879474451C90FDB6008F9F64 /* CS_Upper.txt */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = CS_Upper.txt; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
@@ -165,6 +159,10 @@
 		CA7B01881C951AF20001D0F4 /* TutoringRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutoringRequest.swift; path = src/TutoringRequest.swift; sourceTree = "<group>"; };
 		CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorWaitingViewController.swift; path = src/TutorWaitingViewController.swift; sourceTree = "<group>"; };
 		CA7B018A1C951AF20001D0F4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = src/User.swift; sourceTree = "<group>"; };
+		CA7B01A11C951CCC0001D0F4 /* UTCSCourses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = UTCSCourses.json; path = docs/UTCSCourses.json; sourceTree = "<group>"; };
+		CA7B01A21C951CCC0001D0F4 /* CS_Lower.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CS_Lower.txt; path = docs/CS_Lower.txt; sourceTree = "<group>"; };
+		CA7B01A31C951CCC0001D0F4 /* CS_Upper.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CS_Upper.txt; path = docs/CS_Upper.txt; sourceTree = "<group>"; };
+		CA7B01A41C951CCC0001D0F4 /* UTCS_Course_schedule.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UTCS_Course_schedule.txt; path = docs/UTCS_Course_schedule.txt; sourceTree = "<group>"; };
 		CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics2.png"; path = "images/Home/Home Analitics2.png"; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
 		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
@@ -271,7 +269,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		8782F70B1C8D3EE300922859 /* Storyboards */ = {
+		8782F70B1C8D3EE300922859 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
@@ -283,18 +281,18 @@
 				CA7B01361C9509530001D0F4 /* Profile.storyboard */,
 				CA7B01381C9509530001D0F4 /* Settings.storyboard */,
 			);
-			name = Storyboards;
+			name = storyboards;
 			sourceTree = "<group>";
 		};
 		8782F70C1C8D3F3600922859 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */,
-				8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */,
-				04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */,
-				04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */,
-				04B6C3411C86825F00BA7882 /* Notification.swift */,
-				04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */,
+				CA7B017C1C951AF20001D0F4 /* Notification.swift */,
+				CA7B017D1C951AF20001D0F4 /* NotificationsTableViewController.swift */,
+				CA7B01861C951AF20001D0F4 /* StandardNotificationTableViewCell.swift */,
+				CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */,
+				CA7B01841C951AF20001D0F4 /* RequestPoolTableViewCell.swift */,
+				CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -324,28 +322,42 @@
 			isa = PBXGroup;
 			children = (
 				CA7B01771C951AF20001D0F4 /* AppDelegate.swift */,
+				CA7B01A91C951D470001D0F4 /* Registration */,
+				8782F70C1C8D3F3600922859 /* Notifications */,
 				CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */,
-				CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */,
-				CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */,
-				CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */,
-				CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */,
-				CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */,
 				CA7B01791C951AF20001D0F4 /* HomeViewController.swift */,
 				CA7B01881C951AF20001D0F4 /* TutoringRequest.swift */,
 				CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */,
 				CA7B017A1C951AF20001D0F4 /* LoadingViewController.swift */,
-				CA7B017C1C951AF20001D0F4 /* Notification.swift */,
-				CA7B017D1C951AF20001D0F4 /* NotificationsTableViewController.swift */,
-				CA7B01861C951AF20001D0F4 /* StandardNotificationTableViewCell.swift */,
-				CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */,
-				CA7B01841C951AF20001D0F4 /* RequestPoolTableViewCell.swift */,
-				CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */,
 				CA7B01801C951AF20001D0F4 /* ProfileViewController.swift */,
 				CA7B018A1C951AF20001D0F4 /* User.swift */,
 				CA7B01871C951AF20001D0F4 /* StreamReader.swift */,
 				CA7B01781C951AF20001D0F4 /* DataManager.swift */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		CA7B01A01C951CAD0001D0F4 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+				CA7B01A11C951CCC0001D0F4 /* UTCSCourses.json */,
+				CA7B01A21C951CCC0001D0F4 /* CS_Lower.txt */,
+				CA7B01A31C951CCC0001D0F4 /* CS_Upper.txt */,
+				CA7B01A41C951CCC0001D0F4 /* UTCS_Course_schedule.txt */,
+			);
+			name = docs;
+			sourceTree = "<group>";
+		};
+		CA7B01A91C951D470001D0F4 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */,
+				CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */,
+				CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */,
+				CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */,
+				CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */,
+			);
+			name = Registration;
 			sourceTree = "<group>";
 		};
 		CAB102021C8442D400033929 /* General */ = {
@@ -443,13 +455,11 @@
 			isa = PBXGroup;
 			children = (
 				CA7B01751C951A870001D0F4 /* src */,
-				8782F70C1C8D3F3600922859 /* Notifications */,
-				8782F70B1C8D3EE300922859 /* Storyboards */,
+				8782F70B1C8D3EE300922859 /* storyboards */,
 				CADD3C701C7E4E7B0085F014 /* images */,
 				CAC482691C83F44A00059FDD /* fonts */,
+				CA7B01A01C951CAD0001D0F4 /* docs */,
 				CADD3C491C7E46030085F014 /* Assets.xcassets */,
-				879474441C90FDB6008F9F64 /* CS_Lower.txt */,
-				879474451C90FDB6008F9F64 /* CS_Upper.txt */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
 			);
 			path = todo;
@@ -605,11 +615,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7B01A61C951CCC0001D0F4 /* CS_Lower.txt in Resources */,
 				CA7B00DE1C9505FF0001D0F4 /* SignUpButton2.png in Resources */,
 				CAC137D31C855D8E00586487 /* user1.png in Resources */,
 				CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */,
 				CA7B00D61C9504C90001D0F4 /* ModerateActivity_Profile.png in Resources */,
 				CA7B00D21C9504C90001D0F4 /* DotsBalance_Profile.png in Resources */,
+				CA7B01A71C951CCC0001D0F4 /* CS_Upper.txt in Resources */,
 				CA7B016F1C9515D40001D0F4 /* SignUpButton.png in Resources */,
 				CA7B00D31C9504C90001D0F4 /* EmailButton_Profile.png in Resources */,
 				CAB102041C8442E600033929 /* logout.png in Resources */,
@@ -622,7 +634,6 @@
 				CA7B013C1C9509530001D0F4 /* History.storyboard in Resources */,
 				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
 				CAC4827B1C83F85A00059FDD /* HistoryTabIcon_Teal.png in Resources */,
-				879474471C90FDB6008F9F64 /* CS_Upper.txt in Resources */,
 				CAC4827C1C83F85A00059FDD /* HomeTabIcon_Teal.png in Resources */,
 				CA7B00D71C9504C90001D0F4 /* StudentProfileTestPhoto.png in Resources */,
 				CAB102061C844FA500033929 /* user-pic.png in Resources */,
@@ -641,10 +652,11 @@
 				CA7B01411C9509530001D0F4 /* SignUp.storyboard in Resources */,
 				CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */,
 				CA7B016E1C9515D40001D0F4 /* LoginButton.png in Resources */,
+				CA7B01A81C951CCC0001D0F4 /* UTCS_Course_schedule.txt in Resources */,
 				CA7B013F1C9509530001D0F4 /* Profile.storyboard in Resources */,
 				CA7B00DC1C9505FF0001D0F4 /* LoginScreenBg2.jpg in Resources */,
+				CA7B01A51C951CCC0001D0F4 /* UTCSCourses.json in Resources */,
 				CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */,
-				879474461C90FDB6008F9F64 /* CS_Lower.txt in Resources */,
 				CAC482711C83F49A00059FDD /* SEGOEUIB.TTF in Resources */,
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
