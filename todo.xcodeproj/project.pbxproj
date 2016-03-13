@@ -7,54 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0435DD6B1C857152009D3245 /* LoginButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435DD681C857152009D3245 /* LoginButton2.png */; };
-		0435DD6C1C857152009D3245 /* LoginScreenBg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0435DD691C857152009D3245 /* LoginScreenBg2.jpg */; };
-		0435DD6D1C857152009D3245 /* SignUpButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0435DD6A1C857152009D3245 /* SignUpButton2.png */; };
-		04B6C3231C85786C00BA7882 /* TodoSlogan_LightGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3201C85786C00BA7882 /* TodoSlogan_LightGray.png */; };
-		04B6C3241C85786C00BA7882 /* TodoLogo_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */; };
-		04B6C3251C85786C00BA7882 /* TodoLogo_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3221C85786C00BA7882 /* TodoLogo_White.png */; };
-		04B6C3291C865E7800BA7882 /* DotsBalance_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3271C865E7800BA7882 /* DotsBalance_Profile.png */; };
-		04B6C32C1C865F4000BA7882 /* StudentProfileTestPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C32B1C865F4000BA7882 /* StudentProfileTestPhoto.png */; };
-		04B6C3341C866A0600BA7882 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3331C866A0600BA7882 /* ProfileViewController.swift */; };
-		04B6C3361C86784200BA7882 /* ModerateActivity_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3351C86784200BA7882 /* ModerateActivity_Profile.png */; };
-		04B6C3391C86787500BA7882 /* FrequentActivity_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3371C86787500BA7882 /* FrequentActivity_Profile.png */; };
-		04B6C33A1C86787500BA7882 /* MinimalActivity_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C3381C86787500BA7882 /* MinimalActivity_Profile.png */; };
-		04B6C33C1C86793500BA7882 /* EmailButton_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B6C33B1C86793500BA7882 /* EmailButton_Profile.png */; };
-		04B6C33E1C86806F00BA7882 /* StandardNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */; };
-		04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */; };
-		04B6C3421C86825F00BA7882 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3411C86825F00BA7882 /* Notification.swift */; };
-		04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */; };
-		8742B0C61C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8742B0C51C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift */; };
-		876D97651C8D6DC700DC26D5 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */; };
-		877338F61C8FEF1A0069B6CA /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */; };
-		8780982B1C86BF88005DDE9E /* LocationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8780982A1C86BF88005DDE9E /* LocationIcon.png */; };
-		8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */; };
-		8780982F1C86C14C005DDE9E /* RequestPoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */; };
-		878098311C86C21A005DDE9E /* TutoringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878098301C86C21A005DDE9E /* TutoringRequest.swift */; };
-		8782F70A1C8D3E4300922859 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7091C8D3E4300922859 /* User.swift */; };
-		8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */; };
-		8782F7131C8D514200922859 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8782F7121C8D514200922859 /* DataManager.swift */; };
 		879474461C90FDB6008F9F64 /* CS_Lower.txt in Resources */ = {isa = PBXBuildFile; fileRef = 879474441C90FDB6008F9F64 /* CS_Lower.txt */; };
 		879474471C90FDB6008F9F64 /* CS_Upper.txt in Resources */ = {isa = PBXBuildFile; fileRef = 879474451C90FDB6008F9F64 /* CS_Upper.txt */; };
-		879474491C90FF2C008F9F64 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879474481C90FF2C008F9F64 /* StreamReader.swift */; };
-		8794744D1C910390008F9F64 /* OptionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8794744C1C910390008F9F64 /* OptionsListViewController.swift */; };
-		8794744F1C91045D008F9F64 /* OptionsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8794744E1C91045D008F9F64 /* OptionsPopoverViewController.swift */; };
-		879474511C91513D008F9F64 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879474501C91513D008F9F64 /* LoginViewController.swift */; };
-		879474531C932907008F9F64 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879474521C932907008F9F64 /* HomeViewController.swift */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
-		CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2A50F81C854225000E2E94 /* LoadingViewController.swift */; };
-		CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11801C8687000039D8F3 /* Notifications.storyboard */; };
-		CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */; };
+		CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */; };
+		CA7B00D21C9504C90001D0F4 /* DotsBalance_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */; };
+		CA7B00D31C9504C90001D0F4 /* EmailButton_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CC1C9504C90001D0F4 /* EmailButton_Profile.png */; };
+		CA7B00D41C9504C90001D0F4 /* FrequentActivity_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CD1C9504C90001D0F4 /* FrequentActivity_Profile.png */; };
+		CA7B00D51C9504C90001D0F4 /* MinimalActivity_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CE1C9504C90001D0F4 /* MinimalActivity_Profile.png */; };
+		CA7B00D61C9504C90001D0F4 /* ModerateActivity_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CF1C9504C90001D0F4 /* ModerateActivity_Profile.png */; };
+		CA7B00D71C9504C90001D0F4 /* StudentProfileTestPhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00D01C9504C90001D0F4 /* StudentProfileTestPhoto.png */; };
+		CA7B00DC1C9505FF0001D0F4 /* LoginScreenBg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00D81C9505FF0001D0F4 /* LoginScreenBg2.jpg */; };
+		CA7B00DD1C9505FF0001D0F4 /* LoginButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00D91C9505FF0001D0F4 /* LoginButton2.png */; };
+		CA7B00DE1C9505FF0001D0F4 /* SignUpButton2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00DA1C9505FF0001D0F4 /* SignUpButton2.png */; };
+		CA7B00DF1C9505FF0001D0F4 /* TodoSlogan_LightGray.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00DB1C9505FF0001D0F4 /* TodoSlogan_LightGray.png */; };
+		CA7B013C1C9509530001D0F4 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01301C9509530001D0F4 /* History.storyboard */; };
+		CA7B013D1C9509530001D0F4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01321C9509530001D0F4 /* Home.storyboard */; };
+		CA7B013E1C9509530001D0F4 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01341C9509530001D0F4 /* Notifications.storyboard */; };
+		CA7B013F1C9509530001D0F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01361C9509530001D0F4 /* Profile.storyboard */; };
+		CA7B01401C9509530001D0F4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01381C9509530001D0F4 /* Settings.storyboard */; };
+		CA7B01411C9509530001D0F4 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B013A1C9509530001D0F4 /* SignUp.storyboard */; };
+		CA7B016D1C9515D40001D0F4 /* LoginScreenBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01681C9515D40001D0F4 /* LoginScreenBg.jpg */; };
+		CA7B016E1C9515D40001D0F4 /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01691C9515D40001D0F4 /* LoginButton.png */; };
+		CA7B016F1C9515D40001D0F4 /* SignUpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B016A1C9515D40001D0F4 /* SignUpButton.png */; };
+		CA7B01701C9515D40001D0F4 /* TodoLogo_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B016B1C9515D40001D0F4 /* TodoLogo_Teal.png */; };
+		CA7B01711C9515D40001D0F4 /* TodoLogo_White.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B016C1C9515D40001D0F4 /* TodoLogo_White.png */; };
+		CA7B01741C9516E50001D0F4 /* LocationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01731C9516E50001D0F4 /* LocationIcon.png */; };
+		CA7B018B1C951AF20001D0F4 /* AddCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */; };
+		CA7B018C1C951AF20001D0F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01771C951AF20001D0F4 /* AppDelegate.swift */; };
+		CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01781C951AF20001D0F4 /* DataManager.swift */; };
+		CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01791C951AF20001D0F4 /* HomeViewController.swift */; };
+		CA7B018F1C951AF20001D0F4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017A1C951AF20001D0F4 /* LoadingViewController.swift */; };
+		CA7B01901C951AF20001D0F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */; };
+		CA7B01911C951AF20001D0F4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017C1C951AF20001D0F4 /* Notification.swift */; };
+		CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017D1C951AF20001D0F4 /* NotificationsTableViewController.swift */; };
+		CA7B01931C951AF20001D0F4 /* OptionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */; };
+		CA7B01941C951AF20001D0F4 /* OptionsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */; };
+		CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01801C951AF20001D0F4 /* ProfileViewController.swift */; };
+		CA7B01961C951AF20001D0F4 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */; };
+		CA7B01971C951AF20001D0F4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */; };
+		CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */; };
+		CA7B01991C951AF20001D0F4 /* RequestPoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01841C951AF20001D0F4 /* RequestPoolTableViewCell.swift */; };
+		CA7B019A1C951AF20001D0F4 /* RequestPoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */; };
+		CA7B019B1C951AF20001D0F4 /* StandardNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01861C951AF20001D0F4 /* StandardNotificationTableViewCell.swift */; };
+		CA7B019C1C951AF20001D0F4 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01871C951AF20001D0F4 /* StreamReader.swift */; };
+		CA7B019D1C951AF20001D0F4 /* TutoringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01881C951AF20001D0F4 /* TutoringRequest.swift */; };
+		CA7B019E1C951AF20001D0F4 /* TutorWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */; };
+		CA7B019F1C951AF20001D0F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B018A1C951AF20001D0F4 /* User.swift */; };
 		CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
 		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
-		CAC137BB1C854F6400586487 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BA1C854F6400586487 /* Settings.storyboard */; };
-		CAC137BD1C8552A000586487 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BC1C8552A000586487 /* Profile.storyboard */; };
-		CAC137BF1C85538D00586487 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137BE1C85538D00586487 /* History.storyboard */; };
 		CAC137C41C85548B00586487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C21C85548B00586487 /* Main.storyboard */; };
-		CAC137C61C85567A00586487 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C51C85567A00586487 /* SignUp.storyboard */; };
-		CAC137C81C8557ED00586487 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C71C8557ED00586487 /* Home.storyboard */; };
 		CAC137D01C855D8E00586487 /* History Example.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CA1C855D8E00586487 /* History Example.png */; };
 		CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CB1C855D8E00586487 /* HistoryExample.png */; };
 		CAC137D21C855D8E00586487 /* Location.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CC1C855D8E00586487 /* Location.png */; };
@@ -79,12 +83,10 @@
 		CAC482881C84209E00059FDD /* Home Analitics.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482851C84209E00059FDD /* Home Analitics.png */; };
 		CAC482891C84209E00059FDD /* Home-Item1.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482861C84209E00059FDD /* Home-Item1.png */; };
 		CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC482871C84209E00059FDD /* Home-Item2.png */; };
-		CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C421C7E46030085F014 /* AppDelegate.swift */; };
 		CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C491C7E46030085F014 /* Assets.xcassets */; };
 		CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */; };
 		CADD3C581C7E46030085F014 /* todoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C571C7E46030085F014 /* todoTests.swift */; };
 		CADD3C631C7E46030085F014 /* todoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADD3C621C7E46030085F014 /* todoUITests.swift */; };
-		CADD3C721C7E4ED70085F014 /* xlarge_building1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CADD3C711C7E4ED70085F014 /* xlarge_building1.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,55 +107,68 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0435DD681C857152009D3245 /* LoginButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoginButton2.png; sourceTree = "<group>"; };
-		0435DD691C857152009D3245 /* LoginScreenBg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LoginScreenBg2.jpg; sourceTree = "<group>"; };
-		0435DD6A1C857152009D3245 /* SignUpButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SignUpButton2.png; sourceTree = "<group>"; };
-		04B6C3201C85786C00BA7882 /* TodoSlogan_LightGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoSlogan_LightGray.png; sourceTree = "<group>"; };
 		04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_Teal.png; sourceTree = "<group>"; };
 		04B6C3221C85786C00BA7882 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_White.png; sourceTree = "<group>"; };
-		04B6C3271C865E7800BA7882 /* DotsBalance_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DotsBalance_Profile.png; sourceTree = "<group>"; };
-		04B6C32B1C865F4000BA7882 /* StudentProfileTestPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StudentProfileTestPhoto.png; sourceTree = "<group>"; };
-		04B6C3331C866A0600BA7882 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		04B6C3351C86784200BA7882 /* ModerateActivity_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ModerateActivity_Profile.png; sourceTree = "<group>"; };
-		04B6C3371C86787500BA7882 /* FrequentActivity_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FrequentActivity_Profile.png; sourceTree = "<group>"; };
-		04B6C3381C86787500BA7882 /* MinimalActivity_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MinimalActivity_Profile.png; sourceTree = "<group>"; };
-		04B6C33B1C86793500BA7882 /* EmailButton_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EmailButton_Profile.png; sourceTree = "<group>"; };
 		04B6C33D1C86806F00BA7882 /* StandardNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		04B6C33F1C8681EF00BA7882 /* RequestNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		04B6C3411C86825F00BA7882 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		04B6C3431C8682EB00BA7882 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
-		8742B0C51C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCoursesTableViewController.swift; sourceTree = "<group>"; };
-		876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DefaultProfilePhoto.png; sourceTree = "<group>"; };
-		877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
 		8780982C1C86C072005DDE9E /* RequestPoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewController.swift; sourceTree = "<group>"; };
 		8780982E1C86C14C005DDE9E /* RequestPoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPoolTableViewCell.swift; sourceTree = "<group>"; };
-		878098301C86C21A005DDE9E /* TutoringRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutoringRequest.swift; sourceTree = "<group>"; };
-		8782F7091C8D3E4300922859 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewCell.swift; sourceTree = "<group>"; };
-		8782F7121C8D514200922859 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		879474441C90FDB6008F9F64 /* CS_Lower.txt */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = CS_Lower.txt; sourceTree = "<group>"; };
 		879474451C90FDB6008F9F64 /* CS_Upper.txt */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = CS_Upper.txt; sourceTree = "<group>"; };
-		879474481C90FF2C008F9F64 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
-		8794744C1C910390008F9F64 /* OptionsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsListViewController.swift; sourceTree = "<group>"; };
-		8794744E1C91045D008F9F64 /* OptionsPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsPopoverViewController.swift; sourceTree = "<group>"; };
-		879474501C91513D008F9F64 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		879474521C932907008F9F64 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../HomeViewController.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
-		CA2A50F81C854225000E2E94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		CA8B11801C8687000039D8F3 /* Notifications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Notifications.storyboard; sourceTree = "<group>"; };
-		CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorWaitingViewController.swift; sourceTree = "<group>"; };
+		CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DefaultProfilePhoto.png; path = images/Profile/DefaultProfilePhoto.png; sourceTree = "<group>"; };
+		CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DotsBalance_Profile.png; path = images/Profile/DotsBalance_Profile.png; sourceTree = "<group>"; };
+		CA7B00CC1C9504C90001D0F4 /* EmailButton_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EmailButton_Profile.png; path = images/Profile/EmailButton_Profile.png; sourceTree = "<group>"; };
+		CA7B00CD1C9504C90001D0F4 /* FrequentActivity_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FrequentActivity_Profile.png; path = images/Profile/FrequentActivity_Profile.png; sourceTree = "<group>"; };
+		CA7B00CE1C9504C90001D0F4 /* MinimalActivity_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MinimalActivity_Profile.png; path = images/Profile/MinimalActivity_Profile.png; sourceTree = "<group>"; };
+		CA7B00CF1C9504C90001D0F4 /* ModerateActivity_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ModerateActivity_Profile.png; path = images/Profile/ModerateActivity_Profile.png; sourceTree = "<group>"; };
+		CA7B00D01C9504C90001D0F4 /* StudentProfileTestPhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = StudentProfileTestPhoto.png; path = images/Profile/StudentProfileTestPhoto.png; sourceTree = "<group>"; };
+		CA7B00D81C9505FF0001D0F4 /* LoginScreenBg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LoginScreenBg2.jpg; path = images/Login/LoginScreenBg2.jpg; sourceTree = "<group>"; };
+		CA7B00D91C9505FF0001D0F4 /* LoginButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoginButton2.png; path = images/Login/LoginButton2.png; sourceTree = "<group>"; };
+		CA7B00DA1C9505FF0001D0F4 /* SignUpButton2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SignUpButton2.png; path = images/Login/SignUpButton2.png; sourceTree = "<group>"; };
+		CA7B00DB1C9505FF0001D0F4 /* TodoSlogan_LightGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TodoSlogan_LightGray.png; path = images/Login/TodoSlogan_LightGray.png; sourceTree = "<group>"; };
+		CA7B01311C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
+		CA7B01331C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		CA7B01351C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notifications.storyboard; sourceTree = "<group>"; };
+		CA7B01371C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
+		CA7B01391C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		CA7B013B1C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
+		CA7B01681C9515D40001D0F4 /* LoginScreenBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LoginScreenBg.jpg; path = images/Login/LoginScreenBg.jpg; sourceTree = "<group>"; };
+		CA7B01691C9515D40001D0F4 /* LoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoginButton.png; path = images/Login/LoginButton.png; sourceTree = "<group>"; };
+		CA7B016A1C9515D40001D0F4 /* SignUpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SignUpButton.png; path = images/Login/SignUpButton.png; sourceTree = "<group>"; };
+		CA7B016B1C9515D40001D0F4 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TodoLogo_Teal.png; path = todo/images/Login/TodoLogo_Teal.png; sourceTree = SOURCE_ROOT; };
+		CA7B016C1C9515D40001D0F4 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TodoLogo_White.png; path = todo/images/Login/TodoLogo_White.png; sourceTree = SOURCE_ROOT; };
+		CA7B01731C9516E50001D0F4 /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LocationIcon.png; path = images/Notifications/LocationIcon.png; sourceTree = "<group>"; };
+		CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCoursesTableViewController.swift; path = src/AddCoursesTableViewController.swift; sourceTree = "<group>"; };
+		CA7B01771C951AF20001D0F4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = src/AppDelegate.swift; sourceTree = "<group>"; };
+		CA7B01781C951AF20001D0F4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = src/DataManager.swift; sourceTree = "<group>"; };
+		CA7B01791C951AF20001D0F4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = src/HomeViewController.swift; sourceTree = "<group>"; };
+		CA7B017A1C951AF20001D0F4 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingViewController.swift; path = src/LoadingViewController.swift; sourceTree = "<group>"; };
+		CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = src/LoginViewController.swift; sourceTree = "<group>"; };
+		CA7B017C1C951AF20001D0F4 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = src/Notification.swift; sourceTree = "<group>"; };
+		CA7B017D1C951AF20001D0F4 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsTableViewController.swift; path = src/NotificationsTableViewController.swift; sourceTree = "<group>"; };
+		CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsListViewController.swift; path = src/OptionsListViewController.swift; sourceTree = "<group>"; };
+		CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsPopoverViewController.swift; path = src/OptionsPopoverViewController.swift; sourceTree = "<group>"; };
+		CA7B01801C951AF20001D0F4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = src/ProfileViewController.swift; sourceTree = "<group>"; };
+		CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationTableViewCell.swift; path = src/RegistrationTableViewCell.swift; sourceTree = "<group>"; };
+		CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = src/RegistrationViewController.swift; sourceTree = "<group>"; };
+		CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestNotificationTableViewCell.swift; path = src/RequestNotificationTableViewCell.swift; sourceTree = "<group>"; };
+		CA7B01841C951AF20001D0F4 /* RequestPoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestPoolTableViewCell.swift; path = src/RequestPoolTableViewCell.swift; sourceTree = "<group>"; };
+		CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestPoolTableViewController.swift; path = src/RequestPoolTableViewController.swift; sourceTree = "<group>"; };
+		CA7B01861C951AF20001D0F4 /* StandardNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandardNotificationTableViewCell.swift; path = src/StandardNotificationTableViewCell.swift; sourceTree = "<group>"; };
+		CA7B01871C951AF20001D0F4 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamReader.swift; path = src/StreamReader.swift; sourceTree = "<group>"; };
+		CA7B01881C951AF20001D0F4 /* TutoringRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutoringRequest.swift; path = src/TutoringRequest.swift; sourceTree = "<group>"; };
+		CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorWaitingViewController.swift; path = src/TutorWaitingViewController.swift; sourceTree = "<group>"; };
+		CA7B018A1C951AF20001D0F4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = src/User.swift; sourceTree = "<group>"; };
 		CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics2.png"; path = "images/Home/Home Analitics2.png"; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
 		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
-		CAC137BA1C854F6400586487 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		CAC137BC1C8552A000586487 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
-		CAC137BE1C85538D00586487 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		CAC137C31C85548B00586487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CAC137C51C85567A00586487 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
-		CAC137C71C8557ED00586487 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		CAC137CA1C855D8E00586487 /* History Example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "History Example.png"; path = "images/History/History Example.png"; sourceTree = "<group>"; };
 		CAC137CB1C855D8E00586487 /* HistoryExample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryExample.png; path = images/History/HistoryExample.png; sourceTree = "<group>"; };
 		CAC137CC1C855D8E00586487 /* Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Location.png; path = images/History/Location.png; sourceTree = "<group>"; };
@@ -179,7 +194,6 @@
 		CAC482861C84209E00059FDD /* Home-Item1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home-Item1.png"; path = "images/Home/Home-Item1.png"; sourceTree = "<group>"; };
 		CAC482871C84209E00059FDD /* Home-Item2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home-Item2.png"; path = "images/Home/Home-Item2.png"; sourceTree = "<group>"; };
 		CADD3C3F1C7E46030085F014 /* todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CADD3C421C7E46030085F014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CADD3C491C7E46030085F014 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CADD3C4C1C7E46030085F014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CADD3C4E1C7E46030085F014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -189,7 +203,6 @@
 		CADD3C5E1C7E46030085F014 /* todoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = todoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CADD3C621C7E46030085F014 /* todoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoUITests.swift; sourceTree = "<group>"; };
 		CADD3C641C7E46030085F014 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CADD3C711C7E4ED70085F014 /* xlarge_building1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = xlarge_building1.jpg; path = images/xlarge_building1.jpg; sourceTree = "<group>"; };
 		D5618CBE1DE39FAE33E6B2AE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,10 +235,15 @@
 		0435DD611C85709C009D3245 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				04B6C3201C85786C00BA7882 /* TodoSlogan_LightGray.png */,
-				0435DD681C857152009D3245 /* LoginButton2.png */,
-				0435DD691C857152009D3245 /* LoginScreenBg2.jpg */,
-				0435DD6A1C857152009D3245 /* SignUpButton2.png */,
+				CA7B01681C9515D40001D0F4 /* LoginScreenBg.jpg */,
+				CA7B01691C9515D40001D0F4 /* LoginButton.png */,
+				CA7B016A1C9515D40001D0F4 /* SignUpButton.png */,
+				CA7B016B1C9515D40001D0F4 /* TodoLogo_Teal.png */,
+				CA7B016C1C9515D40001D0F4 /* TodoLogo_White.png */,
+				CA7B00D81C9505FF0001D0F4 /* LoginScreenBg2.jpg */,
+				CA7B00D91C9505FF0001D0F4 /* LoginButton2.png */,
+				CA7B00DA1C9505FF0001D0F4 /* SignUpButton2.png */,
+				CA7B00DB1C9505FF0001D0F4 /* TodoSlogan_LightGray.png */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -233,13 +251,13 @@
 		04B6C3261C865E6E00BA7882 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				04B6C3371C86787500BA7882 /* FrequentActivity_Profile.png */,
-				04B6C3381C86787500BA7882 /* MinimalActivity_Profile.png */,
-				04B6C3351C86784200BA7882 /* ModerateActivity_Profile.png */,
-				04B6C32B1C865F4000BA7882 /* StudentProfileTestPhoto.png */,
-				04B6C33B1C86793500BA7882 /* EmailButton_Profile.png */,
-				04B6C3271C865E7800BA7882 /* DotsBalance_Profile.png */,
-				876D97641C8D6DC700DC26D5 /* DefaultProfilePhoto.png */,
+				CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */,
+				CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */,
+				CA7B00CC1C9504C90001D0F4 /* EmailButton_Profile.png */,
+				CA7B00CD1C9504C90001D0F4 /* FrequentActivity_Profile.png */,
+				CA7B00CE1C9504C90001D0F4 /* MinimalActivity_Profile.png */,
+				CA7B00CF1C9504C90001D0F4 /* ModerateActivity_Profile.png */,
+				CA7B00D01C9504C90001D0F4 /* StudentProfileTestPhoto.png */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -258,12 +276,12 @@
 			children = (
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
 				CAC137C21C85548B00586487 /* Main.storyboard */,
-				CAC137C51C85567A00586487 /* SignUp.storyboard */,
-				CAC137C71C8557ED00586487 /* Home.storyboard */,
-				CAC137BE1C85538D00586487 /* History.storyboard */,
-				CA8B11801C8687000039D8F3 /* Notifications.storyboard */,
-				CAC137BC1C8552A000586487 /* Profile.storyboard */,
-				CAC137BA1C854F6400586487 /* Settings.storyboard */,
+				CA7B013A1C9509530001D0F4 /* SignUp.storyboard */,
+				CA7B01321C9509530001D0F4 /* Home.storyboard */,
+				CA7B01301C9509530001D0F4 /* History.storyboard */,
+				CA7B01341C9509530001D0F4 /* Notifications.storyboard */,
+				CA7B01361C9509530001D0F4 /* Profile.storyboard */,
+				CA7B01381C9509530001D0F4 /* Settings.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -294,6 +312,42 @@
 			name = History;
 			sourceTree = "<group>";
 		};
+		CA7B01721C95169D0001D0F4 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				CA7B01731C9516E50001D0F4 /* LocationIcon.png */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		CA7B01751C951A870001D0F4 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				CA7B01771C951AF20001D0F4 /* AppDelegate.swift */,
+				CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */,
+				CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */,
+				CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */,
+				CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */,
+				CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */,
+				CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */,
+				CA7B01791C951AF20001D0F4 /* HomeViewController.swift */,
+				CA7B01881C951AF20001D0F4 /* TutoringRequest.swift */,
+				CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */,
+				CA7B017A1C951AF20001D0F4 /* LoadingViewController.swift */,
+				CA7B017C1C951AF20001D0F4 /* Notification.swift */,
+				CA7B017D1C951AF20001D0F4 /* NotificationsTableViewController.swift */,
+				CA7B01861C951AF20001D0F4 /* StandardNotificationTableViewCell.swift */,
+				CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */,
+				CA7B01841C951AF20001D0F4 /* RequestPoolTableViewCell.swift */,
+				CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */,
+				CA7B01801C951AF20001D0F4 /* ProfileViewController.swift */,
+				CA7B018A1C951AF20001D0F4 /* User.swift */,
+				CA7B01871C951AF20001D0F4 /* StreamReader.swift */,
+				CA7B01781C951AF20001D0F4 /* DataManager.swift */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		CAB102021C8442D400033929 /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,7 +362,6 @@
 		CAC482541C83D90B00059FDD /* Tab Icons */ = {
 			isa = PBXGroup;
 			children = (
-				CADD3C711C7E4ED70085F014 /* xlarge_building1.jpg */,
 				CAC482761C83F85A00059FDD /* HistoryTabIcon_Teal.png */,
 				CAC482771C83F85A00059FDD /* HomeTabIcon_Teal.png */,
 				CAC482781C83F85A00059FDD /* NotificationsTabIcon_Teal.png */,
@@ -389,29 +442,15 @@
 		CADD3C411C7E46030085F014 /* todo */ = {
 			isa = PBXGroup;
 			children = (
+				CA7B01751C951A870001D0F4 /* src */,
 				8782F70C1C8D3F3600922859 /* Notifications */,
 				8782F70B1C8D3EE300922859 /* Storyboards */,
 				CADD3C701C7E4E7B0085F014 /* images */,
 				CAC482691C83F44A00059FDD /* fonts */,
 				CADD3C491C7E46030085F014 /* Assets.xcassets */,
-				CADD3C421C7E46030085F014 /* AppDelegate.swift */,
-				879474501C91513D008F9F64 /* LoginViewController.swift */,
-				877338F51C8FEF1A0069B6CA /* RegistrationViewController.swift */,
-				8782F7101C8D457100922859 /* RegistrationTableViewCell.swift */,
-				8742B0C51C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift */,
 				879474441C90FDB6008F9F64 /* CS_Lower.txt */,
 				879474451C90FDB6008F9F64 /* CS_Upper.txt */,
-				CA8B11821C869A230039D8F3 /* TutorWaitingViewController.swift */,
-				879474521C932907008F9F64 /* HomeViewController.swift */,
-				04B6C3331C866A0600BA7882 /* ProfileViewController.swift */,
-				878098301C86C21A005DDE9E /* TutoringRequest.swift */,
-				8782F7091C8D3E4300922859 /* User.swift */,
 				CADD3C4E1C7E46030085F014 /* Info.plist */,
-				8782F7121C8D514200922859 /* DataManager.swift */,
-				879474481C90FF2C008F9F64 /* StreamReader.swift */,
-				8794744C1C910390008F9F64 /* OptionsListViewController.swift */,
-				CA2A50F81C854225000E2E94 /* LoadingViewController.swift */,
-				8794744E1C91045D008F9F64 /* OptionsPopoverViewController.swift */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -437,6 +476,7 @@
 		CADD3C701C7E4E7B0085F014 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CA7B01721C95169D0001D0F4 /* Notifications */,
 				04B6C3261C865E6E00BA7882 /* Profile */,
 				0435DD611C85709C009D3245 /* Login */,
 				CA2A50F71C8533BC000E2E94 /* History */,
@@ -565,59 +605,61 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7B00DE1C9505FF0001D0F4 /* SignUpButton2.png in Resources */,
 				CAC137D31C855D8E00586487 /* user1.png in Resources */,
 				CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */,
-				CADD3C721C7E4ED70085F014 /* xlarge_building1.jpg in Resources */,
+				CA7B00D61C9504C90001D0F4 /* ModerateActivity_Profile.png in Resources */,
+				CA7B00D21C9504C90001D0F4 /* DotsBalance_Profile.png in Resources */,
+				CA7B016F1C9515D40001D0F4 /* SignUpButton.png in Resources */,
+				CA7B00D31C9504C90001D0F4 /* EmailButton_Profile.png in Resources */,
 				CAB102041C8442E600033929 /* logout.png in Resources */,
-				0435DD6C1C857152009D3245 /* LoginScreenBg2.jpg in Resources */,
 				CAC482611C83D92600059FDD /* HomeTabIcon_Black.png in Resources */,
-				0435DD6B1C857152009D3245 /* LoginButton2.png in Resources */,
-				04B6C3361C86784200BA7882 /* ModerateActivity_Profile.png in Resources */,
 				CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */,
 				CAC137D01C855D8E00586487 /* History Example.png in Resources */,
 				CAC137D51C855D8E00586487 /* user3.png in Resources */,
-				04B6C33C1C86793500BA7882 /* EmailButton_Profile.png in Resources */,
-				CAC137C81C8557ED00586487 /* Home.storyboard in Resources */,
+				CA7B01401C9509530001D0F4 /* Settings.storyboard in Resources */,
+				CA7B013E1C9509530001D0F4 /* Notifications.storyboard in Resources */,
+				CA7B013C1C9509530001D0F4 /* History.storyboard in Resources */,
 				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
 				CAC4827B1C83F85A00059FDD /* HistoryTabIcon_Teal.png in Resources */,
 				879474471C90FDB6008F9F64 /* CS_Upper.txt in Resources */,
-				CAC137C61C85567A00586487 /* SignUp.storyboard in Resources */,
-				CAC137BD1C8552A000586487 /* Profile.storyboard in Resources */,
-				04B6C3291C865E7800BA7882 /* DotsBalance_Profile.png in Resources */,
 				CAC4827C1C83F85A00059FDD /* HomeTabIcon_Teal.png in Resources */,
+				CA7B00D71C9504C90001D0F4 /* StudentProfileTestPhoto.png in Resources */,
 				CAB102061C844FA500033929 /* user-pic.png in Resources */,
-				04B6C3231C85786C00BA7882 /* TodoSlogan_LightGray.png in Resources */,
+				CA7B016D1C9515D40001D0F4 /* LoginScreenBg.jpg in Resources */,
 				CAC482721C83F49A00059FDD /* segoeuii.ttf in Resources */,
 				CAC482751C83F4A900059FDD /* Maiandra GD Regular.ttf in Resources */,
 				CAC137D21C855D8E00586487 /* Location.png in Resources */,
-				04B6C3391C86787500BA7882 /* FrequentActivity_Profile.png in Resources */,
-				04B6C3241C85786C00BA7882 /* TodoLogo_Teal.png in Resources */,
+				CA7B013D1C9509530001D0F4 /* Home.storyboard in Resources */,
+				CA7B01701C9515D40001D0F4 /* TodoLogo_Teal.png in Resources */,
+				CA7B01711C9515D40001D0F4 /* TodoLogo_White.png in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
-				CAC137BB1C854F6400586487 /* Settings.storyboard in Resources */,
-				8780982B1C86BF88005DDE9E /* LocationIcon.png in Resources */,
+				CA7B01741C9516E50001D0F4 /* LocationIcon.png in Resources */,
+				CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */,
 				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
+				CA7B00DF1C9505FF0001D0F4 /* TodoSlogan_LightGray.png in Resources */,
+				CA7B01411C9509530001D0F4 /* SignUp.storyboard in Resources */,
 				CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */,
-				0435DD6D1C857152009D3245 /* SignUpButton2.png in Resources */,
+				CA7B016E1C9515D40001D0F4 /* LoginButton.png in Resources */,
+				CA7B013F1C9509530001D0F4 /* Profile.storyboard in Resources */,
+				CA7B00DC1C9505FF0001D0F4 /* LoginScreenBg2.jpg in Resources */,
 				CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */,
 				879474461C90FDB6008F9F64 /* CS_Lower.txt in Resources */,
-				04B6C3251C85786C00BA7882 /* TodoLogo_White.png in Resources */,
 				CAC482711C83F49A00059FDD /* SEGOEUIB.TTF in Resources */,
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
-				04B6C33A1C86787500BA7882 /* MinimalActivity_Profile.png in Resources */,
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
-				876D97651C8D6DC700DC26D5 /* DefaultProfilePhoto.png in Resources */,
 				CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */,
 				CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */,
 				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
-				CA8B11811C8687000039D8F3 /* Notifications.storyboard in Resources */,
+				CA7B00D51C9504C90001D0F4 /* MinimalActivity_Profile.png in Resources */,
 				CAC482671C83D92600059FDD /* SettingsTabIcon_Black.png in Resources */,
 				CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */,
+				CA7B00DD1C9505FF0001D0F4 /* LoginButton2.png in Resources */,
 				CAC137C41C85548B00586487 /* Main.storyboard in Resources */,
-				CAC137BF1C85538D00586487 /* History.storyboard in Resources */,
 				CAC482881C84209E00059FDD /* Home Analitics.png in Resources */,
-				04B6C32C1C865F4000BA7882 /* StudentProfileTestPhoto.png in Resources */,
 				CAC137D41C855D8E00586487 /* user2.png in Resources */,
 				CAC4827D1C83F85A00059FDD /* NotificationsTabIcon_Teal.png in Resources */,
+				CA7B00D41C9504C90001D0F4 /* FrequentActivity_Profile.png in Resources */,
 				CAC482891C84209E00059FDD /* Home-Item1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -691,27 +733,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				879474531C932907008F9F64 /* HomeViewController.swift in Sources */,
-				8782F70A1C8D3E4300922859 /* User.swift in Sources */,
-				878098311C86C21A005DDE9E /* TutoringRequest.swift in Sources */,
-				879474491C90FF2C008F9F64 /* StreamReader.swift in Sources */,
-				04B6C33E1C86806F00BA7882 /* StandardNotificationTableViewCell.swift in Sources */,
-				8794744D1C910390008F9F64 /* OptionsListViewController.swift in Sources */,
-				8742B0C61C8FFF7E00ABE6D6 /* AddCoursesTableViewController.swift in Sources */,
-				04B6C3441C8682EB00BA7882 /* NotificationsTableViewController.swift in Sources */,
-				8780982F1C86C14C005DDE9E /* RequestPoolTableViewCell.swift in Sources */,
-				CADD3C431C7E46030085F014 /* AppDelegate.swift in Sources */,
-				04B6C3421C86825F00BA7882 /* Notification.swift in Sources */,
-				877338F61C8FEF1A0069B6CA /* RegistrationViewController.swift in Sources */,
-				879474511C91513D008F9F64 /* LoginViewController.swift in Sources */,
-				8794744F1C91045D008F9F64 /* OptionsPopoverViewController.swift in Sources */,
-				04B6C3341C866A0600BA7882 /* ProfileViewController.swift in Sources */,
-				04B6C3401C8681EF00BA7882 /* RequestNotificationTableViewCell.swift in Sources */,
-				CA8B11831C869A230039D8F3 /* TutorWaitingViewController.swift in Sources */,
-				CA2A50F91C854225000E2E94 /* LoadingViewController.swift in Sources */,
-				8782F7111C8D457100922859 /* RegistrationTableViewCell.swift in Sources */,
-				8782F7131C8D514200922859 /* DataManager.swift in Sources */,
-				8780982D1C86C072005DDE9E /* RequestPoolTableViewController.swift in Sources */,
+				CA7B01901C951AF20001D0F4 /* LoginViewController.swift in Sources */,
+				CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */,
+				CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */,
+				CA7B01991C951AF20001D0F4 /* RequestPoolTableViewCell.swift in Sources */,
+				CA7B019E1C951AF20001D0F4 /* TutorWaitingViewController.swift in Sources */,
+				CA7B019A1C951AF20001D0F4 /* RequestPoolTableViewController.swift in Sources */,
+				CA7B019D1C951AF20001D0F4 /* TutoringRequest.swift in Sources */,
+				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,
+				CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */,
+				CA7B01961C951AF20001D0F4 /* RegistrationTableViewCell.swift in Sources */,
+				CA7B01971C951AF20001D0F4 /* RegistrationViewController.swift in Sources */,
+				CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */,
+				CA7B019F1C951AF20001D0F4 /* User.swift in Sources */,
+				CA7B019B1C951AF20001D0F4 /* StandardNotificationTableViewCell.swift in Sources */,
+				CA7B018F1C951AF20001D0F4 /* LoadingViewController.swift in Sources */,
+				CA7B019C1C951AF20001D0F4 /* StreamReader.swift in Sources */,
+				CA7B01931C951AF20001D0F4 /* OptionsListViewController.swift in Sources */,
+				CA7B01941C951AF20001D0F4 /* OptionsPopoverViewController.swift in Sources */,
+				CA7B018B1C951AF20001D0F4 /* AddCoursesTableViewController.swift in Sources */,
+				CA7B01911C951AF20001D0F4 /* Notification.swift in Sources */,
+				CA7B018C1C951AF20001D0F4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +789,54 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CA7B01301C9509530001D0F4 /* History.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA7B01311C9509530001D0F4 /* Base */,
+			);
+			name = History.storyboard;
+			sourceTree = "<group>";
+		};
+		CA7B01321C9509530001D0F4 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA7B01331C9509530001D0F4 /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		CA7B01341C9509530001D0F4 /* Notifications.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA7B01351C9509530001D0F4 /* Base */,
+			);
+			name = Notifications.storyboard;
+			sourceTree = "<group>";
+		};
+		CA7B01361C9509530001D0F4 /* Profile.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA7B01371C9509530001D0F4 /* Base */,
+			);
+			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		CA7B01381C9509530001D0F4 /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA7B01391C9509530001D0F4 /* Base */,
+			);
+			name = Settings.storyboard;
+			sourceTree = "<group>";
+		};
+		CA7B013A1C9509530001D0F4 /* SignUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA7B013B1C9509530001D0F4 /* Base */,
+			);
+			name = SignUp.storyboard;
+			sourceTree = "<group>";
+		};
 		CAC137C21C85548B00586487 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
