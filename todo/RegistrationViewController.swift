@@ -135,9 +135,10 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
             // If the input is VALID, create user and persist to Firebase
             inputs["Photo String"] = self.selectedPhotoString
             
-            createUser(self, inputs: inputs)
+            createUser(self, inputs: inputs, segueIdentifier: identifier)
+            return false
         }
-        return false
+        return true
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
