@@ -185,7 +185,7 @@
                                                                         <constraint firstAttribute="height" constant="20" id="L9Z-iJ-kDm"/>
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
-                                                                    <textInputTraits key="textInputTraits"/>
+                                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                                     <variation key="default">
                                                                         <mask key="constraints">
                                                                             <exclude reference="L9Z-iJ-kDm"/>
@@ -352,7 +352,7 @@
                                                             </mask>
                                                         </variation>
                                                         <connections>
-                                                            <segue destination="XbM-3x-yi9" kind="push" identifier="ViewCoursesToAdd" id="rEW-Jx-Em8"/>
+                                                            <segue destination="XbM-3x-yi9" kind="show" identifier="ViewCoursesToAdd" id="rEW-Jx-Em8"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -570,7 +570,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Registration" id="9xf-Bm-ux2">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="pQW-Wx-7xA">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pQW-Wx-7xA">
                             <connections>
                                 <segue destination="JYS-wh-ajz" kind="showDetail" id="b0d-YC-6zH"/>
                             </connections>
@@ -582,7 +582,8 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="736"/>
                     <connections>
                         <outlet property="departmentButton" destination="jGa-mc-V3v" id="0Ab-Yw-17y"/>
                         <outlet property="mainView" destination="HW0-hU-2bM" id="pPS-YA-l1A"/>
@@ -632,13 +633,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Dept: Upper/Lower Division" id="9cg-ga-GIn">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="0Qg-pa-aiu"/>
                         <barButtonItem key="rightBarButtonItem" title="Add" id="ua9-1t-24W">
                             <connections>
                                 <action selector="onClickAdd:" destination="XbM-3x-yi9" id="WvU-8n-3mf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="736"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HLw-Qq-Wyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

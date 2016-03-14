@@ -351,8 +351,8 @@
 		CA7B01A91C951D470001D0F4 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */,
 				CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */,
+				CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */,
 				CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */,
 				CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */,
 				CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */,

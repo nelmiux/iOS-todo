@@ -22,6 +22,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.usernameInputField.delegate = self
         self.passwordInputField.delegate = self
+        self.passwordInputField.secureTextEntry = true
 
         // Do any additional setup after loading the view.
     }
