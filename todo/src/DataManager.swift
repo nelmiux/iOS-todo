@@ -22,11 +22,11 @@ let upperDivisionCourses:[String] = [String]()
 
 var user = Dictionary<String, AnyObject>()
 
-var courses = Dictionary<String, [String]>()
+var courses = Dictionary<String, [String: String]>()
 
-var notifications = Dictionary<String, [String]>()
+var notifications = Dictionary<String, [String: String]>()
 
-var history = Dictionary<String, [String]>()
+var history = Dictionary<String, [String: String]>()
 
 func getFirebase(loc: String) -> Firebase! {
     let location = (loc == "" ? firebaseURL : firebaseURL + "/" + loc)
@@ -89,8 +89,8 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     user["major"] = (snapshot.value["Major"] as? String)!
                     user["graduationYear"] = (snapshot.value["Graduation Year"] as? String)!
                     user["photoString"] = (snapshot.value["Photo String"] as? String)!
-                    if let _ = snapshot.value["courses"] as? [String] {
-                        user["courses"] = (snapshot.value["courses"] as? [String])!
+                    if let _ = snapshot.value["courses"] as? [String: String] {
+                        user["courses"] = (snapshot.value["courses"] as? [String: String])!
                     }
                     user["dots"] = (snapshot.value["dots"] as? Int)!
                     user["earned"] = (snapshot.value["earned"] as? Int)!
@@ -98,7 +98,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     if let _ = snapshot.value["lastLogin"] as? String {
                         user["lastLogin"] = (snapshot.value["lastLogin"] as? String)!
                     }
-                    user["role"] = ""
+                    user["role"] = "student"
                     user["tutoringStatus"] = false
                     
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
@@ -114,6 +114,7 @@ func logOutUser () {
     let date = NSDate()
     let calendar = NSCalendar.currentCalendar()
     let components = calendar.components([ .Hour, .Minute, .Second], fromDate: date)
+    print (components)
     user["lastLogin"] = components
     rootRef.unauth()
 }
