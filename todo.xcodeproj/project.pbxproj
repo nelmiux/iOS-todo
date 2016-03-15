@@ -57,9 +57,9 @@
 		CA7B01A61C951CCC0001D0F4 /* CS_Lower.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A21C951CCC0001D0F4 /* CS_Lower.txt */; };
 		CA7B01A71C951CCC0001D0F4 /* CS_Upper.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A31C951CCC0001D0F4 /* CS_Upper.txt */; };
 		CA7B01A81C951CCC0001D0F4 /* UTCS_Course_schedule.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A41C951CCC0001D0F4 /* UTCS_Course_schedule.txt */; };
-		CA7B01BA1C9788340001D0F4 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA7B01B31C97878E0001D0F4 /* Charts.framework */; };
-		CA7B01BB1C9788340001D0F4 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA7B01B31C97878E0001D0F4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA7B01C41C97B4DC0001D0F4 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01C31C97B4DC0001D0F4 /* ChartViewController.swift */; };
+		CA7B01C81C980D0A0001D0F4 /* RequestHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01C71C980D0A0001D0F4 /* RequestHelpViewController.swift */; };
+		CA7B01F31C981A450001D0F4 /* CoursesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01F21C981A450001D0F4 /* CoursesListView.swift */; };
 		CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
 		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
@@ -95,41 +95,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CA7B01B21C97878E0001D0F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7B01AB1C97878E0001D0F4 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
-			remoteInfo = "Charts-iOS";
-		};
-		CA7B01B41C97878E0001D0F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7B01AB1C97878E0001D0F4 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
-			remoteInfo = "Charts-TV";
-		};
-		CA7B01B61C97878E0001D0F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7B01AB1C97878E0001D0F4 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
-			remoteInfo = "Charts-OSX";
-		};
-		CA7B01B81C97878E0001D0F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7B01AB1C97878E0001D0F4 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
-			remoteInfo = ChartsTests;
-		};
-		CA7B01BC1C9788340001D0F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA7B01AB1C97878E0001D0F4 /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
-			remoteInfo = "Charts-iOS";
-		};
 		CADD3C541C7E46030085F014 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CADD3C371C7E46030085F014 /* Project object */;
@@ -153,7 +118,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CA7B01BB1C9788340001D0F4 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,8 +179,9 @@
 		CA7B01A21C951CCC0001D0F4 /* CS_Lower.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CS_Lower.txt; path = docs/CS_Lower.txt; sourceTree = "<group>"; };
 		CA7B01A31C951CCC0001D0F4 /* CS_Upper.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CS_Upper.txt; path = docs/CS_Upper.txt; sourceTree = "<group>"; };
 		CA7B01A41C951CCC0001D0F4 /* UTCS_Course_schedule.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UTCS_Course_schedule.txt; path = docs/UTCS_Course_schedule.txt; sourceTree = "<group>"; };
-		CA7B01AB1C97878E0001D0F4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Pods/Charts/Charts.xcodeproj; sourceTree = SOURCE_ROOT; };
 		CA7B01C31C97B4DC0001D0F4 /* ChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChartViewController.swift; path = src/ChartViewController.swift; sourceTree = "<group>"; };
+		CA7B01C71C980D0A0001D0F4 /* RequestHelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestHelpViewController.swift; path = src/RequestHelpViewController.swift; sourceTree = "<group>"; };
+		CA7B01F21C981A450001D0F4 /* CoursesListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoursesListView.swift; path = src/CoursesListView.swift; sourceTree = "<group>"; };
 		CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics2.png"; path = "images/Home/Home Analitics2.png"; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
 		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
@@ -264,7 +229,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */,
-				CA7B01BA1C9788340001D0F4 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,8 +340,8 @@
 		CA7B01751C951A870001D0F4 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				CA7B01AA1C97836A0001D0F4 /* Home */,
 				CA7B01771C951AF20001D0F4 /* AppDelegate.swift */,
+				CA7B01AA1C97836A0001D0F4 /* Home */,
 				CA7B01A91C951D470001D0F4 /* Registration */,
 				8782F70C1C8D3F3600922859 /* Notifications */,
 				CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */,
@@ -420,19 +384,10 @@
 				CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */,
 				CA7B017A1C951AF20001D0F4 /* LoadingViewController.swift */,
 				CA7B01C31C97B4DC0001D0F4 /* ChartViewController.swift */,
+				CA7B01C71C980D0A0001D0F4 /* RequestHelpViewController.swift */,
+				CA7B01F21C981A450001D0F4 /* CoursesListView.swift */,
 			);
 			name = Home;
-			sourceTree = "<group>";
-		};
-		CA7B01AC1C97878E0001D0F4 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CA7B01B31C97878E0001D0F4 /* Charts.framework */,
-				CA7B01B51C97878E0001D0F4 /* Charts.framework */,
-				CA7B01B71C97878E0001D0F4 /* Charts.framework */,
-				CA7B01B91C97878E0001D0F4 /* ChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		CAB102021C8442D400033929 /* General */ = {
@@ -529,7 +484,6 @@
 		CADD3C411C7E46030085F014 /* todo */ = {
 			isa = PBXGroup;
 			children = (
-				CA7B01AB1C97878E0001D0F4 /* Charts.xcodeproj */,
 				CA7B01751C951A870001D0F4 /* src */,
 				8782F70B1C8D3EE300922859 /* storyboards */,
 				CADD3C701C7E4E7B0085F014 /* images */,
@@ -599,7 +553,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				CA7B01BD1C9788340001D0F4 /* PBXTargetDependency */,
 			);
 			name = todo;
 			productName = todo;
@@ -679,12 +632,6 @@
 			mainGroup = CADD3C361C7E46020085F014;
 			productRefGroup = CADD3C401C7E46030085F014 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = CA7B01AC1C97878E0001D0F4 /* Products */;
-					ProjectRef = CA7B01AB1C97878E0001D0F4 /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				CADD3C3E1C7E46030085F014 /* todo */,
@@ -693,37 +640,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		CA7B01B31C97878E0001D0F4 /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = CA7B01B21C97878E0001D0F4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA7B01B51C97878E0001D0F4 /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = CA7B01B41C97878E0001D0F4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA7B01B71C97878E0001D0F4 /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = CA7B01B61C97878E0001D0F4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA7B01B91C97878E0001D0F4 /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = CA7B01B81C97878E0001D0F4 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CADD3C3D1C7E46030085F014 /* Resources */ = {
@@ -863,9 +779,11 @@
 				CA7B01901C951AF20001D0F4 /* LoginViewController.swift in Sources */,
 				CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */,
 				CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */,
+				CA7B01F31C981A450001D0F4 /* CoursesListView.swift in Sources */,
 				CA7B01991C951AF20001D0F4 /* RequestPoolTableViewCell.swift in Sources */,
 				CA7B019E1C951AF20001D0F4 /* TutorWaitingViewController.swift in Sources */,
 				CA7B019A1C951AF20001D0F4 /* RequestPoolTableViewController.swift in Sources */,
+				CA7B01C81C980D0A0001D0F4 /* RequestHelpViewController.swift in Sources */,
 				CA7B019D1C951AF20001D0F4 /* TutoringRequest.swift in Sources */,
 				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,
 				CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */,
@@ -904,11 +822,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CA7B01BD1C9788340001D0F4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Charts-iOS";
-			targetProxy = CA7B01BC1C9788340001D0F4 /* PBXContainerItemProxy */;
-		};
 		CADD3C551C7E46030085F014 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CADD3C3E1C7E46030085F014 /* todo */;
