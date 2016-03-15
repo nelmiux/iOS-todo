@@ -14,10 +14,8 @@
             <string>MaiandraGD-Regular</string>
             <string>MaiandraGD-Regular</string>
             <string>MaiandraGD-Regular</string>
-            <string>MaiandraGD-Regular</string>
         </mutableArray>
         <mutableArray key="SEGOEUI.TTF">
-            <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
@@ -171,74 +169,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-Zr-otj">
-                                <rect key="frame" x="7" y="72" width="400" height="607"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="4uA-UP-Ogr">
-                                        <rect key="frame" x="162" y="14" width="66" height="29"/>
-                                        <segments>
-                                            <segment title="On"/>
-                                            <segment title="Off"/>
-                                        </segments>
-                                    </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRf-sl-XlP">
-                                        <rect key="frame" x="8" y="577" width="384" height="30"/>
-                                        <connections>
-                                            <segue destination="Vps-XV-vnu" kind="show" id="4CC-xw-Dcx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home Analitics" translatesAutoresizingMaskIntoConstraints="NO" id="4Km-7c-IBq">
-                                <rect key="frame" x="82" y="180" width="251" height="251"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="770" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-wM-AWL">
-                                <rect key="frame" x="157" y="260" width="100" height="55"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="58"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dots total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fc4-CA-tA1">
-                                <rect key="frame" x="169" y="323" width="76" height="21"/>
-                                <fontDescription key="fontDescription" name="MaiandraGD-Regular" family="Maiandra GD" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home-Item1" translatesAutoresizingMaskIntoConstraints="NO" id="8vs-1E-6dg">
-                                <rect key="frame" x="82" y="460" width="8" height="56"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home-Item2" translatesAutoresizingMaskIntoConstraints="NO" id="QYF-L3-bzA">
-                                <rect key="frame" x="265" y="460" width="8" height="56"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Earned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuH-zb-qEr">
-                                <rect key="frame" x="98" y="460" width="54" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-E5-5lo">
-                                <rect key="frame" x="280" y="460" width="43" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="March Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blo-Zy-adH">
-                                <rect key="frame" x="35" y="125" width="359" height="42"/>
-                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="30"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1284" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-rL-xY3">
-                                <rect key="frame" x="98" y="486" width="77" height="30"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="513" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sg-99-pxE">
-                                <rect key="frame" x="281" y="485" width="52" height="31"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="4uA-UP-Ogr">
+                                <rect key="frame" x="174" y="99" width="66" height="29"/>
+                                <segments>
+                                    <segment title="On"/>
+                                    <segment title="Off"/>
+                                </segments>
+                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3Y-Op-8Tb">
                                 <rect key="frame" x="20" y="596" width="374" height="46"/>
                                 <color key="backgroundColor" red="0.92317688470000003" green="0.32955902809999998" blue="0.21469742059999999" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
@@ -253,6 +190,12 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voj-nE-EwO">
+                                <rect key="frame" x="0.0" y="135" width="414" height="409"/>
+                                <connections>
+                                    <segue destination="qIk-5f-1vv" kind="embed" id="Q8H-yh-zvO"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -268,6 +211,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="earnedLegend" destination="Sjr-if-Dyt" id="XYx-iP-HWZ"/>
+                        <outlet property="payedLegend" destination="G4p-Hm-xgQ" id="Qpz-oP-7Uv"/>
+                        <outlet property="pieChartView" destination="oIt-Zr-otj" id="4dB-vI-htm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bL-SX-o3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1340,6 +1288,74 @@
             </objects>
             <point key="canvasLocation" x="4191" y="-408"/>
         </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="DQz-Dd-cWz">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="currentContext" id="qIk-5f-1vv" customClass="ChartViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRb-s8-7eQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blo-Zy-adH">
+                                <rect key="frame" x="28" y="13" width="359" height="42"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" restorationIdentifier="pieGraphView" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-Zr-otj" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="6" y="68" width="401" height="273"/>
+                                <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="245" id="dZz-BY-Gbv" userLabel="height = 400"/>
+                                    <constraint firstAttribute="width" constant="400" id="fdS-z3-Xog"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Earned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuH-zb-qEr">
+                                <rect key="frame" x="281" y="341" width="54" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-E5-5lo">
+                                <rect key="frame" x="108" y="341" width="43" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="earnedAmount" text="1284" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-rL-xY3">
+                                <rect key="frame" x="281" y="366" width="100" height="30"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="payedAmount" text="513" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sg-99-pxE">
+                                <rect key="frame" x="108" y="366" width="100" height="31"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sjr-if-Dyt">
+                                <rect key="frame" x="265" y="341" width="8" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G4p-Hm-xgQ">
+                                <rect key="frame" x="89" y="341" width="8" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="earnedAmount" destination="KAG-rL-xY3" id="a9R-3s-adv"/>
+                        <outlet property="earnedLegend" destination="Sjr-if-Dyt" id="wZ0-DC-zTR"/>
+                        <outlet property="payedAmount" destination="3sg-99-pxE" id="59s-K3-ca9"/>
+                        <outlet property="payedLegend" destination="G4p-Hm-xgQ" id="Mjy-9G-d5t"/>
+                        <outlet property="pieChartView" destination="oIt-Zr-otj" id="RNU-gR-vt0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h7c-2I-6h7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="-611.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Home Analitics" width="233" height="233"/>
@@ -1353,7 +1369,4 @@
         <image name="logout" width="22" height="22"/>
         <image name="user-pic" width="250" height="250"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="4CC-xw-Dcx"/>
-    </inferredMetricsTieBreakers>
 </document>

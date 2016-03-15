@@ -13,100 +13,148 @@ class User {
     // Class attributes
     private var firstName:String = ""
     private var lastName:String = ""
-    private var userId: String = ""
+    private var username: String = ""
+    private var password: String = ""
     private var email:String = ""
-    private var password:String = ""        // This may be unnecessary to hold onto
     private var major:String = ""
-    private var graduationYear:Int = -1
-    private var photoURL:String = ""        // This may change to a file data type
-    private var qualifiedCourses:[String] = [String]()
+    private var graduationYear:String = ""
+    private var photoString:String = ""
+    private var courses:[String] = [String]()
     private var role:String = ""
-    private var numDots:Int = -1
+    private var dots:Int = -1
+    private var earned:Int = -1
+    private var payed:Int = -1
     private var lastLogin:String = ""
     private var tutoringStatus:Bool = false
     
+    
+    init () {
+        
+    }
+    
     // Constructor
-    init (firstName:String, lastName:String) {
+    init (firstName:String, lastName:String, username: String, password:String, email: String, major: String, graduationYear: String, photoString: String, courses: [String], dots: Int, earned: Int, payed: Int) {
         self.firstName = firstName
         self.lastName = lastName
+        self.username = username
+        self.password = password
+        self.email = email
+        self.major = major
+        self.graduationYear = graduationYear
+        self.photoString = firstName
+        self.courses = courses
+        self.dots = dots
+        self.earned = earned
+        self.payed = payed
+
     }
     
     // Getters and setters for each attribute
     func getFirstName () -> String {
         return self.firstName
-    }; func setFirstName (firstName:String) {
+    }
+    
+    func setFirstName (firstName:String) {
         self.firstName = firstName
     }
     
     func getLastName () -> String {
         return self.lastName
-    }; func setLastName (lastName:String) {
+    };
+    
+    func setLastName (lastName:String) {
         self.lastName = lastName
     }
     
-    func getUserId () -> String {
-        return self.userId
-    }; func setUserId (userId:String) {
-        self.userId = userId
+    func getUsername () -> String {
+        return self.username
     }
     
-    func getEmail () -> String {
-        return self.email
-    }; func setEmail (email:String) {
-        self.email = email
+    func setUsername (username:String) {
+        self.username = username
     }
     
     func getPassword () -> String {
         return self.password
-    }; func setPassword (password:String) {
+    }
+    
+    func setPassword (password:String) {
         self.password = password
+    }
+    
+    func getEmail () -> String {
+        return self.email
+    }
+    
+    func setEmail (email:String) {
+        self.email = email
     }
     
     func getMajor () -> String {
         return self.major
-    }; func setMajor  (major:String) {
+    }
+    
+    func setMajor  (major:String) {
         self.major = major
     }
     
-    func getGraduationYear () -> Int {
+    func getGraduationYear () -> String {
         return self.graduationYear
-    }; func setGraduationYear (graduationYear:Int) {
+    }
+    
+    func setGraduationYear (graduationYear:String) {
         self.graduationYear = graduationYear
     }
     
     func getPhoto () -> String {
-        return self.photoURL
-    }; func setPhoto (photoURL:String) {
-        self.photoURL = photoURL
+        return self.photoString
     }
     
-    func getQualifiedCourses () -> [String] {
-        return self.qualifiedCourses
-    }; func addQualifiedCourse (course:String) {
-        self.qualifiedCourses.append(course)
+    func setPhoto (photoString:String) {
+        self.photoString = photoString
+    }
+    
+    func getCourses () -> [String] {
+        return self.courses
+    }
+    
+    func addCourses(courses:String) {
+        self.courses.append(courses)
     }
     
     func getRole () -> String {
         return self.role
-    }; func setRole (role:String) {
+    }
+    
+    func setRole (role:String) {
         self.role = role
     }
     
-    func getNumDots () -> Int {
-        return self.numDots
-    }; func addDots (newDots:Int) {
-        self.numDots += newDots
+    func getDots () -> Int {
+        return self.dots
+    }
+    
+    func addDots (newDots:Int) {
+        self.dots += newDots
+    }
+    
+    func substractDots (newDots:Int) {
+        self.dots -= newDots
     }
     
     func getLastLogin () -> String {
         return self.lastLogin
-    }; func setLastLogin (lastLogin:String) {
+    }
+    
+    func setLastLogin (lastLogin:String) {
         self.lastLogin = lastLogin
     }
     
     func getTutoringStatus () -> Bool {
         return self.tutoringStatus
-    }; func setTutoringStatus (tutoringStatus:Bool) {
+    }
+    
+    func setTutoringStatus (tutoringStatus:Bool) {
         self.tutoringStatus = tutoringStatus
     }
     
