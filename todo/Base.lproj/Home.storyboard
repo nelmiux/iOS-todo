@@ -13,7 +13,6 @@
             <string>MaiandraGD-Regular</string>
             <string>MaiandraGD-Regular</string>
             <string>MaiandraGD-Regular</string>
-            <string>MaiandraGD-Regular</string>
         </mutableArray>
         <mutableArray key="SEGOEUI.TTF">
             <string>SegoeUI</string>
@@ -51,13 +50,8 @@
             <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
         </mutableArray>
         <mutableArray key="SEGOEUIB.TTF">
-            <string>SegoeUI-Bold</string>
             <string>SegoeUI-Bold</string>
             <string>SegoeUI-Bold</string>
             <string>SegoeUI-Bold</string>
@@ -120,18 +114,16 @@
                                     <color key="titleShadowColor" red="0.81545184339999999" green="0.81545184339999999" blue="0.81545184339999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="lwS-ae-N8X" kind="show" id="Osg-jO-CMP">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="hDx-dv-KCV" kind="unwind" identifier="lookingTutors" unwindAction="returnHomeViewController:" id="Cfd-C3-1QE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="so8-qn-fi2">
-                                <rect key="frame" x="159" y="162" width="197" height="30"/>
+                                <rect key="frame" x="164" y="167" width="192" height="25"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" updatesFrequently="YES"/>
                                 </accessibility>
-                                <state key="normal" title="button">
+                                <state key="normal">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -139,7 +131,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ai9-Vm-G9s">
-                                <rect key="frame" x="159" y="160" width="197" height="30"/>
+                                <rect key="frame" x="164" y="164" width="192" height="30"/>
                                 <color key="backgroundColor" red="0.99194461109999998" green="0.99615627529999995" blue="0.99600595240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -164,8 +156,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Zy-5j-Peq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hDx-dv-KCV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="-1364"/>
+            <point key="canvasLocation" x="1987" y="-1364"/>
         </scene>
         <!--Requester Home-->
         <scene sceneID="Mtv-w4-1n4">
@@ -197,7 +190,7 @@
                                     <color key="titleShadowColor" red="0.81545184339999999" green="0.81545184339999999" blue="0.81545184339999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vve-Wi-Tqe" kind="show" id="Vio-i3-zci">
+                                    <segue destination="vve-Wi-Tqe" kind="show" identifier="requestHelp" id="Vio-i3-zci">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -208,6 +201,66 @@
                                     <segue destination="qIk-5f-1vv" kind="embed" id="Q8H-yh-zvO"/>
                                 </connections>
                             </containerView>
+                            <visualEffectView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="blurEffect" translatesAutoresizingMaskIntoConstraints="NO" id="j0e-AU-jaR">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="1HB-vm-cL0">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtE-ob-v6r">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="LsW-tL-b6x">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <vibrancyEffect>
+                                                <blurEffect style="light"/>
+                                            </vibrancyEffect>
+                                        </visualEffectView>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lbl-MY-nYT">
+                                            <rect key="frame" x="67" y="294" width="280" height="147"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Looking for available Tutors" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Au7-EM-JZY">
+                                                    <rect key="frame" x="0.0" y="36" width="280" height="31"/>
+                                                    <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u6F-Zh-bpB">
+                                                    <rect key="frame" x="122" y="75" width="37" height="37"/>
+                                                    <color key="color" red="0.086274509799999996" green="0.56470588239999997" blue="0.53333333329999999" alpha="0.90018857760000004" colorSpace="calibratedRGB"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.9468480603448276" colorSpace="calibratedRGB"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LA0-No-liV">
+                                <rect key="frame" x="0.0" y="540" width="415" height="175"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StudentProfileTestPhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gmc-ud-UCS">
+                                        <rect key="frame" x="181" y="19" width="52" height="54"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="requesterPhoto"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CS378IOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCg-QV-HXw">
+                                        <rect key="frame" x="18" y="110" width="379" height="21"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="requesterCourse"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Waiting for Maya to Start the Session" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVF-cW-tEM">
+                                        <rect key="frame" x="8" y="85" width="399" height="21"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="requesterUsername"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.22437195090000001" green="0.87523449289999999" blue="0.82929350150000003" alpha="0.1101831897" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -224,11 +277,18 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="blurEffect" destination="j0e-AU-jaR" id="ZE3-Tz-Mci"/>
                         <outlet property="earnedLegend" destination="Sjr-if-Dyt" id="XYx-iP-HWZ"/>
+                        <outlet property="logout" destination="Azo-tB-XtK" id="HfA-NC-Eu7"/>
+                        <outlet property="lookingTutorsNoticeView" destination="Lbl-MY-nYT" id="n7T-5I-VtY"/>
                         <outlet property="payedLegend" destination="G4p-Hm-xgQ" id="Qpz-oP-7Uv"/>
                         <outlet property="pieChartView" destination="oIt-Zr-otj" id="4dB-vI-htm"/>
                         <outlet property="requestTutoringButton" destination="v3Y-Op-8Tb" id="T2W-Xw-82Z"/>
+                        <outlet property="requesterCourse" destination="nCg-QV-HXw" id="lXv-jW-Z6w"/>
+                        <outlet property="requesterPhoto" destination="Gmc-ud-UCS" id="Lex-l2-omz"/>
+                        <outlet property="requesterUsername" destination="BVF-cW-tEM" id="sJL-A4-ceR"/>
                         <outlet property="tutorStudentSwitch" destination="4uA-UP-Ogr" id="l9N-xu-Fdq"/>
+                        <outlet property="tutorWaiting" destination="LA0-No-liV" id="sPO-8i-AKR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bL-SX-o3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -393,7 +453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ook-mO-v5O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3069" y="-1364"/>
+            <point key="canvasLocation" x="2471" y="-1364"/>
         </scene>
         <!--tabBarEntry-->
         <scene sceneID="Kbj-TT-ja1">
@@ -402,133 +462,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KpK-4U-e9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2914.5" y="-1870"/>
-        </scene>
-        <!--Home Loading-->
-        <scene sceneID="bzO-Qf-Fn5">
-            <objects>
-                <viewController id="lwS-ae-N8X" userLabel="Home Loading" customClass="LoadingViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="rBW-qW-yYg"/>
-                        <viewControllerLayoutGuide type="bottom" id="Bql-VY-Ids"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="OWU-RG-r3s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPL-Lp-3oz">
-                                <rect key="frame" x="7" y="72" width="400" height="607"/>
-                                <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zjn-dG-nuk">
-                                        <rect key="frame" x="162" y="14" width="66" height="29"/>
-                                        <segments>
-                                            <segment title="On"/>
-                                            <segment title="Off"/>
-                                        </segments>
-                                    </segmentedControl>
-                                </subviews>
-                                <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home Analitics" translatesAutoresizingMaskIntoConstraints="NO" id="2D7-mZ-C6y">
-                                <rect key="frame" x="82" y="180" width="251" height="251"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="770" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cq1-wx-9NI">
-                                <rect key="frame" x="157" y="260" width="100" height="55"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="58"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="dots Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5O-JX-6ha">
-                                <rect key="frame" x="169" y="323" width="76" height="21"/>
-                                <fontDescription key="fontDescription" name="MaiandraGD-Regular" family="Maiandra GD" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home-Item1" translatesAutoresizingMaskIntoConstraints="NO" id="g38-Ng-Lmg">
-                                <rect key="frame" x="82" y="460" width="8" height="56"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Home-Item2" translatesAutoresizingMaskIntoConstraints="NO" id="F9Z-fi-Jov">
-                                <rect key="frame" x="265" y="460" width="8" height="56"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Earned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSl-jQ-1Sk">
-                                <rect key="frame" x="98" y="460" width="54" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fg-D8-eKK">
-                                <rect key="frame" x="280" y="460" width="43" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="March Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8s6-qv-iaS">
-                                <rect key="frame" x="35" y="125" width="359" height="42"/>
-                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="30"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1284" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKc-d7-hBY">
-                                <rect key="frame" x="98" y="486" width="77" height="30"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="513" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1Z-CH-hwG">
-                                <rect key="frame" x="281" y="485" width="52" height="31"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDT-eD-1CU">
-                                <rect key="frame" x="20" y="596" width="374" height="46"/>
-                                <color key="backgroundColor" red="0.92317688470000003" green="0.32955902809999998" blue="0.21469742059999999" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="23"/>
-                                <state key="normal" title="Request Tutoring">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" red="0.81545184339999999" green="0.81545184339999999" blue="0.81545184339999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                            <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hJ1-hW-wpr">
-                                <rect key="frame" x="0.0" y="63" width="414" height="673"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="jP4-pq-uCx">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="673"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b5K-5i-ZsF">
-                                            <rect key="frame" x="102" y="256" width="210" height="97"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Looking for available Tutors" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Olk-7X-ejL">
-                                                    <rect key="frame" x="0.0" y="28" width="210" height="21"/>
-                                                    <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="agO-Gr-T0j">
-                                                    <rect key="frame" x="95" y="57" width="20" height="20"/>
-                                                </activityIndicatorView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="0.98999999999999999" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Home" id="76b-dm-UlK">
-                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="HS1-ka-ztO">
-                            <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <segue destination="aGg-7W-u0x" kind="show" identifier="timeSegue" id="Wfr-BY-exA">
-                            <nil key="action"/>
-                        </segue>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Siz-HC-94e" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2529" y="-1364"/>
         </scene>
         <!--Home Time Counter-->
         <scene sceneID="Elb-WA-ufJ">
@@ -672,7 +605,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfK-Fq-YTF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3613" y="-1364"/>
+            <point key="canvasLocation" x="2991" y="-1364"/>
         </scene>
         <!--Tutor Home-->
         <scene sceneID="fra-Cy-fUO">
@@ -1051,7 +984,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAB-Ea-63P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3069" y="-408"/>
+            <point key="canvasLocation" x="2527" y="-408"/>
         </scene>
         <!--Home Time Counter-->
         <scene sceneID="iTm-Nr-Imt">
@@ -1206,7 +1139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="77I-nC-Cmi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3613" y="-408"/>
+            <point key="canvasLocation" x="3035" y="-408"/>
         </scene>
         <!--Tutor Home-->
         <scene sceneID="Xwu-J4-aC0">
@@ -1300,7 +1233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gUf-j7-z5x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4191" y="-408"/>
+            <point key="canvasLocation" x="3533" y="-408"/>
         </scene>
         <!--Chart View Controller-->
         <scene sceneID="DQz-Dd-cWz">

@@ -16,6 +16,10 @@ class CoursesListView: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     var tableView:UITableView = UITableView()
     
+    var index:Int = -1
+    
+    var mainController: RequestHelpViewController? = nil
+    
     convenience init(title:String, preferredContentSize:CGSize) {
         self.init()
         
@@ -74,5 +78,22 @@ class CoursesListView: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         return cell
     }
-
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        index = indexPath.row
+        
+        if index >= self.courses.count {
+            
+            tableView.allowsSelection = false;
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+            return
+        }
+            
+        self.mainController?.selectedCourse(courses[index] as! String)
+        self.mainController?.view.endEditing(true)
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

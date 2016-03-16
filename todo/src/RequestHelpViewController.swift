@@ -43,12 +43,11 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
     @IBAction func coursesDropDownList(sender: UITextField) {
         
         filterData = []
-        print(self.editedDropDown.text!)
         if sender.text! == "" {
             filterData = data
         } else {
             for i in 0...data.count - 1 {
-                if data[i].lowercaseString.rangeOfString(sender.text!) != nil {
+                if data[i].rangeOfString(sender.text!) != nil || data[i].lowercaseString.rangeOfString(sender.text!) != nil {
                     self.filterData.append(data[i])
                 }
             }
@@ -65,6 +64,8 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
         }
         
         self.coursesListViewController = CoursesListView(title: "Courses List", preferredContentSize: CGSize(width: self.coursesDropDown.bounds.width, height: 200))
+        
+        self.coursesListViewController!.mainController = self
         
         let popoverShowViewController = coursesListViewController!.popoverPresentationController
         
@@ -85,6 +86,17 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
         // Notice we are presenting form a view controller passed in. We need to present from a view controller
         // that has views that are already in the view hierarchy.
         sourceController.presentViewController(coursesListViewController!, animated: true, completion: nil)
+    }
+    
+    func selectedCourse (sender: String) {
+        self.editedDropDown.text = sender
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "lookingTutors" {
+            sendRequest(self, askedCourse: self.editedDropDown.text!.uppercaseString, description: descriptionText.text!, segueIdentifier: identifier)
+        }
+        return false
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {

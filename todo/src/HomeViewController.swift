@@ -10,15 +10,32 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    let requestButtonColor = UIColor(red: 235.0/255.0, green: 84.0/255.0, blue: 55.0/255.0, alpha: 0.8)
+    
     @IBOutlet weak var tutorStudentSwitch: UISegmentedControl!
     
     @IBOutlet weak var requestTutoringButton: UIButton!
     
-    let requestButtonColor = UIColor(red: 235.0/255.0, green: 84.0/255.0, blue: 55.0/255.0, alpha: 0.8)
+    @IBOutlet weak var lookingTutorsNoticeView: UIView!
+    
+    @IBOutlet weak var blurEffect: UIVisualEffectView!
+    
+    @IBOutlet weak var logout: UIBarButtonItem!
+    
+    @IBOutlet weak var tutorWaiting: UIView!
+    
+    @IBOutlet weak var requesterPhoto: UIImageView!
+    
+    @IBOutlet weak var requesterUsername: UILabel!
+    
+    @IBOutlet weak var requesterCourse: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestTutoringButton!.backgroundColor = requestButtonColor
+        self.requestTutoringButton!.backgroundColor = requestButtonColor
+        self.lookingTutorsNoticeView.hidden = true
+        self.blurEffect.hidden = true
+        self.tutorWaiting.hidden = true
     }
     
     @IBAction func requestTutoringButton(sender: AnyObject) {
@@ -34,13 +51,12 @@ class HomeViewController: UIViewController {
             requestTutoringButton!.enabled = false
             requestTutoringButton!.userInteractionEnabled = false
             requestTutoringButton!.backgroundColor = UIColor.lightGrayColor()
-            user["role"] = "tutor"
+            requestLisener(self)
             return
         }
         requestTutoringButton!.backgroundColor = requestButtonColor
         requestTutoringButton!.enabled = true
         requestTutoringButton!.userInteractionEnabled = true
-        user["role"] = "student"
     }
     
     // MARK: - Navigation
@@ -50,5 +66,13 @@ class HomeViewController: UIViewController {
         if segue.identifier == "logout" {
             logOutUser()
         }
+    }
+    
+    @IBAction func returnHomeViewController(segue:UIStoryboardSegue) {
+        let askedCourse = (segue.sourceViewController as! RequestHelpViewController).editedDropDown.text!
+        self.lookingTutorsNoticeView.hidden = false
+        self.blurEffect.hidden = false
+        self.logout.enabled = false
+        pairedLisener(self, askedCourse: askedCourse)
     }
 }
