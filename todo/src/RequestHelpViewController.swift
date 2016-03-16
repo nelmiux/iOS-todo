@@ -94,7 +94,7 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "lookingTutors" {
-            sendRequest(self, askedCourse: self.editedDropDown.text!.uppercaseString, description: descriptionText.text!, segueIdentifier: identifier)
+            sendRequest(self, askedCourse: self.editedDropDown.text!.uppercaseString, location: self.locationText.text!, description: descriptionText.text!, segueIdentifier: identifier)
         }
         return false
     }
