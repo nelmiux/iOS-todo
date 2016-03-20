@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var activityImage: UIImageView!
     @IBOutlet weak var numDotsLabel: UILabel!
     @IBOutlet weak var editProfileButton: UIButton!
+    @IBOutlet weak var coursesLabel: UILabel!
     
     // Class variables
     private var courseList:[String] = ["CH 301: Principles of Chemistry I", "CS 378: iOS Mobile Computing", "CS 312: Introduction to Java Programming", "CS 331: Algorithms and Complexity", "AET 306: Digital Imaging and Visualization"]
@@ -35,8 +36,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func displayUserData () {
-        self.photo.image = self.getUserPhoto()
-        self.nameLabel.text = ("\(user["firstName"] as! String!) \(user["lastName"] as! String!)")
+        self.displayUserPhoto()
+        // self.photo.image = self.getUserPhoto()
+        let firstName = user["firstName"] as! String!
+        self.nameLabel.text = ("\(firstName) \(user["lastName"] as! String!)")
+        self.coursesLabel.text = ("Courses \(firstName) can  tutor for:")
         self.infoLabel.text = ("\(user["major"] as! String!), \(user["graduationYear"] as! String!)")
         self.numDotsLabel.text = String(user["dots"]!) as String!
         // Still need to display correct activity image
@@ -52,7 +56,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func getUserPhoto () -> UIImage {
+    func displayUserPhoto () {
         let base64String:String = user["photoString"] as! String!
         var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
         
@@ -62,7 +66,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             decodedImage = UIImage(data: decodedData!)!
         }
         
-        return decodedImage!
+        self.photo.layer.cornerRadius = self.photo.frame.size.width / 2
+        self.photo.clipsToBounds = true
+        self.photo.image = decodedImage!
     }
 
     override func didReceiveMemoryWarning() {
