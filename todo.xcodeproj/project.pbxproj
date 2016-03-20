@@ -36,7 +36,6 @@
 		CA7B018C1C951AF20001D0F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01771C951AF20001D0F4 /* AppDelegate.swift */; };
 		CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01781C951AF20001D0F4 /* DataManager.swift */; };
 		CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01791C951AF20001D0F4 /* HomeViewController.swift */; };
-		CA7B018F1C951AF20001D0F4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017A1C951AF20001D0F4 /* LoadingViewController.swift */; };
 		CA7B01901C951AF20001D0F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */; };
 		CA7B01911C951AF20001D0F4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017C1C951AF20001D0F4 /* Notification.swift */; };
 		CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017D1C951AF20001D0F4 /* NotificationsTableViewController.swift */; };
@@ -46,13 +45,8 @@
 		CA7B01961C951AF20001D0F4 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */; };
 		CA7B01971C951AF20001D0F4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */; };
 		CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */; };
-		CA7B01991C951AF20001D0F4 /* RequestPoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01841C951AF20001D0F4 /* RequestPoolTableViewCell.swift */; };
-		CA7B019A1C951AF20001D0F4 /* RequestPoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */; };
 		CA7B019B1C951AF20001D0F4 /* StandardNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01861C951AF20001D0F4 /* StandardNotificationTableViewCell.swift */; };
 		CA7B019C1C951AF20001D0F4 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01871C951AF20001D0F4 /* StreamReader.swift */; };
-		CA7B019D1C951AF20001D0F4 /* TutoringRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01881C951AF20001D0F4 /* TutoringRequest.swift */; };
-		CA7B019E1C951AF20001D0F4 /* TutorWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */; };
-		CA7B019F1C951AF20001D0F4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B018A1C951AF20001D0F4 /* User.swift */; };
 		CA7B01A51C951CCC0001D0F4 /* UTCSCourses.json in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A11C951CCC0001D0F4 /* UTCSCourses.json */; };
 		CA7B01A61C951CCC0001D0F4 /* CS_Lower.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A21C951CCC0001D0F4 /* CS_Lower.txt */; };
 		CA7B01A71C951CCC0001D0F4 /* CS_Upper.txt in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01A31C951CCC0001D0F4 /* CS_Upper.txt */; };
@@ -158,7 +152,6 @@
 		CA7B01771C951AF20001D0F4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = src/AppDelegate.swift; sourceTree = "<group>"; };
 		CA7B01781C951AF20001D0F4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = src/DataManager.swift; sourceTree = "<group>"; };
 		CA7B01791C951AF20001D0F4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = src/HomeViewController.swift; sourceTree = "<group>"; };
-		CA7B017A1C951AF20001D0F4 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingViewController.swift; path = src/LoadingViewController.swift; sourceTree = "<group>"; };
 		CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = src/LoginViewController.swift; sourceTree = "<group>"; };
 		CA7B017C1C951AF20001D0F4 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = src/Notification.swift; sourceTree = "<group>"; };
 		CA7B017D1C951AF20001D0F4 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsTableViewController.swift; path = src/NotificationsTableViewController.swift; sourceTree = "<group>"; };
@@ -172,9 +165,6 @@
 		CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestPoolTableViewController.swift; path = src/RequestPoolTableViewController.swift; sourceTree = "<group>"; };
 		CA7B01861C951AF20001D0F4 /* StandardNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StandardNotificationTableViewCell.swift; path = src/StandardNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		CA7B01871C951AF20001D0F4 /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamReader.swift; path = src/StreamReader.swift; sourceTree = "<group>"; };
-		CA7B01881C951AF20001D0F4 /* TutoringRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutoringRequest.swift; path = src/TutoringRequest.swift; sourceTree = "<group>"; };
-		CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorWaitingViewController.swift; path = src/TutorWaitingViewController.swift; sourceTree = "<group>"; };
-		CA7B018A1C951AF20001D0F4 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = src/User.swift; sourceTree = "<group>"; };
 		CA7B01A11C951CCC0001D0F4 /* UTCSCourses.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = UTCSCourses.json; path = docs/UTCSCourses.json; sourceTree = "<group>"; };
 		CA7B01A21C951CCC0001D0F4 /* CS_Lower.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CS_Lower.txt; path = docs/CS_Lower.txt; sourceTree = "<group>"; };
 		CA7B01A31C951CCC0001D0F4 /* CS_Upper.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = CS_Upper.txt; path = docs/CS_Upper.txt; sourceTree = "<group>"; };
@@ -346,7 +336,6 @@
 				8782F70C1C8D3F3600922859 /* Notifications */,
 				CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */,
 				CA7B01801C951AF20001D0F4 /* ProfileViewController.swift */,
-				CA7B018A1C951AF20001D0F4 /* User.swift */,
 				CA7B01871C951AF20001D0F4 /* StreamReader.swift */,
 				CA7B01781C951AF20001D0F4 /* DataManager.swift */,
 			);
@@ -380,9 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				CA7B01791C951AF20001D0F4 /* HomeViewController.swift */,
-				CA7B01881C951AF20001D0F4 /* TutoringRequest.swift */,
-				CA7B01891C951AF20001D0F4 /* TutorWaitingViewController.swift */,
-				CA7B017A1C951AF20001D0F4 /* LoadingViewController.swift */,
 				CA7B01C31C97B4DC0001D0F4 /* ChartViewController.swift */,
 				CA7B01C71C980D0A0001D0F4 /* RequestHelpViewController.swift */,
 				CA7B01F21C981A450001D0F4 /* CoursesListView.swift */,
@@ -780,19 +766,13 @@
 				CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */,
 				CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */,
 				CA7B01F31C981A450001D0F4 /* CoursesListView.swift in Sources */,
-				CA7B01991C951AF20001D0F4 /* RequestPoolTableViewCell.swift in Sources */,
-				CA7B019E1C951AF20001D0F4 /* TutorWaitingViewController.swift in Sources */,
-				CA7B019A1C951AF20001D0F4 /* RequestPoolTableViewController.swift in Sources */,
 				CA7B01C81C980D0A0001D0F4 /* RequestHelpViewController.swift in Sources */,
-				CA7B019D1C951AF20001D0F4 /* TutoringRequest.swift in Sources */,
 				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,
 				CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */,
 				CA7B01961C951AF20001D0F4 /* RegistrationTableViewCell.swift in Sources */,
 				CA7B01971C951AF20001D0F4 /* RegistrationViewController.swift in Sources */,
 				CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */,
-				CA7B019F1C951AF20001D0F4 /* User.swift in Sources */,
 				CA7B019B1C951AF20001D0F4 /* StandardNotificationTableViewCell.swift in Sources */,
-				CA7B018F1C951AF20001D0F4 /* LoadingViewController.swift in Sources */,
 				CA7B019C1C951AF20001D0F4 /* StreamReader.swift in Sources */,
 				CA7B01931C951AF20001D0F4 /* OptionsListViewController.swift in Sources */,
 				CA7B01941C951AF20001D0F4 /* OptionsPopoverViewController.swift in Sources */,

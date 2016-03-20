@@ -10,7 +10,7 @@ import UIKit
 
 class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
     
-    var data = ["CS312", "CS314"]
+    var data = lowerDivisionCourses
     
     var filterData = [String]()
     
