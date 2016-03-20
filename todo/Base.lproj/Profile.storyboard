@@ -55,7 +55,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.71764705882352942" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses she can tutor for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-Xk-0M5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Courses they can tutor for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrx-Xk-0M5">
                                 <rect key="frame" x="97" y="342" width="221" height="23"/>
                                 <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,6 +115,7 @@
                     <connections>
                         <outlet property="CoursesTableView" destination="F7c-MZ-VAd" id="0aC-wq-kb3"/>
                         <outlet property="activityImage" destination="Je6-2d-xdO" id="O8p-Eh-aX2"/>
+                        <outlet property="editProfileButton" destination="5dy-9e-Ima" id="9LW-kB-x9l"/>
                         <outlet property="emailButton" destination="ltM-fp-Yoh" id="mPt-mf-fxS"/>
                         <outlet property="infoLabel" destination="7ON-SA-pyS" id="tKX-vN-KUs"/>
                         <outlet property="nameLabel" destination="nxa-sd-Ka8" id="Z38-17-9BL"/>

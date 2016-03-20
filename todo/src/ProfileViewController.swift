@@ -17,7 +17,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var activityImage: UIImageView!
     @IBOutlet weak var numDotsLabel: UILabel!
-
+    @IBOutlet weak var editProfileButton: UIButton!
+    
     // Class variables
     private var courseList:[String] = ["CH 301: Principles of Chemistry I", "CS 378: iOS Mobile Computing", "CS 312: Introduction to Java Programming", "CS 331: Algorithms and Complexity", "AET 306: Digital Imaging and Visualization"]
     var isOwnProfile:Bool = false
@@ -28,6 +29,29 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.CoursesTableView.delegate = self
         self.CoursesTableView.dataSource = self
         self.CoursesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "courseCell")
+        
+        self.displayUserData()
+    }
+    
+    func displayUserData () {
+        self.photo.image = self.getUserPhoto()
+        self.nameLabel.text = ("\(user["firstName"] as! String!) \(user["lastName"] as! String!)")
+        self.infoLabel.text = ("\(user["major"] as! String!), \(user["graduationYear"] as! String!)")
+        self.numDotsLabel.text = String(user["dots"]) as String!
+        // Still need to display correct activity image
+    }
+    
+    func getUserPhoto () -> UIImage {
+        let base64String:String = user["photoString"] as! String!
+        var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
+        
+        // If user has selected image other than default image, decode the image
+        if base64String.characters.count > 0 {
+            let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+            decodedImage = UIImage(data: decodedData!)!
+        }
+        
+        return decodedImage!
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,11 +71,16 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func onClickEmail(sender: AnyObject) {
         // Open email app with user's email in "to" field
-        // Deactive if isOwnProfile is true
+        
+        if isOwnProfile {
+            self.emailButton.enabled = false
+        }
     }
     
     @IBAction func onClickEditProfile(sender: AnyObject) {
-        // Hide if isOwnProfile is false
+        if !isOwnProfile {
+            self.editProfileButton.hidden = true
+        }
     }
     
     
