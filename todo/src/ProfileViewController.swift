@@ -13,7 +13,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     // UI Attributes
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var majorLabel: UILabel!
     @IBOutlet weak var graduationLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
@@ -22,6 +21,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var coursesLabel: UILabel!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var majorTextField: UITextField!
+    @IBOutlet weak var graduationTextField: UITextField!
+    @IBOutlet weak var basicInfoView: UIView!
     
     // Class variables
     private var courseList:[String] = ["CH 301: Principles of Chemistry I", "CS 378: iOS Mobile Computing", "CS 312: Introduction to Java Programming", "CS 331: Algorithms and Complexity", "AET 306: Digital Imaging and Visualization"]
@@ -44,19 +47,43 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func hideEditing () {
+        if isOwnProfile {
+            self.editProfileButton.enabled = true
+        }
+        
+        // Hide text fields
         self.saveBarButton.enabled = false
         self.saveBarButton.title = ""
         self.nameTextField.hidden = true
+        self.majorTextField.hidden = true
+        self.graduationTextField.hidden = true
+        
+        // Show labels
+        self.nameLabel.hidden = false
+        self.majorLabel.hidden = false
+        self.graduationLabel.hidden = false
     }
     
-    func showEditingFields () {
+    func showEditing () {
+        // Disable the edit profile button
+        self.editProfileButton.enabled = false
+        
         // Display save button in top nav bar
         self.saveBarButton.enabled = true
         self.saveBarButton.title = "Save"
         
-        // Display text fields with current data as placeholder
+        // Hide labels
+        self.nameLabel.hidden = true
+        self.majorLabel.hidden = true
+        self.graduationLabel.hidden = true
+        
+        // Show text fields
         self.nameTextField.hidden = false
         self.nameTextField.placeholder = self.name
+        self.majorTextField.hidden = false
+        self.majorTextField.placeholder = self.major
+        self.graduationTextField.hidden = false
+        self.graduationTextField.placeholder = self.graduation
     }
     
     func displayUserData (needToRetrieveData:Bool) {
@@ -76,6 +103,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.graduationLabel.text = ("Class of \(self.graduation)")
         self.numDotsLabel.text = String(user["dots"]!) as String!
         // Still need to display correct activity image
+    }
+    
+    func getEditedInput () {
+        // TODO: Need to also update this info in the database
+        self.name = self.nameTextField.text?.characters.count > 0 ? self.nameTextField.text! : self.name
+        self.major = self.majorTextField.text?.characters.count > 0 ? self.majorTextField.text! : self.major
+        self.graduation = self.graduationTextField.text?.characters.count > 0 ? self.graduationTextField.text! : self.graduation
     }
     
     func adjustButtonFunctionality () {
@@ -123,13 +157,20 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     @IBAction func onClickEditProfile(sender: AnyObject) {
         self.isEditing = true
-        self.showEditingFields()
+        self.showEditing()
+        self.emailButton.hidden = true
     }
     
     @IBAction func onClickSave(sender: AnyObject) {
-        // self.getEditedInput()
+        self.getEditedInput()
         self.hideEditing()
         self.displayUserData(false)
+        self.emailButton.hidden = false
+        
+        // Hide any open keyboard
+        self.textFieldShouldReturn(self.nameTextField)
+        self.textFieldShouldReturn(self.majorTextField)
+        self.textFieldShouldReturn(self.graduationTextField)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
