@@ -122,8 +122,8 @@
                                         <color key="textColor" red="0.74779863830000004" green="0.98439385369999999" blue="0.93798850609999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1km-vA-fuF">
-                                        <rect key="frame" x="211" y="16" width="181" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1km-vA-fuF">
+                                        <rect key="frame" x="211" y="16" width="139" height="30"/>
                                         <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="VHn-B5-abN"/>
@@ -132,8 +132,8 @@
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Te0-Z2-YEP">
-                                        <rect key="frame" x="211" y="49" width="181" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Te0-Z2-YEP">
+                                        <rect key="frame" x="211" y="49" width="139" height="30"/>
                                         <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="SB7-NL-YVo"/>
@@ -142,8 +142,8 @@
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mN0-0d-67z">
-                                        <rect key="frame" x="211" y="82" width="181" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mN0-0d-67z">
+                                        <rect key="frame" x="211" y="82" width="139" height="30"/>
                                         <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="lkK-0U-Gfr"/>
@@ -160,7 +160,7 @@
                                     <constraint firstItem="T1r-4E-buh" firstAttribute="leading" secondItem="as5-8A-JRs" secondAttribute="leading" constant="42" id="9Mc-zR-Z6o"/>
                                     <constraint firstItem="1km-vA-fuF" firstAttribute="top" secondItem="as5-8A-JRs" secondAttribute="top" constant="16" id="ADR-HG-mKH"/>
                                     <constraint firstItem="Dfh-Ru-rt0" firstAttribute="leading" secondItem="T1r-4E-buh" secondAttribute="trailing" constant="44" id="AMa-ai-5in"/>
-                                    <constraint firstAttribute="trailing" secondItem="Te0-Z2-YEP" secondAttribute="trailing" constant="-42" id="BYW-ac-Yeu"/>
+                                    <constraint firstAttribute="trailing" secondItem="Te0-Z2-YEP" secondAttribute="trailing" constant="8" id="BYW-ac-Yeu"/>
                                     <constraint firstAttribute="trailing" secondItem="nxa-sd-Ka8" secondAttribute="trailing" constant="7" id="Ddt-SS-ZRK"/>
                                     <constraint firstItem="ltM-fp-Yoh" firstAttribute="top" secondItem="7ON-SA-pyS" secondAttribute="bottom" constant="8" id="F4n-O6-FnF"/>
                                     <constraint firstItem="Te0-Z2-YEP" firstAttribute="leading" secondItem="T1r-4E-buh" secondAttribute="trailing" constant="44" id="FE9-8U-J4d"/>
@@ -169,7 +169,7 @@
                                     <constraint firstAttribute="trailing" secondItem="nxa-sd-Ka8" secondAttribute="trailing" constant="-42" id="QbV-lD-CfY"/>
                                     <constraint firstItem="nxa-sd-Ka8" firstAttribute="leading" secondItem="T1r-4E-buh" secondAttribute="trailing" constant="44" id="SFD-fe-qRx"/>
                                     <constraint firstItem="Dfh-Ru-rt0" firstAttribute="top" secondItem="nxa-sd-Ka8" secondAttribute="bottom" constant="16" id="Toc-5k-Utm"/>
-                                    <constraint firstAttribute="trailing" secondItem="1km-vA-fuF" secondAttribute="trailing" constant="-42" id="VkF-ns-fgn"/>
+                                    <constraint firstAttribute="trailing" secondItem="1km-vA-fuF" secondAttribute="trailing" constant="8" id="VkF-ns-fgn"/>
                                     <constraint firstItem="7ON-SA-pyS" firstAttribute="top" secondItem="nxa-sd-Ka8" secondAttribute="bottom" constant="-4" id="W5S-52-8oN"/>
                                     <constraint firstAttribute="height" constant="148" id="XAt-Q2-hEf"/>
                                     <constraint firstAttribute="bottom" secondItem="ltM-fp-Yoh" secondAttribute="bottom" constant="8" id="YUh-Zr-lxS"/>
@@ -187,7 +187,7 @@
                                     <constraint firstItem="7ON-SA-pyS" firstAttribute="leading" secondItem="T1r-4E-buh" secondAttribute="trailing" constant="44" id="stY-Fe-a9E"/>
                                     <constraint firstAttribute="bottom" secondItem="T1r-4E-buh" secondAttribute="bottom" constant="11" id="vhI-UW-7nf"/>
                                     <constraint firstItem="nxa-sd-Ka8" firstAttribute="top" secondItem="as5-8A-JRs" secondAttribute="top" constant="28" id="wBP-IO-rk8"/>
-                                    <constraint firstAttribute="trailing" secondItem="mN0-0d-67z" secondAttribute="trailing" constant="-42" id="x1U-Wa-aLN"/>
+                                    <constraint firstAttribute="trailing" secondItem="mN0-0d-67z" secondAttribute="trailing" constant="8" id="x1U-Wa-aLN"/>
                                     <constraint firstItem="mN0-0d-67z" firstAttribute="leading" secondItem="T1r-4E-buh" secondAttribute="trailing" constant="44" id="ydn-OB-Cu5"/>
                                 </constraints>
                                 <variation key="default">
