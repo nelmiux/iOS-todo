@@ -8,21 +8,28 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     // UI Attributes
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var majorLabel: UILabel!
+    @IBOutlet weak var graduationLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var activityImage: UIImageView!
     @IBOutlet weak var numDotsLabel: UILabel!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var coursesLabel: UILabel!
+    @IBOutlet weak var saveBarButton: UIBarButtonItem!
     
     // Class variables
     private var courseList:[String] = ["CH 301: Principles of Chemistry I", "CS 378: iOS Mobile Computing", "CS 312: Introduction to Java Programming", "CS 331: Algorithms and Complexity", "AET 306: Digital Imaging and Visualization"]
+    private var name:String = ""
+    private var major:String = ""
+    private var graduation:String = ""
     var isOwnProfile:Bool = true
+    private var isEditing:Bool = false
     
     @IBOutlet weak var CoursesTableView: UITableView!
     override func viewDidLoad() {
@@ -31,17 +38,42 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         self.CoursesTableView.dataSource = self
         self.CoursesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "courseCell")
         
-        self.displayUserData()
+        self.hideEditing()
+        self.displayUserData(true)
         self.adjustButtonFunctionality()
     }
     
-    func displayUserData () {
-        self.displayUserPhoto()
-        // self.photo.image = self.getUserPhoto()
-        let firstName = user["firstName"] as! String!
-        self.nameLabel.text = ("\(firstName) \(user["lastName"] as! String!)")
+    func hideEditing () {
+        self.saveBarButton.enabled = false
+        self.saveBarButton.title = ""
+        self.nameTextField.hidden = true
+    }
+    
+    func showEditingFields () {
+        // Display save button in top nav bar
+        self.saveBarButton.enabled = true
+        self.saveBarButton.title = "Save"
+        
+        // Display text fields with current data as placeholder
+        self.nameTextField.hidden = false
+        self.nameTextField.placeholder = self.name
+    }
+    
+    func displayUserData (needToRetrieveData:Bool) {
+        // Get data from Firebase if necessary
+        if needToRetrieveData {
+            self.displayUserPhoto()
+            self.name = ("\(user["firstName"] as! String!) \(user["lastName"] as! String!)")
+            self.major = user["major"] as! String!
+            self.graduation = user["graduationYear"] as! String!
+        }
+        
+        self.nameLabel.text = self.name
+        let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
+        let firstName = fullNameArr[0]
         self.coursesLabel.text = ("Courses \(firstName) can  tutor for:")
-        self.infoLabel.text = ("\(user["major"] as! String!), \(user["graduationYear"] as! String!)")
+        self.majorLabel.text = self.major
+        self.graduationLabel.text = ("Class of \(self.graduation)")
         self.numDotsLabel.text = String(user["dots"]!) as String!
         // Still need to display correct activity image
     }
@@ -90,8 +122,24 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     @IBAction func onClickEditProfile(sender: AnyObject) {
+        self.isEditing = true
+        self.showEditingFields()
     }
     
+    @IBAction func onClickSave(sender: AnyObject) {
+        // self.getEditedInput()
+        self.hideEditing()
+        self.displayUserData(false)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
 
     /*
