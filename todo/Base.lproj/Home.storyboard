@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="1987" y="-1364"/>
         </scene>
-        <!--Requester Home-->
+        <!--Shared Home-->
         <scene sceneID="Mtv-w4-1n4">
             <objects>
-                <viewController id="Fbh-oW-a4S" userLabel="Requester Home" customClass="HomeViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fbh-oW-a4S" userLabel="Shared Home" customClass="HomeViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qTn-IA-1n2"/>
                         <viewControllerLayoutGuide type="bottom" id="mbc-6Q-SST"/>
@@ -520,7 +520,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-E5-5lo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-E5-5lo">
                                 <rect key="frame" x="108" y="341" width="43" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

@@ -99,7 +99,7 @@ class HomeViewController: UIViewController {
             requestTutoringButton!.enabled = false
             requestTutoringButton!.userInteractionEnabled = false
             requestTutoringButton!.backgroundColor = UIColor.lightGrayColor()
-            requestLisener(self)
+            requestListener(self)
             return
         }
         requestTutoringButton!.backgroundColor = requestButtonColor
@@ -136,7 +136,7 @@ class HomeViewController: UIViewController {
         self.lookingTutorsNoticeView.hidden = false
         self.blurEffect.hidden = false
         self.logout.enabled = false
-        pairedLisener(self, askedCourse: askedCourse)
+        pairedListener(self, askedCourse: askedCourse)
     }
     
     @IBAction func startSessionButton(sender: AnyObject) {

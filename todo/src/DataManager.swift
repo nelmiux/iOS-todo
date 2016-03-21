@@ -158,6 +158,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
 
 func sendRequest (view: AnyObject, askedCourse: String, location:String,  description: String, segueIdentifier: String) {
     let coursesRef = getFirebase("courses/")
+    let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
     coursesRef.observeEventType(.Value, withBlock: { snapshot in
         if let _ = snapshot.value[askedCourse] as? Dictionary<String, String> {
             usersPerCourse = snapshot.value[askedCourse] as! Dictionary<String, String>
@@ -180,7 +181,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
     })
 }
 
-func requestLisener(view: AnyObject) {
+func requestListener(view: AnyObject) {
     mainViewController = view as? HomeViewController
     let username = (user["username"] as! String)
     let picString = (user["photoString"] as! String)
@@ -281,10 +282,11 @@ func requestLisener(view: AnyObject) {
     currUserRef.updateChildValues(["requesterUsername": ""])
 }
 
-func pairedLisener(view: AnyObject, askedCourse: String) {
+func pairedListener(view: AnyObject, askedCourse: String) {
     mainViewController = view as? HomeViewController
     let username = (user["username"] as! String)
     let currUserRef = getFirebase("users/" + username)
+    let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
     currUserRef.observeEventType(.Value, withBlock: { snapshot in
         paired["username"] = snapshot.value.objectForKey("pairedUsername") as? String
         if paired["username"] != "" && (snapshot.value.objectForKey("start") as? String) == "" {
