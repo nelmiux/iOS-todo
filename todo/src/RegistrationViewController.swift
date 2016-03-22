@@ -13,6 +13,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     // Class attributes
     private var addedCourses:[String] = [String]()
     private var selectedPhotoString = ""
+    private var keyboardHeight:CGFloat = 0.0
     
     // UI Elements
     @IBOutlet weak var mainView: UIView!
@@ -21,6 +22,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var seeCoursesButton: UIButton!
     @IBOutlet weak var userThumbnail: UIImageView!
     @IBOutlet weak var registrationTableView: UITableView!
+    @IBOutlet weak var addCourseTextField: UITextField!
     
     let imagePicker = UIImagePickerController()
     
@@ -111,6 +113,24 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
         return scaledImage
     }
+    
+    // Adding course drop-down menu functionality
+    @IBAction func beginAddingCourse(sender: AnyObject) {
+        // Raise main view above keyboard
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        // self.mainView.frame.height.advancedBy(200.0)
+        let addedHeight = self.keyboardHeight > 0.0 ? self.keyboardHeight : 300.0
+        self.mainView.frame = CGRectMake(mainView.frame.origin.x, mainView.frame.origin.y, mainView.frame.width, mainView.frame.height + addedHeight)
+        print ("Attempting to add \(addedHeight) to height")
+    }
+
+    func keyboardWillShow(notification:NSNotification) {
+        let userInfo:NSDictionary = notification.userInfo!
+        let keyboardFrame:NSValue = userInfo.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.CGRectValue()
+        self.keyboardHeight = keyboardRectangle.height
+    }
+
     
     // MARK: - Navigation
     
