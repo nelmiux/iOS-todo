@@ -288,6 +288,9 @@
                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="8" y="561" width="398" height="46"/>
+                                                </variation>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLC-q4-EXT">
                                                 <rect key="frame" x="3" y="609" width="359" height="70"/>
@@ -298,6 +301,9 @@
                                                         <state key="normal" title="Dpt: CS">
                                                             <color key="titleColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="15" y="8" width="54" height="30"/>
+                                                        </variation>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ye2-jr-Yzg">
                                                         <rect key="frame" x="125" y="20" width="89" height="30"/>
@@ -315,7 +321,8 @@
                                                                 <exclude reference="mkn-zG-pjZ"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="widthClass=compact">
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="163" y="8" width="89" height="30"/>
                                                             <mask key="constraints">
                                                                 <exclude reference="MgL-P0-DRG"/>
                                                                 <include reference="mkn-zG-pjZ"/>
@@ -339,7 +346,8 @@
                                                                 <exclude reference="fwe-tr-FyJ"/>
                                                             </mask>
                                                         </variation>
-                                                        <variation key="widthClass=compact">
+                                                        <variation key="widthClass=compact" misplaced="YES">
+                                                            <rect key="frame" x="305" y="8" width="93" height="30"/>
                                                             <mask key="constraints">
                                                                 <exclude reference="3SW-le-G0M"/>
                                                                 <include reference="fwe-tr-FyJ"/>
@@ -373,7 +381,8 @@
                                                         <exclude reference="pMW-8D-S16"/>
                                                     </mask>
                                                 </variation>
-                                                <variation key="widthClass=compact">
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="615" width="414" height="47"/>
                                                     <mask key="constraints">
                                                         <include reference="rKz-Ua-XC9"/>
                                                         <include reference="CyJ-Ex-Tsf"/>
@@ -611,9 +620,11 @@
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
                         <outlet property="addCourseTextField" destination="VOV-bT-lNG" id="lFZ-Ea-a7J"/>
+                        <outlet property="bottomConstraint" destination="qyy-tm-hob" id="SUk-6C-F96"/>
                         <outlet property="departmentButton" destination="jGa-mc-V3v" id="0Ab-Yw-17y"/>
                         <outlet property="mainView" destination="HW0-hU-2bM" id="pPS-YA-l1A"/>
                         <outlet property="registrationTableView" destination="VJN-Wq-RW8" id="ZlR-px-f78"/>
+                        <outlet property="scrollView" destination="Oga-mH-QdA" id="gy6-wO-Ldr"/>
                         <outlet property="seeCoursesButton" destination="EiZ-7I-2HJ" id="iuO-rs-j1H"/>
                         <outlet property="upperLowerButton" destination="Ye2-jr-Yzg" id="2QE-Xa-403"/>
                         <outlet property="userThumbnail" destination="ryw-HZ-UlS" id="zqJ-Y9-2yW"/>

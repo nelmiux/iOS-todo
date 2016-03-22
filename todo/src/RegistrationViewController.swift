@@ -17,12 +17,16 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     // UI Elements
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var departmentButton: UIButton!
     @IBOutlet weak var upperLowerButton: UIButton!
     @IBOutlet weak var seeCoursesButton: UIButton!
     @IBOutlet weak var userThumbnail: UIImageView!
     @IBOutlet weak var registrationTableView: UITableView!
     @IBOutlet weak var addCourseTextField: UITextField!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    
+    var activeField: UITextField?
     
     let imagePicker = UIImagePickerController()
     
@@ -37,6 +41,13 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.registrationTableView.delegate = self
         self.registrationTableView.dataSource = self
         self.imagePicker.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        let center = NSNotificationCenter.defaultCenter()
+        center.addObserver(self, selector: "keyboardOnScreen:", name: UIKeyboardDidShowNotification, object: nil)
+        center.addObserver(self, selector: "keyboardOffScreen:", name: UIKeyboardDidHideNotification, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -114,21 +125,43 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         return scaledImage
     }
     
-    // Adding course drop-down menu functionality
+    // Course drop-down menu functionality
     @IBAction func beginAddingCourse(sender: AnyObject) {
-        // Raise main view above keyboard
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        // self.mainView.frame.height.advancedBy(200.0)
-        let addedHeight = self.keyboardHeight > 0.0 ? self.keyboardHeight : 300.0
-        self.mainView.frame = CGRectMake(mainView.frame.origin.x, mainView.frame.origin.y, mainView.frame.width, mainView.frame.height + addedHeight)
-        print ("Attempting to add \(addedHeight) to height")
+        activeField = sender as! UITextField
     }
-
-    func keyboardWillShow(notification:NSNotification) {
-        let userInfo:NSDictionary = notification.userInfo!
-        let keyboardFrame:NSValue = userInfo.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.CGRectValue()
-        self.keyboardHeight = keyboardRectangle.height
+    
+    
+    
+    
+    // Keyboard Functionality
+    func keyboardOnScreen(notification: NSNotification){
+        let info: NSDictionary  = notification.userInfo!
+        let kbSize = info.valueForKey(UIKeyboardFrameEndUserInfoKey)?.CGRectValue.size
+        let contentInsets:UIEdgeInsets  = UIEdgeInsetsMake(0.0, 0.0, kbSize!.height + 70.0, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        var aRect: CGRect = self.view.frame
+        aRect.size.height -= kbSize!.height
+        //you may not need to scroll, see if the active field is already visible
+        if (!CGRectContainsPoint(aRect, activeField!.frame.origin) ) {
+            let scrollPoint:CGPoint = CGPointMake(0.0, activeField!.frame.origin.y - kbSize!.height - 70.0)
+            scrollView.setContentOffset(scrollPoint, animated: true)
+        }
+    }
+    
+    func keyboardOffScreen(notification: NSNotification){
+        let contentInsets:UIEdgeInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func hideKeyboard() {
+        self.view.endEditing(true)
     }
 
     
@@ -174,14 +207,5 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
                 (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
             }
         }
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func hideKeyboard() {
-        self.view.endEditing(true)
     }
 }
