@@ -119,7 +119,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             user["lastName"] = fullNameArr[1]
             user["major"] = self.major
             user["graduationYear"] = self.graduation
+            
             // Update Firebase
+            let userRef = getFirebase("users/" + (user["username"] as! String!))
+            userRef.updateChildValues([
+                "First Name": user["firstName"] as! String!,
+                "Last Name": user["lastName"] as! String!,
+                "Major": self.major,
+                "Graduation Year": self.graduation
+                ])
         }
         return valid
     }
