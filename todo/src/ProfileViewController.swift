@@ -105,11 +105,43 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Still need to display correct activity image
     }
     
-    func getEditedInput () {
-        // TODO: Need to also update this info in the database
+    func saveInfo () -> Bool {
         self.name = self.nameTextField.text?.characters.count > 0 ? self.nameTextField.text! : self.name
         self.major = self.majorTextField.text?.characters.count > 0 ? self.majorTextField.text! : self.major
         self.graduation = self.graduationTextField.text?.characters.count > 0 ? self.graduationTextField.text! : self.graduation
+        let valid:Bool = self.validateFields()
+        
+        // Save
+        if valid {
+            // Update global "user" variable
+            let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
+            user["firstName"] = fullNameArr[0]
+            user["lastName"] = fullNameArr[1]
+            user["major"] = self.major
+            user["graduationYear"] = self.graduation
+            // Update Firebase
+        }
+        return valid
+    }
+    
+    func validateFields () -> Bool {
+        // Validate name
+        let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
+        if fullNameArr.count < 2 {
+            alert(self, description: "Please enter a valid full name.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            return false
+        }
+        
+        // Validate major -- how can we do this?
+        
+        // Validate graduation year
+        if self.graduation != "2016" && self.graduation != "2017" && self.graduation != "2018" && self.graduation != "2019" && self.graduation != "2020" {
+            print("Graduation \(self.graduation) is an invalid graduation date")
+            alert(self, description: "Please enter a valid graduation date.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            return false
+        }
+        
+        return true
     }
     
     func adjustButtonFunctionality () {
@@ -162,11 +194,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     @IBAction func onClickSave(sender: AnyObject) {
-        self.getEditedInput()
-        self.hideEditing()
-        self.displayUserData(false)
-        self.emailButton.hidden = false
-        
+        let success:Bool = self.saveInfo()
+        if success {
+            self.hideEditing()
+            self.displayUserData(false)
+            self.emailButton.hidden = false
+        }
+
         // Hide any open keyboard
         self.textFieldShouldReturn(self.nameTextField)
         self.textFieldShouldReturn(self.majorTextField)

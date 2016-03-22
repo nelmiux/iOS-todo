@@ -43,10 +43,10 @@ func getFirebase(loc: String) -> Firebase! {
     return Firebase(url:location)
 }
 
-func alert (view: AnyObject, description: String, action: UIAlertAction) {
+func alert (view: AnyObject, description: String, action: UIAlertAction?) {
     let alertController = UIAlertController(title: nil, message: description, preferredStyle: UIAlertControllerStyle.Alert)
     let OKAction = action
-    alertController.addAction(OKAction)
+    alertController.addAction(OKAction!)
     view.presentViewController(alertController, animated: true, completion:nil)
 }
 
