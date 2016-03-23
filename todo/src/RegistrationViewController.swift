@@ -148,7 +148,11 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        self.presentPopover(sourceController: self, sourceView: self.addCourseButton, sourceRect: CGRectMake(0, self.addCourseButton.bounds.height + 1, self.addCourseButton.bounds.width, 200))
+        // self.presentPopover(sourceController: self, sourceView: self.addCourseButton, sourceRect: CGRectMake(0, self.addCourseButton.bounds.height + 1, self.addCourseButton.bounds.width, 200))
+        let buttonPos = self.addCourseButton.frame.origin
+        print("addCourseButton is at \(buttonPos.x), \(buttonPos.y)")
+        let buttonSize = self.addCourseButton.frame.size
+        self.presentPopover(sourceController: self, sourceView: self.addCourseButton, sourceRect: CGRectMake(buttonPos.x, buttonPos.y, buttonSize.width, 200))
     }
     
     func presentPopover(sourceController sourceController:UIViewController, sourceView:UIView, sourceRect:CGRect) {
@@ -159,19 +163,16 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         self.coursesListViewController = CoursesListView(title: "Courses List", preferredContentSize: CGSize(width: self.addCourseButton.bounds.width, height: 200))
-        
         self.coursesListViewController!.mainController = self
-        
-        let popoverShowViewController = coursesListViewController!.popoverPresentationController
+        self.coursesListViewController!.courses = filterData
         
         // Cause the views to be created in this view controller. Gets them added to the view hierarchy.
-        //self.coursesListViewController.view
-        coursesListViewController!.tableView.layoutIfNeeded()
-        
-        coursesListViewController!.courses = filterData
+        self.coursesListViewController?.view
+        self.coursesListViewController!.tableView.layoutIfNeeded()
         
         // Set attributes for the popover controller.
         // Notice we're get an existing object from the view controller we want to popup!
+        let popoverShowViewController = self.coursesListViewController!.popoverPresentationController
         popoverShowViewController?.permittedArrowDirections = UIPopoverArrowDirection()
         popoverShowViewController?.delegate = self
         popoverShowViewController?.sourceView = sourceView
@@ -182,6 +183,30 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         // that has views that are already in the view hierarchy.
         sourceController.presentViewController(coursesListViewController!, animated: true, completion: nil)
     }
+    
+    /* func presentPopover(sourceController sourceController:UIViewController, sourceView:UIView, sourceRect:CGRect) {
+        
+        // Create the view controller we want to display as the popup.
+        self.candidateListViewController = CandidateListViewController(title: "Candidates", preferredContentSize: CGSize(width: 350, height: 180))
+        self.candidateListViewController?.setCellId(self.cellId)
+        
+        // Cause the views to be created in this view controller. Gets them added to the view hierarchy.
+        self.candidateListViewController?.view
+        self.candidateListViewController?.tableView.layoutIfNeeded()
+        
+        // Set attributes for the popover controller.
+        // Notice we're get an existing object from the view controller we want to popup!
+        let popoverMenuViewController = self.candidateListViewController!.popoverPresentationController
+        popoverMenuViewController?.permittedArrowDirections = .Any
+        popoverMenuViewController?.delegate = self
+        popoverMenuViewController?.sourceView = sourceView
+        popoverMenuViewController?.sourceRect = sourceRect
+        
+        // Show the popup.
+        // Notice we are presenting form a view controller passed in. We need to present from a view controller
+        // that has views that are already in the view hierarchy.
+        sourceController.presentViewController(self.candidateListViewController!, animated: true, completion: nil)
+    } */
     
     func selectedCourse(course: String) {
         self.addCourseTextField.text = course

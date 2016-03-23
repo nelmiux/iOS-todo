@@ -15,6 +15,7 @@ var mainViewController:HomeViewController? = nil
 let firebaseURL:String = "https://scorching-heat-4336.firebaseio.com"
 let rootRef = getFirebase("")
 let usersRef = getFirebase("users")
+let allCoursesRef = getFirebase("allCourses")
 let appSettingsRef = getFirebase("applicationSettings")
     
 let registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"),  ("Email Address", "jappleseed@gmail.com"), ("Username", "abc123"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
@@ -41,6 +42,12 @@ var paired = Dictionary<String, String>()
 func getFirebase(loc: String) -> Firebase! {
     let location = (loc == "" ? firebaseURL : firebaseURL + "/" + loc)
     return Firebase(url:location)
+}
+
+func loadAllCourses () {
+    if allCourses.isEmpty {
+        
+    }
 }
 
 func alert (view: AnyObject, description: String, action: UIAlertAction?) {
