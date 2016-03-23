@@ -190,7 +190,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                             notifications[date] = notice
                             return
                         }
-                        notifications = snapshot.value as! Dictionary
+                        notifications = snap.value as! Dictionary
                     })
                     
                     let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
@@ -203,7 +203,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                             history[date] = notice
                             return
                         }
-                        history = snapshot.value as! Dictionary
+                        history = snap.value as! Dictionary
                     })
                     
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
