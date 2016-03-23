@@ -9,7 +9,7 @@
 import UIKit
 
 class NotificationsTableViewController: UITableViewController {
-    
+
     private var isDataLoaded:Bool = false
     
     var notificationCopy:([String],[String]){
@@ -27,6 +27,27 @@ class NotificationsTableViewController: UITableViewController {
         }
         return (notificationKeysCopy,notificationValuesCopy)
     }
+//    var notificationsKeys: [String]{
+//        var notificationsKeysCopy = [String]()
+//        
+//        dispatch_sync(concurrentDataAccessQueue) {
+//            for key in notifications.keys {
+//                notificationsKeysCopy.append(key)
+//            }
+//        }
+//        return notificationsKeysCopy
+//    }
+//    
+//    var notificationsValues: [String]{
+//        var notificationsValuesCopy = [String]()
+//        
+//        dispatch_sync(concurrentDataAccessQueue) {
+//            for value in notifications.values{
+//                notificationsValuesCopy.append(value)
+//            }
+//        }
+//        return notificationsValuesCopy
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +97,7 @@ class NotificationsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//            
 //        let currNotification:Notification = notifications[indexPath.row]
 //        let notificationType = currNotification.getType()
         
@@ -97,9 +119,17 @@ class NotificationsTableViewController: UITableViewController {
         /*  For now, just  throw everything out there, as a standard notification  */
         let current_notification:(String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row])
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
-        cell.messageLabel.text = current_notification.0
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+        
         cell.dateLabel.text = current_notification.1
+        cell.messageLabel.text = current_notification.0
+        
+        
+        
+        
+//        lbl_title!.text = current_notification.1
+//        lbl_detail!.text = current_notification.0
+        
         return cell
     }
 
