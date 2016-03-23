@@ -171,13 +171,13 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
 
 func updateCourses (courses:[String]) {
     let username = user["Username"] as! String!
-    print("user: \(username)")
     for course in courses {
         let courseArr = course.characters.split{$0 == ":"}.map(String.init)
         let courseNumber = courseArr[0]
-        let item = [courseNumber: username]
-        print("\(courseNumber): \(username)")
-        coursesRef.updateChildValues(item)
+        let item = [username: username]
+        let currCourseRef = getFirebase("courses/\(courseNumber)")
+        let userCourseRef = currCourseRef.childByAppendingPath(username)
+        userCourseRef.setValue(username)
     }
 }
 
