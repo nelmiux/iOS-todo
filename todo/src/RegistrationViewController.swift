@@ -39,6 +39,10 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.registrationTableView.delegate = self
         self.registrationTableView.dataSource = self
         self.imagePicker.delegate = self
+        
+        // Testing creation of coursebuttonview
+        let customButton = CourseButtonView(frame: CGRect(x: 0, y: 0, width: 100, height: 40), course: "cs 378", parentView: self.mainView)
+        customButton.show()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -174,30 +178,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         // that has views that are already in the view hierarchy.
         sourceController.presentViewController(coursesListViewController!, animated: true, completion: nil)
     }
-    
-    /* func presentPopover(sourceController sourceController:UIViewController, sourceView:UIView, sourceRect:CGRect) {
-        
-        // Create the view controller we want to display as the popup.
-        self.candidateListViewController = CandidateListViewController(title: "Candidates", preferredContentSize: CGSize(width: 350, height: 180))
-        self.candidateListViewController?.setCellId(self.cellId)
-        
-        // Cause the views to be created in this view controller. Gets them added to the view hierarchy.
-        self.candidateListViewController?.view
-        self.candidateListViewController?.tableView.layoutIfNeeded()
-        
-        // Set attributes for the popover controller.
-        // Notice we're get an existing object from the view controller we want to popup!
-        let popoverMenuViewController = self.candidateListViewController!.popoverPresentationController
-        popoverMenuViewController?.permittedArrowDirections = .Any
-        popoverMenuViewController?.delegate = self
-        popoverMenuViewController?.sourceView = sourceView
-        popoverMenuViewController?.sourceRect = sourceRect
-        
-        // Show the popup.
-        // Notice we are presenting form a view controller passed in. We need to present from a view controller
-        // that has views that are already in the view hierarchy.
-        sourceController.presentViewController(self.candidateListViewController!, animated: true, completion: nil)
-    } */
     
     func selectedCourse(course: String) {
         self.addCourseTextField.text = course
