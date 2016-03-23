@@ -28,10 +28,6 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tutorSessionContainerView: UIView!
     
-    var containerViewController: TutorWaitingViewController?
-    
-    var tutorTutoringSession: Bool = false
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         requestTutoringButton!.backgroundColor = requestButtonColor
@@ -62,15 +58,11 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "logout" {
             logOutUser()
-        }
-        if segue.identifier == "tutorSegue" {
-            containerViewController = segue.destinationViewController as? TutorWaitingViewController
-            containerViewController!.mainViewControler = self
         }
     }
     
@@ -100,6 +92,5 @@ class HomeViewController: UIViewController {
         self.requesterContainerView.hidden = true
         self.tutorContainerView.hidden = true
         self.tutorSessionContainerView.hidden = true
-        tutorTutoringSession = false
     }
 }

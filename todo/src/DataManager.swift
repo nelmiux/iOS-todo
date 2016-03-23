@@ -25,7 +25,7 @@ let lowerDivisionCourses:[String] = ["CS312: Introduction to Programming", "CS31
 
 let upperDivisionCourses:[String] = [String]()
 
-let allCourses = Dictionary<String, String>()
+var allCourses = Dictionary<String, String>()
 
 var user = Dictionary<String, AnyObject>()
 
