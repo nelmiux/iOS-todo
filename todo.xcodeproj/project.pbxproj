@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87DA53191CA22EAE00D33B73 /* CourseSelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DA53181CA22EAE00D33B73 /* CourseSelectionProtocol.swift */; };
-		87DA531E1CA2F4DB00D33B73 /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DA531D1CA2F4DB00D33B73 /* CourseButtonView.swift */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */; };
 		CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */; };
 		CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */; };
 		CA040A911CA328E300E06C37 /* TutorWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A901CA328E300E06C37 /* TutorWaitingViewController.swift */; };
+		CA040A951CA32EA900E06C37 /* CourseSelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A941CA32EA900E06C37 /* CourseSelectionProtocol.swift */; };
+		CA040A971CA32EC500E06C37 /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A961CA32EC500E06C37 /* CourseButtonView.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */; };
 		CA7B00D21C9504C90001D0F4 /* DotsBalance_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */; };
@@ -128,14 +128,14 @@
 		04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_Teal.png; sourceTree = "<group>"; };
 		04B6C3221C85786C00BA7882 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_White.png; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
-		87DA53181CA22EAE00D33B73 /* CourseSelectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionProtocol.swift; sourceTree = "<group>"; };
-		87DA531D1CA2F4DB00D33B73 /* CourseButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseButtonView.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterStartSessionViewController.swift; path = src/RequesterStartSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterTutoringSessionViewController.swift; path = src/RequesterTutoringSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorTutoringSessionViewController.swift; path = src/TutorTutoringSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A901CA328E300E06C37 /* TutorWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorWaitingViewController.swift; path = src/TutorWaitingViewController.swift; sourceTree = "<group>"; };
+		CA040A941CA32EA900E06C37 /* CourseSelectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseSelectionProtocol.swift; path = src/CourseSelectionProtocol.swift; sourceTree = "<group>"; };
+		CA040A961CA32EC500E06C37 /* CourseButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseButtonView.swift; path = src/CourseButtonView.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DefaultProfilePhoto.png; path = images/Profile/DefaultProfilePhoto.png; sourceTree = "<group>"; };
 		CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DotsBalance_Profile.png; path = images/Profile/DotsBalance_Profile.png; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 				CA7B01801C951AF20001D0F4 /* ProfileViewController.swift */,
 				CA7B01871C951AF20001D0F4 /* StreamReader.swift */,
 				CA7B01781C951AF20001D0F4 /* DataManager.swift */,
-				87DA53181CA22EAE00D33B73 /* CourseSelectionProtocol.swift */,
+				CA040A941CA32EA900E06C37 /* CourseSelectionProtocol.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -374,7 +374,7 @@
 				CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */,
 				CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */,
 				CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */,
-				87DA531D1CA2F4DB00D33B73 /* CourseButtonView.swift */,
+				CA040A961CA32EC500E06C37 /* CourseButtonView.swift */,
 			);
 			name = Registration;
 			sourceTree = "<group>";
@@ -783,8 +783,8 @@
 				CA7B01901C951AF20001D0F4 /* LoginViewController.swift in Sources */,
 				CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */,
 				CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */,
+				CA040A971CA32EC500E06C37 /* CourseButtonView.swift in Sources */,
 				CA7B01F31C981A450001D0F4 /* CoursesListView.swift in Sources */,
-				87DA53191CA22EAE00D33B73 /* CourseSelectionProtocol.swift in Sources */,
 				CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */,
 				CA7B01C81C980D0A0001D0F4 /* RequestHelpViewController.swift in Sources */,
 				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,
@@ -795,9 +795,9 @@
 				CA7B01971C951AF20001D0F4 /* RegistrationViewController.swift in Sources */,
 				CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */,
 				CA7B019B1C951AF20001D0F4 /* StandardNotificationTableViewCell.swift in Sources */,
+				CA040A951CA32EA900E06C37 /* CourseSelectionProtocol.swift in Sources */,
 				CA7B019C1C951AF20001D0F4 /* StreamReader.swift in Sources */,
 				CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */,
-				87DA531E1CA2F4DB00D33B73 /* CourseButtonView.swift in Sources */,
 				CA7B01931C951AF20001D0F4 /* OptionsListViewController.swift in Sources */,
 				CA7B01941C951AF20001D0F4 /* OptionsPopoverViewController.swift in Sources */,
 				CA7B018B1C951AF20001D0F4 /* AddCoursesTableViewController.swift in Sources */,

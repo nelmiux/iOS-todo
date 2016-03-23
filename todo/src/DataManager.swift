@@ -138,8 +138,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
     dispatch_barrier_sync(concurrentDataAccessQueue) {
         let currUserRef = getFirebase("users/" + username)
         user = [:]
-        currUserRef.observeEventType(.Value, withBlock: {
-            snapshot in
+        currUserRef.observeEventType(.Value, withBlock: { snapshot in
             if let email = snapshot.value["Email Address"] as? String {
                 print("email = \(email)")
                 
@@ -180,6 +179,11 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     user["finish"] = ""
                     user["location"] = ""
                     user["cancel"] = ""
+                    
+                    let notificationUserRef = getFirebase("notifications/")
+                    notificationUserRef.observeEventType(.Value, withBlock: { snapshot in
+                        notifications = snapshot.value.objectForKey(user["username"]! as! String)
+                    })
                     
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                     removeObservers(currUserRef)
