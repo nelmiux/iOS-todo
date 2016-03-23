@@ -19,6 +19,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     private var data = lowerDivisionCourses
     private var filterData = [String]()
     private var coursesListViewController: CoursesListView? = nil
+    private var referenceFrame:CGRect = CGRect(x: 0,y: 0,width: 0,height: 0)
     
     // UI Elements
     @IBOutlet weak var mainView: UIView!
@@ -41,7 +42,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.imagePicker.delegate = self
         
         // Testing creation of coursebuttonview
-        let customButton = CourseButtonView(frame: CGRect(x: 0, y: 0, width: 100, height: 40), course: "cs 378", parentView: self.mainView)
+        let customButton = CourseButtonView(frame: CGRect(x: 250, y: 100, width: 100, height: 40), course: "cs 378", parentViewController: self)
         customButton.show()
     }
     
@@ -188,6 +189,10 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     func endFiltering(force: Bool) {
         self.view.endEditing(force)
+    }
+    
+    func updateRefFrame (frame:CGRect) {
+        self.referenceFrame = frame
     }
     
     // Keyboard Functionality
