@@ -10,10 +10,10 @@
 		87DA53191CA22EAE00D33B73 /* CourseSelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DA53181CA22EAE00D33B73 /* CourseSelectionProtocol.swift */; };
 		87DA531E1CA2F4DB00D33B73 /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DA531D1CA2F4DB00D33B73 /* CourseButtonView.swift */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
-		CA040A8C1CA31B7800E06C37 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A881CA31B7800E06C37 /* LoadingViewController.swift */; };
 		CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */; };
 		CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */; };
 		CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */; };
+		CA040A911CA328E300E06C37 /* TutorWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A901CA328E300E06C37 /* TutorWaitingViewController.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */; };
 		CA7B00D21C9504C90001D0F4 /* DotsBalance_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */; };
@@ -132,10 +132,10 @@
 		87DA531D1CA2F4DB00D33B73 /* CourseButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseButtonView.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		CA040A881CA31B7800E06C37 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingViewController.swift; path = src/LoadingViewController.swift; sourceTree = "<group>"; };
 		CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterStartSessionViewController.swift; path = src/RequesterStartSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterTutoringSessionViewController.swift; path = src/RequesterTutoringSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorTutoringSessionViewController.swift; path = src/TutorTutoringSessionViewController.swift; sourceTree = "<group>"; };
+		CA040A901CA328E300E06C37 /* TutorWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorWaitingViewController.swift; path = src/TutorWaitingViewController.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DefaultProfilePhoto.png; path = images/Profile/DefaultProfilePhoto.png; sourceTree = "<group>"; };
 		CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DotsBalance_Profile.png; path = images/Profile/DotsBalance_Profile.png; sourceTree = "<group>"; };
@@ -382,14 +382,14 @@
 		CA7B01AA1C97836A0001D0F4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				CA040A881CA31B7800E06C37 /* LoadingViewController.swift */,
-				CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */,
-				CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */,
-				CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */,
 				CA7B01791C951AF20001D0F4 /* HomeViewController.swift */,
-				CA7B01C31C97B4DC0001D0F4 /* ChartViewController.swift */,
 				CA7B01C71C980D0A0001D0F4 /* RequestHelpViewController.swift */,
 				CA7B01F21C981A450001D0F4 /* CoursesListView.swift */,
+				CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */,
+				CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */,
+				CA040A901CA328E300E06C37 /* TutorWaitingViewController.swift */,
+				CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */,
+				CA7B01C31C97B4DC0001D0F4 /* ChartViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -790,6 +790,7 @@
 				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,
 				CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */,
 				CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */,
+				CA040A911CA328E300E06C37 /* TutorWaitingViewController.swift in Sources */,
 				CA7B01961C951AF20001D0F4 /* RegistrationTableViewCell.swift in Sources */,
 				CA7B01971C951AF20001D0F4 /* RegistrationViewController.swift in Sources */,
 				CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */,
@@ -797,7 +798,6 @@
 				CA7B019C1C951AF20001D0F4 /* StreamReader.swift in Sources */,
 				CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */,
 				87DA531E1CA2F4DB00D33B73 /* CourseButtonView.swift in Sources */,
-				CA040A8C1CA31B7800E06C37 /* LoadingViewController.swift in Sources */,
 				CA7B01931C951AF20001D0F4 /* OptionsListViewController.swift in Sources */,
 				CA7B01941C951AF20001D0F4 /* OptionsPopoverViewController.swift in Sources */,
 				CA7B018B1C951AF20001D0F4 /* AddCoursesTableViewController.swift in Sources */,
