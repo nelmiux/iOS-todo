@@ -16,6 +16,7 @@ let firebaseURL:String = "https://scorching-heat-4336.firebaseio.com"
 let rootRef = getFirebase("")
 let usersRef = getFirebase("users")
 let allCoursesRef = getFirebase("allCourses")
+let coursesRef = getFirebase("courses")
 let appSettingsRef = getFirebase("applicationSettings")
     
 let registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"),  ("Email Address", "jappleseed@gmail.com"), ("Username", "abc123"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
@@ -100,6 +101,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
             user["location"] = ""
             user["cancel"] = ""
             newUserRef.setValue(user)
+            updateCourses(courses)
             print("Successfully created user account with username: \(inputs["Username"]!)")
             alert(view, description: "Congrats! You are ready to start using todo.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
                 result in
@@ -163,8 +165,20 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
             } else {
                 print("Unable to login. Invalid username.")
                 alert(view, description: "Unable to login.\nInvalid username.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            }
+            }   
     })
+}
+
+func updateCourses (courses:[String]) {
+    let username = user["Username"] as! String!
+    print("user: \(username)")
+    for course in courses {
+        let courseArr = course.characters.split{$0 == ":"}.map(String.init)
+        let courseNumber = courseArr[0]
+        let item = [courseNumber: username]
+        print("\(courseNumber): \(username)")
+        coursesRef.updateChildValues(item)
+    }
 }
 
 func sendRequest (view: AnyObject, askedCourse: String, location:String,  description: String, segueIdentifier: String) {

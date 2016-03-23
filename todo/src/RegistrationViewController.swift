@@ -23,9 +23,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     // UI Elements
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var departmentButton: UIButton!
-    @IBOutlet weak var upperLowerButton: UIButton!
-    @IBOutlet weak var seeCoursesButton: UIButton!
     @IBOutlet weak var userThumbnail: UIImageView!
     @IBOutlet weak var registrationTableView: UITableView!
     @IBOutlet weak var addCourseTextField: UITextField!
@@ -68,12 +65,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.imagePicker.sourceType = .PhotoLibrary
         
         self.presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
-    @IBAction func onClickDivision(sender: AnyObject) {
-        let popOverController = OptionsPopoverViewController()
-        popOverController.setParentButton(self.upperLowerButton)
-        popOverController.presentPopover(sourceController: self, sourceView: self.upperLowerButton, sourceRect: self.upperLowerButton.bounds)
     }
     
     // TableView Functionality
@@ -210,6 +201,9 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     func selectedCourse(course: String) {
         self.addCourseTextField.text = course
+        if !addedCourses.contains(course) {
+            addedCourses.append(course)
+        }
     }
     
     func endFiltering(force: Bool) {
@@ -226,9 +220,11 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         var aRect: CGRect = self.view.frame
         aRect.size.height -= kbSize!.height
         //you may not need to scroll, see if the active field is already visible
-        if (!CGRectContainsPoint(aRect, activeField!.frame.origin) ) {
-            let scrollPoint:CGPoint = CGPointMake(0.0, activeField!.frame.origin.y - kbSize!.height - 70.0)
-            scrollView.setContentOffset(scrollPoint, animated: true)
+        if activeField != nil {
+            if (!CGRectContainsPoint(aRect, activeField!.frame.origin) ) {
+                let scrollPoint:CGPoint = CGPointMake(0.0, activeField!.frame.origin.y - kbSize!.height - 70.0)
+                scrollView.setContentOffset(scrollPoint, animated: true)
+            }
         }
     }
     
@@ -271,6 +267,12 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
             // If the input is VALID, create user and persist to Firebase
             inputs["Photo String"] = self.selectedPhotoString
             
+            
+            print("Added courses:")
+            for course in addedCourses {
+                print(course)
+            }
+            
             createUser(self, inputs: inputs, courses: addedCourses, segueIdentifier: identifier)
             return false
         }
@@ -279,16 +281,5 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ViewCoursesToAdd" {
-            if self.upperLowerButton.titleLabel?.text as String! == "Upper" {
-                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(upperDivisionCourses)
-                segue.destinationViewController.navigationItem.title = "CS: Upper"
-                (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
-            } else if self.upperLowerButton.titleLabel?.text as String! == "Lower" {
-                (segue.destinationViewController as! AddCoursesTableViewController).setCourses(lowerDivisionCourses)
-                segue.destinationViewController.navigationItem.title = "CS: Lower"
-                (segue.destinationViewController as! AddCoursesTableViewController).registrationViewController = self
-            }
-        }
     }
 }
