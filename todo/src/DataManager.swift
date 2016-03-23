@@ -23,7 +23,7 @@ let registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name
 let lowerDivisionCourses:[String] = ["CS312: Introduction to Programming", "CS314: Data Structures", "CS314H: Data Structures Honors", "CS302: Computer Fluency", "CS105: Computer Programming", "CS311: Discrete Math for Computer Science", "CS311H: Discrete Math for Computer Science: Honors", "CS109: Topics in Computer Science", "CS313E: Elements of Software Design"]
 let upperDivisionCourses:[String] = [String]()
 
-let allCourses = Dictionary<String, String>()
+var allCourses = Dictionary<String, String>()
 
 var user = Dictionary<String, AnyObject>()
 
@@ -46,7 +46,11 @@ func getFirebase(loc: String) -> Firebase! {
 
 func loadAllCourses () {
     if allCourses.isEmpty {
-        
+        allCoursesRef.observeEventType(.Value, withBlock: { snapshot in
+            allCourses = snapshot.value as! Dictionary<String, String>
+        }, withCancelBlock: { error in
+            print(error.description)
+        })
     }
 }
 
