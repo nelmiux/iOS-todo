@@ -180,9 +180,14 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     user["location"] = ""
                     user["cancel"] = ""
                     
-                    let notificationUserRef = getFirebase("notifications/")
+                    let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
                     notificationUserRef.observeEventType(.Value, withBlock: { snapshot in
-                        notifications = snapshot.value.objectForKey(user["username"]! as! String)
+                        notifications = snapshot.value as! Dictionary
+                    })
+                    
+                    let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
+                    historyUserRef.observeEventType(.Value, withBlock: { snapshot in
+                        history = snapshot.value as! Dictionary
                     })
                     
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
