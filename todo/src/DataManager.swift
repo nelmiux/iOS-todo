@@ -241,11 +241,10 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 let notice = "You asked for help on " + askedCourse
                 notificationUserRef.setValue([getDateTime(): notice])
                 
-                let historyUserRef = getFirebase("notifications/" + requester["username"]!)
-                let noticeH = ""
+                let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
                 let dateH = getDateTime()
-                historyUserRef.setValue([dateH: noticeH])
-                history[dateH] = noticeH
+                historyUserRef.setValue([dateH: notice])
+                history[dateH] = notice
                 return
             }
             alert(view, description: "This course does not exist on our Database.\nPlease enter a valid UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
