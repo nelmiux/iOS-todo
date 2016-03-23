@@ -27,7 +27,7 @@ class ChartViewController: UIViewController {
         super.viewDidLoad()
 
         dotsCategory = ["Earned", "Payed"]
-        let p = (user["payed"] as? Int)!
+        let p = (user["paid"] as? Int)!
         let e = (user["earned"] as? Int)!
         let dotsAmount = [e, p]
         payedAmount.text = String(p)

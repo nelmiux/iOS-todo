@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 
 let concurrentDataAccessQueue = dispatch_queue_create("com.CS378.todo.dataAccessQueue", DISPATCH_QUEUE_CONCURRENT)
- 
+
 // Firebase Refs
 let firebaseURL:String = "https://scorching-heat-4336.firebaseio.com"
 let rootRef = getFirebase("")
@@ -130,7 +130,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 return
             }
             alert(view, description: "An error has occurred. There may be an existing account for the provided email address.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            })
+        })
     }
 }
 
@@ -140,55 +140,55 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
         user = [:]
         currUserRef.observeEventType(.Value, withBlock: {
             snapshot in
-                if let email = snapshot.value["Email Address"] as? String {
-                    print("email = \(email)")
-    
-                    // Attempt to log the user in
-                    rootRef.authUser(email, password: password) {
-                        error, authData in
-                        if error != nil {
-                            print("Unable to login.\nInvalid password.")
-                            alert(view, description: "Unable to login. Invalid password.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                            return
-                        }
-                    
-                        user["firstName"] = (snapshot.value["First Name"] as? String)!
-                        user["lastName"] = (snapshot.value["Last Name"] as? String)!
-                        user["username"] = (snapshot.value["Username"] as? String)!
-                        user["password"] = (snapshot.value["Password"] as? String)!
-                        user["email"] = (snapshot.value["Email Address"] as? String)!
-                        user["major"] = (snapshot.value["Major"] as? String)!
-                        user["graduationYear"] = (snapshot.value["Graduation Year"] as? String)!
-                        user["photoString"] = (snapshot.value["Photo String"] as? String)!
-                        if let _ = snapshot.value["courses"] as? [String: String] {
-                            user["courses"] = (snapshot.value["courses"] as? [String: String])!
-                        }
-                        user["dots"] = (snapshot.value["dots"] as? Int)!
-                        user["earned"] = (snapshot.value["earned"] as? Int)!
-                        user["paid"] = (snapshot.value["paid"] as? Int)!
-                        if let _ = snapshot.value["lastLogin"] as? String {
-                            user["lastLogin"] = (snapshot.value["lastLogin"] as? String)!
-                        }
-                        user["requesterUsername"] = ""
-                        user["requesterPhoto"] = ""
-                        user["requesterCourse"] = ""
-                        user["requesterDescription"] = ""
-                        user["requesterLocation"] = ""
-                        user["pairedUsername"] = ""
-                        user["pairedPhoto"] = ""
-                        user["start"] = ""
-                        user["finish"] = ""
-                        user["location"] = ""
-                        user["cancel"] = ""
-                    
-                        view.performSegueWithIdentifier(segueIdentifier, sender: nil)
-                        removeObservers(currUserRef)
-                        dispatch_semaphore_signal(sema)
+            if let email = snapshot.value["Email Address"] as? String {
+                print("email = \(email)")
+                
+                // Attempt to log the user in
+                rootRef.authUser(email, password: password) {
+                    error, authData in
+                    if error != nil {
+                        print("Unable to login.\nInvalid password.")
+                        alert(view, description: "Unable to login. Invalid password.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                        return
                     }
-                } else {
-                    print("Unable to login. Invalid username.")
-                    alert(view, description: "Unable to login.\nInvalid username.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    
+                    user["firstName"] = (snapshot.value["First Name"] as? String)!
+                    user["lastName"] = (snapshot.value["Last Name"] as? String)!
+                    user["username"] = (snapshot.value["Username"] as? String)!
+                    user["password"] = (snapshot.value["Password"] as? String)!
+                    user["email"] = (snapshot.value["Email Address"] as? String)!
+                    user["major"] = (snapshot.value["Major"] as? String)!
+                    user["graduationYear"] = (snapshot.value["Graduation Year"] as? String)!
+                    user["photoString"] = (snapshot.value["Photo String"] as? String)!
+                    if let _ = snapshot.value["courses"] as? [String: String] {
+                        user["courses"] = (snapshot.value["courses"] as? [String: String])!
+                    }
+                    user["dots"] = (snapshot.value["dots"] as? Int)!
+                    user["earned"] = (snapshot.value["earned"] as? Int)!
+                    user["paid"] = (snapshot.value["paid"] as? Int)!
+                    if let _ = snapshot.value["lastLogin"] as? String {
+                        user["lastLogin"] = (snapshot.value["lastLogin"] as? String)!
+                    }
+                    user["requesterUsername"] = ""
+                    user["requesterPhoto"] = ""
+                    user["requesterCourse"] = ""
+                    user["requesterDescription"] = ""
+                    user["requesterLocation"] = ""
+                    user["pairedUsername"] = ""
+                    user["pairedPhoto"] = ""
+                    user["start"] = ""
+                    user["finish"] = ""
+                    user["location"] = ""
+                    user["cancel"] = ""
+                    
+                    view.performSegueWithIdentifier(segueIdentifier, sender: nil)
+                    removeObservers(currUserRef)
+                    dispatch_semaphore_signal(sema)
                 }
+            } else {
+                print("Unable to login. Invalid username.")
+                alert(view, description: "Unable to login.\nInvalid username.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            }
         })
     }
 }
@@ -246,36 +246,36 @@ func requestListener(view: AnyObject) {
                 })
                 
                 dispatch_group_notify(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
-            
+                    
                     dispatch_semaphore_wait(sema1, DISPATCH_TIME_FOREVER)
                     let decodedImage = decodeImage(requester["photoString"]!)
-            
+                    
                     let requesterUserRef = getFirebase("users/" + requester["username"]!)
                     var notificationUserRef = getFirebase("notifications/" + requester["username"]!)
                     var notice = requester["username"]! + " is requesting tutoring on:\n" + requester["course"]! + "\n" + requester["description"]! + "\nLocation: " + requester["location"]!
-            
+                    
                     let date = getDateTime()
                     notificationUserRef.setValue([date: notice])
                     notifications[date] = notice
                     alertWithPic(view, description: "\n\n\n" + notice, action:
-                    UIAlertAction(title: "OK, I will Help", style: UIAlertActionStyle.Default) {result in
-                        requesterUserRef.updateChildValues(["pairedUsername": username])
-                        requesterUserRef.updateChildValues(["pairedPhoto": picString])
-                        
-                        notificationUserRef = getFirebase("notifications/" + username)
-                        notice = "You accepted to help " + requester["username"]! + " on " + requester["course"]!
+                        UIAlertAction(title: "OK, I will Help", style: UIAlertActionStyle.Default) {result in
+                            requesterUserRef.updateChildValues(["pairedUsername": username])
+                            requesterUserRef.updateChildValues(["pairedPhoto": picString])
+                            
+                            notificationUserRef = getFirebase("notifications/" + username)
+                            notice = "You accepted to help " + requester["username"]! + " on " + requester["course"]!
+                            
+                            let date = getDateTime()
+                            notificationUserRef.setValue([date: notice])
+                            notifications[date] = notice
+                            
+                            mainViewController?.tutorContainerView.hidden = false
+                            mainViewController?.requestTutoringButton.hidden = true
+                            mainViewController!.tutorStudentSwitch.hidden = true
+                            mainViewController!.logout.enabled = false
+                            
+                        }, pic: decodedImage)
                     
-                        let date = getDateTime()
-                        notificationUserRef.setValue([date: notice])
-                        notifications[date] = notice
-                        
-                        mainViewController?.tutorContainerView.hidden = false
-                        mainViewController?.requestTutoringButton.hidden = true
-                        mainViewController!.tutorStudentSwitch.hidden = true
-                        mainViewController!.logout.enabled = false
-                    
-                    }, pic: decodedImage)
-            
                     requesterUserRef.observeEventType(.ChildChanged, withBlock: { snapshot in
                         let k_ = snapshot.key as String
                         if k_.rangeOfString("start") != nil {
@@ -307,7 +307,7 @@ func requestListener(view: AnyObject) {
                             })
                         }
                     })
-                return
+                    return
                 })
             } else {
                 if let _ = mainViewController!.presentedViewController {
@@ -329,7 +329,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
             if paired["username"] != "" && (snapshot.value.objectForKey("start") as? String) == "" {
                 paired["photoString"] = snapshot.value.objectForKey("pairedPhoto") as? String
                 paired["course"] = askedCourse
-            
+                
                 for key in usersPerCourse.keys {
                     if key != username {
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterPhoto": ""])
@@ -345,15 +345,15 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 mainViewController?.requestTutoringButton.hidden = true
                 
                 mainViewController!.requesterContainerView.hidden = false
-            
+                
                 let notificationUserRef = getFirebase("notifications/" + username)
                 let notice = paired["username"]! + " is coming to help you on: " + askedCourse
-            
+                
                 notificationUserRef.setValue([getDateTime(): notice])
-            
+                
                 mainViewController!.tutorStudentSwitch.hidden = true
                 mainViewController!.logout.enabled = false
-            
+                
             }
         })
     }
@@ -365,7 +365,7 @@ func startSession (view: AnyObject) {
         let pairedUserRef = getFirebase("users/" + (paired["username"]! ))
         currUserRef.updateChildValues(["start": "yes"])
         user["start"] = "yes"
-    
+        
         pairedUserRef.observeEventType(.Value, withBlock: { snapshot in
             user["finish"] = snapshot.value.objectForKey("finish") as? String
             if (user["finish"] as? String) != "" {
@@ -377,7 +377,7 @@ func startSession (view: AnyObject) {
                 paired["photoString"] = ""
                 paired["username"] = ""
                 paired["course"] = ""
-            
+                
             }
         })
     }
@@ -403,7 +403,7 @@ func finishSession() {
         let currUserRef = getFirebase("users/" + username)
         currUserRef.updateChildValues(["finish": "yes"])
         currUserRef.updateChildValues(["start": ""])
-    
+        
         currUserRef.updateChildValues(["requesterPhoto": ""])
         currUserRef.updateChildValues(["requesterCourse": ""])
         currUserRef.updateChildValues(["requesterDescription": ""])
