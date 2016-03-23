@@ -181,7 +181,15 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     user["cancel"] = ""
                     
                     let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-                    notificationUserRef.observeEventType(.Value, withBlock: { snapshot in
+                    notificationUserRef.observeEventType(.Value, withBlock: { snap in
+                        if snap.value is NSNull {
+                            getFirebase("notifications/").setValue(user["username"]! as! String)
+                            let notice = "You Login for First Time"
+                            let date = getDateTime()
+                            notificationUserRef.setValue([date: notice])
+                            notifications[date] = notice
+                            return
+                        }
                         notifications = snapshot.value as! Dictionary
                     })
                     
