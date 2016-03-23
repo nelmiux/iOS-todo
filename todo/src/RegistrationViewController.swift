@@ -8,12 +8,17 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class RegistrationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, CourseSelectionProtocol {
     
-    // Class attributes
+    // Class attributes and programmatic UI
     private var addedCourses:[String] = [String]()
     private var selectedPhotoString = ""
     private var keyboardHeight:CGFloat = 0.0
+    private var activeField: UITextField?
+    private let imagePicker = UIImagePickerController()
+    private var data = lowerDivisionCourses
+    private var filterData = [String]()
+    private var coursesListViewController: CoursesListView? = nil
     
     // UI Elements
     @IBOutlet weak var mainView: UIView!
@@ -25,10 +30,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var registrationTableView: UITableView!
     @IBOutlet weak var addCourseTextField: UITextField!
     @IBOutlet weak var addCourseButton: UIButton!
-    
-    var activeField: UITextField?
-    
-    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,12 +127,69 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     // Course drop-down menu functionality
-    @IBAction func beginAddingCourse(sender: AnyObject) {
-        activeField = sender as! UITextField
+    @IBAction func beginAddingCourse(sender: UITextField) {
+        self.activeField = sender
+    }
+    
+    @IBAction func editAddCourseField(sender: UITextField) {
+        onClickAddCourse(sender)
     }
     
     
+    @IBAction func onClickAddCourse(sender: UITextField) {
+        filterData = []
+        if sender.text! == "" {
+            filterData = data
+        } else {
+            for i in 0...data.count - 1 {
+                if data[i].rangeOfString(sender.text!) != nil || data[i].lowercaseString.rangeOfString(sender.text!) != nil {
+                    self.filterData.append(data[i])
+                }
+            }
+        }
+        
+        self.presentPopover(sourceController: self, sourceView: self.addCourseButton, sourceRect: CGRectMake(0, self.addCourseButton.bounds.height + 1, self.addCourseButton.bounds.width, 200))
+    }
     
+    func presentPopover(sourceController sourceController:UIViewController, sourceView:UIView, sourceRect:CGRect) {
+        // Create the view controller we want to display as the popup.
+        
+        if self.coursesListViewController != nil {
+            self.presentedViewController?.dismissViewControllerAnimated(false, completion: nil)
+        }
+        
+        self.coursesListViewController = CoursesListView(title: "Courses List", preferredContentSize: CGSize(width: self.addCourseButton.bounds.width, height: 200))
+        
+        self.coursesListViewController!.mainController = self
+        
+        let popoverShowViewController = coursesListViewController!.popoverPresentationController
+        
+        // Cause the views to be created in this view controller. Gets them added to the view hierarchy.
+        //self.coursesListViewController.view
+        coursesListViewController!.tableView.layoutIfNeeded()
+        
+        coursesListViewController!.courses = filterData
+        
+        // Set attributes for the popover controller.
+        // Notice we're get an existing object from the view controller we want to popup!
+        popoverShowViewController?.permittedArrowDirections = UIPopoverArrowDirection()
+        popoverShowViewController?.delegate = self
+        popoverShowViewController?.sourceView = sourceView
+        popoverShowViewController?.sourceRect = sourceRect
+        
+        // Show the popup.
+        // Notice we are presenting form a view controller passed in. We need to present from a view controller
+        // that has views that are already in the view hierarchy.
+        sourceController.presentViewController(coursesListViewController!, animated: true, completion: nil)
+    }
+    
+    func selectedCourse(course: String) {
+        self.addCourseTextField.text = course
+    }
+    
+    func endFiltering(force: Bool) {
+        self.view.endEditing(force)
+    }
     
     // Keyboard Functionality
     func keyboardOnScreen(notification: NSNotification){

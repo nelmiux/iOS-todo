@@ -18,7 +18,7 @@ class CoursesListView: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     var index:Int = -1
     
-    var mainController: RequestHelpViewController? = nil
+    var mainController: CourseSelectionProtocol? = nil
     
     convenience init(title:String, preferredContentSize:CGSize) {
         self.init()
@@ -93,7 +93,8 @@ class CoursesListView: UIViewController, UITableViewDataSource, UITableViewDeleg
         }
             
         self.mainController?.selectedCourse(courses[index] as! String)
-        self.mainController?.view.endEditing(true)
+        self.mainController?.endFiltering(true)
+        // self.mainController?.view.endEditing(true)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

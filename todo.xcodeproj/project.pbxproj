@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87DA53191CA22EAE00D33B73 /* CourseSelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DA53181CA22EAE00D33B73 /* CourseSelectionProtocol.swift */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */; };
@@ -122,6 +123,7 @@
 		04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_Teal.png; sourceTree = "<group>"; };
 		04B6C3221C85786C00BA7882 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_White.png; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
+		87DA53181CA22EAE00D33B73 /* CourseSelectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseSelectionProtocol.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				CA7B01801C951AF20001D0F4 /* ProfileViewController.swift */,
 				CA7B01871C951AF20001D0F4 /* StreamReader.swift */,
 				CA7B01781C951AF20001D0F4 /* DataManager.swift */,
+				87DA53181CA22EAE00D33B73 /* CourseSelectionProtocol.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */,
 				CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */,
 				CA7B01F31C981A450001D0F4 /* CoursesListView.swift in Sources */,
+				87DA53191CA22EAE00D33B73 /* CourseSelectionProtocol.swift in Sources */,
 				CA7B01C81C980D0A0001D0F4 /* RequestHelpViewController.swift in Sources */,
 				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,
 				CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */,
