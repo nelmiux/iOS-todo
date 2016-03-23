@@ -24,7 +24,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var userThumbnail: UIImageView!
     @IBOutlet weak var registrationTableView: UITableView!
     @IBOutlet weak var addCourseTextField: UITextField!
-    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var addCourseButton: UIButton!
     
     var activeField: UITextField?
     

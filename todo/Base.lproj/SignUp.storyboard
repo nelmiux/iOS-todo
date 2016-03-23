@@ -394,6 +394,22 @@
                                                     </mask>
                                                 </variation>
                                             </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Courses:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dh-U7-qXT">
+                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="16" y="681" width="118" height="21"/>
+                                                </variation>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHy-a1-eHN">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="161" y="677" width="173" height="30"/>
+                                                </variation>
+                                            </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CS378" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VOV-bT-lNG">
                                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                 <color key="textColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -406,15 +422,6 @@
                                                     <action selector="beginAddingCourse:" destination="A93-mg-gzh" eventType="editingDidBegin" id="QLk-WV-esX"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Courses:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dh-U7-qXT">
-                                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                                <variation key="widthClass=compact" fixedFrame="YES">
-                                                    <rect key="frame" x="16" y="681" width="118" height="21"/>
-                                                </variation>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.35294117650000001" green="0.53333333329999999" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -467,8 +474,9 @@
                                                 <exclude reference="VJN-Wq-RW8"/>
                                                 <exclude reference="bKf-eA-goa"/>
                                                 <exclude reference="bc5-Gi-EmA"/>
-                                                <exclude reference="VOV-bT-lNG"/>
                                                 <exclude reference="8dh-U7-qXT"/>
+                                                <exclude reference="tHy-a1-eHN"/>
+                                                <exclude reference="VOV-bT-lNG"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="eiU-TV-fzh"/>
@@ -505,8 +513,9 @@
                                                 <include reference="VJN-Wq-RW8"/>
                                                 <include reference="bKf-eA-goa"/>
                                                 <include reference="bc5-Gi-EmA"/>
-                                                <include reference="VOV-bT-lNG"/>
                                                 <include reference="8dh-U7-qXT"/>
+                                                <include reference="tHy-a1-eHN"/>
+                                                <include reference="VOV-bT-lNG"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="eiU-TV-fzh"/>
@@ -619,8 +628,8 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="736"/>
                     <connections>
+                        <outlet property="addCourseButton" destination="tHy-a1-eHN" id="0TK-4Q-MwB"/>
                         <outlet property="addCourseTextField" destination="VOV-bT-lNG" id="lFZ-Ea-a7J"/>
-                        <outlet property="bottomConstraint" destination="qyy-tm-hob" id="SUk-6C-F96"/>
                         <outlet property="departmentButton" destination="jGa-mc-V3v" id="0Ab-Yw-17y"/>
                         <outlet property="mainView" destination="HW0-hU-2bM" id="pPS-YA-l1A"/>
                         <outlet property="registrationTableView" destination="VJN-Wq-RW8" id="ZlR-px-f78"/>
