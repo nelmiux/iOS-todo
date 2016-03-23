@@ -40,10 +40,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.registrationTableView.delegate = self
         self.registrationTableView.dataSource = self
         self.imagePicker.delegate = self
-        
-        // Testing creation of coursebuttonview
-        let customButton = CourseButtonView(frame: CGRect(x: 250, y: 100, width: 100, height: 40), course: "cs 378", parentViewController: self)
-        customButton.show()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -200,6 +196,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         let info: NSDictionary  = notification.userInfo!
         let kbSize = info.valueForKey(UIKeyboardFrameEndUserInfoKey)?.CGRectValue.size
         let contentInsets:UIEdgeInsets  = UIEdgeInsetsMake(0.0, 0.0, kbSize!.height + 70.0, 0.0)
+        
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         var aRect: CGRect = self.view.frame
