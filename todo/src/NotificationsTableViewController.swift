@@ -10,8 +10,23 @@ import UIKit
 
 class NotificationsTableViewController: UITableViewController {
     
-    private var notifications:[Notification] = [Notification]()
     private var isDataLoaded:Bool = false
+    
+    var notificationCopy:([String],[String]){
+        var notificationKeysCopy = [String]()
+        var notificationValuesCopy = [String]()
+        
+        dispatch_sync(concurrentDataAccessQueue) {
+            for key in notifications.keys{
+                notificationKeysCopy.append(key)
+            }
+            for value in notifications.values{
+                notificationValuesCopy.append(value)
+            }
+            
+        }
+        return (notificationKeysCopy,notificationValuesCopy)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,10 +47,10 @@ class NotificationsTableViewController: UITableViewController {
     
     func loadData () {
         
-        notifications.append(Notification(message: "Lucy Adams has requested you to tutor her in CS 378.", date: "2/29/16", type: "single request"))
-        notifications.append(Notification(message: "Congrats! You earned 50 dots for tutoring John Smith.", date: "2/13/16"))
-        notifications.append(Notification(message: "You've spent 50 dots on tutoring from Bob Wilson.", date: "2/2/16"))
-        notifications.append(Notification(message: "There are 5 new tutoring opportunities that match your qualifications.", date: "1/15/16", type: "request pool"))
+//        notifications.append(Notification(message: "Lucy Adams has requested you to tutor her in CS 378.", date: "2/29/16", type: "single request"))
+//        notifications.append(Notification(message: "Congrats! You earned 50 dots for tutoring John Smith.", date: "2/13/16"))
+//        notifications.append(Notification(message: "You've spent 50 dots on tutoring from Bob Wilson.", date: "2/2/16"))
+//        notifications.append(Notification(message: "There are 5 new tutoring opportunities that match your qualifications.", date: "1/15/16", type: "request pool"))
         isDataLoaded = true
     }
     
@@ -51,19 +66,20 @@ class NotificationsTableViewController: UITableViewController {
     
     override func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
     {
-        let currNotification = notifications[indexPath.row]
-        if (currNotification.getType() == "single request"){
-            return 80
-        } else {
-            return 65
-        }
+//        let currNotification = notifications["Date"]
+//        if (currNotification.getType() == "single request"){
+//            return 80
+//        } else {
+//            return 65
+//        }
+        return 80
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let currNotification:Notification = notifications[indexPath.row]
-        let notificationType = currNotification.getType()
+//        let currNotification:Notification = notifications[indexPath.row]
+//        let notificationType = currNotification.getType()
         
-        if (notificationType == "single request") {
+        /*if (notificationType == "single request") {
             let cell = tableView.dequeueReusableCellWithIdentifier("requestNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
             cell.messageLabel.text = currNotification.getMessage()
             cell.dateLabel.text = currNotification.getDate()
@@ -76,11 +92,18 @@ class NotificationsTableViewController: UITableViewController {
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
             cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()
-            return cell
-        }
+            cell.dateLabel.text = currNotification.getDate()*/
+        
+        /*  For now, just  throw everything out there, as a standard notification  */
+        let current_notification:(String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row])
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+        cell.messageLabel.text = current_notification.0
+        cell.dateLabel.text = current_notification.1
+        return cell
     }
-    
+
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
