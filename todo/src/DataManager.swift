@@ -138,8 +138,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
     dispatch_barrier_sync(concurrentDataAccessQueue) {
         let currUserRef = getFirebase("users/" + username)
         user = [:]
-        currUserRef.observeEventType(.Value, withBlock: {
-            snapshot in
+        currUserRef.observeEventType(.Value, withBlock: { snapshot in
             if let email = snapshot.value["Email Address"] as? String {
                 print("email = \(email)")
                 
@@ -181,6 +180,32 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     user["location"] = ""
                     user["cancel"] = ""
                     
+                    let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
+                    notificationUserRef.observeEventType(.Value, withBlock: { snap in
+                        if snap.value is NSNull {
+                            getFirebase("notifications/").setValue(user["username"]! as! String)
+                            let notice = "You Login for First Time"
+                            let date = getDateTime()
+                            notificationUserRef.setValue([date: notice])
+                            notifications[date] = notice
+                            return
+                        }
+                        notifications = snapshot.value as! Dictionary
+                    })
+                    
+                    let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
+                    historyUserRef.observeEventType(.Value, withBlock: { snap in
+                        if snap.value is NSNull {
+                            getFirebase("history/").setValue(user["username"]! as! String)
+                            let notice = "You Login for First Time"
+                            let date = getDateTime()
+                            historyUserRef.setValue([date: notice])
+                            history[date] = notice
+                            return
+                        }
+                        history = snapshot.value as! Dictionary
+                    })
+                    
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                     removeObservers(currUserRef)
                     dispatch_semaphore_signal(sema)
@@ -209,10 +234,18 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterUsername": user["username"]!])
                     }
                 }
+                
+                
                 view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                 let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
                 let notice = "You asked for help on " + askedCourse
                 notificationUserRef.setValue([getDateTime(): notice])
+                
+                let historyUserRef = getFirebase("notifications/" + requester["username"]!)
+                let noticeH = ""
+                let dateH = getDateTime()
+                historyUserRef.setValue([dateH: noticeH])
+                history[dateH] = noticeH
                 return
             }
             alert(view, description: "This course does not exist on our Database.\nPlease enter a valid UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
@@ -257,6 +290,7 @@ func requestListener(view: AnyObject) {
                     let date = getDateTime()
                     notificationUserRef.setValue([date: notice])
                     notifications[date] = notice
+                    
                     alertWithPic(view, description: "\n\n\n" + notice, action:
                         UIAlertAction(title: "OK, I will Help", style: UIAlertActionStyle.Default) {result in
                             requesterUserRef.updateChildValues(["pairedUsername": username])
