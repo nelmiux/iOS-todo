@@ -78,7 +78,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         
         // Update the referenceFrame beforehand for the first course to be added
         if self.referenceFrame == nil {
-            self.referenceFrame = self.searchCoursesLabel.frame
+            self.referenceFrame = self.addButton.frame
             print("referenceFrame updated to \(self.referenceFrame?.origin.x), \(self.referenceFrame?.origin.y)")
         }
         

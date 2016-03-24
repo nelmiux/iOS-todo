@@ -21,6 +21,7 @@ class CourseButtonView: UIView {
     
     convenience init (frame:CGRect, course:String, parentViewController:RegistrationViewController) {
         self.init(frame: frame)
+        self.frame = getFrame(frame)
         self.parentViewController = parentViewController
         
         // Parse the course string and get only the course number
@@ -45,6 +46,22 @@ class CourseButtonView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func getFrame (refFrame:CGRect) -> CGRect {
+        var frame = CGRect()
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let topRightPoint:CGPoint = CGPoint(x: refFrame.origin.x + refFrame.size.width + 10 + 100, y: refFrame.origin.y)
+        
+        // Place view NEXT TO refFrame
+        if  screenSize.contains(topRightPoint) {
+           frame = CGRect(x: refFrame.origin.x + refFrame.size.width + 10, y: refFrame.origin.y, width: 100, height: 30)
+        }
+        // Place view BELOW refFrame, on next line
+        else {
+            frame = CGRect(x: 16, y: refFrame.origin.y + refFrame.height + 10, width: 100, height: 30)
+        }
+        return frame
     }
     
     func show () {
