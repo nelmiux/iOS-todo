@@ -191,6 +191,11 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         self.referenceFrame = frame
     }
     
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Indicate we want the same presentation behavior on both iPhone and iPad.
+        return UIModalPresentationStyle.None
+    }
+    
     // Keyboard Functionality
     func keyboardOnScreen(notification: NSNotification){
         let info: NSDictionary  = notification.userInfo!
