@@ -27,12 +27,27 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var basicInfoView: UIView!
     
     // Class variables
-    private var courseList:[String] = ["CH 301: Principles of Chemistry I", "CS 378: iOS Mobile Computing", "CS 312: Introduction to Java Programming", "CS 331: Algorithms and Complexity", "AET 306: Digital Imaging and Visualization"]
+    // private var courseList:[[String:String]] = user["courses"] as! [[String:String]]
     private var name:String = ""
     private var major:String = ""
     private var graduation:String = ""
     var isOwnProfile:Bool = true
     private var isEditing:Bool = false
+    private var coursesCopy:([String],[String]){
+        var coursesKeysCopy = [String]()
+        var coursesValuesCopy = [String]()
+        
+        dispatch_sync(concurrentDataAccessQueue) {
+            for key in (user["courses"] as! [String: String]).keys {
+                coursesKeysCopy.append(key)
+            }
+            for value in (user["courses"] as! [String: String]).values{
+                coursesValuesCopy.append(value)
+            }
+            
+        }
+        return (coursesKeysCopy,coursesValuesCopy)
+    }
     
     @IBOutlet weak var CoursesTableView: UITableView!
     override func viewDidLoad() {
@@ -44,6 +59,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.hideEditing()
         self.displayUserData(true)
         self.adjustButtonFunctionality()
+        
+        print("There are \(coursesCopy.0.count) courses")
     }
     
     func hideEditing () {
@@ -183,12 +200,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courseList.count
+        return coursesCopy.0.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let idx = indexPath.row
         let cell = self.CoursesTableView.dequeueReusableCellWithIdentifier("courseCell", forIndexPath: indexPath)
-        cell.textLabel!.text = courseList[indexPath.row]
+        let course = (coursesCopy.0)[idx] + " " + (coursesCopy.1)[idx]
+        cell.textLabel!.text = course
         return cell
     }
     

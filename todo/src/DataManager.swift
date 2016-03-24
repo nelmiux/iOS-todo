@@ -25,6 +25,8 @@ let lowerDivisionCourses:[String] = ["CS312: Introduction to Programming", "CS31
 
 let upperDivisionCourses:[String] = [String]()
 
+var courseDic = Dictionary<String, String>()
+
 var allCourses = Dictionary<String, String>()
 
 var user = Dictionary<String, AnyObject>()
@@ -107,7 +109,12 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 user["dots"] = 100
                 user["earned"] = 100
                 user["paid"] = 0
-                user["courses"] = courses
+                
+                for i in 0...courses.count - 1 {
+                    courseDic[courses[i].componentsSeparatedByString(":")[0]] = courses[i].componentsSeparatedByString(":")[1]
+                }
+                
+                user["courses"] = courseDic
                 user["requesterUsername"] = ""
                 user["requesterPhoto"] = ""
                 user["requesterCourse"] = ""
@@ -162,6 +169,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     if let _ = snapshot.value["courses"] as? [String: String] {
                         user["courses"] = (snapshot.value["courses"] as? [String: String])!
                     }
+                    
                     user["dots"] = (snapshot.value["dots"] as? Int)!
                     user["earned"] = (snapshot.value["earned"] as? Int)!
                     user["paid"] = (snapshot.value["paid"] as? Int)!

@@ -249,7 +249,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
             // If the input is VALID, create user and persist to Firebase
             inputs["Photo String"] = self.selectedPhotoString
             
-            
             print("Added courses:")
             for course in addedCourses {
                 print(course)
