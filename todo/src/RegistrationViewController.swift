@@ -83,9 +83,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         // Create course button view
-        let courseArr = (self.addCourseTextField.text as String!).characters.split{$0 == " "}.map(String.init)
-        let courseNumber = courseArr[0].substringToIndex(courseArr[0].endIndex.predecessor())
-        let courseButton = CourseButtonView(frame: self.referenceFrame!, course: courseNumber, parentViewController: self)
+        let courseButton = CourseButtonView(frame: self.referenceFrame!, course: self.addCourseTextField.text as String!, parentViewController: self)
         courseButton.show()
         
         print(self.addCourseTextField.text)
