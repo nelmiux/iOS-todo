@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,6 +17,7 @@
             <string>SegoeUI</string>
         </mutableArray>
         <mutableArray key="SEGOEUIB.TTF">
+            <string>SegoeUI-Bold</string>
             <string>SegoeUI-Bold</string>
             <string>SegoeUI-Bold</string>
             <string>SegoeUI-Bold</string>
@@ -153,7 +154,7 @@
                                                         <rect key="frame" x="0.0" y="92" width="386" height="58"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJ4-Ns-GlY" id="Yer-eI-LwZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="50.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="50"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnE-AY-k1H">
@@ -285,6 +286,9 @@
                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <variation key="widthClass=compact" misplaced="YES">
+                                                    <rect key="frame" x="8" y="561" width="398" height="46"/>
+                                                </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Courses:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dh-U7-qXT">
                                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -344,6 +348,17 @@
                                                     <action selector="editAddCourseField:" destination="A93-mg-gzh" eventType="editingChanged" id="z7v-HK-e8F"/>
                                                 </connections>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9x-ev-YCc">
+                                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                <color key="backgroundColor" red="0.25098039220000001" green="0.71764705880000002" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
+                                                <state key="normal" title="Add">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </state>
+                                                <variation key="widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="334" y="615" width="55" height="30"/>
+                                                </variation>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -363,7 +378,9 @@
                                                 <variation key="widthClass=compact" constant="85"/>
                                             </constraint>
                                             <constraint firstItem="t0Z-zK-4vj" firstAttribute="top" secondItem="HW0-hU-2bM" secondAttribute="top" constant="8" id="Q3r-En-fh9"/>
-                                            <constraint firstAttribute="trailing" secondItem="VOV-bT-lNG" secondAttribute="trailing" constant="80" id="Z23-6I-IUr"/>
+                                            <constraint firstAttribute="trailing" secondItem="VOV-bT-lNG" secondAttribute="trailing" constant="80" id="Z23-6I-IUr">
+                                                <variation key="widthClass=compact" constant="94"/>
+                                            </constraint>
                                             <constraint firstItem="rXJ-ch-NA0" firstAttribute="top" secondItem="t0Z-zK-4vj" secondAttribute="bottom" constant="28" id="aPj-Ak-Tbk">
                                                 <variation key="widthClass=compact" constant="39"/>
                                             </constraint>
@@ -386,7 +403,9 @@
                                             <constraint firstItem="VJN-Wq-RW8" firstAttribute="top" secondItem="ryw-HZ-UlS" secondAttribute="bottom" constant="8" id="nEZ-OZ-DHC"/>
                                             <constraint firstItem="bc5-Gi-EmA" firstAttribute="leading" secondItem="HW0-hU-2bM" secondAttribute="leading" constant="8" id="sT0-bM-LWb"/>
                                             <constraint firstAttribute="trailing" secondItem="t0Z-zK-4vj" secondAttribute="trailing" id="sv7-eN-dTR"/>
-                                            <constraint firstAttribute="trailing" secondItem="tHy-a1-eHN" secondAttribute="trailing" constant="80" id="tzn-aM-hnp"/>
+                                            <constraint firstAttribute="trailing" secondItem="tHy-a1-eHN" secondAttribute="trailing" constant="80" id="tzn-aM-hnp">
+                                                <variation key="widthClass=compact" constant="94"/>
+                                            </constraint>
                                             <constraint firstItem="bKf-eA-goa" firstAttribute="top" secondItem="VJN-Wq-RW8" secondAttribute="bottom" constant="8" id="uyT-pD-vbR"/>
                                             <constraint firstItem="bKf-eA-goa" firstAttribute="leading" secondItem="HW0-hU-2bM" secondAttribute="leading" id="x35-Bp-yrJ"/>
                                         </constraints>
@@ -402,6 +421,7 @@
                                                 <exclude reference="8dh-U7-qXT"/>
                                                 <exclude reference="tHy-a1-eHN"/>
                                                 <exclude reference="VOV-bT-lNG"/>
+                                                <exclude reference="h9x-ev-YCc"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="eiU-TV-fzh"/>
@@ -442,6 +462,7 @@
                                                 <include reference="8dh-U7-qXT"/>
                                                 <include reference="tHy-a1-eHN"/>
                                                 <include reference="VOV-bT-lNG"/>
+                                                <include reference="h9x-ev-YCc"/>
                                             </mask>
                                             <mask key="constraints">
                                                 <exclude reference="eiU-TV-fzh"/>

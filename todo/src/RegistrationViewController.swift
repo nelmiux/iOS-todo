@@ -139,12 +139,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         
-        // self.presentPopover(sourceController: self, sourceView: self.addCourseButton, sourceRect: CGRectMake(0, self.addCourseButton.bounds.height + 1, self.addCourseButton.bounds.width, 200))
-        let buttonPos = self.addCourseButton.frame.origin
-        print("addCourseButton is at \(buttonPos.x), \(buttonPos.y)")
-        let buttonSize = self.addCourseButton.frame.size
         self.presentPopover(sourceController: self, sourceView: self.addCourseButton, sourceRect: CGRectMake(0, self.addCourseButton.bounds.height + 1, self.addCourseButton.bounds.width, 200))
-        //self.presentPopover(sourceController: self, sourceView: self.addCourseButton, sourceRect: CGRectMake(0, buttonPos.y, buttonSize.width, 200))
     }
     
     func presentPopover(sourceController sourceController:UIViewController, sourceView:UIView, sourceRect:CGRect) {
