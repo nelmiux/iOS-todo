@@ -33,7 +33,7 @@ class CourseButtonView: UIView {
         self.courseLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
         self.courseLabel.layer.masksToBounds = true
         self.courseLabel.layer.cornerRadius = 5.0
-        self.courseLabel.backgroundColor = UIColor.redColor()
+        self.courseLabel.backgroundColor = self.getColor()
         self.courseLabel.textColor = UIColor.whiteColor()
         self.courseLabel.text = " " + courseNumber
         
@@ -68,6 +68,11 @@ class CourseButtonView: UIView {
             frame = CGRect(x: 16, y: refFrame.origin.y + refFrame.height + 10, width: 100, height: 30)
         }
         return frame
+    }
+    
+    func getColor () -> UIColor {
+        let idx = arc4random_uniform(UInt32(burntOranges.count))
+        return burntOranges[Int(idx)]
     }
     
     func show () {
