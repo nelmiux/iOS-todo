@@ -22,11 +22,12 @@ class CourseButtonView: UIView {
         self.init(frame: frame)
         self.parentViewController = parentViewController
         
-        self.courseLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 40))
+        self.courseLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
         self.courseLabel.backgroundColor = UIColor.redColor()
+        self.courseLabel.textColor = UIColor.whiteColor()
         self.courseLabel.text = course
         
-        self.removeButton = UIButton(frame: CGRect(x: self.courseLabel.frame.origin.x + self.courseLabel.frame.width - 25, y: self.courseLabel.frame.origin.y, width: 25, height: 25))
+        self.removeButton = UIButton(frame: CGRect(x: self.courseLabel.frame.origin.x + self.courseLabel.frame.width - 25, y: self.courseLabel.frame.origin.y + 3, width: 25, height: 25))
         self.removeButton.setTitle("X", forState: UIControlState.Normal)
         
         self.courseLabel.addSubview(self.removeButton)

@@ -19,15 +19,17 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     private var data = lowerDivisionCourses
     private var filterData = [String]()
     private var coursesListViewController: CoursesListView? = nil
-    private var referenceFrame:CGRect = CGRect(x: 0,y: 0,width: 0,height: 0)
+    private var referenceFrame:CGRect? = nil
     
     // UI Elements
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var userThumbnail: UIImageView!
     @IBOutlet weak var registrationTableView: UITableView!
+    @IBOutlet weak var searchCoursesLabel: UILabel!
     @IBOutlet weak var addCourseTextField: UITextField!
     @IBOutlet weak var addCourseButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,28 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
+    
+    @IBAction func onClickAdd(sender: AnyObject) {
+        // If no course has been inputted, do nothing
+        if self.addCourseTextField.text?.characters.count == 0 {
+            return
+        }
+        
+        // Update the referenceFrame beforehand for the first course to be added
+        if self.referenceFrame == nil {
+            self.referenceFrame = self.searchCoursesLabel.frame
+            print("referenceFrame updated to \(self.referenceFrame?.origin.x), \(self.referenceFrame?.origin.y)")
+        }
+        
+        // Create course button view
+        let courseArr = (self.addCourseTextField.text as String!).characters.split{$0 == " "}.map(String.init)
+        let courseNumber = courseArr[0].substringToIndex(courseArr[0].endIndex.predecessor())
+        let courseButton = CourseButtonView(frame: self.referenceFrame!, course: courseNumber, parentViewController: self)
+        courseButton.show()
+        
+        print(self.addCourseTextField.text)
+    }
+    
     
     // TableView Functionality
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
