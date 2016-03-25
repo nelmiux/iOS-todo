@@ -1,3 +1,8 @@
+# Todo
+
+## Status
+![Build Status](https://travis-ci.org/iOS-Mobile-Dev/todo.svg?branch=dev)
+
 # Tasks list
 
 - [X] BrainStorm
@@ -13,5 +18,4 @@
 - [ ] Pulish Documentation
 - [ ] Advertise
 - [ ] Test and Get Feedback <----> Find and Fix Bugs and Documentation
-- 
 
