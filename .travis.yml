@@ -1,5 +1,22 @@
+osx_image: xcode7.3
 language: objective-c
-osx_image: xcode7.1
-script: todo.xcodeproj
+
+env:
+  global:
+  - LC_CTYPE=en_US.UTF-8
+  - LANG=en_US.UTF-8
+  
+before_install:
+  - brew update || brew update
+  - brew outdated xctool || brew upgrade xctool
+  - gem install cocoapods
+  - xcrun simctl list
+  
+env:
+  - MODE=run
+  - MODE=test
+  
+script: ./build.sh $MODE
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
