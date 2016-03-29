@@ -30,6 +30,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var addCourseTextField: UITextField!
     @IBOutlet weak var addCourseButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var courseButtonsView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,21 +72,29 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func onClickAdd(sender: AnyObject) {
+        let course = self.addCourseTextField.text as String!
+        
         // If no course has been inputted, do nothing
-        if self.addCourseTextField.text?.characters.count == 0 {
+        if course.characters.count == 0 {
             return
         }
         
-        // Update the referenceFrame beforehand for the first course to be added
-        if self.referenceFrame == nil {
-            self.referenceFrame = self.addButton.frame
-            print("referenceFrame updated to \(self.referenceFrame?.origin.x), \(self.referenceFrame?.origin.y)")
+        // Ensure that a course is not added twice
+        if !addedCourses.contains(course) {
+            // Update the referenceFrame beforehand for the first course to be added
+            if self.referenceFrame == nil {
+                // self.referenceFrame = self.addButton.frame
+                self.referenceFrame = CGRect(x: 0, y: 0, width: 0, height: 0)
+                print("referenceFrame updated to \(self.referenceFrame?.origin.x), \(self.referenceFrame?.origin.y)")
+            }
+            
+            // Create course button view
+            let courseButton = CourseButtonView(frame: self.referenceFrame!, course: course, parentViewController: self, isFirst: addedCourses.isEmpty)
+            courseButton.show()
+
+            addedCourses.append(course)
         }
-        
-        // Create course button view
-        let courseButton = CourseButtonView(frame: self.referenceFrame!, course: self.addCourseTextField.text as String!, parentViewController: self)
-        courseButton.show()
-        
+    
         print(self.addCourseTextField.text)
     }
     
@@ -195,9 +204,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     func selectedCourse(course: String) {
         self.addCourseTextField.text = course
-        if !addedCourses.contains(course) {
-            addedCourses.append(course)
-        }
     }
     
     func endFiltering(force: Bool) {

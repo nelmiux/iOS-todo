@@ -13,16 +13,18 @@ class CourseButtonView: UIView {
     private var parentViewController:RegistrationViewController? = nil
     private var courseLabel: UILabel = UILabel()
     private var removeButton:UIButton = UIButton()
+    private var isFirst:Bool = false
     private var course:String = ""
     
     override init(frame: CGRect) {
         super.init(frame:frame)
     }
     
-    convenience init (frame:CGRect, course:String, parentViewController:RegistrationViewController) {
+    convenience init (frame:CGRect, course:String, parentViewController:RegistrationViewController, isFirst:Bool) {
         self.init(frame: frame)
-        self.frame = getFrame(frame)
         self.parentViewController = parentViewController
+        self.frame = getFrame(frame)
+        self.isFirst = isFirst
         
         // Parse the course string and get only the course number
         self.course = course
@@ -51,21 +53,26 @@ class CourseButtonView: UIView {
     }
     
     func getFrame (refFrame:CGRect) -> CGRect {
+        if refFrame.origin.x == 0 && refFrame.origin.y == 0 {
+            return refFrame
+        }
+        
         var frame = CGRect()
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        // let screenSize: CGRect = UIScreen.mainScreen().bounds
+        let parentFrame = self.parentViewController?.courseButtonsView.bounds
         let topRightPoint_nextToCase:CGPoint = CGPoint(x: refFrame.origin.x + refFrame.size.width + 10 + 100, y: refFrame.origin.y)
-        let bottomLeftPoint_belowCase:CGPoint = CGPoint(x: 16 + 100, y: refFrame.origin.y + refFrame.height + 10 + 30)
+        let bottomLeftPoint_belowCase:CGPoint = CGPoint(x: 100, y: refFrame.origin.y + refFrame.height + 10 + 30)
         
         // Place view NEXT TO refFrame
-        if  screenSize.contains(topRightPoint_nextToCase) {
+        if  parentFrame!.contains(topRightPoint_nextToCase) {
            frame = CGRect(x: refFrame.origin.x + refFrame.size.width + 10, y: refFrame.origin.y, width: 100, height: 30)
         }
         // Place view BELOW refFrame, on next line and determine if parent view controller needs to be expanded
         else {
-            if !screenSize.contains(bottomLeftPoint_belowCase) {
-                self.parentViewController?.mainView.frame.size.height += 50
+            if !parentFrame!.contains(bottomLeftPoint_belowCase) {
+                self.parentViewController?.courseButtonsView.frame.size.height += 50
             }
-            frame = CGRect(x: 16, y: refFrame.origin.y + refFrame.height + 10, width: 100, height: 30)
+            frame = CGRect(x: 0, y: refFrame.origin.y + refFrame.height + 10, width: 100, height: 30)
         }
         return frame
     }
@@ -76,7 +83,14 @@ class CourseButtonView: UIView {
     }
     
     func show () {
-        self.parentViewController?.mainView.addSubview(self)
-        self.parentViewController?.updateRefFrame(self.frame)
+        // self.parentViewController?.mainView.addSubview(self)
+        self.parentViewController?.courseButtonsView.addSubview(self)
+        self.bringSubviewToFront((self.parentViewController?.courseButtonsView)!)
+        
+        if self.isFirst {
+            self.parentViewController?.updateRefFrame(CGRect(x: self.frame.origin.x + self.frame.size.width + 10, y: self.frame.origin.y, width: 100, height: 30))
+        } else {
+            self.parentViewController?.updateRefFrame(self.frame)
+        }
     }
 }
