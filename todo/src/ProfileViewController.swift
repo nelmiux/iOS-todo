@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var majorTextField: UITextField!
     @IBOutlet weak var graduationTextField: UITextField!
     @IBOutlet weak var basicInfoView: UIView!
+    @IBOutlet weak var changePhotoButton: UIButton!
     
     // Class variables
     // private var courseList:[[String:String]] = user["courses"] as! [[String:String]]
@@ -68,12 +69,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             self.editProfileButton.enabled = true
         }
         
-        // Hide text fields
+        // Hide text fields and button(s)
         self.saveBarButton.enabled = false
         self.saveBarButton.title = ""
         self.nameTextField.hidden = true
         self.majorTextField.hidden = true
         self.graduationTextField.hidden = true
+        self.changePhotoButton.hidden = true
         
         // Show labels
         self.nameLabel.hidden = false
@@ -94,13 +96,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.majorLabel.hidden = true
         self.graduationLabel.hidden = true
         
-        // Show text fields
+        // Show text fields and button(s)
         self.nameTextField.hidden = false
         self.nameTextField.placeholder = self.name
         self.majorTextField.hidden = false
         self.majorTextField.placeholder = self.major
         self.graduationTextField.hidden = false
         self.graduationTextField.placeholder = self.graduation
+        self.changePhotoButton.hidden = false
     }
     
     func displayUserData (needToRetrieveData:Bool) {
@@ -232,6 +235,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.textFieldShouldReturn(self.nameTextField)
         self.textFieldShouldReturn(self.majorTextField)
         self.textFieldShouldReturn(self.graduationTextField)
+    }
+    
+    @IBAction func onClickChangePhoto(sender: AnyObject) {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
