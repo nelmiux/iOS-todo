@@ -11,7 +11,7 @@ import UIKit
 class HistoryTableViewController: UITableViewController {
     
     // Class attributes
-    private var data:[[String:String]] = [[String:String]]()
+    private var data:([String],[String]) = ([],[])
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +30,10 @@ class HistoryTableViewController: UITableViewController {
     }
     
     func loadData () {
-        self.data.append(["March 28, 2016, 7:43 PM": "tutor: You tutored testNelma for 45 dots in CS 378:     iOS Mobile Computing."])
-        self.data.append(["March 10, 2016, 9:30 AM": "requester: You spent 60 dots on tutoring in CS 312: Introduction to Java Programming from testTutor."])
+        let keys = ["March 28, 2016, 7:43 PM", "March 10, 2016, 9:30 AM"]
+        let vals = ["tutor: You tutored testNelma for 45 dots in CS 378: iOS Mobile Computing.", "requester: You spent 60 dots on tutoring in CS 312: Introduction to Java Programming from testTutor."]
+        self.data.0 = keys
+        self.data.1 = vals
     }
 
     // MARK: - Table view data source
@@ -41,13 +43,13 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count
+        return self.data.0.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("historyCell", forIndexPath: indexPath) as! HistoryTableViewCell
-        // cell.dateLabel.text = self.data[indexPath.row].
-        
+        cell.dateLabel.text = self.data.0[indexPath.row]
+        cell.descriptionLabel.text = self.data.1[indexPath.row]
         return cell
     }
 
