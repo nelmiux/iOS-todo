@@ -47,9 +47,19 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Create the history cell and populate with data
         let cell = tableView.dequeueReusableCellWithIdentifier("historyCell", forIndexPath: indexPath) as! HistoryTableViewCell
+        let descriptionArr = self.data.1[indexPath.row].characters.split{$0 == ":"}.map(String.init)
         cell.dateLabel.text = self.data.0[indexPath.row]
-        cell.descriptionLabel.text = self.data.1[indexPath.row]
+        cell.descriptionLabel.text = descriptionArr[1].substringFromIndex(descriptionArr[1].startIndex.advancedBy(1))
+        
+        // Do any additional UI modifications accourding to tutor vs requestor.
+        if descriptionArr[0] == "tutor" {
+            cell.dateLabel.backgroundColor = UIColor.greenColor()
+        } else if descriptionArr[0] == "requester" {
+            cell.dateLabel.backgroundColor = UIColor.redColor()
+        }
+    
         return cell
     }
 
