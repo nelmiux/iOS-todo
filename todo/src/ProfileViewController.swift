@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     // UI Attributes
     @IBOutlet weak var photo: UIImageView!
@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var graduationTextField: UITextField!
     @IBOutlet weak var basicInfoView: UIView!
     @IBOutlet weak var changePhotoButton: UIButton!
+    private let imagePicker = UIImagePickerController()
     
     // Class variables
     // private var courseList:[[String:String]] = user["courses"] as! [[String:String]]
@@ -34,6 +35,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     private var graduation:String = ""
     var isOwnProfile:Bool = true
     private var isEditing:Bool = false
+    private var prevPhotoString:String = ""
+    private var newPhotoString:String? = nil
     private var coursesCopy:([String],[String]){
         var coursesKeysCopy = [String]()
         var coursesValuesCopy = [String]()
@@ -53,6 +56,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var CoursesTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.imagePicker.delegate = self
         self.CoursesTableView.delegate = self
         self.CoursesTableView.dataSource = self
         self.CoursesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "courseCell")
@@ -60,8 +64,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.hideEditing()
         self.displayUserData(true)
         self.adjustButtonFunctionality()
-        
-        print("There are \(coursesCopy.0.count) courses")
     }
     
     func hideEditing () {
@@ -139,6 +141,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             user["lastName"] = fullNameArr[1]
             user["major"] = self.major
             user["graduationYear"] = self.graduation
+            user["photoString"] = self.newPhotoString == nil ? self.prevPhotoString : self.newPhotoString
             
             // Update Firebase
             let userRef = getFirebase("users/" + (user["username"] as! String!))
@@ -146,7 +149,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
                 "First Name": user["firstName"] as! String!,
                 "Last Name": user["lastName"] as! String!,
                 "Major": self.major,
-                "Graduation Year": self.graduation
+                "Graduation Year": self.graduation,
+                "Photo String" : user["photoString"] as! String!
                 ])
         }
         return valid
@@ -183,12 +187,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func displayUserPhoto () {
-        let base64String:String = user["photoString"] as! String!
+        self.prevPhotoString = user["photoString"] as! String!
         var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
         
         // If user has selected image other than default image, decode the image
-        if base64String.characters.count > 0 {
-            let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        if prevPhotoString.characters.count > 0 {
+            let decodedData = NSData(base64EncodedString: prevPhotoString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             decodedImage = UIImage(data: decodedData!)!
         }
         
@@ -237,7 +241,37 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.textFieldShouldReturn(self.graduationTextField)
     }
     
+    // ImagePicker Functionality
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        // Encode the selected image
+        let thumbnail = self.resizeImage(image, sizeChange: CGSize(width: 200, height: 200))
+        let imageData = UIImageJPEGRepresentation(thumbnail, 1.0)
+        let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        self.newPhotoString = base64String
+        
+        // Update the UI to display selected photo
+        self.photo.image = thumbnail
+        self.photo.contentMode = .ScaleAspectFit
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func resizeImage (imageObj:UIImage, sizeChange:CGSize)-> UIImage{
+        let hasAlpha = false
+        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+        
+        UIGraphicsBeginImageContextWithOptions(sizeChange, !hasAlpha, scale)
+        imageObj.drawInRect(CGRect(origin: CGPointZero, size: sizeChange))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        return scaledImage
+    }
+    
     @IBAction func onClickChangePhoto(sender: AnyObject) {
+        self.imagePicker.allowsEditing = false
+        self.imagePicker.sourceType = .PhotoLibrary
+        
+        self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
