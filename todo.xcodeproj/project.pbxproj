@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		87D0E3311CAB23F2009261CC /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */; };
-		87D0E3331CAB2502009261CC /* HistoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3321CAB2502009261CC /* HistoryTableView.swift */; };
+		87D0E3351CAB2680009261CC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */; };
 		CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */; };
@@ -131,7 +131,7 @@
 		04B6C3221C85786C00BA7882 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_White.png; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
 		87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		87D0E3321CAB2502009261CC /* HistoryTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableView.swift; sourceTree = "<group>"; };
+		87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterStartSessionViewController.swift; path = src/RequesterStartSessionViewController.swift; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */,
-				87D0E3321CAB2502009261CC /* HistoryTableView.swift */,
+				87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -798,7 +798,6 @@
 				CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */,
 				CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */,
 				CA040A971CA32EC500E06C37 /* CourseButtonView.swift in Sources */,
-				87D0E3331CAB2502009261CC /* HistoryTableView.swift in Sources */,
 				87D0E3311CAB23F2009261CC /* HistoryTableViewCell.swift in Sources */,
 				CA7B01F31C981A450001D0F4 /* CoursesListView.swift in Sources */,
 				CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */,
@@ -807,6 +806,7 @@
 				CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */,
 				CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */,
 				CA040A911CA328E300E06C37 /* TutorWaitingViewController.swift in Sources */,
+				87D0E3351CAB2680009261CC /* HistoryTableViewController.swift in Sources */,
 				CA7B01961C951AF20001D0F4 /* RegistrationTableViewCell.swift in Sources */,
 				CA7B01971C951AF20001D0F4 /* RegistrationViewController.swift in Sources */,
 				CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */,
