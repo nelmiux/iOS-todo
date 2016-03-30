@@ -14,6 +14,7 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var userPhoto: UIImageView!
     @IBOutlet weak var dotsLabel: UILabel!
+    @IBOutlet weak var dotsBg: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
     override func awakeFromNib() {
@@ -21,10 +22,10 @@ class HistoryTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    /* override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
+    } */
 
 }

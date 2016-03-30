@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		87D0E3311CAB23F2009261CC /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */; };
 		87D0E3351CAB2680009261CC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */; };
+		87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3361CAB90F7009261CC /* SpentDotsBg.png */; };
+		87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3371CAB90F7009261CC /* GainedDotsBg.png */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */; };
 		CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */; };
@@ -132,6 +134,8 @@
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
 		87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		87D0E3361CAB90F7009261CC /* SpentDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpentDotsBg.png; sourceTree = "<group>"; };
+		87D0E3371CAB90F7009261CC /* GainedDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GainedDotsBg.png; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterStartSessionViewController.swift; path = src/RequesterStartSessionViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +340,8 @@
 			children = (
 				CAC137CA1C855D8E00586487 /* History Example.png */,
 				CAC137CB1C855D8E00586487 /* HistoryExample.png */,
+				87D0E3361CAB90F7009261CC /* SpentDotsBg.png */,
+				87D0E3371CAB90F7009261CC /* GainedDotsBg.png */,
 				CAC137CC1C855D8E00586487 /* Location.png */,
 				CAC137CD1C855D8E00586487 /* user1.png */,
 				CAC137CE1C855D8E00586487 /* user2.png */,
@@ -694,6 +700,7 @@
 				CA7B01701C9515D40001D0F4 /* TodoLogo_Teal.png in Resources */,
 				CA7B01711C9515D40001D0F4 /* TodoLogo_White.png in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
+				87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */,
 				CA7B01741C9516E50001D0F4 /* LocationIcon.png in Resources */,
 				CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */,
 				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
@@ -717,6 +724,7 @@
 				CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */,
 				CA7B00DD1C9505FF0001D0F4 /* LoginButton2.png in Resources */,
 				CAC137C41C85548B00586487 /* Main.storyboard in Resources */,
+				87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */,
 				CAC482881C84209E00059FDD /* Home Analitics.png in Resources */,
 				CAC137D41C855D8E00586487 /* user2.png in Resources */,
 				CAC4827D1C83F85A00059FDD /* NotificationsTabIcon_Teal.png in Resources */,

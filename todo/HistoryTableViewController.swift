@@ -49,15 +49,21 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Create the history cell and populate with data
         let cell = tableView.dequeueReusableCellWithIdentifier("historyCell", forIndexPath: indexPath) as! HistoryTableViewCell
-        let descriptionArr = self.data.1[indexPath.row].characters.split{$0 == ":"}.map(String.init)
+        
+        let value = self.data.1[indexPath.row]
+        let indexOfColon = value.characters.indexOf(":")
+        let posOfColon = value.startIndex.distanceTo(indexOfColon!)
+        let role = value.substringToIndex(value.startIndex.advancedBy(posOfColon))
+        let event = value.substringFromIndex(value.startIndex.advancedBy(posOfColon).advancedBy(2))
+        
         cell.dateLabel.text = self.data.0[indexPath.row]
-        cell.descriptionLabel.text = descriptionArr[1].substringFromIndex(descriptionArr[1].startIndex.advancedBy(1))
+        cell.descriptionLabel.text = event
         
         // Do any additional UI modifications accourding to tutor vs requestor.
-        if descriptionArr[0] == "tutor" {
-            cell.dateLabel.backgroundColor = UIColor.greenColor()
-        } else if descriptionArr[0] == "requester" {
-            cell.dateLabel.backgroundColor = UIColor.redColor()
+        if role == "tutor" {
+            cell.dotsBg.image = UIImage(named: "GainedDotsBg.png")
+        } else if role == "requester" {
+            cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
         }
     
         return cell
