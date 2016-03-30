@@ -21,12 +21,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var coursesLabel: UILabel!
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var majorTextField: UITextField!
     @IBOutlet weak var graduationTextField: UITextField!
     @IBOutlet weak var basicInfoView: UIView!
     @IBOutlet weak var changePhotoButton: UIButton!
     private let imagePicker = UIImagePickerController()
+
     
     // Class variables
     // private var courseList:[[String:String]] = user["courses"] as! [[String:String]]
@@ -74,6 +76,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Hide text fields and button(s)
         self.saveBarButton.enabled = false
         self.saveBarButton.title = ""
+        self.cancelBarButton.enabled = false
+        self.cancelBarButton.title = ""
         self.nameTextField.hidden = true
         self.majorTextField.hidden = true
         self.graduationTextField.hidden = true
@@ -92,6 +96,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Display save button in top nav bar
         self.saveBarButton.enabled = true
         self.saveBarButton.title = "Save"
+        self.cancelBarButton.enabled = true
+        self.cancelBarButton.title = "Cancel"
         
         // Hide labels
         self.nameLabel.hidden = true
@@ -240,6 +246,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.textFieldShouldReturn(self.majorTextField)
         self.textFieldShouldReturn(self.graduationTextField)
     }
+    
+    @IBAction func onClickCancel(sender: AnyObject) {
+    }
+    
     
     // ImagePicker Functionality
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
