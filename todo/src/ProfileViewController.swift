@@ -38,7 +38,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     private var graduation:String = ""
     var isOwnProfile:Bool = true
     private var isEditing:Bool = false
-    private var prevPhotoString:String = ""
     private var newPhotoString:String? = nil
     private var coursesCopy:([String],[String]){
         var coursesKeysCopy = [String]()
@@ -155,7 +154,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             user["lastName"] = fullNameArr[1]
             user["major"] = self.major
             user["graduationYear"] = self.graduation
-            user["photoString"] = self.newPhotoString == nil ? self.prevPhotoString : self.newPhotoString
+            
+            if self.newPhotoString != nil {
+                user["photoString"] = self.newPhotoString
+            }
             
             // Update Firebase
             let userRef = getFirebase("users/" + (user["username"] as! String!))
@@ -201,12 +203,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func displayUserPhoto () {
-        self.prevPhotoString = user["photoString"] as! String!
+        let base64String = user["photoString"] as! String!
         var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
         
         // If user has selected image other than default image, decode the image
-        if prevPhotoString.characters.count > 0 {
-            let decodedData = NSData(base64EncodedString: prevPhotoString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        if base64String.characters.count > 0 {
+            let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
             decodedImage = UIImage(data: decodedData!)!
         }
         
@@ -252,10 +254,28 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             self.textFieldShouldReturn(self.nameTextField)
             self.textFieldShouldReturn(self.majorTextField)
             self.textFieldShouldReturn(self.graduationTextField)
+            
+            // Revert photo string
+            self.newPhotoString = nil
         }
     }
     
     @IBAction func onClickCancel(sender: AnyObject) {
+        // Revert all fields back to previous values
+        self.nameTextField.text = ""
+        self.majorTextField.text = ""
+        self.graduationTextField.text = ""
+        self.displayUserPhoto()
+        
+        // Exit editing mode
+        self.hideEditing()
+        self.displayUserData(false)
+        self.emailButton.hidden = false
+        
+        // Hide any open keyboard
+        self.textFieldShouldReturn(self.nameTextField)
+        self.textFieldShouldReturn(self.majorTextField)
+        self.textFieldShouldReturn(self.graduationTextField)
     }
     
     
