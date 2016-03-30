@@ -51,14 +51,12 @@ class HistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("historyCell", forIndexPath: indexPath) as! HistoryTableViewCell
         
         // Populate with general data regardless of tutor vs requestor.
-        let value = self.data.1[indexPath.row]
-        let indexOfColon = value.characters.indexOf(":")
-        let posOfColon = value.startIndex.distanceTo(indexOfColon!)
-        let role = value.substringToIndex(value.startIndex.advancedBy(posOfColon))
-        let event = value.substringFromIndex(value.startIndex.advancedBy(posOfColon).advancedBy(2))
-        let dateArr = self.data.0[indexPath.row].characters.split{$0 == ","}.map(String.init)
-        cell.dateLabel.text = ("\(dateArr[0]), \(dateArr[1])")
-        cell.descriptionLabel.text = event
+        // Below includes
+        let parsedData = self.parseData(indexPath.row)
+        let role = parsedData["role"]
+        cell.dateLabel.text = parsedData["date"]
+        cell.descriptionLabel.text = parsedData["event"]
+        cell.dotsLabel.text = parsedData["numDots"]
         
         // Do any additional UI modifications accourding to tutor vs requestor.
         if role == "tutor" {
@@ -68,6 +66,31 @@ class HistoryTableViewController: UITableViewController {
         }
     
         return cell
+    }
+    
+    func parseData (index:Int) -> Dictionary<String, String> {
+        var result: Dictionary<String, String> = ["date" : "", "role" : "", "event" : "", "numDots": ""]
+        
+        let value = self.data.1[index]
+        let indexOfColon = value.characters.indexOf(":")
+        let posOfColon = value.startIndex.distanceTo(indexOfColon!)
+        let role = value.substringToIndex(value.startIndex.advancedBy(posOfColon))
+        result["role"] = role
+        let event = value.substringFromIndex(value.startIndex.advancedBy(posOfColon).advancedBy(2))
+        result["event"] = event
+        let eventArr = event.characters.split{$0 == " "}.map(String.init)
+        for item in eventArr {
+            let components = item.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+            let part = components.joinWithSeparator("")
+            
+            if let intVal = Int(part) {
+                result["numDots"] = result["role"] == "tutor" ? ("+\(part)") : ("-\(part)")
+                break
+            }
+        }
+        let dateArr = self.data.0[index].characters.split{$0 == ","}.map(String.init)
+        result["date"] = ("\(dateArr[0]), \(dateArr[1])")
+        return result
     }
 
     /*
