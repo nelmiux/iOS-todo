@@ -43,20 +43,20 @@
         <scene sceneID="9F9-54-WzG">
             <objects>
                 <tableViewController title="History" id="9VT-0o-jfC" customClass="HistoryTableViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJq-mL-iMZ" customClass="HistoryTableView" customModule="todo" customModuleProvider="target">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJq-mL-iMZ" customClass="HistoryTableView" customModule="todo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="155" id="2KN-qi-hTd" customClass="HistoryTableViewCell" customModule="todo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="414" height="155"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="150" id="2KN-qi-hTd" customClass="HistoryTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2KN-qi-hTd" id="6Le-hY-oyT">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="154"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nU-DL-6LU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="23"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nU-DL-6LU">
+                                            <rect key="frame" x="0.0" y="8" width="414" height="23"/>
                                             <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="23" id="yTr-BC-rRf"/>
@@ -65,24 +65,15 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You gained 50 dots for tutoring testNelma in CS 312." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXz-LG-bZV">
-                                            <rect key="frame" x="152" y="31" width="254" height="115"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="115" id="zCf-nv-0Zp"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-pic" translatesAutoresizingMaskIntoConstraints="NO" id="RyE-Dt-XrR">
-                                            <rect key="frame" x="8" y="31" width="100" height="100"/>
+                                            <rect key="frame" x="8" y="39" width="85" height="85"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="KtU-uu-MUS"/>
-                                                <constraint firstAttribute="height" constant="100" id="rwG-rK-hlq"/>
+                                                <constraint firstAttribute="width" constant="85" id="KtU-uu-MUS"/>
+                                                <constraint firstAttribute="height" constant="85" id="rwG-rK-hlq"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKa-xv-acT">
-                                            <rect key="frame" x="92" y="93" width="45" height="45"/>
+                                            <rect key="frame" x="69" y="96" width="45" height="45"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GainedDotsBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="23f-KF-21n">
                                                     <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
@@ -106,16 +97,25 @@
                                                 <constraint firstItem="23f-KF-21n" firstAttribute="top" secondItem="mKa-xv-acT" secondAttribute="top" id="dqP-QO-VBy"/>
                                             </constraints>
                                         </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You gained 50 dots for tutoring testNelma in CS 312." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXz-LG-bZV">
+                                            <rect key="frame" x="130" y="39" width="276" height="85"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="85" id="zCf-nv-0Zp"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="mKa-xv-acT" secondAttribute="bottom" constant="8" id="8zr-H9-4be"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mKa-xv-acT" secondAttribute="bottom" id="8zr-H9-4be"/>
                                         <constraint firstItem="iXz-LG-bZV" firstAttribute="top" secondItem="3nU-DL-6LU" secondAttribute="bottom" constant="8" id="P4L-fI-AHz"/>
-                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="top" secondItem="6Le-hY-oyT" secondAttribute="topMargin" constant="-8" id="Tii-RC-nc1"/>
+                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="top" secondItem="6Le-hY-oyT" secondAttribute="topMargin" id="Tii-RC-nc1"/>
                                         <constraint firstItem="iXz-LG-bZV" firstAttribute="trailing" secondItem="6Le-hY-oyT" secondAttribute="trailingMargin" id="UhD-pN-exG"/>
                                         <constraint firstItem="RyE-Dt-XrR" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leadingMargin" id="WmY-pq-W4A"/>
-                                        <constraint firstItem="iXz-LG-bZV" firstAttribute="leading" secondItem="RyE-Dt-XrR" secondAttribute="trailing" constant="44" id="XPn-P5-53U"/>
-                                        <constraint firstItem="mKa-xv-acT" firstAttribute="trailing" secondItem="6Le-hY-oyT" secondAttribute="trailingMargin" constant="-269" id="Xdc-LY-3BY"/>
-                                        <constraint firstItem="mKa-xv-acT" firstAttribute="top" secondItem="iXz-LG-bZV" secondAttribute="bottom" constant="-53" id="a0g-JO-bDP"/>
+                                        <constraint firstItem="iXz-LG-bZV" firstAttribute="leading" secondItem="RyE-Dt-XrR" secondAttribute="trailing" constant="37" id="XPn-P5-53U"/>
+                                        <constraint firstItem="mKa-xv-acT" firstAttribute="trailing" secondItem="6Le-hY-oyT" secondAttribute="trailingMargin" constant="-292" id="Xdc-LY-3BY"/>
+                                        <constraint firstItem="mKa-xv-acT" firstAttribute="top" secondItem="iXz-LG-bZV" secondAttribute="bottom" constant="-28" id="a0g-JO-bDP"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="3nU-DL-6LU" secondAttribute="trailing" constant="-8" id="doL-ml-qYz"/>
                                         <constraint firstItem="RyE-Dt-XrR" firstAttribute="top" secondItem="3nU-DL-6LU" secondAttribute="bottom" constant="8" id="hOh-RX-oVI"/>
                                         <constraint firstItem="3nU-DL-6LU" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leadingMargin" constant="-8" id="zAh-ea-VgL"/>

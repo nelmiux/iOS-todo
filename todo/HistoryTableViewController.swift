@@ -89,7 +89,7 @@ class HistoryTableViewController: UITableViewController {
             }
         }
         let dateArr = self.data.0[index].characters.split{$0 == ","}.map(String.init)
-        result["date"] = ("\(dateArr[0]), \(dateArr[1])")
+        result["date"] = (" \(dateArr[0]), \(dateArr[1])")
         return result
     }
 
