@@ -20,7 +20,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var numDotsLabel: UILabel!
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var coursesLabel: UILabel!
-    @IBOutlet weak var saveBarButton: UIBarButtonItem!
+    //@IBOutlet weak var saveBarButton: UIBarButtonItem!
+    @IBOutlet weak var rightBarButton: UIBarButtonItem!
     @IBOutlet weak var cancelBarButton: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var majorTextField: UITextField!
@@ -71,11 +72,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     func hideEditing () {
         if isOwnProfile {
             self.editProfileButton.enabled = true
+            self.rightBarButton.enabled = true
+            self.rightBarButton.title = "Edit"
+        } else {
+            self.rightBarButton.enabled = false
+            self.rightBarButton.title = ""
         }
         
         // Hide text fields and button(s)
-        self.saveBarButton.enabled = false
-        self.saveBarButton.title = ""
+        // self.saveBarButton.enabled = false
+        // self.saveBarButton.title = ""
         self.cancelBarButton.enabled = false
         self.cancelBarButton.title = ""
         self.nameTextField.hidden = true
@@ -94,8 +100,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.editProfileButton.enabled = false
         
         // Display save button in top nav bar
-        self.saveBarButton.enabled = true
-        self.saveBarButton.title = "Save"
+        //self.saveBarButton.enabled = true
+        //self.saveBarButton.title = "Save"
+        self.rightBarButton.enabled = true
+        self.rightBarButton.title = "Save"
         self.cancelBarButton.enabled = true
         self.cancelBarButton.title = "Cancel"
         
@@ -227,24 +235,24 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBAction func onClickEmail(sender: AnyObject) {
     }
     
-    @IBAction func onClickEditProfile(sender: AnyObject) {
-        self.isEditing = true
-        self.showEditing()
-        self.emailButton.hidden = true
-    }
-    
-    @IBAction func onClickSave(sender: AnyObject) {
-        let success:Bool = self.saveInfo()
-        if success {
-            self.hideEditing()
-            self.displayUserData(false)
-            self.emailButton.hidden = false
+    @IBAction func onClickRightBarButton(sender: AnyObject) {
+        if self.rightBarButton.title == "Edit" {
+            self.isEditing = true
+            self.showEditing()
+            self.emailButton.hidden = true
+        } else if self.rightBarButton.title == "Save" {
+            let success:Bool = self.saveInfo()
+            if success {
+                self.hideEditing()
+                self.displayUserData(false)
+                self.emailButton.hidden = false
+            }
+            
+            // Hide any open keyboard
+            self.textFieldShouldReturn(self.nameTextField)
+            self.textFieldShouldReturn(self.majorTextField)
+            self.textFieldShouldReturn(self.graduationTextField)
         }
-
-        // Hide any open keyboard
-        self.textFieldShouldReturn(self.nameTextField)
-        self.textFieldShouldReturn(self.majorTextField)
-        self.textFieldShouldReturn(self.graduationTextField)
     }
     
     @IBAction func onClickCancel(sender: AnyObject) {

@@ -312,7 +312,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="CNa-pD-lEl">
                             <connections>
-                                <action selector="onClickSave:" destination="zqS-v6-t5E" id="7a3-BR-JkX"/>
+                                <action selector="onClickRightBarButton:" destination="zqS-v6-t5E" id="I0D-4b-XOM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -335,7 +335,7 @@
                         <outlet property="nameTextField" destination="1km-vA-fuF" id="7LQ-vn-X4T"/>
                         <outlet property="numDotsLabel" destination="maN-Vt-1Qn" id="6Ma-rV-59X"/>
                         <outlet property="photo" destination="T1r-4E-buh" id="EOh-8k-rZw"/>
-                        <outlet property="saveBarButton" destination="CNa-pD-lEl" id="MBn-yR-8l9"/>
+                        <outlet property="rightBarButton" destination="CNa-pD-lEl" id="2Nc-iy-0Wy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFE-fp-dFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
