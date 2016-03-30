@@ -18,7 +18,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var activityImage: UIImageView!
     @IBOutlet weak var numDotsLabel: UILabel!
-    @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var coursesLabel: UILabel!
     //@IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var rightBarButton: UIBarButtonItem!
@@ -70,7 +69,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func hideEditing () {
         if isOwnProfile {
-            self.editProfileButton.enabled = true
             self.rightBarButton.enabled = true
             self.rightBarButton.title = "Edit"
         } else {
@@ -79,8 +77,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         }
         
         // Hide text fields and button(s)
-        // self.saveBarButton.enabled = false
-        // self.saveBarButton.title = ""
         self.cancelBarButton.enabled = false
         self.cancelBarButton.title = ""
         self.nameTextField.hidden = true
@@ -95,12 +91,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func showEditing () {
-        // Disable the edit profile button
-        self.editProfileButton.enabled = false
-        
         // Display save button in top nav bar
-        //self.saveBarButton.enabled = true
-        //self.saveBarButton.title = "Save"
         self.rightBarButton.enabled = true
         self.rightBarButton.title = "Save"
         self.cancelBarButton.enabled = true
@@ -198,7 +189,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             self.emailButton.enabled = false
         } else {
             // If not own profile, don't allow profile editing
-            self.editProfileButton.hidden = true
+            self.rightBarButton.enabled = false
+            self.rightBarButton.title = ""
         }
     }
     

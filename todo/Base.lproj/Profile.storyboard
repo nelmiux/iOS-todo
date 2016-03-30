@@ -265,20 +265,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dy-9e-Ima">
-                                <rect key="frame" x="124" y="524" width="100" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="e9x-33-1kl"/>
-                                    <constraint firstAttribute="width" constant="100" id="kcg-Qh-afF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Edit Profile">
-                                    <color key="titleColor" red="0.59212740384615392" green="0.29783177714476655" blue="0.0016813334622414482" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onClickEditProfile:" destination="zqS-v6-t5E" eventType="touchUpInside" id="miS-sp-pGJ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -294,9 +280,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="MeN-hp-I17" secondAttribute="trailing" constant="15" id="KTH-TQ-ewI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F7c-MZ-VAd" secondAttribute="trailing" constant="-12" id="Qcc-J8-vhp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qrx-Xk-0M5" secondAttribute="trailing" constant="-20" id="Ss9-SQ-zxq"/>
-                            <constraint firstItem="5dy-9e-Ima" firstAttribute="centerX" secondItem="LoK-FE-M41" secondAttribute="centerX" id="dRy-Gz-DNh"/>
                             <constraint firstItem="Qrx-Xk-0M5" firstAttribute="top" secondItem="MeN-hp-I17" secondAttribute="bottom" constant="14" id="odI-5e-ddv"/>
-                            <constraint firstItem="5dy-9e-Ima" firstAttribute="top" secondItem="F7c-MZ-VAd" secondAttribute="bottom" constant="19" id="t5r-lL-8ao"/>
                             <constraint firstAttribute="trailingMargin" secondItem="as5-8A-JRs" secondAttribute="trailing" constant="-20" id="v8c-eY-6S0"/>
                             <constraint firstItem="as5-8A-JRs" firstAttribute="leading" secondItem="LoK-FE-M41" secondAttribute="leadingMargin" constant="-20" id="yd6-yb-jf6"/>
                         </constraints>
@@ -325,7 +309,6 @@
                         <outlet property="cancelBarButton" destination="0n0-ba-wq6" id="fW9-w9-gGn"/>
                         <outlet property="changePhotoButton" destination="t0s-0M-9Uu" id="ZVc-oD-Vyx"/>
                         <outlet property="coursesLabel" destination="Qrx-Xk-0M5" id="UqY-Re-Zut"/>
-                        <outlet property="editProfileButton" destination="5dy-9e-Ima" id="9LW-kB-x9l"/>
                         <outlet property="emailButton" destination="ltM-fp-Yoh" id="mPt-mf-fxS"/>
                         <outlet property="graduationLabel" destination="Dfh-Ru-rt0" id="eNu-HZ-dtA"/>
                         <outlet property="graduationTextField" destination="mN0-0d-67z" id="hsh-AA-RzP"/>
