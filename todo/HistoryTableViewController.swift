@@ -50,13 +50,14 @@ class HistoryTableViewController: UITableViewController {
         // Create the history cell and populate with data
         let cell = tableView.dequeueReusableCellWithIdentifier("historyCell", forIndexPath: indexPath) as! HistoryTableViewCell
         
+        // Populate with general data regardless of tutor vs requestor.
         let value = self.data.1[indexPath.row]
         let indexOfColon = value.characters.indexOf(":")
         let posOfColon = value.startIndex.distanceTo(indexOfColon!)
         let role = value.substringToIndex(value.startIndex.advancedBy(posOfColon))
         let event = value.substringFromIndex(value.startIndex.advancedBy(posOfColon).advancedBy(2))
-        
-        cell.dateLabel.text = self.data.0[indexPath.row]
+        let dateArr = self.data.0[indexPath.row].characters.split{$0 == ","}.map(String.init)
+        cell.dateLabel.text = ("\(dateArr[0]), \(dateArr[1])")
         cell.descriptionLabel.text = event
         
         // Do any additional UI modifications accourding to tutor vs requestor.
