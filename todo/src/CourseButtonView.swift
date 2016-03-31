@@ -11,6 +11,7 @@ import UIKit
 class CourseButtonView: UIView {
     
     private var parentViewController:RegistrationViewController? = nil
+    private var refFrame:CGRect = CGRect()
     private var courseLabel: UILabel = UILabel()
     private var removeButton:UIButton = UIButton()
     private var isFirst:Bool = false
@@ -25,6 +26,7 @@ class CourseButtonView: UIView {
         self.parentViewController = parentViewController
         self.frame = getFrame(frame)
         self.isFirst = isFirst
+        self.refFrame = frame
         
         // Parse the course string and get only the course number
         self.course = course
@@ -58,7 +60,6 @@ class CourseButtonView: UIView {
         }
         
         var frame = CGRect()
-        // let screenSize: CGRect = UIScreen.mainScreen().bounds
         let parentFrame = self.parentViewController?.courseButtonsView.bounds
         let topRightPoint_nextToCase:CGPoint = CGPoint(x: refFrame.origin.x + refFrame.size.width + 10 + 100, y: refFrame.origin.y)
         let bottomLeftPoint_belowCase:CGPoint = CGPoint(x: 100, y: refFrame.origin.y + refFrame.height + 10 + 30)
@@ -83,7 +84,6 @@ class CourseButtonView: UIView {
     }
     
     func show () {
-        // self.parentViewController?.mainView.addSubview(self)
         self.parentViewController?.courseButtonsView.addSubview(self)
         self.bringSubviewToFront((self.parentViewController?.courseButtonsView)!)
         

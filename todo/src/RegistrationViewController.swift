@@ -94,8 +94,6 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
 
             addedCourses.append(course)
         }
-    
-        print(self.addCourseTextField.text)
     }
     
     
