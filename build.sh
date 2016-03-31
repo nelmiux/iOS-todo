@@ -18,8 +18,6 @@ MODE="$1"
 if [ "$MODE" = "run" ]; then
     echo "Building and testing all todo"
     echo "Building todo"
-    pod 'Firebase', '>= 2.5.1'
-    pod install 
     xcodebuild \
       -project Pods/Charts/Charts.xcodeproj
       -workspace "todo.xcworkspace" \
