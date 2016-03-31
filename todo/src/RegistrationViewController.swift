@@ -88,7 +88,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
                 print("referenceFrame updated to \(self.referenceFrame?.origin.x), \(self.referenceFrame?.origin.y)")
             }
             
-            // Create course button view
+            // Create course button view and display it
             let courseButton = CourseButtonView(frame: self.referenceFrame!, course: course, parentViewController: self, isFirst: addedCourses.isEmpty)
             courseButton.show()
 
