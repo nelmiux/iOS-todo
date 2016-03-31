@@ -11,6 +11,7 @@ before_install:
   - brew outdated xctool || brew upgrade xctool
   - gem install cocoapods
   - xcrun simctl list
+  - chmod +x build.sh
   
 env:
   - MODE=run
