@@ -67,7 +67,7 @@ func updateCourses (courses:[String]) {
     for course in courses {
         let courseArr = course.characters.split{$0 == ":"}.map(String.init)
         let courseNumber = courseArr[0]
-        let item = [username: username]
+        //let item = [username: username]
         let currCourseRef = getFirebase("courses/\(courseNumber)")
         let userCourseRef = currCourseRef.childByAppendingPath(username)
         userCourseRef.setValue(username)
@@ -232,7 +232,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
     dispatch_barrier_async(concurrentDataAccessQueue) {
         let coursesRef = getFirebase("courses/")
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
-        coursesRef.observeEventType(.Value, withBlock: { snapshot in
+        coursesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let _ = snapshot.value[askedCourse] as? Dictionary<String, String> {
                 usersPerCourse = snapshot.value[askedCourse] as! Dictionary<String, String>
                 for key in usersPerCourse.keys {
@@ -244,7 +244,6 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterUsername": user["username"]!])
                     }
                 }
-                
                 
                 view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                 let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
@@ -283,13 +282,11 @@ func requestListener(view: AnyObject) {
                         requester["course"] = snapshot.value.objectForKey("requesterCourse") as? String
                         requester["description"] = snapshot.value.objectForKey("requesterDescription") as? String
                         requester["location"] = snapshot.value.objectForKey("requesterLocation") as? String
-                        dispatch_semaphore_signal(sema1)
                     })
                 })
                 
                 dispatch_group_notify(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
                     
-                    dispatch_semaphore_wait(sema1, DISPATCH_TIME_FOREVER)
                     let decodedImage = decodeImage(requester["photoString"]!)
                     
                     let requesterUserRef = getFirebase("users/" + requester["username"]!)

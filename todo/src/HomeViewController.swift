@@ -28,6 +28,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tutorSessionContainerView: UIView!
     
+    var presented: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         requestTutoringButton!.backgroundColor = requestButtonColor
@@ -36,6 +38,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        presented = true
     }
     
     @IBAction func requestTutoringButton(sender: AnyObject) {}
@@ -45,21 +48,9 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func tutorStudentSwitch(sender: AnyObject) {
-        if tutorStudentSwitch.selectedSegmentIndex == 0 {
-            requestTutoringButton!.enabled = false
-            requestTutoringButton!.userInteractionEnabled = false
-            requestTutoringButton!.backgroundColor = UIColor.lightGrayColor()
-            requestListener(self)
-            return
-        }
-        requestTutoringButton!.backgroundColor = requestButtonColor
-        requestTutoringButton!.enabled = true
-        requestTutoringButton!.userInteractionEnabled = true
+        self.getTutorStudentSwitchAction()
     }
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "logout" {
             logOutUser()
@@ -84,6 +75,19 @@ class HomeViewController: UIViewController {
         startHomeViewController()
     }
     
+    func getTutorStudentSwitchAction() {
+        if tutorStudentSwitch.selectedSegmentIndex == 0 {
+            requestTutoringButton!.enabled = false
+            requestTutoringButton!.userInteractionEnabled = false
+            requestTutoringButton!.backgroundColor = UIColor.lightGrayColor()
+            requestListener(self)
+            return
+        }
+        requestTutoringButton!.backgroundColor = requestButtonColor
+        requestTutoringButton!.enabled = true
+        requestTutoringButton!.userInteractionEnabled = true
+    }
+    
     func startHomeViewController() {
         self.tutorStudentSwitch.hidden = false
         self.logout.enabled = true
@@ -92,5 +96,9 @@ class HomeViewController: UIViewController {
         self.requesterContainerView.hidden = true
         self.tutorContainerView.hidden = true
         self.tutorSessionContainerView.hidden = true
+        if presented {
+            self.getTutorStudentSwitchAction()
+        }
     }
+    
 }
