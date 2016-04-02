@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -154,7 +154,7 @@
                                                         <rect key="frame" x="0.0" y="92" width="386" height="58"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HJ4-Ns-GlY" id="Yer-eI-LwZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="386" height="50.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnE-AY-k1H">
@@ -191,7 +191,8 @@
                                                                             <exclude reference="L9Z-iJ-kDm"/>
                                                                         </mask>
                                                                     </variation>
-                                                                    <variation key="widthClass=compact">
+                                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="190" y="5" width="238" height="20"/>
                                                                         <mask key="constraints">
                                                                             <include reference="L9Z-iJ-kDm"/>
                                                                         </mask>
@@ -202,6 +203,9 @@
                                                                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                                                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                                        <rect key="frame" x="190" y="23" width="238" height="21.5"/>
+                                                                    </variation>
                                                                 </label>
                                                             </subviews>
                                                             <constraints>
@@ -296,7 +300,11 @@
                                                     </mask>
                                                 </variation>
                                                 <variation key="widthClass=compact" misplaced="YES">
+<<<<<<< Updated upstream
                                                     <rect key="frame" x="13" y="624" width="112" height="23"/>
+=======
+                                                    <rect key="frame" x="13" y="624" width="111.5" height="23"/>
+>>>>>>> Stashed changes
                                                     <mask key="constraints">
                                                         <include reference="GNg-9d-C1m"/>
                                                     </mask>
@@ -318,7 +326,11 @@
                                                     </mask>
                                                 </variation>
                                                 <variation key="widthClass=compact" misplaced="YES">
+<<<<<<< Updated upstream
                                                     <rect key="frame" x="133" y="623" width="173" height="30"/>
+=======
+                                                    <rect key="frame" x="132" y="623" width="173" height="30"/>
+>>>>>>> Stashed changes
                                                     <mask key="constraints">
                                                         <include reference="5eW-uv-w3M"/>
                                                         <exclude reference="D7O-GH-SY4"/>
@@ -347,7 +359,11 @@
                                                     </mask>
                                                 </variation>
                                                 <variation key="widthClass=compact" misplaced="YES">
+<<<<<<< Updated upstream
                                                     <rect key="frame" x="134" y="623" width="173" height="30"/>
+=======
+                                                    <rect key="frame" x="133" y="623" width="173" height="30"/>
+>>>>>>> Stashed changes
                                                     <mask key="constraints">
                                                         <include reference="8vr-sx-P86"/>
                                                         <include reference="GvO-VF-WfP"/>
@@ -543,10 +559,13 @@
                                                 <exclude reference="78j-JC-A2W"/>
                                                 <exclude reference="Q3r-En-fh9"/>
                                                 <exclude reference="sv7-eN-dTR"/>
+<<<<<<< Updated upstream
                                                 <exclude reference="FIn-fW-RI1"/>
                                                 <exclude reference="SHq-Sg-ZGP"/>
                                                 <exclude reference="pad-qE-pje"/>
                                                 <exclude reference="xck-rE-AvZ"/>
+=======
+>>>>>>> Stashed changes
                                                 <exclude reference="Dsz-qA-LXP"/>
                                                 <exclude reference="MvE-3E-C0I"/>
                                                 <exclude reference="cuu-15-eYU"/>
@@ -606,10 +625,13 @@
                                                 <include reference="78j-JC-A2W"/>
                                                 <include reference="Q3r-En-fh9"/>
                                                 <include reference="sv7-eN-dTR"/>
+<<<<<<< Updated upstream
                                                 <include reference="FIn-fW-RI1"/>
                                                 <include reference="SHq-Sg-ZGP"/>
                                                 <include reference="pad-qE-pje"/>
                                                 <include reference="xck-rE-AvZ"/>
+=======
+>>>>>>> Stashed changes
                                                 <include reference="Dsz-qA-LXP"/>
                                                 <include reference="MvE-3E-C0I"/>
                                                 <include reference="cuu-15-eYU"/>
