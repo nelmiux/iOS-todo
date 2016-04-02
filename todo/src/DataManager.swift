@@ -190,6 +190,13 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     user["location"] = ""
                     user["cancel"] = ""
                     
+                    requester["photoString"] = ""
+                    requester["course"] = ""
+                    requester["description"] = ""
+                    requester["location"] = ""
+                    requester["username"] = ""
+                    requester["start"] = ""
+                    
                     let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
                     notificationUserRef.observeEventType(.Value, withBlock: { snap in
                         if snap.value is NSNull {
@@ -237,7 +244,13 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 usersPerCourse = snapshot.value[askedCourse] as! Dictionary<String, String>
                 for key in usersPerCourse.keys {
                     if key != user["username"] as! String {
-                        usersRef.childByAppendingPath(key).updateChildValues(["requesterPhoto": user["photoString"]!])
+                        if user["photoString"]! as! String != "" {
+                            usersRef.childByAppendingPath(key).updateChildValues(["requesterPhoto": user["photoString"]!])
+                        } else {
+                            usersRef.childByAppendingPath(key).updateChildValues(["requesterPhoto":
+                                "none"])
+                        }
+                        
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterCourse": askedCourse])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterDescription": description])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterLocation": location])
@@ -262,99 +275,140 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
 }
 
 func requestListener(view: AnyObject) {
+    
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)
+    let mainViewController = view as? HomeViewController
+    let username = (user["username"] as! String)
+    let picString = (user["photoString"] as! String)
+    let currUserRef = getFirebase("users/" + username)
+    let group: dispatch_group_t = dispatch_group_create();
+    let sema1: dispatch_semaphore_t = dispatch_semaphore_create(0)
+    
     dispatch_barrier_sync(concurrentDataAccessQueue) {
-        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)
-        let mainViewController = view as? HomeViewController
-        let username = (user["username"] as! String)
-        let picString = (user["photoString"] as! String)
-        let currUserRef = getFirebase("users/" + username)
-        let group: dispatch_group_t = dispatch_group_create();
-        let sema1: dispatch_semaphore_t = dispatch_semaphore_create(0)
-        
-        currUserRef.observeEventType(.ChildChanged, withBlock: { snapshot in
-            let k = snapshot.key as String
+        let currUserRequesterUsernameRef = getFirebase("users/" + username + "/" + "requesterUsername")
+        currUserRequesterUsernameRef.observeEventType(.Value, withBlock: { snapshot in
             let v = snapshot.value as! String
-            if k.rangeOfString("requester") != nil && v != "" {
-                dispatch_group_async(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
-                    currUserRef.observeEventType(.Value, withBlock: { snapshot in
-                        requester["username"] = snapshot.value.objectForKey("requesterUsername") as? String
-                        requester["photoString"] = snapshot.value.objectForKey("requesterPhoto") as? String
-                        requester["course"] = snapshot.value.objectForKey("requesterCourse") as? String
-                        requester["description"] = snapshot.value.objectForKey("requesterDescription") as? String
-                        requester["location"] = snapshot.value.objectForKey("requesterLocation") as? String
-                    })
-                })
-                
-                dispatch_group_notify(group,dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
+            if v != "" {
+                requester["username"] = snapshot.value as? String
+                removeObservers(currUserRequesterUsernameRef)
+            }
+        })
+    
+    
+        let currUserRequesterPhotoRef = getFirebase("users/" + username + "/" + "requesterPhoto")
+        currUserRequesterPhotoRef.observeEventType(.Value, withBlock: { snapshot in
+            let v = snapshot.value as! String
+            if v != "" {
+                requester["requesterPhoto"] = snapshot.value as? String
+                removeObservers(currUserRequesterPhotoRef)
+            }
+        })
+        
+        let currUserRequesterCourseRef = getFirebase("users/" + username + "/" + "requesterCourse")
+        currUserRequesterCourseRef.observeEventType(.Value, withBlock: { snapshot in
+            let v = snapshot.value as! String
+            if v != "" {
+                requester["course"] = snapshot.value as? String
+                removeObservers(currUserRequesterCourseRef)
+            }
+        })
+    
+        let currUserRequesterDescriptionRef = getFirebase("users/" + username + "/" + "requesterDescription")
+        currUserRequesterDescriptionRef.observeEventType(.Value, withBlock: { snapshot in
+            let v = snapshot.value as! String
+            if v != "" {
+            requester["requesterDescription"] = snapshot.value as? String
+            removeObservers(currUserRequesterDescriptionRef)
+            }
+        })
+    
+        let currUserRequesterLocationRef = getFirebase("users/" + username + "/" + "requesterLocation")
+        currUserRequesterLocationRef.observeEventType(.Value, withBlock: { snapshot in
+            let v = snapshot.value as! String
+            if v != "" {
+                requester["requesterLocation"] = snapshot.value as? String
+                removeObservers(currUserRequesterLocationRef)
+            }
+        })
+    }
+    
+    dispatch_barrier_sync(concurrentDataAccessQueue) {
+        currUserRef.observeEventType(.ChildChanged, withBlock: { snapshot in
+            if requester["username"]! != "" && requester["course"]! != "" && requester["photoString"]! != "" {
+                let decodedImage = decodeImage(requester["photoString"]!)
                     
-                    let decodedImage = decodeImage(requester["photoString"]!)
+                let requesterUserRef = getFirebase("users/" + requester["username"]!)
+                var notificationUserRef = getFirebase("notifications/" + requester["username"]!)
+                var notice = requester["username"]! + " is requesting tutoring on:\n" + requester["course"]! + "\n" + requester["description"]! + "\nLocation: " + requester["location"]!
                     
-                    let requesterUserRef = getFirebase("users/" + requester["username"]!)
-                    var notificationUserRef = getFirebase("notifications/" + requester["username"]!)
-                    var notice = requester["username"]! + " is requesting tutoring on:\n" + requester["course"]! + "\n" + requester["description"]! + "\nLocation: " + requester["location"]!
-                    
-                    let date = getDateTime()
-                    notificationUserRef.setValue([date: notice])
-                    notifications[date] = notice
-                    
+                let date = getDateTime()
+                notificationUserRef.setValue([date: notice])
+                notifications[date] = notice
+                dispatch_async(dispatch_get_main_queue(), {
                     alertWithPic(view, description: "\n\n\n" + notice, action:
                         UIAlertAction(title: "OK, I will Help", style: UIAlertActionStyle.Default) {result in
-                            requesterUserRef.updateChildValues(["pairedUsername": username])
-                            requesterUserRef.updateChildValues(["pairedPhoto": picString])
+                        requesterUserRef.updateChildValues(["pairedUsername": username])
+                                requesterUserRef.updateChildValues(["pairedPhoto": picString])
                             
-                            notificationUserRef = getFirebase("notifications/" + username)
-                            notice = "You accepted to help " + requester["username"]! + " on " + requester["course"]!
+                        notificationUserRef = getFirebase("notifications/" + username)
+                        notice = "You accepted to help " + requester["username"]! + " on " + requester["course"]!
                             
-                            let date = getDateTime()
-                            notificationUserRef.setValue([date: notice])
-                            notifications[date] = notice
+                        let date = getDateTime()
+                        notificationUserRef.setValue([date: notice])
+                        notifications[date] = notice
                             
-                            mainViewController?.tutorContainerView.hidden = false
-                            mainViewController?.requestTutoringButton.hidden = true
-                            mainViewController!.tutorStudentSwitch.hidden = true
-                            mainViewController!.logout.enabled = false
-                            
-                        }, pic: decodedImage)
-                    
-                    requesterUserRef.observeEventType(.ChildChanged, withBlock: { snapshot in
-                        let k_ = snapshot.key as String
-                        if k_.rangeOfString("start") != nil {
-                            requesterUserRef.observeEventType(.Value, withBlock: { snapshot in
-                                requester["start"] = snapshot.value.objectForKey("start") as? String
-                                mainViewController?.tutorContainerView.hidden = true
-                                mainViewController?.tutorSessionContainerView.hidden = false
-                                return
-                            })
-                        }
-                        if k_.rangeOfString("cancel") != nil {
-                            requesterUserRef.observeEventType(.Value, withBlock: { snapshot in
-                                requester["cancel"] = snapshot.value.objectForKey("cancel") as? String
-                                let username = (user["username"] as! String)
-                                let currUserRef = getFirebase("users/" + username)
-                                currUserRef.updateChildValues(["requesterPhoto": ""])
-                                currUserRef.updateChildValues(["requesterCourse": ""])
-                                currUserRef.updateChildValues(["requesterDescription": ""])
-                                currUserRef.updateChildValues(["requesterLocation": ""])
-                                currUserRef.updateChildValues(["requesterUsername": ""])
-                                requester["photoString"] = ""
-                                requester["course"] = ""
-                                requester["description"] = ""
-                                requester["location"] = ""
-                                requester["username"] = ""
-                                requester["start"] = ""
-                                
-                                mainViewController!.startHomeViewController()
-                            })
-                        }
-                    })
-                    return
+                        mainViewController?.tutorContainerView.hidden = false
+                        mainViewController?.requestTutoringButton.hidden = true
+                        mainViewController!.tutorStudentSwitch.hidden = true
+                        mainViewController!.logout.enabled = false
+
+                    }, pic: decodedImage)
+                    removeObservers(currUserRef)
                 })
-            } else {
-                if let _ = mainViewController!.presentedViewController {
+            }
+            else {
+                if let _ = mainViewController?.presentedViewController {
                     view.presentedViewController?!.dismissViewControllerAnimated(false, completion: nil)
                 }
             }
         })
+        
+        dispatch_barrier_sync(concurrentDataAccessQueue) {
+            let startRequesterUserRef = getFirebase("users/" + requester["username"]! + "/" + "start")
+            print(startRequesterUserRef.description)
+            startRequesterUserRef.observeEventType(.Value, withBlock: { snapshot in
+                let v_ = snapshot.value as! String
+                if v_ == "yes"{
+                    requester["start"] = "yes"
+                    mainViewController?.tutorContainerView.hidden = true
+                    mainViewController?.tutorSessionContainerView.hidden = false
+                    return
+                }
+            })
+            let cancelRequesterUserRef = getFirebase("users/" + requester["username"]! + "/" + "cancel")
+            print(cancelRequesterUserRef.description)
+            cancelRequesterUserRef.observeEventType(.Value, withBlock: { snapshot in
+                let v_ = snapshot.value as! String
+                if v_ == "yes" {
+                    requester["cancel"] = "yes"
+                    let username = (user["username"] as! String)
+                    let currUserRef = getFirebase("users/" + username)
+                    currUserRef.updateChildValues(["requesterPhoto": ""])
+                    currUserRef.updateChildValues(["requesterCourse": ""])
+                    currUserRef.updateChildValues(["requesterDescription": ""])
+                    currUserRef.updateChildValues(["requesterLocation": ""])
+                    currUserRef.updateChildValues(["requesterUsername": ""])
+                    requester["photoString"] = ""
+                    requester["course"] = ""
+                    requester["description"] = ""
+                    requester["location"] = ""
+                    requester["username"] = ""
+                    requester["start"] = ""
+                    removeObservers(rootRef)
+                    mainViewController?.startHomeViewController()
+                }
+            })
+        }
     }
 }
 
@@ -470,7 +524,7 @@ func getDateTime() -> String {
 
 func decodeImage(stringPhoto: String) -> UIImage {
     
-    if stringPhoto == "" {
+    if stringPhoto == "" || stringPhoto == "none" {
         return defaultImage()
     }
     
