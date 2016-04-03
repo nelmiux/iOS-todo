@@ -421,9 +421,15 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.blurEffect.hidden = true
                 
-                mainViewController?.requestTutoringButton.hidden = true
+                mainViewController!.requestTutoringButton.hidden = true
                 
                 mainViewController!.requesterContainerView.hidden = false
+                
+                mainViewController!.requesterStartSessionViewController?.tutorUsername.text = paired["username"]! + " is coming to help you on:"
+                
+                mainViewController!.requesterStartSessionViewController?.tutorCourse.text = paired["course"]
+                
+                mainViewController!.requesterStartSessionViewController?.tutorPhoto.image = decodeImage(paired["photoString"]!)
                 
                 let notificationUserRef = getFirebase("notifications/" + username)
                 let notice = paired["username"]! + " is coming to help you on: " + askedCourse
@@ -485,7 +491,8 @@ func cancelSession() {
 }
 
 func finishSession() {
-    dispatch_barrier_sync(concurrentDataAccessQueue) {
+    dispatch_barrier_async(concurrentDataAccessQueue) {
+        removeObservers(rootRef)
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
         currUserRef.updateChildValues(["finish": "yes"])

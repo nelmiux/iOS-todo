@@ -32,6 +32,8 @@ class HomeViewController: UIViewController {
     
     var tutorSessionViewController: TutorTutoringSessionViewController? = nil
     
+    var requesterStartSessionViewController: RequesterStartSessionViewController? = nil
+    
     var presented: Bool = false
     
     override func viewDidLoad() {
@@ -67,6 +69,10 @@ class HomeViewController: UIViewController {
         if let vc = segue.destinationViewController as? TutorTutoringSessionViewController
             where segue.identifier == "tutorSessionSegue" {
             self.tutorSessionViewController = vc
+        }
+        if let vc = segue.destinationViewController as? RequesterStartSessionViewController
+            where segue.identifier == "requesterSegue" {
+            self.requesterStartSessionViewController = vc
         }
     }
     

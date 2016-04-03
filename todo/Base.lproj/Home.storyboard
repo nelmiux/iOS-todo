@@ -440,7 +440,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startSessionButton:" destination="d1Q-Cd-ehl" eventType="touchUpInside" id="8un-fJ-0ss"/>
-                                    <action selector="startSessionButton:" destination="Fbh-oW-a4S" eventType="touchUpInside" id="ncb-A5-UnH"/>
                                     <segue destination="mQZ-IA-xGa" kind="presentation" modalPresentationStyle="currentContext" id="50T-aR-Hqj"/>
                                 </connections>
                             </button>
@@ -583,7 +582,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX3-jR-UXx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX3-jR-UXx">
                                 <rect key="frame" x="80" y="61" width="142" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -597,7 +596,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="phe-G9-Fvd" kind="unwind" unwindAction="startHomeViewControllerFinish:" id="s3E-gl-UxD"/>
+                                    <segue destination="phe-G9-Fvd" kind="unwind" unwindAction="startHomeViewControllerFinish:" id="wCB-cH-2pJ"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7e-GD-2IC">

@@ -33,12 +33,6 @@ class RequesterStartSessionViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        if paired["photoString"] != nil {
-            let decodedImage = decodeImage(_paired_["photoString"]!)
-            self.tutorPhoto.image = decodedImage
-            self.tutorUsername.text = _paired_["username"]! + " is coming to help you on:"
-            self.tutorCourse.text = _paired_["course"]
-        }
     }
 
     override func didReceiveMemoryWarning() {
