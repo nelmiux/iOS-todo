@@ -28,17 +28,21 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tutorSessionContainerView: UIView!
     
+    var tutorWaitingViewController: TutorWaitingViewController? = nil
+    
+    var tutorSessionViewController: TutorTutoringSessionViewController? = nil
+    
     var presented: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         requestTutoringButton!.backgroundColor = requestButtonColor
+        self.addChildViewController(TutorWaitingViewController())
         startHomeViewController()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        presented = true
     }
     
     @IBAction func requestTutoringButton(sender: AnyObject) {}
@@ -49,11 +53,20 @@ class HomeViewController: UIViewController {
     
     @IBAction func tutorStudentSwitch(sender: AnyObject) {
         self.getTutorStudentSwitchAction()
+        presented = true
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "logout" {
             logOutUser()
+        }
+        if let vc = segue.destinationViewController as? TutorWaitingViewController
+            where segue.identifier == "tutorWaitingSegue" {
+            self.tutorWaitingViewController = vc
+        }
+        if let vc = segue.destinationViewController as? TutorTutoringSessionViewController
+            where segue.identifier == "tutorSessionSegue" {
+            self.tutorSessionViewController = vc
         }
     }
     
@@ -66,13 +79,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startHomeViewControllerCancel(segue:UIStoryboardSegue) {
-        cancelSession()
         startHomeViewController()
+        cancelSession()
     }
     
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
-        finishSession()
         startHomeViewController()
+        finishSession()
     }
     
     func getTutorStudentSwitchAction() {
@@ -102,3 +115,4 @@ class HomeViewController: UIViewController {
     }
     
 }
+

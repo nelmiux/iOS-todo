@@ -26,26 +26,12 @@ class TutorTutoringSessionViewController: UIViewController {
     
     var dots = NSTimer()
     
-    var _requester_: Dictionary<String, String> {
-        var requesterCopy = [String: String]()
-        dispatch_sync(concurrentDataAccessQueue) {
-            requesterCopy = requester
-        }
-        return requesterCopy
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        if _requester_["photoString"] != nil {
-            let decodedImage = decodeImage(_requester_["photoString"]!)
-            self.tutorTutoringSessionPhoto.image = decodedImage
-            self.tutorTutoringSessionUsername.text = "Waiting for " + _requester_["username"]! + " to Start the Session"
-            self.tutorTutoringSessionCourse.text = _requester_["course"]
-        }
         timer.invalidate()
         dots.invalidate()
         timeCount = 0
@@ -73,7 +59,7 @@ class TutorTutoringSessionViewController: UIViewController {
         let seconds = timeCount % 60
         let minutes = (timeCount / 60) % 60
         let hours = (timeCount / 3600)
-        self.tutorTutoringSessionCountingTime.text = String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
+        self.tutorTutoringSessionCountingTime.text = String(format: "%0.2d:%0.2d:%0.2d", hours, minutes, seconds)
     }
     
     func dotsCounter() {

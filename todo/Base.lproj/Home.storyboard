@@ -167,16 +167,16 @@
                                     <segue destination="d1Q-Cd-ehl" kind="embed" identifier="requesterSegue" id="0mm-Ix-sfx"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P3N-Ir-eYU" userLabel="TutorWaiting Container View">
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P3N-Ir-eYU" userLabel="TutorWaiting Container View" customClass="Contain">
                                 <rect key="frame" x="0.0" y="540" width="414" height="175"/>
                                 <connections>
-                                    <segue destination="EH6-jY-Xae" kind="embed" identifier="tutorSegue" id="MgL-k4-4Tg"/>
+                                    <segue destination="EH6-jY-Xae" kind="embed" identifier="tutorWaitingSegue" id="MgL-k4-4Tg"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeL-MY-9ul" userLabel="TutorSession Container View">
                                 <rect key="frame" x="0.0" y="540" width="414" height="175"/>
                                 <connections>
-                                    <segue destination="2dY-Op-zAq" kind="embed" id="xqp-78-PmI"/>
+                                    <segue destination="2dY-Op-zAq" kind="embed" identifier="tutorSessionSegue" id="xqp-78-PmI"/>
                                 </connections>
                             </containerView>
                             <visualEffectView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="blurEffect" translatesAutoresizingMaskIntoConstraints="NO" id="j0e-AU-jaR">
@@ -357,7 +357,7 @@
         <!--Tutor Waiting View Controller-->
         <scene sceneID="aOM-CL-Sds">
             <objects>
-                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="EH6-jY-Xae" customClass="TutorWaitingViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" id="EH6-jY-Xae" customClass="TutorWaitingViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PCd-d1-wkZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Ba3-Yx-5ci"/>
@@ -366,6 +366,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNS-TQ-tCA">
+                                <rect key="frame" x="8" y="137" width="1" height="30"/>
+                                <connections>
+                                    <segue destination="V2A-qs-5fA" kind="unwind" identifier="canceledFromRequesterSegue" unwindAction="startHomeViewControllerCancel:" id="mfr-8A-8RM"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="StudentProfileTestPhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="CGe-vT-eOu">
                                 <rect key="frame" x="181" y="19" width="52" height="54"/>
                                 <accessibility key="accessibilityConfiguration" identifier="requesterPhoto"/>
@@ -394,6 +400,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DLB-e8-dCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="V2A-qs-5fA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2040" y="-1204.5"/>
         </scene>
@@ -576,7 +583,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX3-jR-UXx">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX3-jR-UXx">
                                 <rect key="frame" x="80" y="61" width="142" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
