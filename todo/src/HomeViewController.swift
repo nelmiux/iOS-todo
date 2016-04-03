@@ -39,7 +39,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestTutoringButton!.backgroundColor = requestButtonColor
-        self.addChildViewController(TutorWaitingViewController())
         startHomeViewController()
     }
     
@@ -73,6 +72,7 @@ class HomeViewController: UIViewController {
         if let vc = segue.destinationViewController as? RequesterStartSessionViewController
             where segue.identifier == "requesterSegue" {
             self.requesterStartSessionViewController = vc
+            vc.mainViewController = self
         }
     }
     
@@ -90,9 +90,14 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
-        startHomeViewController()
         finishSession()
+        startHomeViewController()
     }
+    
+    @IBAction func startHomeViewControllerFinishRequester(segue:UIStoryboardSegue) {
+        startHomeViewController()
+    }
+
     
     func getTutorStudentSwitchAction() {
         if tutorStudentSwitch.selectedSegmentIndex == 0 {
@@ -115,9 +120,6 @@ class HomeViewController: UIViewController {
         self.requesterContainerView.hidden = true
         self.tutorContainerView.hidden = true
         self.tutorSessionContainerView.hidden = true
-        if presented {
-            self.getTutorStudentSwitchAction()
-        }
     }
     
 }

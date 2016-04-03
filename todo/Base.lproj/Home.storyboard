@@ -539,6 +539,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.88375538793103448" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXi-5a-Jt9">
+                                <rect key="frame" x="368" y="0.0" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="mVl-28-e8w" kind="unwind" identifier="requesterFinishSessionSegue" unwindAction="startHomeViewControllerFinishRequester:" id="Xwl-ZQ-Plo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.22437195090000001" green="0.87523449289999999" blue="0.82929350150000003" alpha="0.1101831897" colorSpace="calibratedRGB"/>
                     </view>
@@ -558,6 +565,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smg-HV-Qm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mVl-28-e8w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2040" y="-1495.5"/>
         </scene>

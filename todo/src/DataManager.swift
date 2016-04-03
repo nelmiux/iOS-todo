@@ -463,6 +463,9 @@ func startSession (view: AnyObject) {
                 paired["username"] = ""
                 paired["course"] = ""
                 
+                
+                mainViewController.requesterStartSessionViewController!.requesterTutoringSessionViewController!.performSegueWithIdentifier("requesterFinishSessionSegue", sender: nil)
+                
                 mainViewController.tutorStudentSwitch.hidden = false
                 mainViewController.logout.enabled = true
                 mainViewController.requestTutoringButton!.hidden = false
@@ -492,7 +495,6 @@ func cancelSession() {
 
 func finishSession() {
     dispatch_barrier_async(concurrentDataAccessQueue) {
-        removeObservers(rootRef)
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
         currUserRef.updateChildValues(["finish": "yes"])
