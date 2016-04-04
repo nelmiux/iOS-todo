@@ -55,12 +55,14 @@ func getFirebase(loc: String) -> Firebase! {
 }
 
 func loadAllCourses () {
-    if allCourses.isEmpty {
-        allCoursesRef.observeEventType(.Value, withBlock: { snapshot in
-            allCourses = snapshot.value as! Dictionary<String, String>
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
+    dispatch_barrier_async(concurrentDataAccessQueue) {
+        if allCourses.isEmpty {
+            allCoursesRef.observeEventType(.Value, withBlock: { snapshot in
+                allCourses = snapshot.value as! Dictionary<String, String>
+                }, withCancelBlock: { error in
+                    print(error.description)
+            })
+        }
     }
 }
 
@@ -398,7 +400,7 @@ func requestListener(view: AnyObject) {
 }
 
 func pairedListener(view: AnyObject, askedCourse: String) {
-    dispatch_barrier_sync(concurrentDataAccessQueue) {
+    dispatch_barrier_async(concurrentDataAccessQueue) {
         let mainViewController = view as? HomeViewController
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
@@ -438,7 +440,6 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.tutorStudentSwitch.hidden = true
                 mainViewController!.logout.enabled = false
-                
             }
         })
     }
@@ -446,12 +447,12 @@ func pairedListener(view: AnyObject, askedCourse: String) {
 
 func startSession (view: AnyObject) {
     let mainViewController = view as! HomeViewController
-    dispatch_barrier_sync(concurrentDataAccessQueue) {
-        let currUserRef = getFirebase("users/" + (user["username"]! as! String))
-        let pairedUserRef = getFirebase("users/" + (paired["username"]! ))
+    let pairedUserRef = getFirebase("users/" + (paired["username"]! ))
+    let currUserRef = getFirebase("users/" + (user["username"]! as! String))
+    removeObservers(currUserRef)
+    dispatch_barrier_async(concurrentDataAccessQueue) {
         currUserRef.updateChildValues(["start": "yes"])
         user["start"] = "yes"
-        
         pairedUserRef.observeEventType(.Value, withBlock: { snapshot in
             if (snapshot.value.objectForKey("finish") as? String) != "" {
                 currUserRef.updateChildValues(["pairedPhoto": ""])
@@ -459,24 +460,25 @@ func startSession (view: AnyObject) {
                 currUserRef.updateChildValues(["finish": ""])
                 currUserRef.updateChildValues(["start": ""])
                 currUserRef.updateChildValues(["pairedUsername": ""])
+                pairedUserRef.updateChildValues(["finish": ""])
                 paired["photoString"] = ""
                 paired["username"] = ""
                 paired["course"] = ""
                 
                 
-                mainViewController.requesterStartSessionViewController!.requesterTutoringSessionViewController!.performSegueWithIdentifier("requesterFinishSessionSegue", sender: nil)
+                mainViewController.requesterStartSessionViewController!.requesterTutoringSessionViewController!.willMoveToParentViewController(nil)
+                mainViewController.requesterStartSessionViewController!.requesterTutoringSessionViewController!.view.removeFromSuperview()
+                mainViewController.requesterStartSessionViewController!.requesterTutoringSessionViewController!.removeFromParentViewController()
                 
-                mainViewController.tutorStudentSwitch.hidden = false
-                mainViewController.logout.enabled = true
-                mainViewController.requestTutoringButton!.hidden = false
-                mainViewController.blurEffect.hidden = true
-                mainViewController.requesterContainerView.hidden = true
-                mainViewController.tutorContainerView.hidden = true
-                mainViewController.tutorSessionContainerView.hidden = true
-                removeObservers(rootRef)
+                mainViewController.requesterStartSessionViewController!.willMoveToParentViewController(nil)
+                mainViewController.requesterStartSessionViewController!.view.removeFromSuperview()
+                mainViewController.requesterStartSessionViewController!.removeFromParentViewController()
+                
+                mainViewController.startHomeViewController()
             }
         })
     }
+    removeObservers(pairedUserRef)
 }
 
 func cancelSession() {

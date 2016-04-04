@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    var logInViewControler = LoginViewController()
+    
     let requestButtonColor = UIColor(red: 235.0/255.0, green: 84.0/255.0, blue: 55.0/255.0, alpha: 0.8)
     
     @IBOutlet weak var tutorStudentSwitch: UISegmentedControl!
@@ -72,6 +74,7 @@ class HomeViewController: UIViewController {
         if let vc = segue.destinationViewController as? RequesterStartSessionViewController
             where segue.identifier == "requesterSegue" {
             self.requesterStartSessionViewController = vc
+            self.addChildViewController(requesterStartSessionViewController!)
             vc.mainViewController = self
         }
     }
@@ -91,13 +94,8 @@ class HomeViewController: UIViewController {
     
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
         finishSession()
-        startHomeViewController()
+        return
     }
-    
-    @IBAction func startHomeViewControllerFinishRequester(segue:UIStoryboardSegue) {
-        startHomeViewController()
-    }
-
     
     func getTutorStudentSwitchAction() {
         if tutorStudentSwitch.selectedSegmentIndex == 0 {
@@ -120,6 +118,7 @@ class HomeViewController: UIViewController {
         self.requesterContainerView.hidden = true
         self.tutorContainerView.hidden = true
         self.tutorSessionContainerView.hidden = true
+        return
     }
     
 }
