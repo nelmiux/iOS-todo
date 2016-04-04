@@ -52,7 +52,9 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(true)
     }
     
-    @IBAction func requestTutoringButton(sender: AnyObject) {}
+    @IBAction func requestTutoringButton(sender: AnyObject) {
+        dotsTotal = 0
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,8 +102,8 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
-        startHomeViewController()
         finishSession()
+        startHomeViewController()
         return
     }
     
@@ -124,7 +126,6 @@ class HomeViewController: UIViewController {
     }
     
     func startHomeViewController() {
-        dotsTotal = 0
         self.tutorStudentSwitch.hidden = false
         self.logout.enabled = true
         self.requestTutoringButton!.hidden = false

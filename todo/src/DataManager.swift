@@ -47,7 +47,7 @@ let sema: dispatch_semaphore_t = dispatch_semaphore_create(0)
 
 var passed = false
 
-var dotsTotal = 0
+var dotsTotal = 1
 
 let burntOranges:[UIColor] = [UIColor.init(red: 186/255, green: 74/255, blue: 0, alpha: 1.0), UIColor.init(red: 214/255, green: 137/255, blue: 16/255, alpha: 1.0), UIColor.init(red: 175/255, green: 96/255, blue: 26/255, alpha: 1.0), UIColor.init(red: 185/255, green: 119/255, blue: 14/255, alpha: 1.0), UIColor.init(red: 110/255, green: 44/255, blue: 0, alpha: 1.0), UIColor.init(red: 120/255, green: 66/255, blue: 18/255, alpha: 1.0)]
 
@@ -276,6 +276,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
 }
 
 func requestListener(view: AnyObject) {
+    dotsTotal = 0
     dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)
     dispatch_barrier_sync(concurrentDataAccessQueue) {
         let mainViewController = view as? HomeViewController
@@ -479,7 +480,7 @@ func startSession (mainView: AnyObject, view: AnyObject) {
                 user["paid"] = (user["paid"] as! Int) + dotsTotal
                 
                 let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-                let notice = "balanceUpdate: You paid " + String(dotsTotal) + " on the tutoring session,\n your new total is: " + String(dots)
+                let notice = "balanceUpdate: You paid " + String(dotsTotal) + " dots on the tutoring session, your new total is: " + String(dots)
                 let date = getDateTime()
                 notificationUserRef.updateChildValues([date: notice])
                 notifications[date] = notice
@@ -539,14 +540,14 @@ func finishSession() {
         user["earned"] = (user["earned"] as! Int) + dotsTotal
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-        let notice = "balanceUpdate: You earned " + String(dotsTotal) + " on the tutoring session,\n your new total is: " + String(dots)
+        let notice = "balanceUpdate: You earned " + String(dotsTotal) + " dots on the tutoring session, your new total is: " + String(dots)
         let date = getDateTime()
         notificationUserRef.updateChildValues([date: notice])
         notifications[date] = notice
         
         let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
         var noticeH = "tutor: You tutored " + requester["username"]!
-        noticeH = notice + " for " + String(dotsTotal) + " dots in " + requester["course"]!
+        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + requester["course"]!
         
         let dateH = getDateTime()
         historyUserRef.updateChildValues([dateH: noticeH])
@@ -573,7 +574,11 @@ func finishSession() {
 }
 
 func logOutUser () {
-    user["lastLogin"] = getDateTime()
+    let date = getDateTime()
+    user["lastLogin"] = date
+    let username = (user["username"] as! String)
+    let currUserRef = getFirebase("users/" + username)
+    currUserRef.updateChildValues(["lastLogin": date])
     rootRef.unauth()
 }
 
