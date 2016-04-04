@@ -26,6 +26,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var requesterContainerView: UIView!
     
+    @IBOutlet weak var requesterSessionContainerView: UIView!
+    
     @IBOutlet weak var tutorContainerView: UIView!
     
     @IBOutlet weak var tutorSessionContainerView: UIView!
@@ -35,6 +37,8 @@ class HomeViewController: UIViewController {
     var tutorSessionViewController: TutorTutoringSessionViewController? = nil
     
     var requesterStartSessionViewController: RequesterStartSessionViewController? = nil
+    
+    var requesterTutoringSessionViewController: RequesterTutoringSessionViewController? = nil
     
     var presented: Bool = false
     
@@ -74,8 +78,11 @@ class HomeViewController: UIViewController {
         if let vc = segue.destinationViewController as? RequesterStartSessionViewController
             where segue.identifier == "requesterSegue" {
             self.requesterStartSessionViewController = vc
-            self.addChildViewController(requesterStartSessionViewController!)
             vc.mainViewController = self
+        }
+        if let vc = segue.destinationViewController as? RequesterTutoringSessionViewController
+            where segue.identifier == "requesterSessionSegue" {
+            self.requesterTutoringSessionViewController = vc
         }
     }
     
@@ -88,12 +95,17 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startHomeViewControllerCancel(segue:UIStoryboardSegue) {
-        startHomeViewController()
         cancelSession()
+        startHomeViewController()
     }
     
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
         finishSession()
+        return
+    }
+    
+    @IBAction func startHomeViewControllerFinishRequester(segue:UIStoryboardSegue) {
+        startHomeViewController()
         return
     }
     
@@ -111,11 +123,13 @@ class HomeViewController: UIViewController {
     }
     
     func startHomeViewController() {
+        dotsTotal = 0
         self.tutorStudentSwitch.hidden = false
         self.logout.enabled = true
         self.requestTutoringButton!.hidden = false
         self.blurEffect.hidden = true
         self.requesterContainerView.hidden = true
+        self.requesterSessionContainerView.hidden = true
         self.tutorContainerView.hidden = true
         self.tutorSessionContainerView.hidden = true
         return

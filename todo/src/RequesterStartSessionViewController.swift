@@ -18,8 +18,6 @@ class RequesterStartSessionViewController: UIViewController {
     
     var mainViewController: HomeViewController? = nil
     
-    var requesterTutoringSessionViewController: RequesterTutoringSessionViewController? = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -33,12 +31,6 @@ class RequesterStartSessionViewController: UIViewController {
     }
     
     @IBAction func startSessionButton(sender: AnyObject) {
-        startSession(mainViewController!)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let vc = segue.destinationViewController as? RequesterTutoringSessionViewController {
-            self.requesterTutoringSessionViewController = vc
-        }
+        startSession(mainViewController!, view: self)
     }
 }

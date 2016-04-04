@@ -167,6 +167,12 @@
                                     <segue destination="d1Q-Cd-ehl" kind="embed" identifier="requesterSegue" id="0mm-Ix-sfx"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-1b-9H1" userLabel="Requester Session Container View">
+                                <rect key="frame" x="0.0" y="540" width="414" height="175"/>
+                                <connections>
+                                    <segue destination="mQZ-IA-xGa" kind="embed" identifier="requesterSessionSegue" id="wdT-m8-1DF"/>
+                                </connections>
+                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P3N-Ir-eYU" userLabel="TutorWaiting Container View">
                                 <rect key="frame" x="0.0" y="540" width="414" height="175"/>
                                 <connections>
@@ -239,6 +245,7 @@
                         <outlet property="pieChartView" destination="oIt-Zr-otj" id="4dB-vI-htm"/>
                         <outlet property="requestTutoringButton" destination="v3Y-Op-8Tb" id="T2W-Xw-82Z"/>
                         <outlet property="requesterContainerView" destination="BuE-D8-b9b" id="5TF-u5-iKZ"/>
+                        <outlet property="requesterSessionContainerView" destination="eAE-1b-9H1" id="47Q-kE-Cx1"/>
                         <outlet property="tutorContainerView" destination="P3N-Ir-eYU" id="Vjv-sd-q5v"/>
                         <outlet property="tutorSessionContainerView" destination="TeL-MY-9ul" id="1Eg-UP-bQm"/>
                         <outlet property="tutorStudentSwitch" destination="4uA-UP-Ogr" id="l9N-xu-Fdq"/>
@@ -440,7 +447,6 @@
                                 </state>
                                 <connections>
                                     <action selector="startSessionButton:" destination="d1Q-Cd-ehl" eventType="touchUpInside" id="8un-fJ-0ss"/>
-                                    <segue destination="mQZ-IA-xGa" kind="presentation" modalPresentationStyle="currentContext" id="50T-aR-Hqj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eB0-op-fXm">
@@ -482,6 +488,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="175"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eO-PE-Nkd">
+                                <rect key="frame" x="395" y="0.0" width="19" height="30"/>
+                                <connections>
+                                    <segue destination="mVl-28-e8w" kind="unwind" identifier="returnToHomeRequesterSegue" unwindAction="startHomeViewControllerFinishRequester:" id="Xww-CW-OZ1"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-pic" translatesAutoresizingMaskIntoConstraints="NO" id="hdu-72-wuo">
                                 <rect key="frame" x="18" y="28" width="52" height="54"/>
                             </imageView>
@@ -558,6 +570,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smg-HV-Qm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mVl-28-e8w" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2040" y="-1495.5"/>
         </scene>

@@ -47,6 +47,8 @@ let sema: dispatch_semaphore_t = dispatch_semaphore_create(0)
 
 var passed = false
 
+var dotsTotal = 0
+
 let burntOranges:[UIColor] = [UIColor.init(red: 186/255, green: 74/255, blue: 0, alpha: 1.0), UIColor.init(red: 214/255, green: 137/255, blue: 16/255, alpha: 1.0), UIColor.init(red: 175/255, green: 96/255, blue: 26/255, alpha: 1.0), UIColor.init(red: 185/255, green: 119/255, blue: 14/255, alpha: 1.0), UIColor.init(red: 110/255, green: 44/255, blue: 0, alpha: 1.0), UIColor.init(red: 120/255, green: 66/255, blue: 18/255, alpha: 1.0)]
 
 func getFirebase(loc: String) -> Firebase! {
@@ -182,6 +184,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     user["dots"] = (snapshot.value["dots"] as? Int)!
                     user["earned"] = (snapshot.value["earned"] as? Int)!
                     user["paid"] = (snapshot.value["paid"] as? Int)!
+                    print("dots are: " + String((user["dots"]! as! Int)))
                     if let _ = snapshot.value["lastLogin"] as? String {
                         user["lastLogin"] = (snapshot.value["lastLogin"] as? String)!
                     }
@@ -347,11 +350,11 @@ func requestListener(view: AnyObject) {
                     if let v_ = snap.value as? String {
                         if v_ == "yes"{
                             requester["start"] = "yes"
-                            mainViewController?.tutorContainerView.hidden = true
-                            mainViewController?.tutorSessionContainerView.hidden = false
-                            
+                            mainViewController!.tutorContainerView.hidden = true
+                            mainViewController!.tutorSessionContainerView.hidden = false
+                            mainViewController!.tutorSessionViewController!.timeCount = 0
                             passed = false
-                            removeObservers(rootRef)
+                            removeObservers(currUserRef)
                         }
                     }
                 })
@@ -384,7 +387,7 @@ func requestListener(view: AnyObject) {
                             mainViewController!.tutorContainerView.hidden = true
                             mainViewController!.tutorSessionContainerView.hidden = true
                             passed = false
-                            removeObservers(rootRef)
+                            removeObservers(currUserRef)
                         }
                     }
                 })
@@ -440,49 +443,58 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.tutorStudentSwitch.hidden = true
                 mainViewController!.logout.enabled = false
+                
+                removeObservers(currUserRef)
             }
         })
     }
 }
 
-func startSession (view: AnyObject) {
-    let mainViewController = view as! HomeViewController
-    let pairedUserRef = getFirebase("users/" + (paired["username"]! ))
+func startSession (mainView: AnyObject, view: AnyObject) {
+    var dots = (user["dots"]! as! Int)
     let currUserRef = getFirebase("users/" + (user["username"]! as! String))
     removeObservers(currUserRef)
+    let mainViewController = mainView as! HomeViewController
+    mainViewController.requesterContainerView.hidden = true
+    mainViewController.requesterSessionContainerView.hidden = false
+    mainViewController.requesterTutoringSessionViewController!.requesterTutoringSessionTutorUsername.text = "Tutoring Session with " + paired["username"]!
+    mainViewController.requesterTutoringSessionViewController!.requesterTutotringSessionCourse.text = paired["course"]
+    mainViewController.requesterTutoringSessionViewController!.requesterTutoringSessionTutorPhoto.image = decodeImage(paired["photoString"]!)
+    mainViewController.requesterTutoringSessionViewController!.timeCount = 0
+    mainViewController.requesterSessionContainerView.hidden = false
+    let pairedUserRef = getFirebase("users/" + (paired["username"]! ))
     dispatch_barrier_async(concurrentDataAccessQueue) {
         currUserRef.updateChildValues(["start": "yes"])
         user["start"] = "yes"
         pairedUserRef.observeEventType(.Value, withBlock: { snapshot in
-            if (snapshot.value.objectForKey("finish") as? String) != "" {
+            if (snapshot.value.objectForKey("finish") as? String) != "" || dotsTotal > dots {
+                if dotsTotal > dots {
+                    alert(view, description: "You do not have enough dots to make the request", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                }
+                dots = dots - dotsTotal
+                user["dots"] = dots
+                user["paid"] = (user["paid"] as! Int) + dotsTotal
                 currUserRef.updateChildValues(["pairedPhoto": ""])
                 currUserRef.updateChildValues(["pairedCourse": ""])
                 currUserRef.updateChildValues(["finish": ""])
                 currUserRef.updateChildValues(["start": ""])
                 currUserRef.updateChildValues(["pairedUsername": ""])
+                currUserRef.updateChildValues(["dots": dots])
+                currUserRef.updateChildValues(["paid": (user["paid"] as! Int)])
                 pairedUserRef.updateChildValues(["finish": ""])
                 paired["photoString"] = ""
                 paired["username"] = ""
                 paired["course"] = ""
-                
-                
-                mainViewController.requesterStartSessionViewController!.requesterTutoringSessionViewController!.willMoveToParentViewController(nil)
-                mainViewController.requesterStartSessionViewController!.requesterTutoringSessionViewController!.view.removeFromSuperview()
-                mainViewController.requesterStartSessionViewController!.requesterTutoringSessionViewController!.removeFromParentViewController()
-                
-                mainViewController.requesterStartSessionViewController!.willMoveToParentViewController(nil)
-                mainViewController.requesterStartSessionViewController!.view.removeFromSuperview()
-                mainViewController.requesterStartSessionViewController!.removeFromParentViewController()
-                
-                mainViewController.startHomeViewController()
+                mainViewController.requesterTutoringSessionViewController!.performSegueWithIdentifier("returnToHomeRequesterSegue", sender: nil)
+                mainViewController.requesterSessionContainerView.hidden = true
+                removeObservers(pairedUserRef)
             }
         })
     }
-    removeObservers(pairedUserRef)
 }
 
 func cancelSession() {
-    dispatch_barrier_sync(concurrentDataAccessQueue) {
+    dispatch_barrier_async(concurrentDataAccessQueue) {
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
         currUserRef.updateChildValues(["pairedPhoto": ""])
@@ -497,11 +509,16 @@ func cancelSession() {
 
 func finishSession() {
     dispatch_barrier_async(concurrentDataAccessQueue) {
+        var dots = (user["dots"]! as! Int)
+        dots = dots + dotsTotal
+        user["dots"] = dots
+        user["earned"] = (user["earned"] as! Int) + dotsTotal
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
+        currUserRef.updateChildValues(["dots": dots])
+        currUserRef.updateChildValues(["earned": (user["earned"] as! Int)])
         currUserRef.updateChildValues(["finish": "yes"])
         currUserRef.updateChildValues(["start": ""])
-        
         currUserRef.updateChildValues(["requesterPhoto": ""])
         currUserRef.updateChildValues(["requesterCourse": ""])
         currUserRef.updateChildValues(["requesterDescription": ""])

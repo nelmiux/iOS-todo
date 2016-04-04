@@ -41,12 +41,10 @@ class TutorTutoringSessionViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.timeCounter), userInfo: nil, repeats: true)
         
         dots = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.dotsCounter), userInfo: nil, repeats: true)
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func finishSessionButton(sender: AnyObject) {
@@ -65,16 +63,6 @@ class TutorTutoringSessionViewController: UIViewController {
     func dotsCounter() {
         let dotsCount = (timeCount + 59) / 60
         self.tutorTutoringSessionEarning.text = String(dotsCount)
+        dotsTotal = dotsCount
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

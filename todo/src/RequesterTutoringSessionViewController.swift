@@ -35,10 +35,6 @@ class RequesterTutoringSessionViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         self.view.frame = CGRectMake(0, 0, 414, 175)
-        let decodedImage = decodeImage(paired["photoString"]!)
-        self.requesterTutoringSessionTutorPhoto.image = decodedImage
-        self.requesterTutoringSessionTutorUsername.text = "Tutoring Session with " + paired["username"]!
-        self.requesterTutotringSessionCourse.text = paired["course"]
         timer.invalidate()
         dots.invalidate()
         timeCount = 0
@@ -53,7 +49,6 @@ class RequesterTutoringSessionViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func timeCounter() {
@@ -67,6 +62,7 @@ class RequesterTutoringSessionViewController: UIViewController {
     func dotsCounter() {
         let dotsCount = (timeCount + 59) / 60
         self.requesterTutoringSessionPaying.text = String(dotsCount)
+        dotsTotal = dotsCount
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -74,5 +70,4 @@ class RequesterTutoringSessionViewController: UIViewController {
             self.mainViewController = vc
         }
     }
-
 }
