@@ -47,11 +47,6 @@ class TutorTutoringSessionViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func finishSessionButton(sender: AnyObject) {
-        self.view.hidden = true
-        finishSession()
-    }
-    
     func timeCounter() {
         timeCount += 1
         let seconds = timeCount % 60

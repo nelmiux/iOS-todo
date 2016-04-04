@@ -479,7 +479,7 @@ func startSession (mainView: AnyObject, view: AnyObject) {
                 user["paid"] = (user["paid"] as! Int) + dotsTotal
                 
                 let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-                let notice = "balanceUpdate: You paid " + String(user["paid"] as! Int) + " on the tutoring session,\n your new total is: " + String(dots)
+                let notice = "balanceUpdate: You paid " + String(dotsTotal) + " on the tutoring session,\n your new total is: " + String(dots)
                 let date = getDateTime()
                 notificationUserRef.updateChildValues([date: notice])
                 notifications[date] = notice
@@ -539,7 +539,7 @@ func finishSession() {
         user["earned"] = (user["earned"] as! Int) + dotsTotal
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-        let notice = "balanceUpdate: You earned " + String(user["earned"] as! Int) + " on the tutoring session,\n your new total is: " + String(dots)
+        let notice = "balanceUpdate: You earned " + String(dotsTotal) + " on the tutoring session,\n your new total is: " + String(dots)
         let date = getDateTime()
         notificationUserRef.updateChildValues([date: notice])
         notifications[date] = notice

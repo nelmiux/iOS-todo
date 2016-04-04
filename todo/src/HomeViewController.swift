@@ -100,6 +100,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
+        startHomeViewController()
         finishSession()
         return
     }
