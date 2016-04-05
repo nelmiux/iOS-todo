@@ -30,8 +30,15 @@ class HistoryTableViewController: UITableViewController {
     }
     
     func loadData () {
-        let keys = ["March 28, 2016, 7:43 PM", "March 10, 2016, 9:30 AM"]
-        let vals = ["tutor: You tutored testNelma for 45 dots in CS 378: iOS Mobile Computing.", "requester: You spent 60 dots on tutoring in CS 312: Introduction to Java Programming from testTutor."]
+        var keys = [String]()
+        var vals = [String]()
+        for date in history.keys {
+            keys.append(date as String!)
+            vals.append(history[date] as String!)
+        }
+        
+        // let keys = ["March 28, 2016, 7:43 PM", "March 10, 2016, 9:30 AM"]
+        // let vals = ["tutor: You tutored testNelma for 45 dots in CS 378: iOS Mobile Computing.", "requester: You spent 60 dots on tutoring in CS 312: Introduction to Java Programming from testTutor."]
         self.data.0 = keys
         self.data.1 = vals
     }
