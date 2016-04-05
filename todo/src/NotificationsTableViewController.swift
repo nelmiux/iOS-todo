@@ -15,13 +15,22 @@ class NotificationsTableViewController: UITableViewController {
     var notificationCopy:([String],[String]){
         var notificationKeysCopy = [String]()
         var notificationValuesCopy = [String]()
+        var message = ""
         
         dispatch_sync(concurrentDataAccessQueue) {
             for key in notifications.keys{
+                
+                
                 notificationKeysCopy.append(key)
             }
             for value in notifications.values{
-                notificationValuesCopy.append(value)
+                
+                if let joinWord = value.componentsSeparatedByString(":")[2] as? String {
+                    message = value.componentsSeparatedByString(":")[1] + joinWord
+                } else {
+                    message = value.componentsSeparatedByString(":")[1]
+                }
+                notificationValuesCopy.append(message)
             }
             
         }
