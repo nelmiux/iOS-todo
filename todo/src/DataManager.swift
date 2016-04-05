@@ -219,7 +219,9 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     
                     let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
                     historyUserRef.observeEventType(.Value, withBlock: { snap in
-                        history = snap.value as! Dictionary
+                        if !(snap.value is NSNull) {
+                            history = snap.value as! Dictionary
+                        }
                     })
                     
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
@@ -576,6 +578,7 @@ func logOutUser () {
     let username = (user["username"] as! String)
     let currUserRef = getFirebase("users/" + username)
     currUserRef.updateChildValues(["lastLogin": date])
+    history = Dictionary<String, String>()
     rootRef.unauth()
 }
 
