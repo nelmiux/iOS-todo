@@ -25,17 +25,16 @@ class ChartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.pieChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
         dotsCategory = ["Earned", "Payed"]
         let dotsAmount = [(user["earned"] as? Int)!, (user["paid"] as? Int)!]
         payedAmount.text = String((user["paid"] as? Int)!)
         earnedAmount.text = String((user["earned"] as? Int)!)
         
         setChart(dotsCategory, values: dotsAmount)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        self.pieChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
     }
 
     override func didReceiveMemoryWarning() {
