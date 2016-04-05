@@ -10,8 +10,6 @@ import UIKit
 
 class TutorTutoringSessionViewController: UIViewController {
     
-    var timeCount = 0
-    
     @IBOutlet weak var tutorTutoringSessionPhoto: UIImageView!
     
     @IBOutlet weak var tutorTutoringSessionUsername: UILabel!
@@ -28,10 +26,6 @@ class TutorTutoringSessionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
         timer.invalidate()
         dots.invalidate()
         timeCount = 0
@@ -41,6 +35,10 @@ class TutorTutoringSessionViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.timeCounter), userInfo: nil, repeats: true)
         
         dots = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.dotsCounter), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
     }
 
     override func didReceiveMemoryWarning() {

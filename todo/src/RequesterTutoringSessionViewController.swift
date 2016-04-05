@@ -28,11 +28,6 @@ class RequesterTutoringSessionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
-        self.view.frame = CGRectMake(0, 0, 414, 175)
         timer.invalidate()
         dots.invalidate()
         timeCount = 0
@@ -42,7 +37,11 @@ class RequesterTutoringSessionViewController: UIViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.timeCounter), userInfo: nil, repeats: true)
         
         dots = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.dotsCounter), userInfo: nil, repeats: true)
-
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        self.view.frame = CGRectMake(0, 0, 414, 175)
     }
 
     override func didReceiveMemoryWarning() {
