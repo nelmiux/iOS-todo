@@ -24,11 +24,13 @@ class NotificationsTableViewController: UITableViewController {
                 notificationKeysCopy.append(key)
             }
             for value in notifications.values{
+                var valueArr = value.componentsSeparatedByString(":")
                 
-                if let joinWord = value.componentsSeparatedByString(":")[2] as? String {
-                    message = value.componentsSeparatedByString(":")[1] + joinWord
+                if  valueArr.count > 2 {
+                    let joinWord = valueArr[2]
+                    message = valueArr[1] + joinWord
                 } else {
-                    message = value.componentsSeparatedByString(":")[1]
+                    message = valueArr[1]
                 }
                 notificationValuesCopy.append(message)
             }
