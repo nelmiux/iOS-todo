@@ -17,15 +17,15 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var dotsBg: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    // Class variables
+    private var user:String? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    /* override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    } */
-
+    func setUser (user:String) {
+        self.user = user
+    }
 }
