@@ -88,12 +88,14 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
                 print("referenceFrame updated to \(self.referenceFrame?.origin.x), \(self.referenceFrame?.origin.y)")
             }
             
-            // Create course button view and display it
+            // Create course button view
             let courseButton = CourseButtonView(frame: self.referenceFrame!, course: course, parentViewController: self, isFirst: addedCourses.isEmpty)
             courseButton.show()
-
+            
             addedCourses.append(course)
         }
+        
+        print(self.addCourseTextField.text)
     }
     
     
@@ -116,7 +118,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         if field.0 == "Password" {
             cell.inputField.secureTextEntry = true
         }
-
+        
         return cell
     }
     
@@ -128,7 +130,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
         let imageData = UIImageJPEGRepresentation(thumbnail, 1.0)
         let base64String = imageData!.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
         self.selectedPhotoString = base64String
-
+        
         // Update the UI to display selected photo
         self.userThumbnail.image = thumbnail
         self.userThumbnail.contentMode = .ScaleAspectFit
@@ -158,17 +160,33 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBAction func onClickAddCourse(sender: UITextField) {
         filterData = []
-        if sender.text! == "" {
-            filterData = data
-        } else {
-            for i in 0...data.count - 1 {
-                if data[i].rangeOfString(sender.text!) != nil || data[i].lowercaseString.rangeOfString(sender.text!) != nil {
-                    self.filterData.append(data[i])
+        allCoursesRef.observeEventType(.Value, withBlock: { snapshot in
+            allCourses = snapshot.value as! Dictionary<String, String>
+            if sender.text! == "" {
+                self.data = self.toStringArrayFrom(allCourses)
+                self.filterData = self.data
+            } else {
+                for i in 0...self.data.count - 1 {
+                    if self.data[i].rangeOfString(sender.text!) != nil || self.data[i].lowercaseString.rangeOfString(sender.text!) != nil {
+                        self.filterData.append(self.data[i])
+                    }
                 }
             }
+            self.presentPopover(sourceController: self, sourceView: self.addCourseButton, sourceRect: CGRectMake(0, self.addCourseButton.bounds.height + 1, self.addCourseButton.bounds.width, 200))
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+    }
+    
+    func toStringArrayFrom(dict:Dictionary<String,String>) -> [String]{
+        
+        var result:[String] = []
+        for key in dict{
+            result.append(key.0 + ": " + key.1)
         }
         
-        self.presentPopover(sourceController: self, sourceView: self.addCourseButton, sourceRect: CGRectMake(0, self.addCourseButton.bounds.height + 1, self.addCourseButton.bounds.width, 200))
+        
+        return result
     }
     
     func presentPopover(sourceController sourceController:UIViewController, sourceView:UIView, sourceRect:CGRect) {
@@ -250,7 +268,7 @@ class RegistrationViewController: UIViewController, UITableViewDelegate, UITable
     func hideKeyboard() {
         self.view.endEditing(true)
     }
-
+    
     
     // MARK: - Navigation
     
