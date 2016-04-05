@@ -19,18 +19,20 @@ class NotificationsTableViewController: UITableViewController {
         
         dispatch_sync(concurrentDataAccessQueue) {
             for key in notifications.keys{
-                
-                
                 notificationKeysCopy.append(key)
             }
             for value in notifications.values{
                 var valueArr = value.componentsSeparatedByString(":")
                 
-                if  valueArr.count > 2 {
-                    let joinWord = valueArr[2]
-                    message = valueArr[1] + joinWord
+                if valueArr.count > 0 {
+                    if  valueArr.count > 2 {
+                        let joinWord = valueArr[2]
+                        message = valueArr[1] + joinWord
+                    } else {
+                        message = valueArr[1]
+                    }
                 } else {
-                    message = valueArr[1]
+                    message = value
                 }
                 notificationValuesCopy.append(message)
             }
