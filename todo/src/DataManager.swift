@@ -223,18 +223,18 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                         notifications = snap.value as! Dictionary
                     })
                     
-                    /* let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
+                    let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
                     historyUserRef.observeEventType(.Value, withBlock: { snap in
-                        if snap.value is NSNull {
+                        /* if snap.value is NSNull {
                             getFirebase("history/").setValue(user["username"]! as! String)
                             let notice = "You logged in for first time"
                             let date = getDateTime()
                             historyUserRef.updateChildValues([date: notice])
                             history[date] = notice
                             return
-                        }
+                        } */
                         history = snap.value as! Dictionary
-                    }) */
+                    })
                     
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                     removeObservers(currUserRef)
