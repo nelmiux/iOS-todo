@@ -47,6 +47,8 @@ let sema: dispatch_semaphore_t = dispatch_semaphore_create(0)
 
 var passed = false
 
+var timeCount = 0
+
 var dotsTotal = 1
 
 let burntOranges:[UIColor] = [UIColor.init(red: 186/255, green: 74/255, blue: 0, alpha: 1.0), UIColor.init(red: 214/255, green: 137/255, blue: 16/255, alpha: 1.0), UIColor.init(red: 175/255, green: 96/255, blue: 26/255, alpha: 1.0), UIColor.init(red: 185/255, green: 119/255, blue: 14/255, alpha: 1.0), UIColor.init(red: 110/255, green: 44/255, blue: 0, alpha: 1.0), UIColor.init(red: 120/255, green: 66/255, blue: 18/255, alpha: 1.0)]
@@ -464,7 +466,7 @@ func startSession (mainView: AnyObject, view: AnyObject) {
     mainViewController.requesterTutoringSessionViewController!.requesterTutoringSessionTutorUsername.text = "Tutoring Session with " + paired["username"]!
     mainViewController.requesterTutoringSessionViewController!.requesterTutotringSessionCourse.text = paired["course"]
     mainViewController.requesterTutoringSessionViewController!.requesterTutoringSessionTutorPhoto.image = decodeImage(paired["photoString"]!)
-    mainViewController.requesterTutoringSessionViewController!.timeCount = 0
+    timeCount = 0
     mainViewController.requesterSessionContainerView.hidden = false
     let pairedUserRef = getFirebase("users/" + (paired["username"]! ))
     dispatch_barrier_async(concurrentDataAccessQueue) {

@@ -10,8 +10,6 @@ import UIKit
 
 class RequesterTutoringSessionViewController: UIViewController {
     
-    var timeCount = 0
-    
     @IBOutlet weak var requesterTutoringSessionTutorPhoto: UIImageView!
     
     @IBOutlet weak var requesterTutoringSessionTutorUsername: UILabel!
