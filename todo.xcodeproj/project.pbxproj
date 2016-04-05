@@ -67,6 +67,7 @@
 		CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
 		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
+		CAB160971CB3537600C0FD41 /* TimerAndDotsCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB160961CB3537600C0FD41 /* TimerAndDotsCounter.swift */; };
 		CAC137C41C85548B00586487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C21C85548B00586487 /* Main.storyboard */; };
 		CAC137D01C855D8E00586487 /* History Example.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CA1C855D8E00586487 /* History Example.png */; };
 		CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CB1C855D8E00586487 /* HistoryExample.png */; };
@@ -195,6 +196,7 @@
 		CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics2.png"; path = "images/Home/Home Analitics2.png"; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
 		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
+		CAB160961CB3537600C0FD41 /* TimerAndDotsCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerAndDotsCounter.swift; path = src/TimerAndDotsCounter.swift; sourceTree = "<group>"; };
 		CAC137C31C85548B00586487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAC137CA1C855D8E00586487 /* History Example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "History Example.png"; path = "images/History/History Example.png"; sourceTree = "<group>"; };
 		CAC137CB1C855D8E00586487 /* HistoryExample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryExample.png; path = images/History/HistoryExample.png; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				CA040A901CA328E300E06C37 /* TutorWaitingViewController.swift */,
 				CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */,
 				CA7B01C31C97B4DC0001D0F4 /* ChartViewController.swift */,
+				CAB160961CB3537600C0FD41 /* TimerAndDotsCounter.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				CA040A971CA32EC500E06C37 /* CourseButtonView.swift in Sources */,
 				87D0E3311CAB23F2009261CC /* HistoryTableViewCell.swift in Sources */,
 				CA7B01F31C981A450001D0F4 /* CoursesListView.swift in Sources */,
+				CAB160971CB3537600C0FD41 /* TimerAndDotsCounter.swift in Sources */,
 				CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */,
 				CA7B01C81C980D0A0001D0F4 /* RequestHelpViewController.swift in Sources */,
 				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,

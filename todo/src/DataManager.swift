@@ -249,6 +249,12 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
 }
 
 func sendRequest (view: AnyObject, askedCourse: String, location:String,  description: String, segueIdentifier: String) {
+    let dots = (user["dots"]! as! Int)
+    if dotsTotal > dots {
+        alert(view, description: "You do not have enough dots to make the request", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        view.performSegueWithIdentifier(segueIdentifier, sender: nil)
+        return
+    }
     dispatch_barrier_async(concurrentDataAccessQueue) {
         let coursesRef = getFirebase("courses/")
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
@@ -355,11 +361,12 @@ func requestListener(view: AnyObject) {
                 startRequesterUserRef.observeEventType(.Value, withBlock: { snap in
                     if let v_ = snap.value as? String {
                         if v_ == "yes"{
-                            
+                            let time_ = TimerAndDotsCounter(viewControler: mainViewController!.requesterTutoringSessionViewController!)
+                            time_.startCounter()
                             requester["start"] = "yes"
                             mainViewController!.tutorContainerView.hidden = true
                             mainViewController!.tutorSessionContainerView.hidden = false
-                            mainViewController!.tutorSessionViewController!.timeCount = 0
+                            timeCount = 0
                             passed = false
                             removeObservers(currUserRef)
                         }
@@ -470,7 +477,6 @@ func startSession (mainView: AnyObject, view: AnyObject) {
     mainViewController.requesterTutoringSessionViewController!.requesterTutoringSessionTutorUsername.text = "Tutoring Session with " + paired["username"]!
     mainViewController.requesterTutoringSessionViewController!.requesterTutotringSessionCourse.text = paired["course"]
     mainViewController.requesterTutoringSessionViewController!.requesterTutoringSessionTutorPhoto.image = decodeImage(paired["photoString"]!)
-    timeCount = 0
     mainViewController.requesterSessionContainerView.hidden = false
     let pairedUserRef = getFirebase("users/" + (paired["username"]! ))
     dispatch_barrier_async(concurrentDataAccessQueue) {
@@ -478,9 +484,6 @@ func startSession (mainView: AnyObject, view: AnyObject) {
         user["start"] = "yes"
         pairedUserRef.observeEventType(.Value, withBlock: { snapshot in
             if (snapshot.value.objectForKey("finish") as? String) != "" || dotsTotal > dots {
-                if dotsTotal > dots {
-                    alert(view, description: "You do not have enough dots to make the request", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                }
                 dots = dots - dotsTotal
                 user["dots"] = dots
                 user["paid"] = (user["paid"] as! Int) + dotsTotal

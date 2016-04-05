@@ -31,6 +31,14 @@ class RequesterStartSessionViewController: UIViewController {
     }
     
     @IBAction func startSessionButton(sender: AnyObject) {
+        let time_ = TimerAndDotsCounter(viewControler: self.mainViewController!.requesterTutoringSessionViewController!)
+        time_.startCounter()
         startSession(mainViewController!, view: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let vc = segue.destinationViewController as? HomeViewController {
+            self.mainViewController = vc
+        }
     }
 }
