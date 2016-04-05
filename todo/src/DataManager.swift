@@ -45,6 +45,8 @@ var paired = Dictionary<String, String>()
 
 let sema: dispatch_semaphore_t = dispatch_semaphore_create(0)
 
+var currCourse = ""
+
 var passed = false
 
 var timeCount = 0
@@ -250,6 +252,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
     dispatch_barrier_async(concurrentDataAccessQueue) {
         let coursesRef = getFirebase("courses/")
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
+        currCourse = askedCourse
         coursesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let _ = snapshot.value[askedCourse] as? Dictionary<String, String> {
                 usersPerCourse = snapshot.value[askedCourse] as! Dictionary<String, String>
@@ -293,6 +296,7 @@ func requestListener(view: AnyObject) {
                 }
                 if requester["couse"] == "" {
                     requester["couse"] = (snapshot.value["requesterCourse"] as! String)
+                    currCourse = requester["couse"]!
                 }
                 if requester["photoString"] == "" {
                     requester["photoString"] = (snapshot.value["requesterPhoto"] as! String)
@@ -547,15 +551,15 @@ func finishSession() {
         notificationUserRef.updateChildValues([date: notice])
         notifications[date] = notice
         
-        let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
+        let username = (user["username"]! as! String)
+        
+        let historyUserRef = getFirebase("history/" + username)
         var noticeH = "tutor: You tutored " + requester["username"]!
-        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + (user["course"]! as! String)
+        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + currCourse
         
         let dateH = getDateTime()
         historyUserRef.updateChildValues([dateH: noticeH])
         history[dateH] = noticeH
-        
-        let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
         currUserRef.updateChildValues(["dots": dots])
         currUserRef.updateChildValues(["earned": (user["earned"] as! Int)])
