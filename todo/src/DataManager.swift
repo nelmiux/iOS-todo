@@ -559,7 +559,7 @@ func finishSession() {
         
         let historyUserRef = getFirebase("history/" + username)
         var noticeH = "tutor: You tutored " + requester["username"]!
-        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + currCourse
+        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + currCourse + "."
         
         let dateH = getDateTime()
         historyUserRef.updateChildValues([dateH: noticeH])
@@ -608,6 +608,17 @@ func decodeImage(stringPhoto: String) -> UIImage {
     let decodedImage = UIImage(data: imageData!)
     
     return decodedImage!
+}
+
+func getUserPhoto(username:String) -> UIImage {
+    let userRef = getFirebase("users/" + (user["username"]! as! String))
+    let photoString = userRef.valueForKey("Photo String") as! String!
+    
+    if photoString == "" {
+        return defaultImage()
+    } else {
+        return decodeImage(photoString)
+    }
 }
 
 func defaultImage() -> UIImage {

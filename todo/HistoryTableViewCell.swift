@@ -25,7 +25,7 @@ class HistoryTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    func setUser (user:String) {
+    func setUser (user:String?) {
         self.user = user
     }
 }

@@ -61,6 +61,8 @@ class HistoryTableViewController: UITableViewController {
         // Below includes
         let parsedData = self.parseData(indexPath.row)
         let role = parsedData["role"]
+        let involvedUser = parsedData["involvedUser"] as String!
+        cell.setUser(involvedUser)
         cell.dateLabel.text = parsedData["date"]
         cell.descriptionLabel.text = parsedData["event"]
         cell.dotsLabel.text = parsedData["numDots"]
@@ -68,20 +70,23 @@ class HistoryTableViewController: UITableViewController {
         // Do any additional UI modifications accourding to tutor vs requestor.
         if role == "tutor" {
             cell.dotsBg.image = UIImage(named: "GainedDotsBg.png")
+            cell.userPhoto.image = getUserPhoto(involvedUser)
         } else if role == "requester" {
             cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
+            // cell.userPhoto.image = getUserPhoto(involvedUser)
         } else if role == "" {
             // First history event of first login. Hide photo and dots UI
             cell.dotsLabel.hidden = true
             cell.dotsBg.hidden = true
             cell.userPhoto.hidden = true
+            cell.setUser(nil)
         }
     
         return cell
     }
     
     func parseData (index:Int) -> Dictionary<String, String> {
-        var result: Dictionary<String, String> = ["date" : "", "role" : "", "event" : "", "numDots": ""]
+        var result: Dictionary<String, String> = ["date" : "", "role" : "", "event" : "", "numDots": "", "involvedUser": ""]
         
         let value = self.data.1[index]
         let indexOfColon = value.characters.indexOf(":")
@@ -89,14 +94,15 @@ class HistoryTableViewController: UITableViewController {
             let posOfColon = value.startIndex.distanceTo(indexOfColon!)
             let role = value.substringToIndex(value.startIndex.advancedBy(posOfColon))
             result["role"] = role
+            if role == "tutor" {
+                let eventArr = value.characters.split{$0 == " "}.map(String.init)
+                result["involvedUser"] = eventArr[3]
+            } else if role == "requester" {
+                
+            }
             
             let event = value.substringFromIndex(value.startIndex.advancedBy(posOfColon).advancedBy(2))
             result["event"] = event
-            if role == "tutor" {
-                
-            } else if role == "requestor" {
-                
-            }
             
             let eventArr = event.characters.split{$0 == " "}.map(String.init)
             for item in eventArr {
