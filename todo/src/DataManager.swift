@@ -210,7 +210,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     notificationUserRef.observeEventType(.Value, withBlock: { snap in
                         if snap.value is NSNull {
                             getFirebase("notifications/").setValue(user["username"]! as! String)
-                            let notice = "You Login for First Time"
+                            let notice = "You logged in for first time"
                             let date = getDateTime()
                             notificationUserRef.updateChildValues([date: notice])
                             notifications[date] = notice
@@ -223,7 +223,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     historyUserRef.observeEventType(.Value, withBlock: { snap in
                         if snap.value is NSNull {
                             getFirebase("history/").setValue(user["username"]! as! String)
-                            let notice = "You Login for First Time"
+                            let notice = "You logged in for first time"
                             let date = getDateTime()
                             historyUserRef.updateChildValues([date: notice])
                             history[date] = notice
@@ -547,7 +547,7 @@ func finishSession() {
         
         let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
         var noticeH = "tutor: You tutored " + requester["username"]!
-        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + requester["course"]!
+        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + (user["course"]! as! String)
         
         let dateH = getDateTime()
         historyUserRef.updateChildValues([dateH: noticeH])
