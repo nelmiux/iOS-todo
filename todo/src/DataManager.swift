@@ -215,7 +215,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
                     notificationUserRef.observeEventType(.Value, withBlock: { snap in
                         if snap.value is NSNull {
-                            let notice = "You logged in for the first time."
+                            let notice = "Any: You logged in for the first time."
                             let date = getDateTime()
                             notificationUserRef.updateChildValues([date: notice])
                             notifications[date] = notice
@@ -227,7 +227,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
                     historyUserRef.observeEventType(.Value, withBlock: { snap in
                         if snap.value is NSNull {
-                            let notice = "You logged in for the first time."
+                            let notice = "Any: You logged in for the first time."
                             let date = getDateTime()
                             historyUserRef.updateChildValues([date: notice])
                             history[date] = notice
