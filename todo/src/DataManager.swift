@@ -520,6 +520,7 @@ func cancelSession() {
         currUserRef.updateChildValues(["pairedCourse": ""])
         currUserRef.updateChildValues(["cancel": "yes"])
         currUserRef.updateChildValues(["pairedUsername": ""])
+        
         paired["photoString"] = ""
         paired["username"] = ""
         paired["course"] = ""
