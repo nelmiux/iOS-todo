@@ -70,7 +70,7 @@ class HistoryTableViewController: UITableViewController {
         // Do any additional UI modifications accourding to tutor vs requestor.
         if role == "tutor" {
             cell.dotsBg.image = UIImage(named: "GainedDotsBg.png")
-            cell.userPhoto.image = getUserPhoto(involvedUser)
+            // cell.userPhoto.image = getUserPhoto(involvedUser)
         } else if role == "requester" {
             cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
             // cell.userPhoto.image = getUserPhoto(involvedUser)
@@ -89,19 +89,41 @@ class HistoryTableViewController: UITableViewController {
         var result: Dictionary<String, String> = ["date" : "", "role" : "", "event" : "", "numDots": "", "involvedUser": ""]
         
         let value = self.data.1[index]
-        let indexOfColon = value.characters.indexOf(":")
+        // let indexOfColon = value.characters.indexOf(":")
         
         let rangeOfColon = value.rangeOfString(":")
         if rangeOfColon != nil {
+            // First separate the role and actual event description into two values.
             let role = value.substringToIndex((rangeOfColon?.startIndex)!)
-            print("role = \(role)")
+            result["role"] = role
             let event = value.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
-            print("event = \(event)")
+            result["event"] = event
+            
+            // Retrieve the other user involved (ie., the tutor or the requestor).
+            let eventArr = value.characters.split{$0 == " "}.map(String.init)
+            if role == "tutor" {
+                let involvedUser = eventArr[3]
+                print("The requester was \(involvedUser)")
+                result["involvedUser"] = involvedUser
+            } else if role == "requester" {
+                
+            }
+            
+            for item in eventArr {
+                let components = item.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+                let part = components.joinWithSeparator("")
+                
+                if let intVal = Int(part) {
+                    result["numDots"] = result["role"] == "tutor" ? ("+\(part)") : ("-\(part)")
+                    break
+                }
+            }
+            
         } else {
-            print("String does not contain ':'")
+            result["event"] = value
         }
         
-        if indexOfColon < value.startIndex && indexOfColon != nil {
+        /* if indexOfColon < value.startIndex && indexOfColon != nil {
             let distanceToColon = value.startIndex.distanceTo(indexOfColon!)
             let role = value.substringToIndex(value.startIndex.advancedBy(distanceToColon))
             result["role"] = role
@@ -132,7 +154,7 @@ class HistoryTableViewController: UITableViewController {
             }
         } else {
             result["event"] = value
-        }
+        } */
         
         let dateArr = self.data.0[index].characters.split{$0 == ","}.map(String.init)
         result["date"] = (" \(dateArr[0]), \(dateArr[1])")
