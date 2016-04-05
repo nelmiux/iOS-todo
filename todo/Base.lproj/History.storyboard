@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SEGOEUI.TTF">
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--History-->
         <scene sceneID="5U2-oD-ybr">
@@ -34,83 +42,95 @@
         <!--History-->
         <scene sceneID="9F9-54-WzG">
             <objects>
-                <tableViewController title="History" id="9VT-0o-jfC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJq-mL-iMZ">
+                <tableViewController title="History" id="9VT-0o-jfC" customClass="HistoryTableViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" id="sJq-mL-iMZ" customClass="HistoryTableView" customModule="todo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="1aC-Em-wxQ">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="w3J-LO-Lj0">
-                                        <rect key="frame" x="0.0" y="64" width="414" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w3J-LO-Lj0" id="2qM-N3-Gbq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="historyCell" rowHeight="150" id="2KN-qi-hTd" customClass="HistoryTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="150"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2KN-qi-hTd" id="6Le-hY-oyT">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nU-DL-6LU">
+                                            <rect key="frame" x="0.0" y="8" width="414" height="23"/>
+                                            <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="23" id="yTr-BC-rRf"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-pic" translatesAutoresizingMaskIntoConstraints="NO" id="RyE-Dt-XrR">
+                                            <rect key="frame" x="8" y="39" width="85" height="85"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="85" id="KtU-uu-MUS"/>
+                                                <constraint firstAttribute="height" constant="85" id="rwG-rK-hlq"/>
+                                            </constraints>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mKa-xv-acT">
+                                            <rect key="frame" x="69" y="96" width="45" height="45"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Helped from Janet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE0-YP-Tf3">
-                                                    <rect key="frame" x="8" y="16" width="320" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GainedDotsBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="23f-KF-21n">
+                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="SB1-jA-L38">
+                                                    <rect key="frame" x="2" y="9" width="39" height="27"/>
+                                                    <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HistoryExample.png" translatesAutoresizingMaskIntoConstraints="NO" id="ls1-fb-qBn">
-                                                    <rect key="frame" x="8" y="40" width="259" height="24"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user1.png" translatesAutoresizingMaskIntoConstraints="NO" id="xLG-fQ-rmR">
-                                                    <rect key="frame" x="311" y="16" width="32" height="32"/>
-                                                </imageView>
                                             </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="1Px-lk-vCR">
-                                        <rect key="frame" x="0.0" y="129" width="414" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Px-lk-vCR" id="Ea8-Qg-vP0">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help Brian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ct-M3-W1y">
-                                                    <rect key="frame" x="8" y="16" width="320" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user2.png" translatesAutoresizingMaskIntoConstraints="NO" id="6fw-jE-ntU">
-                                                    <rect key="frame" x="311" y="16" width="32" height="32"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HistoryExample.png" translatesAutoresizingMaskIntoConstraints="NO" id="P81-ek-wtN">
-                                                    <rect key="frame" x="8" y="40" width="259" height="24"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="3ua-IJ-pmZ">
-                                        <rect key="frame" x="0.0" y="194" width="414" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ua-IJ-pmZ" id="ik3-AO-Z8a">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="64.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Help Diane" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT2-gl-OEX">
-                                                    <rect key="frame" x="8" y="16" width="320" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="HistoryExample.png" translatesAutoresizingMaskIntoConstraints="NO" id="t70-OO-RSP">
-                                                    <rect key="frame" x="8" y="40" width="259" height="24"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user3.png" translatesAutoresizingMaskIntoConstraints="NO" id="2eW-RD-e9P">
-                                                    <rect key="frame" x="311" y="16" width="32" height="32"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="SB1-jA-L38" secondAttribute="trailing" constant="4" id="BeJ-1S-4yf"/>
+                                                <constraint firstItem="23f-KF-21n" firstAttribute="leading" secondItem="mKa-xv-acT" secondAttribute="leading" id="IvW-3g-jxR"/>
+                                                <constraint firstItem="SB1-jA-L38" firstAttribute="leading" secondItem="mKa-xv-acT" secondAttribute="leading" constant="2" id="LtP-Uv-q1N"/>
+                                                <constraint firstAttribute="trailing" secondItem="23f-KF-21n" secondAttribute="trailing" id="O8j-fD-ihE"/>
+                                                <constraint firstItem="SB1-jA-L38" firstAttribute="top" secondItem="mKa-xv-acT" secondAttribute="top" constant="9" id="SUR-Tp-4aV"/>
+                                                <constraint firstAttribute="bottom" secondItem="SB1-jA-L38" secondAttribute="bottom" constant="9" id="UQc-rm-Kew"/>
+                                                <constraint firstAttribute="width" constant="45" id="aeY-e3-JLF"/>
+                                                <constraint firstAttribute="bottom" secondItem="23f-KF-21n" secondAttribute="bottom" id="dMI-hr-d3g"/>
+                                                <constraint firstItem="23f-KF-21n" firstAttribute="top" secondItem="mKa-xv-acT" secondAttribute="top" id="dqP-QO-VBy"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You gained 50 dots for tutoring testNelma in CS 312." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXz-LG-bZV">
+                                            <rect key="frame" x="130" y="39" width="276" height="85"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="85" id="zCf-nv-0Zp"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mKa-xv-acT" secondAttribute="bottom" id="8zr-H9-4be"/>
+                                        <constraint firstItem="iXz-LG-bZV" firstAttribute="top" secondItem="3nU-DL-6LU" secondAttribute="bottom" constant="8" id="P4L-fI-AHz"/>
+                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="top" secondItem="6Le-hY-oyT" secondAttribute="topMargin" id="Tii-RC-nc1"/>
+                                        <constraint firstItem="iXz-LG-bZV" firstAttribute="trailing" secondItem="6Le-hY-oyT" secondAttribute="trailingMargin" id="UhD-pN-exG"/>
+                                        <constraint firstItem="RyE-Dt-XrR" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leadingMargin" id="WmY-pq-W4A"/>
+                                        <constraint firstItem="iXz-LG-bZV" firstAttribute="leading" secondItem="RyE-Dt-XrR" secondAttribute="trailing" constant="37" id="XPn-P5-53U"/>
+                                        <constraint firstItem="mKa-xv-acT" firstAttribute="trailing" secondItem="6Le-hY-oyT" secondAttribute="trailingMargin" constant="-292" id="Xdc-LY-3BY"/>
+                                        <constraint firstItem="mKa-xv-acT" firstAttribute="top" secondItem="iXz-LG-bZV" secondAttribute="bottom" constant="-28" id="a0g-JO-bDP"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="3nU-DL-6LU" secondAttribute="trailing" constant="-8" id="doL-ml-qYz"/>
+                                        <constraint firstItem="RyE-Dt-XrR" firstAttribute="top" secondItem="3nU-DL-6LU" secondAttribute="bottom" constant="8" id="hOh-RX-oVI"/>
+                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leadingMargin" constant="-8" id="zAh-ea-VgL"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="3nU-DL-6LU" id="1QH-Gk-eEZ"/>
+                                    <outlet property="descriptionLabel" destination="iXz-LG-bZV" id="wBM-pj-vkI"/>
+                                    <outlet property="dotsBg" destination="23f-KF-21n" id="2ap-rm-JEv"/>
+                                    <outlet property="dotsLabel" destination="SB1-jA-L38" id="4fr-kO-cFC"/>
+                                    <outlet property="userPhoto" destination="RyE-Dt-XrR" id="3AM-Dr-Z0w"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="9VT-0o-jfC" id="0bi-3C-EKV"/>
                             <outlet property="delegate" destination="9VT-0o-jfC" id="am2-FL-Ggo"/>
@@ -125,11 +145,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HistoryExample.png" width="672" height="62"/>
+        <image name="GainedDotsBg.png" width="100" height="100"/>
         <image name="HistoryTabIcon_Black" width="35" height="30"/>
         <image name="HistoryTabIcon_Teal" width="35" height="30"/>
-        <image name="user1.png" width="250" height="250"/>
-        <image name="user2.png" width="250" height="250"/>
-        <image name="user3.png" width="250" height="250"/>
+        <image name="user-pic" width="250" height="250"/>
     </resources>
 </document>

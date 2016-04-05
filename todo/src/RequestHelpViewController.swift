@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
+class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, CourseSelectionProtocol {
     
     var data = lowerDivisionCourses
     
@@ -88,8 +88,12 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
         sourceController.presentViewController(coursesListViewController!, animated: true, completion: nil)
     }
     
-    func selectedCourse (sender: String) {
-        self.editedDropDown.text = sender
+    func selectedCourse (course: String) {
+        self.editedDropDown.text = course
+    }
+    
+    func endFiltering (force: Bool) {
+        self.view.endEditing(force)
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {

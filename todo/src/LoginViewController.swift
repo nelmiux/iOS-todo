@@ -23,8 +23,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.usernameInputField.delegate = self
         self.passwordInputField.delegate = self
         self.passwordInputField.secureTextEntry = true
-
-        // Do any additional setup after loading the view.
+        loadAllCourses()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,10 +35,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "enterApplication" {
-            let usernameInput = usernameInputField.text!
-            let passwordInput = passwordInputField.text!
-            //let usernameInput = "testNelma"
-            //let passwordInput = "1234567"
+            //let usernameInput = usernameInputField.text!
+            //let passwordInput = passwordInputField.text!
+            let usernameInput = "testNelma"
+            let passwordInput = "1234567"
             
             // Check that username and password are non-empty
             if usernameInput.characters.count < 1 || passwordInput.characters.count < 1 {

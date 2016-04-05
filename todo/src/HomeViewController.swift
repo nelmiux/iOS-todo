@@ -2,7 +2,7 @@
 //  HomeViewController.swift
 //  todo
 //
-//  Created by Quyen Castellanos on 3/11/16.
+//  Created by Nelma Perera on 3/11/16.
 //  Copyright © 2016 cs378. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var timeCount = 0
+    var logInViewControler = LoginViewController()
     
     let requestButtonColor = UIColor(red: 235.0/255.0, green: 84.0/255.0, blue: 55.0/255.0, alpha: 0.8)
     
@@ -24,77 +24,95 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var logout: UIBarButtonItem!
     
-    @IBOutlet weak var tutorWaiting: UIView!
+    @IBOutlet weak var requesterContainerView: UIView!
     
-    @IBOutlet weak var requesterPhoto: UIImageView!
+    @IBOutlet weak var requesterSessionContainerView: UIView!
     
-    @IBOutlet weak var requesterUsername: UILabel!
+    @IBOutlet weak var tutorContainerView: UIView!
     
-    @IBOutlet weak var requesterCourse: UILabel!
+    @IBOutlet weak var tutorSessionContainerView: UIView!
     
-    @IBOutlet weak var requesterStartSession: UIView!
+    var tutorWaitingViewController: TutorWaitingViewController? = nil
     
-    @IBOutlet weak var tutorPhoto: UIImageView!
+    var tutorSessionViewController: TutorTutoringSessionViewController? = nil
     
-    @IBOutlet weak var tutorUsername: UILabel!
+    var requesterStartSessionViewController: RequesterStartSessionViewController? = nil
     
-    @IBOutlet weak var tutorCourse: UILabel!
+    var requesterTutoringSessionViewController: RequesterTutoringSessionViewController? = nil
     
-    @IBOutlet weak var requesterTutoringSession: UIView!
-    
-    @IBOutlet weak var requesterTutoringSessionTutorPhoto: UIImageView!
-    
-    @IBOutlet weak var requesterTutoringSessionTutorUsername: UILabel!
-    
-    @IBOutlet weak var requesterTutotringSessionCourse: UILabel!
-    
-    @IBOutlet weak var requesterTutoringSessionTimeView: UIView!
-    
-    @IBOutlet weak var requesterTutoringSessionPayingView: UIView!
-    
-    @IBOutlet weak var requesterTutoringSessionCountingTime: UILabel!
-    
-    @IBOutlet weak var requesterTutoringSessionPaying: UILabel!
-    
-    @IBOutlet weak var tutorTutoringSession: UIView!
-    
-    @IBOutlet weak var tutorTutoringSessionPhoto: UIImageView!
-    
-    @IBOutlet weak var tutorTutoringSessionUsername: UILabel!
-    
-    @IBOutlet weak var tutorTutoringSessionCourse: UILabel!
-    
-    @IBOutlet weak var tutorTutoringSessionTimeView: UIView!
-    
-    @IBOutlet weak var tutorTutoringSessionEarningView: UIView!
-    
-    @IBOutlet weak var tutorTutoringSessionCountingTime: UILabel!
-    
-    @IBOutlet weak var tutorTutoringSessionEarning: UILabel!
-    
-    @IBOutlet weak var finishSessionButton: UIButton!
+    var presented: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tutorStudentSwitch.hidden = false
-        self.logout.enabled = true
-        self.requestTutoringButton!.backgroundColor = requestButtonColor
-        self.lookingTutorsNoticeView.hidden = true
-        self.blurEffect.hidden = true
-        self.tutorWaiting.hidden = true
-        self.requesterStartSession.hidden = true
-        self.requesterTutoringSession.hidden = true
-        self.tutorTutoringSession.hidden = true
+        requestTutoringButton!.backgroundColor = requestButtonColor
+        startHomeViewController()
     }
     
-    @IBAction func requestTutoringButton(sender: AnyObject) {}
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
+    @IBAction func requestTutoringButton(sender: AnyObject) {
+        dotsTotal = 0
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func tutorStudentSwitch(sender: AnyObject) {
+        self.getTutorStudentSwitchAction()
+        presented = true
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "logout" {
+            logOutUser()
+        }
+        if let vc = segue.destinationViewController as? TutorWaitingViewController
+            where segue.identifier == "tutorWaitingSegue" {
+            self.tutorWaitingViewController = vc
+        }
+        if let vc = segue.destinationViewController as? TutorTutoringSessionViewController
+            where segue.identifier == "tutorSessionSegue" {
+            self.tutorSessionViewController = vc
+        }
+        if let vc = segue.destinationViewController as? RequesterStartSessionViewController
+            where segue.identifier == "requesterSegue" {
+            self.requesterStartSessionViewController = vc
+            vc.mainViewController = self
+        }
+        if let vc = segue.destinationViewController as? RequesterTutoringSessionViewController
+            where segue.identifier == "requesterSessionSegue" {
+            self.requesterTutoringSessionViewController = vc
+        }
+    }
+    
+    @IBAction func returnHomeViewController(segue:UIStoryboardSegue) {
+        let askedCourse = (segue.sourceViewController as! RequestHelpViewController).editedDropDown.text!
+        self.lookingTutorsNoticeView.hidden = false
+        self.blurEffect.hidden = false
+        self.logout.enabled = false
+        pairedListener(self, askedCourse: askedCourse)
+    }
+    
+    @IBAction func startHomeViewControllerCancel(segue:UIStoryboardSegue) {
+        cancelSession()
+        startHomeViewController()
+    }
+    
+    @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
+        finishSession()
+        startHomeViewController()
+        return
+    }
+    
+    @IBAction func startHomeViewControllerFinishRequester(segue:UIStoryboardSegue) {
+        startHomeViewController()
+        return
+    }
+    
+    func getTutorStudentSwitchAction() {
         if tutorStudentSwitch.selectedSegmentIndex == 0 {
             requestTutoringButton!.enabled = false
             requestTutoringButton!.userInteractionEnabled = false
@@ -107,47 +125,17 @@ class HomeViewController: UIViewController {
         requestTutoringButton!.userInteractionEnabled = true
     }
     
-    func timeCounter() {
-        ++timeCount
-        let seconds = timeCount % 60
-        let minutes = (timeCount / 60) % 60
-        let hours = (timeCount / 3600)
-        self.requesterTutoringSessionCountingTime.text = String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
-        self.tutorTutoringSessionCountingTime.text = String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
+    func startHomeViewController() {
+        self.tutorStudentSwitch.hidden = false
+        self.logout.enabled = true
+        self.requestTutoringButton!.hidden = false
+        self.blurEffect.hidden = true
+        self.requesterContainerView.hidden = true
+        self.requesterSessionContainerView.hidden = true
+        self.tutorContainerView.hidden = true
+        self.tutorSessionContainerView.hidden = true
+        return
     }
     
-    func dotsCounter() {
-        let dotsCount = (timeCount + 59) / 60
-        self.requesterTutoringSessionPaying.text = String(dotsCount)
-        self.tutorTutoringSessionEarning.text = String(dotsCount)
-    }
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "logout" {
-            logOutUser()
-        }
-    }
-    
-    @IBAction func returnHomeViewController(segue:UIStoryboardSegue) {
-        let askedCourse = (segue.sourceViewController as! RequestHelpViewController).editedDropDown.text!
-        self.lookingTutorsNoticeView.hidden = false
-        self.blurEffect.hidden = false
-        self.logout.enabled = false
-        pairedListener(self, askedCourse: askedCourse)
-    }
-    
-    @IBAction func startSessionButton(sender: AnyObject) {
-        startSession(self)
-    }
-    
-    @IBAction func cancelSessionButton(sender: AnyObject) {
-        cancelSession(self)
-    }
-    
-    @IBAction func finishSessionButton(sender: AnyObject) {
-        finishSession(self)
-    }
 }
+
