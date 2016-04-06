@@ -24,7 +24,7 @@ class NotificationsTableViewController: UITableViewController {
             for value in notifications.values{
                 var valueArr = value.componentsSeparatedByString(":")
                 
-                if valueArr.count > 0 {
+                if valueArr.count > 1 {
                     if  valueArr.count > 2 {
                         let joinWord = valueArr[2]
                         message = valueArr[1] + joinWord
@@ -36,6 +36,7 @@ class NotificationsTableViewController: UITableViewController {
                 }
                 notificationValuesCopy.append(message)
             }
+            
             
         }
         return (notificationKeysCopy,notificationValuesCopy)
