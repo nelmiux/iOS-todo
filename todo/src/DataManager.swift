@@ -214,9 +214,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     
                     let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
                     notificationUserRef.observeEventType(.Value, withBlock: { snap in
-                        if !(snap.value is NSNull) {
                             notifications = snap.value as! Dictionary
-                        }
                     })
                     
                     let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
