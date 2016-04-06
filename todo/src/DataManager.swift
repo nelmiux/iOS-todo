@@ -602,18 +602,34 @@ func decodeImage(stringPhoto: String) -> UIImage {
 
 func getUserPhoto(username:String) -> UIImage {
     let userRef = getFirebase("users/" + username)
-    userRef.observeEventType(.Value, withBlock: { snapshot in
-        if !(snapshot.value is NSNull) {
-            let photoString = snapshot.value["Photo String"] as! String
-            if photoString == "" {
-                print(photoString)
-                // return defaultImage()
-            } else {
-                //return decodeImage(photoString)
+    var photo = UIImage(named: "DefaultProfilePhoto.png")!
+    
+    dispatch_sync(concurrentDataAccessQueue) {
+        userRef.observeEventType(.Value, withBlock: { snapshot in
+            if !(snapshot.value is NSNull) {
+                let photoString = snapshot.value["Photo String"] as! String
+                if photoString != "" {
+                    print("\(username)'s photo string: \(photoString)")
+                    photo = decodePhoto(photoString)
+                }
             }
-        }
-    })
-    return UIImage(named: "DefaultProfilePhoto.png")!
+        })
+    }
+
+    return photo
+}
+
+func decodePhoto (photoString:String) -> UIImage {
+    let base64String = user["photoString"] as! String!
+    var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
+    
+    // If user has selected image other than default image, decode the image
+    if base64String.characters.count > 0 {
+        let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        decodedImage = UIImage(data: decodedData!)!
+    }
+    
+    return decodedImage!
 }
 
 func defaultImage() -> UIImage {
