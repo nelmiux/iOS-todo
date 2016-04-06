@@ -56,6 +56,7 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Create the history cell and populate with data
         let cell = tableView.dequeueReusableCellWithIdentifier("historyCell", forIndexPath: indexPath) as! HistoryTableViewCell
+        cell.parentViewController = self
         
         // Populate with general data regardless of tutor vs requestor.
         // Below includes
@@ -170,12 +171,14 @@ class HistoryTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        /* if segue.identifier == "displayUserProfile" {
+        if segue.identifier == "displayUserProfile" {
             let destVC = segue.destinationViewController as! ProfileViewController
-            let idx = sender?.indexPath.row
-            print("Selected cell \(idx)")
+            let user = (sender as! UserPhotoButton).getUser()
+            print("View \(user)'s profile now")
+            
+            // print("Selected cell \(index)")
             // destVC.isOwnProfile = false
-        } */
+        }
     }
 
 }
