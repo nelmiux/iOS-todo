@@ -28,4 +28,6 @@ class HistoryTableViewCell: UITableViewCell {
     func setUser (user:String?) {
         self.user = user
     }
+
+    
 }
