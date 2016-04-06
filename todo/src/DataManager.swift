@@ -143,6 +143,8 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 user["location"] = ""
                 user["cancel"] = ""
                 newUserRef.setValue(user)
+                getFirebase("notifications/").setValue(user["username"]! as! String)
+                getFirebase("history/").setValue(user["username"]! as! String)
                 updateCourses(courses)
                 print("Successfully created user account with username: \(inputs["Username"]!)")
                 alert(view, description: "Congrats! You are ready to start using todo.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
@@ -212,31 +214,19 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     
                     let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
                     notificationUserRef.observeEventType(.Value, withBlock: { snap in
-                        if snap.value is NSNull {
-                            getFirebase("notifications/").setValue(user["username"]! as! String)
-                            let notice = "You logged in for first time"
-                            let date = getDateTime()
-                            notificationUserRef.updateChildValues([date: notice])
-                            notifications[date] = notice
-                            return
-                        }
                         notifications = snap.value as! Dictionary
                     })
                     
                     let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
                     historyUserRef.observeEventType(.Value, withBlock: { snap in
-                        if snap.value is NSNull {
-                            getFirebase("history/").setValue(user["username"]! as! String)
-                            let notice = "You logged in for first time"
-                            let date = getDateTime()
-                            historyUserRef.updateChildValues([date: notice])
-                            history[date] = notice
-                            return
+                        if !(snap.value is NSNull) {
+                            history = snap.value as! Dictionary
                         }
-                        history = snap.value as! Dictionary
                     })
                     
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
+                    removeObservers(notificationUserRef)
+                    removeObservers(historyUserRef)
                     removeObservers(currUserRef)
                     dispatch_semaphore_signal(sema)
                 }
@@ -558,7 +548,7 @@ func finishSession() {
         
         let historyUserRef = getFirebase("history/" + username)
         var noticeH = "tutor: You tutored " + requester["username"]!
-        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + currCourse
+        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + currCourse + "."
         
         let dateH = getDateTime()
         historyUserRef.updateChildValues([dateH: noticeH])
@@ -588,6 +578,7 @@ func logOutUser () {
     let username = (user["username"] as! String)
     let currUserRef = getFirebase("users/" + username)
     currUserRef.updateChildValues(["lastLogin": date])
+    history = Dictionary<String, String>()
     rootRef.unauth()
 }
 
@@ -607,6 +598,17 @@ func decodeImage(stringPhoto: String) -> UIImage {
     let decodedImage = UIImage(data: imageData!)
     
     return decodedImage!
+}
+
+func getUserPhoto(username:String) -> UIImage {
+    let userRef = getFirebase("users/" + (user["username"]! as! String))
+    let photoString = userRef.valueForKey("Photo String") as! String!
+    
+    if photoString == "" {
+        return defaultImage()
+    } else {
+        return decodeImage(photoString)
+    }
 }
 
 func defaultImage() -> UIImage {

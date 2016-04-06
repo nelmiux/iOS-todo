@@ -104,9 +104,7 @@ class HomeViewController: UIViewController {
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
         finishSession()
         startHomeViewController()
-        if presented {
-            getTutorStudentSwitchAction()
-        }
+        requestListener(self)
         return
     }
     
