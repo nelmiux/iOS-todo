@@ -214,7 +214,9 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     
                     let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
                     notificationUserRef.observeEventType(.Value, withBlock: { snap in
+                        if !(snap.value is NSNull) {
                             notifications = snap.value as! Dictionary
+                        }
                     })
                     
                     let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
@@ -602,7 +604,8 @@ func decodeImage(stringPhoto: String) -> UIImage {
 
 func getUserPhoto(username:String) -> UIImage {
     let userRef = getFirebase("users/" + username)
-    var photo = UIImage(named: "DefaultProfilePhoto.png")!
+    // var photo = UIImage(named: "DefaultProfilePhoto.png")!
+    var photo = UIImage()
     
     dispatch_sync(concurrentDataAccessQueue) {
         userRef.observeEventType(.Value, withBlock: { snapshot in
@@ -611,6 +614,8 @@ func getUserPhoto(username:String) -> UIImage {
                 if photoString != "" {
                     print("\(username)'s photo string: \(photoString)")
                     photo = decodePhoto(photoString)
+                } else {
+                    photo = UIImage(named: "DefaultProfilePhoto.png")!
                 }
             }
         })
