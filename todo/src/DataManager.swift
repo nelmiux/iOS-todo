@@ -613,7 +613,7 @@ func getUserPhoto(username:String) -> UIImage {
             }
         }
     })
-    return defaultImage()
+    return UIImage(named: "DefaultProfilePhoto.png")!
 }
 
 func defaultImage() -> UIImage {
