@@ -604,7 +604,7 @@ func decodeImage(stringPhoto: String) -> UIImage {
 
 func getUserPhoto(username:String) -> UIImage {
     let userRef = getFirebase("users/" + username)
-    var photo = UIImage()
+    var photo = UIImage(named: "DefaultProfilePhoto.png")!
     
     dispatch_sync(concurrentDataAccessQueue) {
         userRef.observeEventType(.Value, withBlock: { snapshot in
@@ -612,8 +612,6 @@ func getUserPhoto(username:String) -> UIImage {
                 let photoString = snapshot.value["Photo String"] as! String
                 if photoString != "" {
                     photo = decodePhoto(photoString)
-                } else {
-                    photo = UIImage(named: "DefaultProfilePhoto.png")!
                 }
             }
         })

@@ -174,10 +174,9 @@ class HistoryTableViewController: UITableViewController {
         if segue.identifier == "displayUserProfile" {
             let destVC = segue.destinationViewController as! ProfileViewController
             let user = (sender as! UserPhotoButton).getUser()
-            print("View \(user)'s profile now")
             
-            // print("Selected cell \(index)")
-            // destVC.isOwnProfile = false
+            destVC.username = user
+            destVC.isOwnProfile = false
         }
     }
 

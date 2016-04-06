@@ -291,7 +291,7 @@
                         </barButtonItem>
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="0n0-ba-wq6">
                             <connections>
-                                <action selector="onClickCancel:" destination="zqS-v6-t5E" id="xZX-X0-aLN"/>
+                                <action selector="onClickLeftBarButton:" destination="zqS-v6-t5E" id="Hbk-HL-kan"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="CNa-pD-lEl">
@@ -306,12 +306,12 @@
                         <outlet property="CoursesTableView" destination="F7c-MZ-VAd" id="0aC-wq-kb3"/>
                         <outlet property="activityImage" destination="Je6-2d-xdO" id="O8p-Eh-aX2"/>
                         <outlet property="basicInfoView" destination="as5-8A-JRs" id="wH7-hN-bnx"/>
-                        <outlet property="cancelBarButton" destination="0n0-ba-wq6" id="fW9-w9-gGn"/>
                         <outlet property="changePhotoButton" destination="t0s-0M-9Uu" id="ZVc-oD-Vyx"/>
                         <outlet property="coursesLabel" destination="Qrx-Xk-0M5" id="UqY-Re-Zut"/>
                         <outlet property="emailButton" destination="ltM-fp-Yoh" id="mPt-mf-fxS"/>
                         <outlet property="graduationLabel" destination="Dfh-Ru-rt0" id="eNu-HZ-dtA"/>
                         <outlet property="graduationTextField" destination="mN0-0d-67z" id="hsh-AA-RzP"/>
+                        <outlet property="leftBarButton" destination="0n0-ba-wq6" id="dXN-d4-pap"/>
                         <outlet property="majorLabel" destination="7ON-SA-pyS" id="kGQ-D1-WJp"/>
                         <outlet property="majorTextField" destination="Te0-Z2-YEP" id="WOb-AN-a4M"/>
                         <outlet property="nameLabel" destination="nxa-sd-Ka8" id="Z38-17-9BL"/>

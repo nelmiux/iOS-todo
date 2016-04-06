@@ -88,7 +88,6 @@
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFq-CU-xf0" customClass="UserPhotoButton" customModule="todo" customModuleProvider="target">
                                             <rect key="frame" x="8" y="39" width="85" height="85"/>
                                             <connections>
-                                                <action selector="onClickUserPhoto:" destination="2KN-qi-hTd" eventType="touchUpInside" id="5Wu-fo-ZE7"/>
                                                 <segue destination="jrg-7D-s9v" kind="push" identifier="displayUserProfile" id="iVd-SG-ByA"/>
                                             </connections>
                                         </button>
@@ -447,7 +446,6 @@
                         <outlet property="CoursesTableView" destination="F4J-Cf-rTk" id="yru-Hb-kw2"/>
                         <outlet property="activityImage" destination="n0Z-0x-G4E" id="oaJ-db-yxq"/>
                         <outlet property="basicInfoView" destination="27b-og-S0w" id="F4M-AV-BS7"/>
-                        <outlet property="cancelBarButton" destination="HZO-By-gM0" id="OHW-rh-t5N"/>
                         <outlet property="changePhotoButton" destination="lCe-1r-ioL" id="QBK-pR-ble"/>
                         <outlet property="coursesLabel" destination="B0u-XX-b8u" id="sw0-NO-D47"/>
                         <outlet property="emailButton" destination="xRX-py-Rgw" id="yRH-eN-eao"/>

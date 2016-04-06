@@ -39,6 +39,6 @@ class HistoryTableViewCell: UITableViewCell {
         self.user = user
         self.userPhotoButton.setUser(user!)
     }
-    
+
     
 }

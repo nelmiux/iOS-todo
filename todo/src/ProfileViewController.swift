@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var coursesLabel: UILabel!
     //@IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var rightBarButton: UIBarButtonItem!
-    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
+    @IBOutlet weak var leftBarButton: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var majorTextField: UITextField!
     @IBOutlet weak var graduationTextField: UITextField!
@@ -31,7 +31,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
 
     
     // Class variables
-    // private var courseList:[[String:String]] = user["courses"] as! [[String:String]]
+    var username:String = ""
     private var name:String = ""
     private var major:String = ""
     private var graduation:String = ""
@@ -71,14 +71,16 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         if isOwnProfile {
             self.rightBarButton.enabled = true
             self.rightBarButton.title = "Edit"
+            self.leftBarButton.enabled = false
+            self.leftBarButton.title = ""
         } else {
             self.rightBarButton.enabled = false
             self.rightBarButton.title = ""
+            self.leftBarButton.enabled = true
+            self.leftBarButton.title = "Back"
         }
         
         // Hide text fields and button(s)
-        self.cancelBarButton.enabled = false
-        self.cancelBarButton.title = ""
         self.nameTextField.hidden = true
         self.majorTextField.hidden = true
         self.graduationTextField.hidden = true
@@ -94,8 +96,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Display save button in top nav bar
         self.rightBarButton.enabled = true
         self.rightBarButton.title = "Save"
-        self.cancelBarButton.enabled = true
-        self.cancelBarButton.title = "Cancel"
+        self.leftBarButton.enabled = true
+        self.leftBarButton.title = "Cancel"
         
         // Hide labels
         self.nameLabel.hidden = true
@@ -116,9 +118,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Get data from Firebase if necessary
         if needToRetrieveData {
             self.displayUserPhoto()
-            self.name = ("\(user["firstName"] as! String!) \(user["lastName"] as! String!)")
-            self.major = user["major"] as! String!
-            self.graduation = user["graduationYear"] as! String!
+            // if isOwnProfile {
+                self.name = ("\(user["firstName"] as! String!) \(user["lastName"] as! String!)")
+                self.major = user["major"] as! String!
+                self.graduation = user["graduationYear"] as! String!
+//            } else {
+//                let userRef = getFirebase("users/" + self.username)
+//                
+//            }
         }
         
         self.nameLabel.text = self.name
@@ -195,18 +202,22 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func displayUserPhoto () {
-        let base64String = user["photoString"] as! String!
-        var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
-        
-        // If user has selected image other than default image, decode the image
-        if base64String.characters.count > 0 {
-            let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-            decodedImage = UIImage(data: decodedData!)!
+        if isOwnProfile {
+            let base64String = user["photoString"] as! String!
+            var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
+            
+            // If user has selected image other than default image, decode the image
+            if base64String.characters.count > 0 {
+                let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+                decodedImage = UIImage(data: decodedData!)!
+            }
+            self.photo.image = decodedImage!
+        } else {
+            self.photo.image = getUserPhoto(self.username)
         }
         
         self.photo.layer.cornerRadius = self.photo.frame.size.width / 2
         self.photo.clipsToBounds = true
-        self.photo.image = decodedImage!
     }
 
     override func didReceiveMemoryWarning() {
@@ -252,7 +263,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         }
     }
     
-    @IBAction func onClickCancel(sender: AnyObject) {
+    @IBAction func onClickLeftBarButton(sender: AnyObject) {
         // Revert all fields back to previous values
         self.nameTextField.text = ""
         self.majorTextField.text = ""
