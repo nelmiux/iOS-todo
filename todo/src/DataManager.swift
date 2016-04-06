@@ -604,7 +604,6 @@ func decodeImage(stringPhoto: String) -> UIImage {
 
 func getUserPhoto(username:String) -> UIImage {
     let userRef = getFirebase("users/" + username)
-    // var photo = UIImage(named: "DefaultProfilePhoto.png")!
     var photo = UIImage()
     
     dispatch_sync(concurrentDataAccessQueue) {
@@ -612,7 +611,6 @@ func getUserPhoto(username:String) -> UIImage {
             if !(snapshot.value is NSNull) {
                 let photoString = snapshot.value["Photo String"] as! String
                 if photoString != "" {
-                    print("\(username)'s photo string: \(photoString)")
                     photo = decodePhoto(photoString)
                 } else {
                     photo = UIImage(named: "DefaultProfilePhoto.png")!

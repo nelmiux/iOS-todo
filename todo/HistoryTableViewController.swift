@@ -73,7 +73,7 @@ class HistoryTableViewController: UITableViewController {
             cell.userPhoto.image = getUserPhoto(involvedUser)
         } else if role == "requester" {
             cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
-            // cell.userPhoto.image = getUserPhoto(involvedUser)
+            cell.userPhoto.image = getUserPhoto(involvedUser)
         } else if role == "" {
             // First history event of first login. Hide photo and dots UI
             cell.dotsLabel.hidden = true
@@ -102,11 +102,12 @@ class HistoryTableViewController: UITableViewController {
             // Retrieve the other user involved (ie., the tutor or the requestor).
             let eventArr = value.characters.split{$0 == " "}.map(String.init)
             if role == "tutor" {
-                let involvedUser = eventArr[3]
-                print("The requester was \(involvedUser)")
-                result["involvedUser"] = involvedUser
+                result["involvedUser"] = eventArr[3]
             } else if role == "requester" {
-                
+                let tutor = eventArr[eventArr.count - 1]
+                let name = tutor.substringToIndex(tutor.endIndex.predecessor())
+                print("tutor = \(name)")
+                result["involvedUser"] = name
             }
             
             for item in eventArr {
@@ -122,39 +123,6 @@ class HistoryTableViewController: UITableViewController {
         } else {
             result["event"] = value
         }
-        
-        /* if indexOfColon < value.startIndex && indexOfColon != nil {
-            let distanceToColon = value.startIndex.distanceTo(indexOfColon!)
-            let role = value.substringToIndex(value.startIndex.advancedBy(distanceToColon))
-            result["role"] = role
-            if role == "tutor" {
-                let eventArr = value.characters.split{$0 == " "}.map(String.init)
-            
-                for item in eventArr {
-                    print(item)
-                }
-                result["involvedUser"] = eventArr[3]
-                print("involvedUser = \(result["involvedUser"])")
-            } else if role == "requester" {
-                
-            }
-            
-            let event = value.substringFromIndex(value.startIndex.advancedBy(distanceToColon).advancedBy(2))
-            result["event"] = event
-            
-            let eventArr = event.characters.split{$0 == " "}.map(String.init)
-            for item in eventArr {
-                let components = item.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-                let part = components.joinWithSeparator("")
-                
-                if let intVal = Int(part) {
-                    result["numDots"] = result["role"] == "tutor" ? ("+\(part)") : ("-\(part)")
-                    break
-                }
-            }
-        } else {
-            result["event"] = value
-        } */
         
         let dateArr = self.data.0[index].characters.split{$0 == ","}.map(String.init)
         result["date"] = (" \(dateArr[0]), \(dateArr[1])")
