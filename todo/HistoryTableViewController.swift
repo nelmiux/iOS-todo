@@ -70,7 +70,7 @@ class HistoryTableViewController: UITableViewController {
         // Do any additional UI modifications accourding to tutor vs requestor.
         if role == "tutor" {
             cell.dotsBg.image = UIImage(named: "GainedDotsBg.png")
-            // cell.userPhoto.image = getUserPhoto(involvedUser)
+            cell.userPhoto.image = getUserPhoto(involvedUser)
         } else if role == "requester" {
             cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
             // cell.userPhoto.image = getUserPhoto(involvedUser)

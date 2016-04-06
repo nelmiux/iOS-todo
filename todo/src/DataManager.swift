@@ -601,14 +601,19 @@ func decodeImage(stringPhoto: String) -> UIImage {
 }
 
 func getUserPhoto(username:String) -> UIImage {
-    let userRef = getFirebase("users/" + (user["username"]! as! String))
-    let photoString = userRef.valueForKey("Photo String") as! String!
-    
-    if photoString == "" {
-        return defaultImage()
-    } else {
-        return decodeImage(photoString)
-    }
+    let userRef = getFirebase("users/" + username)
+    userRef.observeEventType(.Value, withBlock: { snapshot in
+        if !(snapshot.value is NSNull) {
+            let photoString = snapshot.value["Photo String"] as! String
+            if photoString == "" {
+                print(photoString)
+                // return defaultImage()
+            } else {
+                //return decodeImage(photoString)
+            }
+        }
+    })
+    return defaultImage()
 }
 
 func defaultImage() -> UIImage {
