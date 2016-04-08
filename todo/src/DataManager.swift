@@ -45,6 +45,8 @@ var paired = Dictionary<String, String>()
 
 let sema: dispatch_semaphore_t = dispatch_semaphore_create(0)
 
+let semaPhoto: dispatch_semaphore_t = dispatch_semaphore_create(0)
+
 var currCourse = ""
 
 var passed = false
@@ -52,6 +54,8 @@ var passed = false
 var timeCount = 0
 
 var dotsTotal = 1
+
+var otherUserPhoto = UIImage(named: "DefaultProfilePhoto.png")!
 
 let burntOranges:[UIColor] = [UIColor.init(red: 186/255, green: 74/255, blue: 0, alpha: 1.0), UIColor.init(red: 214/255, green: 137/255, blue: 16/255, alpha: 1.0), UIColor.init(red: 175/255, green: 96/255, blue: 26/255, alpha: 1.0), UIColor.init(red: 185/255, green: 119/255, blue: 14/255, alpha: 1.0), UIColor.init(red: 110/255, green: 44/255, blue: 0, alpha: 1.0), UIColor.init(red: 120/255, green: 66/255, blue: 18/255, alpha: 1.0)]
 
@@ -591,7 +595,7 @@ func getDateTime() -> String {
 
 func decodeImage(stringPhoto: String) -> UIImage {
     
-    if stringPhoto == "" || stringPhoto == "none" {
+    if stringPhoto == " " || stringPhoto == "none" {
         return defaultImage()
     }
     
@@ -602,22 +606,20 @@ func decodeImage(stringPhoto: String) -> UIImage {
     return decodedImage!
 }
 
-func getUserPhoto(username:String) -> UIImage {
+func getUserPhoto(username:String) {
     let userRef = getFirebase("users/" + username)
-    var photo = UIImage(named: "DefaultProfilePhoto.png")!
-    
-    dispatch_sync(concurrentDataAccessQueue) {
-        userRef.observeEventType(.Value, withBlock: { snapshot in
+    dispatch_barrier_sync(concurrentDataAccessQueue) {
+        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            print(snapshot.value.description)
             if !(snapshot.value is NSNull) {
                 let photoString = snapshot.value["Photo String"] as! String
-                if photoString != "" {
-                    photo = decodePhoto(photoString)
+                if photoString != " " {
+                    otherUserPhoto = decodePhoto(photoString)
+                    removeObservers(userRef)
                 }
             }
         })
     }
-
-    return photo
 }
 
 func decodePhoto (photoString:String) -> UIImage {
@@ -625,7 +627,7 @@ func decodePhoto (photoString:String) -> UIImage {
     var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
     
     // If user has selected image other than default image, decode the image
-    if base64String.characters.count > 0 {
+    if base64String.characters.count > 1 {
         let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
         decodedImage = UIImage(data: decodedData!)!
     }

@@ -215,8 +215,8 @@
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="eaq-5c-n5I"/>
                                                 <exclude reference="BV2-dg-vVo"/>
+                                                <exclude reference="eaq-5c-n5I"/>
                                             </mask>
                                         </variation>
                                     </label>
@@ -350,14 +350,14 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="LU0-at-jOE"/>
+                                        <exclude reference="K5H-9m-Uty"/>
                                         <exclude reference="cKY-fT-MxD"/>
                                         <exclude reference="zDM-Hi-NeR"/>
-                                        <exclude reference="K5H-9m-Uty"/>
+                                        <exclude reference="57F-s2-kir"/>
                                         <exclude reference="Rdk-9m-hos"/>
                                         <exclude reference="hzC-Gb-fNz"/>
-                                        <exclude reference="57F-s2-kir"/>
-                                        <exclude reference="U5j-Ff-L1U"/>
                                         <exclude reference="5hC-R9-ead"/>
+                                        <exclude reference="U5j-Ff-L1U"/>
                                         <exclude reference="z0G-cU-u5Y"/>
                                     </mask>
                                 </variation>

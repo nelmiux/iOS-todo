@@ -28,7 +28,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var basicInfoView: UIView!
     @IBOutlet weak var changePhotoButton: UIButton!
     private let imagePicker = UIImagePickerController()
-
+    var historyViewController:HistoryTableViewController? = nil
     
     // Class variables
     var username:String = ""
@@ -213,7 +213,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             }
             self.photo.image = decodedImage!
         } else {
-            self.photo.image = getUserPhoto(self.username)
+            getUserPhoto(self.username)
+
+            self.photo.image = otherUserPhoto
         }
         
         self.photo.layer.cornerRadius = self.photo.frame.size.width / 2
