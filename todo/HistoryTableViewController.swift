@@ -85,9 +85,9 @@ class HistoryTableViewController: UITableViewController {
             cell.userPhoto.hidden = true
             cell.setUser(nil)
         }
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        /*dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()
-        })
+        })*/
             
         return cell
     }
@@ -134,6 +134,10 @@ class HistoryTableViewController: UITableViewController {
         let dateArr = self.data.0[index].characters.split{$0 == ","}.map(String.init)
         result["date"] = (" \(dateArr[0]), \(dateArr[1])")
         return result
+    }
+    
+    @IBAction func returnToHistoryViewController(segue:UIStoryboardSegue) {
+        
     }
 
     /*

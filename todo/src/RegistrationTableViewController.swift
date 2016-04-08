@@ -403,8 +403,6 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
         }
         return true
     }
-
-    
         
     // Keyboard Functionality
     func textFieldShouldReturn(textField: UITextField) -> Bool {
