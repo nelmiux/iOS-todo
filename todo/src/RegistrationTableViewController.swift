@@ -12,6 +12,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
     
     // Class attributes and programmatic UI
     private var addedCourses:[String] = [String]()
+    private var addedCoursesWithDescription:[String] = [String]()
     private var selectedPhotoString = ""
     private var keyboardHeight:CGFloat = 0.0
     private var activeField: UITextField?
@@ -257,6 +258,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
     //Courses addition and deletion
     @IBAction func onClickAdd(sender: AnyObject) {
         var course = self.addCourseTextField.text as String!
+        addedCoursesWithDescription.append(course)
         course = course.componentsSeparatedByString(":")[0]
         
         // If no course has been inputted, do nothing
@@ -270,8 +272,8 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
             let index = addedCourses.count - 1
             let indexPath = NSIndexPath(forItem: index, inSection: 0)
             self.coursesCollectionView.insertItemsAtIndexPaths([indexPath])
-            self.coursesCollectionView.layoutIfNeeded()
-            /*if addedCourses.count % 4 == 0 && addedCourses.count != 1 {
+            /*self.coursesCollectionView.layoutIfNeeded()
+            if addedCourses.count % 4 == 0 && addedCourses.count != 1 {
                 
                let layout = self.coursesCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
                 
@@ -347,7 +349,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
                 "Last Name": self.lNameText.text!,
                 "Email Address": self.emailText.text!,
                 "Username": self.usernameText.text!,
-                "Password": self.usernameText.text!,
+                "Password": self.passwordText.text!,
                 "Major": self.majorText.text!,
                 "Graduation Year": self.majorText.text!]
             
@@ -360,7 +362,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
                 print(course)
             }
             
-            createUser(self, inputs: inputs, courses: addedCourses, segueIdentifier: identifier)
+            createUser(self, inputs: inputs, courses: addedCoursesWithDescription, segueIdentifier: identifier)
             return false
         }
         return true
