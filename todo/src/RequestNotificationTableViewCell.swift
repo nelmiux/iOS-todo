@@ -13,6 +13,7 @@ class RequestNotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var type: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

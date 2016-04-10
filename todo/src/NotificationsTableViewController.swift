@@ -12,16 +12,29 @@ class NotificationsTableViewController: UITableViewController {
 
     private var isDataLoaded:Bool = false
     
-    var notificationCopy:([String],[String]){
+    var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
+        var notificationStyleCopy = [String]()
         var notificationValuesCopy = [String]()
         var message = ""
+        tableView.estimatedRowHeight = 68.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         dispatch_sync(concurrentDataAccessQueue) {
             for key in notifications.keys{
                 notificationKeysCopy.append(key)
             }
             for value in notifications.values{
+                if (value.lowercaseString.rangeOfString("request") != nil){
+                    notificationStyleCopy.append("request")
+                }else if (value.lowercaseString.rangeOfString("balance") != nil){
+                    notificationStyleCopy.append("balance")
+                }else if (value.lowercaseString.rangeOfString("session") != nil){
+                    notificationStyleCopy.append("session")
+                }else{
+                    notificationStyleCopy.append("general")
+                }
+                
                 var valueArr = value.componentsSeparatedByString(":")
                 
                 if valueArr.count > 1 {
@@ -32,14 +45,15 @@ class NotificationsTableViewController: UITableViewController {
                         message = valueArr[1]
                     }
                 } else {
-                    message = value
+                    
+                    message = value.insert(" ", ind: 0)
                 }
                 notificationValuesCopy.append(message)
             }
             
             
         }
-        return (notificationKeysCopy,notificationValuesCopy)
+        return (notificationKeysCopy,notificationValuesCopy,notificationStyleCopy)
     }
 //    var notificationsKeys: [String]{
 //        var notificationsKeysCopy = [String]()
@@ -68,6 +82,8 @@ class NotificationsTableViewController: UITableViewController {
         if (!isDataLoaded) {
             self.loadData()
         }
+        tableView.estimatedRowHeight = 68.0
+        tableView.rowHeight = UITableViewAutomaticDimension
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -131,12 +147,13 @@ class NotificationsTableViewController: UITableViewController {
             cell.dateLabel.text = currNotification.getDate()*/
         
         /*  For now, just  throw everything out there, as a standard notification  */
-        let current_notification:(String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row])
+        let current_notification:(String,String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row],notificationCopy.2[indexPath.row])
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath) as! RequestNotificationTableViewCell
         
         cell.dateLabel.text = current_notification.1
         cell.messageLabel.text = current_notification.0
+        cell.type.text = current_notification.2
         
         
         
@@ -193,4 +210,10 @@ class NotificationsTableViewController: UITableViewController {
     }
     */
     
+    
+}
+extension String {
+    func insert(string:String,ind:Int) -> String {
+        return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
+    }
 }
