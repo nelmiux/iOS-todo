@@ -68,13 +68,16 @@ class HistoryTableViewController: UITableViewController {
         cell.descriptionLabel.text = parsedData["event"]
         cell.dotsLabel.text = parsedData["numDots"]
         
+        
         // Do any additional UI modifications accourding to tutor vs requestor.
         if role == "tutor" {
             cell.dotsBg.image = UIImage(named: "GainedDotsBg.png")
-            cell.userPhoto.image = getUserPhoto(involvedUser)
+            getUserPhoto(involvedUser)
+            cell.userPhoto.image = otherUserPhoto
         } else if role == "requester" {
             cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
-            cell.userPhoto.image = getUserPhoto(involvedUser)
+            getUserPhoto(involvedUser)
+            cell.userPhoto.image = otherUserPhoto
         } else if role == "" {
             // First history event of first login. Hide photo and dots UI
             cell.dotsLabel.hidden = true
@@ -82,7 +85,10 @@ class HistoryTableViewController: UITableViewController {
             cell.userPhoto.hidden = true
             cell.setUser(nil)
         }
-    
+        /*dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })*/
+            
         return cell
     }
     
@@ -128,6 +134,10 @@ class HistoryTableViewController: UITableViewController {
         let dateArr = self.data.0[index].characters.split{$0 == ","}.map(String.init)
         result["date"] = (" \(dateArr[0]), \(dateArr[1])")
         return result
+    }
+    
+    @IBAction func returnToHistoryViewController(segue:UIStoryboardSegue) {
+        
     }
 
     /*
@@ -177,6 +187,7 @@ class HistoryTableViewController: UITableViewController {
             
             destVC.username = user
             destVC.isOwnProfile = false
+            destVC.historyViewController = self
         }
     }
 
