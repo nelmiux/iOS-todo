@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -159,7 +159,7 @@
                                             <action selector="onClickChangePhoto:" destination="zqS-v6-t5E" eventType="touchUpInside" id="FiW-63-aHT"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StudentProfileTestPhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="T1r-4E-buh">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfilePhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="T1r-4E-buh">
                                         <rect key="frame" x="42" y="1" width="125" height="125"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="125" id="7Rc-4b-cQ0"/>
@@ -243,7 +243,7 @@
                                         <rect key="frame" x="0.0" y="28" width="335" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fkf-rY-Uug" id="CgR-Es-6ez">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="34.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -353,11 +353,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DefaultProfilePhoto.png" width="512" height="512"/>
         <image name="DotsBalance_Profile.png" width="233" height="223"/>
         <image name="EmailButton_Profile.png" width="300" height="71"/>
         <image name="ModerateActivity_Profile.png" width="268" height="76"/>
         <image name="ProfileTabIcon_Black" width="25" height="30"/>
         <image name="ProfileTabIcon_Teal" width="25" height="30"/>
-        <image name="StudentProfileTestPhoto.png" width="554" height="554"/>
     </resources>
 </document>

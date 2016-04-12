@@ -65,6 +65,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.hideEditing()
         self.displayUserData(true)
         self.adjustButtonFunctionality()
+        
+        // Format profile photo to be circular
+        self.photo.layer.cornerRadius = self.photo.frame.size.width / 2
+        self.photo.clipsToBounds = true
     }
     
     func hideEditing () {
@@ -213,12 +217,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             }
             self.photo.image = decodedImage!
         } else {
-            getUserPhoto(self.username)
-            self.photo.image = tempUserPhoto
+            getUserPhoto(self.username, imageView: self.photo)
         }
-        
-        self.photo.layer.cornerRadius = self.photo.frame.size.width / 2
-        self.photo.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
