@@ -129,8 +129,12 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 user["earned"] = 100
                 user["paid"] = 0
                 
-                for i in 0...courses.count - 1 {
-                    courseDic[courses[i].componentsSeparatedByString(":")[0]] = courses[i].componentsSeparatedByString(":")[1]
+                if courses.count > 0 {
+                    for i in 0...courses.count - 1 {
+                        courseDic[courses[i].componentsSeparatedByString(":")[0]] = courses[i].componentsSeparatedByString(":")[1]
+                    }
+                } else {
+                    courseDic["dummy"] = ""
                 }
                 
                 user["courses"] = courseDic
@@ -147,8 +151,8 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 user["location"] = ""
                 user["cancel"] = ""
                 newUserRef.setValue(user)
-                getFirebase("notifications/").setValue(user["username"]! as! String)
-                getFirebase("history/").setValue(user["username"]! as! String)
+                getFirebase("notifications/").updateChildValues([inputs["Username"]!: ""])
+                getFirebase("history/").updateChildValues([inputs["Username"]!: ""])
                 updateCourses(courses)
                 print("Successfully created user account with username: \(inputs["Username"]!)")
                 alert(view, description: "Congrats! You are ready to start using todo.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
@@ -595,7 +599,7 @@ func getDateTime() -> String {
 
 func decodeImage(stringPhoto: String) -> UIImage {
     
-    if stringPhoto == " " || stringPhoto == "none" {
+    if stringPhoto == "" || stringPhoto == " " || stringPhoto == "none" {
         return defaultImage()
     }
     

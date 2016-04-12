@@ -37,8 +37,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if identifier == "enterApplication" {
             let usernameInput = usernameInputField.text!
             let passwordInput = passwordInputField.text!
-            //let usernameInput = "japp"
-            //let passwordInput = "password123"
+            // let usernameInput = "testNelma"
+            // let passwordInput = "1234567"
             
             // Check that username and password are non-empty
             if usernameInput.characters.count < 1 || passwordInput.characters.count < 1 {
