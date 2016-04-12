@@ -51,7 +51,6 @@ class HistoryTableViewController: UITableViewController {
         cell.parentViewController = self
         
         // Populate with general data regardless of tutor vs requestor.
-        // Below includes
         let parsedData = self.parseData(indexPath.row)
         let role = parsedData["role"]
         let involvedUser = parsedData["involvedUser"] as String!
@@ -59,17 +58,13 @@ class HistoryTableViewController: UITableViewController {
         cell.dateLabel.text = parsedData["date"]
         cell.descriptionLabel.text = parsedData["event"]
         cell.dotsLabel.text = parsedData["numDots"]
-        
+        getUserPhoto(involvedUser, imageView: cell.userPhoto)
         
         // Do any additional UI modifications accourding to tutor vs requestor.
         if role == "tutor" {
             cell.dotsBg.image = UIImage(named: "GainedDotsBg.png")
-            getUserPhoto(involvedUser, cell: cell)
-            // cell.userPhoto.image = otherUserPhoto
         } else if role == "requester" {
             cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
-            getUserPhoto(involvedUser, cell: cell)
-            // cell.userPhoto.image = otherUserPhoto
         }
         
         return cell
@@ -168,7 +163,6 @@ class HistoryTableViewController: UITableViewController {
             
             destVC.username = user
             destVC.isOwnProfile = false
-            destVC.historyViewController = self
         }
     }
 

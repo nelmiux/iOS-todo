@@ -28,14 +28,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var basicInfoView: UIView!
     @IBOutlet weak var changePhotoButton: UIButton!
     private let imagePicker = UIImagePickerController()
-    var historyViewController:HistoryTableViewController? = nil
     
     // Class variables
     var username:String = ""
+    var isOwnProfile:Bool = true
+    var origPhotoString:String = ""
     private var name:String = ""
     private var major:String = ""
     private var graduation:String = ""
-    var isOwnProfile:Bool = true
     private var isEditing:Bool = false
     private var newPhotoString:String? = nil
     private var coursesCopy:([String],[String]){
@@ -213,9 +213,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             }
             self.photo.image = decodedImage!
         } else {
-            /* getUserPhoto(self.username)
-
-            self.photo.image = otherUserPhoto */
+            getUserPhoto(self.username)
+            self.photo.image = tempUserPhoto
         }
         
         self.photo.layer.cornerRadius = self.photo.frame.size.width / 2

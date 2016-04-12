@@ -610,13 +610,13 @@ func decodeImage(stringPhoto: String) -> UIImage {
     return decodedImage!
 }
 
-func getUserPhoto(username:String, cell:HistoryTableViewCell? = nil) {
+func getUserPhoto(username:String, imageView:UIImageView? = nil) {
     let userRef = getFirebase("users/" + username)
     userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
         if !(snapshot.value is NSNull) {
             let photoString = snapshot.value["Photo String"] as! String
-            if cell != nil {
-                cell?.userPhoto.image = decodePhoto(photoString)
+            if imageView != nil {
+                imageView!.image = decodePhoto(photoString)
             } else {
                 tempUserPhoto = decodePhoto(photoString)
             }
