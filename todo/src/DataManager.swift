@@ -19,6 +19,8 @@ let appSettingsRef = getFirebase("applicationSettings")
 let allCoursesRef = getFirebase("allCourses")
 let coursesRef = getFirebase("courses")
 
+var tempUserPhoto = UIImage(named:"DefaultProfilePhoto.png")
+
 let registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"),  ("Email Address", "jappleseed@gmail.com"), ("Username", "abc123"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
 // TODO: We will want this in the database
 let lowerDivisionCourses:[String] = ["CS312: Introduction to Programming", "CS314: Data Structures", "CS314H: Data Structures Honors", "CS302: Computer Fluency", "CS105: Computer Programming", "CS311: Discrete Math for Computer Science", "CS311H: Discrete Math for Computer Science: Honors", "CS109: Topics in Computer Science", "CS313E: Elements of Software Design"]
@@ -54,8 +56,6 @@ var passed = false
 var timeCount = 0
 
 var dotsTotal = 1
-
-var otherUserPhoto = UIImage(named: "DefaultProfilePhoto.png")!
 
 let burntOranges:[UIColor] = [UIColor.init(red: 186/255, green: 74/255, blue: 0, alpha: 1.0), UIColor.init(red: 214/255, green: 137/255, blue: 16/255, alpha: 1.0), UIColor.init(red: 175/255, green: 96/255, blue: 26/255, alpha: 1.0), UIColor.init(red: 185/255, green: 119/255, blue: 14/255, alpha: 1.0), UIColor.init(red: 110/255, green: 44/255, blue: 0, alpha: 1.0), UIColor.init(red: 120/255, green: 66/255, blue: 18/255, alpha: 1.0)]
 
@@ -610,32 +610,27 @@ func decodeImage(stringPhoto: String) -> UIImage {
     return decodedImage!
 }
 
-func getUserPhoto(username:String) {
+func getUserPhoto(username:String, cell:HistoryTableViewCell? = nil) {
     let userRef = getFirebase("users/" + username)
     dispatch_barrier_sync(concurrentDataAccessQueue) {
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            // print(snapshot.value.description)
             if !(snapshot.value is NSNull) {
                 let photoString = snapshot.value["Photo String"] as! String
-                if photoString != " " && photoString != "" {
-                    print("\(username)'s photo string: \(photoString.substringToIndex(photoString.startIndex.advancedBy(5)))...")
-                    otherUserPhoto = decodePhoto(photoString)
-                    removeObservers(userRef)
-                } else {
-                    print("\(username)'s photo string is empty")
+                if cell != nil {
+                    cell?.userPhoto.image = decodePhoto(photoString)
                 }
+                removeObservers(userRef)
             }
         })
     }
 }
 
 func decodePhoto (photoString:String) -> UIImage {
-    let base64String = user["photoString"] as! String!
     var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
     
     // If user has selected image other than default image, decode the image
-    if base64String.characters.count > 1 {
-        let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+    if photoString.characters.count > 1 {
+        let decodedData = NSData(base64EncodedString: photoString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
         decodedImage = UIImage(data: decodedData!)!
     }
     

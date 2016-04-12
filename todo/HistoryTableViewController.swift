@@ -16,17 +16,8 @@ class HistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadData()
-        
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,8 +31,6 @@ class HistoryTableViewController: UITableViewController {
             vals.append(history[date] as String!)
         }
         
-        // let keys = ["March 28, 2016, 7:43 PM", "March 10, 2016, 9:30 AM"]
-        // let vals = ["tutor: You tutored testNelma for 45 dots in CS 378: iOS Mobile Computing.", "requester: You spent 60 dots on tutoring in CS 312: Introduction to Java Programming from testTutor."]
         self.data.0 = keys
         self.data.1 = vals
     }
@@ -75,14 +64,14 @@ class HistoryTableViewController: UITableViewController {
         // Do any additional UI modifications accourding to tutor vs requestor.
         if role == "tutor" {
             cell.dotsBg.image = UIImage(named: "GainedDotsBg.png")
-            getUserPhoto(involvedUser)
-            cell.userPhoto.image = otherUserPhoto
+            getUserPhoto(involvedUser, cell: cell)
+            // cell.userPhoto.image = otherUserPhoto
         } else if role == "requester" {
             cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
-            getUserPhoto(involvedUser)
-            cell.userPhoto.image = otherUserPhoto
+            getUserPhoto(involvedUser, cell: cell)
+            // cell.userPhoto.image = otherUserPhoto
         }
-            
+        
         return cell
     }
     
@@ -90,7 +79,6 @@ class HistoryTableViewController: UITableViewController {
         var result: Dictionary<String, String> = ["date" : "", "role" : "", "event" : "", "numDots": "", "involvedUser": ""]
         
         let value = self.data.1[index]
-        // let indexOfColon = value.characters.indexOf(":")
         
         let rangeOfColon = value.rangeOfString(":")
         if rangeOfColon != nil {

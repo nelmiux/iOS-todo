@@ -213,9 +213,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             }
             self.photo.image = decodedImage!
         } else {
-            getUserPhoto(self.username)
+            /* getUserPhoto(self.username)
 
-            self.photo.image = otherUserPhoto
+            self.photo.image = otherUserPhoto */
         }
         
         self.photo.layer.cornerRadius = self.photo.frame.size.width / 2
