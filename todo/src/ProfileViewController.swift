@@ -32,10 +32,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     // Class variables
     var username:String = ""
     var isOwnProfile:Bool = true
-    var origPhotoString:String = ""
     private var name:String = ""
     private var major:String = ""
     private var graduation:String = ""
+    private var numDots:Int = 0
     private var isEditing:Bool = false
     private var newPhotoString:String? = nil
     private var coursesCopy:([String],[String]){
@@ -62,6 +62,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.CoursesTableView.dataSource = self
         self.CoursesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "courseCell")
         
+        self.loadData()
         self.hideEditing()
         self.displayUserData(true)
         self.adjustButtonFunctionality()
@@ -69,6 +70,25 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Format profile photo to be circular
         self.photo.layer.cornerRadius = self.photo.frame.size.width / 2
         self.photo.clipsToBounds = true
+    }
+    
+    func loadData () {
+        if isOwnProfile {
+            self.username = user["username"] as! String!
+        }
+        
+        let userRef = getFirebase("users/" + username)
+        dispatch_sync(concurrentDataAccessQueue) {
+            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                if !(snapshot.value is NSNull) {
+                    self.major = snapshot.value["Major"] as! String!
+                    self.graduation = snapshot.value["Graduation Year"] as! String!
+                    self.numDots = snapshot.value["dots"] as! Int
+                }
+            })
+        }
+        
+        print("data has been fetched: \(major), \(graduation), \(numDots)")
     }
     
     func hideEditing () {
