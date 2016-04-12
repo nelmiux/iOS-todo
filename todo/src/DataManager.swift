@@ -612,17 +612,17 @@ func decodeImage(stringPhoto: String) -> UIImage {
 
 func getUserPhoto(username:String, cell:HistoryTableViewCell? = nil) {
     let userRef = getFirebase("users/" + username)
-    dispatch_barrier_sync(concurrentDataAccessQueue) {
-        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            if !(snapshot.value is NSNull) {
-                let photoString = snapshot.value["Photo String"] as! String
-                if cell != nil {
-                    cell?.userPhoto.image = decodePhoto(photoString)
-                }
-                removeObservers(userRef)
+    userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        if !(snapshot.value is NSNull) {
+            let photoString = snapshot.value["Photo String"] as! String
+            if cell != nil {
+                cell?.userPhoto.image = decodePhoto(photoString)
+            } else {
+                tempUserPhoto = decodePhoto(photoString)
             }
-        })
-    }
+            removeObservers(userRef)
+        }
+    })
 }
 
 func decodePhoto (photoString:String) -> UIImage {

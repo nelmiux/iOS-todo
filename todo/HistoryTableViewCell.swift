@@ -24,7 +24,10 @@ class HistoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        // Make the user photo appear circular
+        self.userPhoto.layer.cornerRadius = self.userPhoto.frame.size.width / 2
+        self.userPhoto.clipsToBounds = true
     }
 
     func getUser () -> String {

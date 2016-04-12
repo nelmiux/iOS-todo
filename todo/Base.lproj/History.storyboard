@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2KN-qi-hTd" id="6Le-hY-oyT">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nU-DL-6LU">
@@ -78,7 +78,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-pic" translatesAutoresizingMaskIntoConstraints="NO" id="RyE-Dt-XrR">
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfilePhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="RyE-Dt-XrR">
                                             <rect key="frame" x="8" y="39" width="85" height="85"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="85" id="KtU-uu-MUS"/>
@@ -383,7 +383,7 @@
                                         <rect key="frame" x="0.0" y="28" width="335" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NrA-7T-goq" id="OBt-pO-9sz">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="34.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -469,6 +469,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DefaultProfilePhoto.png" width="512" height="512"/>
         <image name="DotsBalance_Profile.png" width="233" height="223"/>
         <image name="EmailButton_Profile.png" width="300" height="71"/>
         <image name="GainedDotsBg.png" width="100" height="100"/>
@@ -476,6 +477,5 @@
         <image name="HistoryTabIcon_Teal" width="35" height="30"/>
         <image name="ModerateActivity_Profile.png" width="268" height="76"/>
         <image name="StudentProfileTestPhoto.png" width="554" height="554"/>
-        <image name="user-pic" width="250" height="250"/>
     </resources>
 </document>
