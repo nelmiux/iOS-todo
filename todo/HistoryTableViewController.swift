@@ -17,6 +17,9 @@ class HistoryTableViewController: UITableViewController {
         super.viewDidLoad()
         self.loadData()
         
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -78,16 +81,7 @@ class HistoryTableViewController: UITableViewController {
             cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
             getUserPhoto(involvedUser)
             cell.userPhoto.image = otherUserPhoto
-        } else if role == "" {
-            // First history event of first login. Hide photo and dots UI
-            cell.dotsLabel.hidden = true
-            cell.dotsBg.hidden = true
-            cell.userPhoto.hidden = true
-            cell.setUser(nil)
         }
-        /*dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })*/
             
         return cell
     }
@@ -113,7 +107,6 @@ class HistoryTableViewController: UITableViewController {
             } else if role == "requester" {
                 let tutor = eventArr[eventArr.count - 1]
                 let name = tutor.substringToIndex(tutor.endIndex.predecessor())
-                print("tutor = \(name)")
                 result["involvedUser"] = name
             }
             

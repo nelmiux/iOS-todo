@@ -614,12 +614,15 @@ func getUserPhoto(username:String) {
     let userRef = getFirebase("users/" + username)
     dispatch_barrier_sync(concurrentDataAccessQueue) {
         userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
-            print(snapshot.value.description)
+            // print(snapshot.value.description)
             if !(snapshot.value is NSNull) {
                 let photoString = snapshot.value["Photo String"] as! String
-                if photoString != " " {
+                if photoString != " " && photoString != "" {
+                    print("\(username)'s photo string: \(photoString.substringToIndex(photoString.startIndex.advancedBy(5)))...")
                     otherUserPhoto = decodePhoto(photoString)
                     removeObservers(userRef)
+                } else {
+                    print("\(username)'s photo string is empty")
                 }
             }
         })
