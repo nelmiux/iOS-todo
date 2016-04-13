@@ -64,7 +64,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         
         self.loadData()
         self.hideEditing()
-        self.displayUserData(true)
+        self.displayUserPhoto()
+        // self.displayUserData(true)
         self.adjustButtonFunctionality()
         
         // Format profile photo to be circular
@@ -78,16 +79,22 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         }
         
         let userRef = getFirebase("users/" + username)
-        dispatch_sync(concurrentDataAccessQueue) {
+        dispatch_barrier_sync(concurrentDataAccessQueue) {
             userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if !(snapshot.value is NSNull) {
-                    self.major = snapshot.value["Major"] as! String!
-                    self.graduation = snapshot.value["Graduation Year"] as! String!
-                    self.numDots = snapshot.value["dots"] as! Int
+                    let wholeName = (snapshot.value["First Name"] as! String!) + " " + (snapshot.value["Last Name"] as! String!)
+                    self.nameLabel.text = wholeName
+                    self.majorLabel.text = snapshot.value["Major"] as! String!
+                    self.graduationLabel.text = "Class of " + (snapshot.value["Graduation Year"] as! String!)
+                    self.numDotsLabel.text = String((snapshot.value["dots"] as? Int)!)
                 }
             })
         }
         
+        self.name = nameLabel.text!
+        self.major = majorLabel.text!
+        self.graduation = graduationLabel.text!
+        // self.numDots = Int(numDotsLabel.text!)!
         print("data has been fetched: \(major), \(graduation), \(numDots)")
     }
     
@@ -139,19 +146,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func displayUserData (needToRetrieveData:Bool) {
-        // Get data from Firebase if necessary
-        if needToRetrieveData {
-            self.displayUserPhoto()
-            // if isOwnProfile {
-                self.name = ("\(user["firstName"] as! String!) \(user["lastName"] as! String!)")
-                self.major = user["major"] as! String!
-                self.graduation = user["graduationYear"] as! String!
-//            } else {
-//                let userRef = getFirebase("users/" + self.username)
-//                
-//            }
-        }
-        
         self.nameLabel.text = self.name
         let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
         let firstName = fullNameArr[0]
@@ -226,19 +220,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func displayUserPhoto () {
-        if isOwnProfile {
-            let base64String = user["photoString"] as! String!
-            var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
-            
-            // If user has selected image other than default image, decode the image
-            if base64String.characters.count > 0 {
-                let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-                decodedImage = UIImage(data: decodedData!)!
-            }
-            self.photo.image = decodedImage!
-        } else {
-            getUserPhoto(self.username, imageView: self.photo)
-        }
+        getUserPhoto(self.username, imageView: self.photo)
     }
 
     override func didReceiveMemoryWarning() {
