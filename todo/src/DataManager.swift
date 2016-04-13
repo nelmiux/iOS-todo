@@ -275,13 +275,13 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                 
                 let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-                let notice = "request: You asked for help on " + askedCourse
+                let notice = "request: You requested tutoring help in " + askedCourse + "."
                 let date = getDateTime()
                 notificationUserRef.updateChildValues([date: notice])
                 notifications[date] = notice
                 return
             }
-            alert(view, description: "This course does not exist on our Database.\nPlease enter a valid UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            alert(view, description: "This course does not exist in our Database.\nPlease enter a valid UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         })
     }
 }
