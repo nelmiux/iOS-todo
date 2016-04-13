@@ -160,13 +160,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func saveInfo () -> Bool {
-        self.name = self.nameTextField.text?.characters.count > 0 ? self.nameTextField.text! : self.name
+//        self.name = self.nameTextField.text?.characters.count > 0 ? self.nameTextField.text! : self.name
         self.major = self.majorTextField.text?.characters.count > 0 ? self.majorTextField.text! : self.major
         self.graduation = self.graduationTextField.text?.characters.count > 0 ? self.graduationTextField.text! : self.graduation
         let valid:Bool = self.validateFields()
         
         // Save
         if valid {
+            self.name = self.nameTextField.text?.characters.count > 0 ? self.nameTextField.text! : self.name
+            
+//
+            
             // Update global "user" variable
             let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
             user["firstName"] = fullNameArr[0]
@@ -193,7 +197,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func validateFields () -> Bool {
         // Validate name
-        let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
+//        let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
+        let fullNameArr = self.nameTextField.text!.characters.split{$0 == " "}.map(String.init)
         if fullNameArr.count < 2 {
             alert(self, description: "Please enter a valid full name.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             return false
@@ -202,6 +207,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Validate major -- how can we do this?
         
         // Validate graduation year
+        print(self.graduation)
         if self.graduation != "2016" && self.graduation != "2017" && self.graduation != "2018" && self.graduation != "2019" && self.graduation != "2020" {
             print("Graduation \(self.graduation) is an invalid graduation date")
             alert(self, description: "Please enter a valid graduation date.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
