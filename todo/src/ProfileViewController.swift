@@ -87,15 +87,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
                     self.majorLabel.text = snapshot.value["Major"] as! String!
                     self.graduationLabel.text = "Class of " + (snapshot.value["Graduation Year"] as! String!)
                     self.numDotsLabel.text = String((snapshot.value["dots"] as? Int)!)
+                    
+                    self.name = self.nameLabel.text!
+                    self.major = self.majorLabel.text!
+                    self.graduation = self.graduationLabel.text!
+                    // self.numDots = Int(numDotsLabel.text!)!
+                    print("data has been fetched: \(self.major), \(self.graduation), \(self.numDots)")
                 }
             })
         }
         
-        self.name = nameLabel.text!
-        self.major = majorLabel.text!
-        self.graduation = graduationLabel.text!
-        // self.numDots = Int(numDotsLabel.text!)!
-        print("data has been fetched: \(major), \(graduation), \(numDots)")
+        
     }
     
     func hideEditing () {
@@ -138,6 +140,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Show text fields and button(s)
         self.nameTextField.hidden = false
         self.nameTextField.placeholder = self.name
+        
         self.majorTextField.hidden = false
         self.majorTextField.placeholder = self.major
         self.graduationTextField.hidden = false
