@@ -160,14 +160,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func saveInfo () -> Bool {
-//        self.name = self.nameTextField.text?.characters.count > 0 ? self.nameTextField.text! : self.name
         self.major = self.majorTextField.text?.characters.count > 0 ? self.majorTextField.text! : self.major
-        self.graduation = self.graduationTextField.text?.characters.count > 0 ? self.graduationTextField.text! : self.graduation
+        
         let valid:Bool = self.validateFields()
         
         // Save
         if valid {
-            self.name = self.nameTextField.text?.characters.count > 0 ? self.nameTextField.text! : self.name
+            self.graduation = self.graduationTextField.text!
+            self.name = self.nameTextField.text!
             
 //
             
@@ -207,14 +207,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Validate major -- how can we do this?
         
         // Validate graduation year
-        print(self.graduation)
-        if self.graduation != "2016" && self.graduation != "2017" && self.graduation != "2018" && self.graduation != "2019" && self.graduation != "2020" {
-            print("Graduation \(self.graduation) is an invalid graduation date")
-            alert(self, description: "Please enter a valid graduation date.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        if let year = Int(self.graduationTextField.text!){
+            if year < 2015 || year > 2021{
+                print("Graduation \(self.graduation) is an invalid graduation date")
+                alert(self, description: "Please enter a valid graduation date.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                return false
+            }else{
+                return true
+            }
+        }else{
+            alert(self, description: "Sammy you can't type things other than number for graduation", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             return false
         }
-        
-        return true
     }
     
     func adjustButtonFunctionality () {
