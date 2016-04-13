@@ -151,12 +151,10 @@ class NotificationsTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath) as! RequestNotificationTableViewCell
         
-        cell.dateLabel.text = current_notification.1
-        cell.messageLabel.text = current_notification.0
+        let dateArr = (current_notification.0).characters.split{$0 == ","}.map(String.init)
+        cell.dateLabel.text = (" \(dateArr[0]), \(dateArr[1])")
+        cell.messageLabel.text = current_notification.1
         cell.type.text = current_notification.2
-        
-        
-        
         
 //        lbl_title!.text = current_notification.1
 //        lbl_detail!.text = current_notification.0
