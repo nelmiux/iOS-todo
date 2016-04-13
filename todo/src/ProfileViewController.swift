@@ -87,15 +87,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
                     self.majorLabel.text = snapshot.value["Major"] as! String!
                     self.graduationLabel.text = "Class of " + (snapshot.value["Graduation Year"] as! String!)
                     self.numDotsLabel.text = String((snapshot.value["dots"] as? Int)!)
+                    
+                    self.name = self.nameLabel.text!
+                    self.major = self.majorLabel.text!
+                    self.graduation = self.graduationLabel.text!
+                    // self.numDots = Int(numDotsLabel.text!)!
+                    print("data has been fetched: \(self.major), \(self.graduation), \(self.numDots)")
                 }
             })
         }
         
-        self.name = nameLabel.text!
-        self.major = majorLabel.text!
-        self.graduation = graduationLabel.text!
-        // self.numDots = Int(numDotsLabel.text!)!
-        print("data has been fetched: \(major), \(graduation), \(numDots)")
+        
     }
     
     func hideEditing () {
@@ -138,6 +140,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Show text fields and button(s)
         self.nameTextField.hidden = false
         self.nameTextField.placeholder = self.name
+        
         self.majorTextField.hidden = false
         self.majorTextField.placeholder = self.major
         self.graduationTextField.hidden = false
@@ -157,13 +160,17 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func saveInfo () -> Bool {
-        self.name = self.nameTextField.text?.characters.count > 0 ? self.nameTextField.text! : self.name
         self.major = self.majorTextField.text?.characters.count > 0 ? self.majorTextField.text! : self.major
-        self.graduation = self.graduationTextField.text?.characters.count > 0 ? self.graduationTextField.text! : self.graduation
+        
         let valid:Bool = self.validateFields()
         
         // Save
         if valid {
+            self.graduation = self.graduationTextField.text!
+            self.name = self.nameTextField.text!
+            
+//
+            
             // Update global "user" variable
             let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
             user["firstName"] = fullNameArr[0]
@@ -190,7 +197,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func validateFields () -> Bool {
         // Validate name
-        let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
+//        let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
+        let fullNameArr = self.nameTextField.text!.characters.split{$0 == " "}.map(String.init)
         if fullNameArr.count < 2 {
             alert(self, description: "Please enter a valid full name.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             return false
@@ -199,13 +207,18 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Validate major -- how can we do this?
         
         // Validate graduation year
-        if self.graduation != "2016" && self.graduation != "2017" && self.graduation != "2018" && self.graduation != "2019" && self.graduation != "2020" {
-            print("Graduation \(self.graduation) is an invalid graduation date")
-            alert(self, description: "Please enter a valid graduation date.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        if let year = Int(self.graduationTextField.text!){
+            if year < 2015 || year > 2021{
+                print("Graduation \(self.graduation) is an invalid graduation date")
+                alert(self, description: "Please enter a valid graduation date.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                return false
+            }else{
+                return true
+            }
+        }else{
+            alert(self, description: "Sammy you can't type things other than number for graduation", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             return false
         }
-        
-        return true
     }
     
     func adjustButtonFunctionality () {
