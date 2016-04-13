@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellId" rowHeight="106" id="uaf-f0-ei0" customClass="RequestNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellId" rowHeight="106" id="uaf-f0-ei0" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="414" height="106"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uaf-f0-ei0" id="akV-fO-o8Z">
@@ -51,9 +51,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="dateLabel" destination="3NN-rY-3Dr" id="G2J-jc-qAO"/>
-                                    <outlet property="messageLabel" destination="Hzt-lV-hpI" id="Xyn-DU-vvG"/>
-                                    <outlet property="type" destination="ebP-oO-E65" id="nI5-QO-kYl"/>
+                                    <outlet property="dateLabel" destination="3NN-rY-3Dr" id="JRJ-LL-E5y"/>
+                                    <outlet property="messageLabel" destination="Hzt-lV-hpI" id="8Cn-59-vMJ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
