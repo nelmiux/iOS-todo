@@ -115,16 +115,10 @@ class NotificationsTableViewController: UITableViewController {
         return notifications.count
     }
     
-    override func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
+    /* override func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
     {
-//        let currNotification = notifications["Date"]
-//        if (currNotification.getType() == "single request"){
-//            return 80
-//        } else {
-//            return 65
-//        }
-        return 80
-    }
+        // Programatically set the height of the cell
+    } */
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 //            
