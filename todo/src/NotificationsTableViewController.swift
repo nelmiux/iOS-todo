@@ -115,16 +115,10 @@ class NotificationsTableViewController: UITableViewController {
         return notifications.count
     }
     
-    override func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
+    /* override func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
     {
-//        let currNotification = notifications["Date"]
-//        if (currNotification.getType() == "single request"){
-//            return 80
-//        } else {
-//            return 65
-//        }
-        return 80
-    }
+        // Programatically set the height of the cell
+    } */
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 //            
@@ -149,14 +143,12 @@ class NotificationsTableViewController: UITableViewController {
         /*  For now, just  throw everything out there, as a standard notification  */
         let current_notification:(String,String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row],notificationCopy.2[indexPath.row])
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath) as! StandardNotificationTableViewCell
         
-        cell.dateLabel.text = current_notification.1
-        cell.messageLabel.text = current_notification.0
-        cell.type.text = current_notification.2
-        
-        
-        
+        let dateArr = (current_notification.0).characters.split{$0 == ","}.map(String.init)
+        cell.dateLabel.text = (" \(dateArr[0]), \(dateArr[1])")
+        cell.messageLabel.text = current_notification.1
+        // cell.type.text = current_notification.2
         
 //        lbl_title!.text = current_notification.1
 //        lbl_detail!.text = current_notification.0

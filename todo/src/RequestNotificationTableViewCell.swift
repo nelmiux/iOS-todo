@@ -10,8 +10,8 @@ import UIKit
 
 class RequestNotificationTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     
     @IBOutlet weak var type: UILabel!
     override func awakeFromNib() {
@@ -24,5 +24,14 @@ class RequestNotificationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    @IBAction func onClickAccept(sender: AnyObject) {
+    }
+    
+    @IBAction func onClickReject(sender: AnyObject) {
+    }
+    
+    @IBAction func onClickContact(sender: AnyObject) {
+    }
+    
 }
