@@ -13,6 +13,8 @@
             <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -25,8 +27,82 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="requestCell" rowHeight="151" id="VHe-4m-IxZ" customClass="RequestNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="151"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VHe-4m-IxZ" id="CUh-3i-FxU">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRg-wb-qS9">
+                                            <rect key="frame" x="356" y="50" width="50" height="28"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwC-Bq-8oc">
+                                            <rect key="frame" x="8" y="43" width="398" height="71"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRu-5s-Dm8">
+                                            <rect key="frame" x="53" y="120" width="68" height="30"/>
+                                            <state key="normal" title="Accept"/>
+                                            <connections>
+                                                <action selector="onClickAccept:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="b1R-U6-HLm"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbD-b9-Pwk">
+                                            <rect key="frame" x="176" y="120" width="59" height="30"/>
+                                            <state key="normal" title="Reject"/>
+                                            <connections>
+                                                <action selector="onClickReject:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="2JV-Tv-KWI"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmT-nn-T4q">
+                                            <rect key="frame" x="293" y="120" width="70" height="30"/>
+                                            <state key="normal" title="Contact"/>
+                                            <connections>
+                                                <action selector="onClickContact:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="jxR-lN-KhL"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="date" text="Date" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k88-JV-4fV">
+                                            <rect key="frame" x="0.0" y="7" width="414" height="28"/>
+                                            <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="LCx-Fg-mkj"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="mmT-nn-T4q" secondAttribute="bottom" constant="-8" id="3AE-Gh-6Yg"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="mmT-nn-T4q" secondAttribute="trailing" constant="43" id="7mf-ya-lX6"/>
+                                        <constraint firstItem="dwC-Bq-8oc" firstAttribute="top" secondItem="k88-JV-4fV" secondAttribute="bottom" constant="10" id="9EV-3f-rsO"/>
+                                        <constraint firstItem="dwC-Bq-8oc" firstAttribute="trailing" secondItem="CUh-3i-FxU" secondAttribute="trailingMargin" id="9Y2-hc-NDs"/>
+                                        <constraint firstItem="sbD-b9-Pwk" firstAttribute="leading" secondItem="HRu-5s-Dm8" secondAttribute="trailing" constant="55" id="N8l-Xb-h9H"/>
+                                        <constraint firstItem="HRu-5s-Dm8" firstAttribute="leading" secondItem="CUh-3i-FxU" secondAttribute="leadingMargin" constant="45" id="Y8v-LR-lvh"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dwC-Bq-8oc" secondAttribute="bottom" constant="23" id="c2f-eq-KrP"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="sbD-b9-Pwk" secondAttribute="bottom" constant="-8" id="cWW-p0-KsC"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="HRu-5s-Dm8" secondAttribute="bottom" constant="-8" id="etr-4w-Onk"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="k88-JV-4fV" secondAttribute="trailing" constant="-8" id="fhF-dd-3Ya"/>
+                                        <constraint firstItem="k88-JV-4fV" firstAttribute="top" secondItem="CUh-3i-FxU" secondAttribute="topMargin" constant="-3" id="iAA-sP-07T"/>
+                                        <constraint firstItem="HRu-5s-Dm8" firstAttribute="top" secondItem="dwC-Bq-8oc" secondAttribute="bottom" constant="6" id="iWY-00-Chq"/>
+                                        <constraint firstItem="dwC-Bq-8oc" firstAttribute="leading" secondItem="CUh-3i-FxU" secondAttribute="leadingMargin" id="ids-u5-7ks"/>
+                                        <constraint firstItem="mmT-nn-T4q" firstAttribute="top" secondItem="dwC-Bq-8oc" secondAttribute="bottom" constant="6" id="mEl-kB-dFR"/>
+                                        <constraint firstItem="sbD-b9-Pwk" firstAttribute="top" secondItem="dwC-Bq-8oc" secondAttribute="bottom" constant="6" id="rPN-Bd-pbH"/>
+                                        <constraint firstItem="mmT-nn-T4q" firstAttribute="leading" secondItem="sbD-b9-Pwk" secondAttribute="trailing" constant="58" id="uWw-c2-BE4"/>
+                                        <constraint firstItem="k88-JV-4fV" firstAttribute="leading" secondItem="CUh-3i-FxU" secondAttribute="leadingMargin" constant="-8" id="yG5-4z-zEC"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="k88-JV-4fV" id="gBJ-AK-I90"/>
+                                    <outlet property="messageLabel" destination="dwC-Bq-8oc" id="xfg-uR-GCv"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellId" rowHeight="128" id="uaf-f0-ei0" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="243" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uaf-f0-ei0" id="akV-fO-o8Z">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
@@ -47,7 +123,7 @@
                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzt-lV-hpI">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzt-lV-hpI">
                                             <rect key="frame" x="8" y="43" width="398" height="74"/>
                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
                                             <nil key="highlightedColor"/>
