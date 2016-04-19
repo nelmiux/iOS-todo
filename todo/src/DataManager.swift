@@ -151,8 +151,11 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 user["location"] = ""
                 user["cancel"] = ""
                 newUserRef.setValue(user)
-                getFirebase("notifications/").updateChildValues([inputs["Username"]!: ""])
-                getFirebase("history/").updateChildValues([inputs["Username"]!: ""])
+                let notice = "created: User created"
+                let date = getDateTime()
+                notifications[date] = notice
+                getFirebase("notifications/").updateChildValues([inputs["Username"]!: [date: notice]])
+                getFirebase("history/").updateChildValues([inputs["Username"]!: [date: notice]])
                 updateCourses(courses)
                 print("Successfully created user account with username: \(inputs["Username"]!)")
                 alert(view, description: "Congrats! You are ready to start using todo.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
