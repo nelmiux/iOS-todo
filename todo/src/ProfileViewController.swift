@@ -166,11 +166,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         
         // Save
         if valid {
-            self.graduation = self.graduationTextField.text!
-            self.name = self.nameTextField.text!
-            
-//
-            
             // Update global "user" variable
             let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
             user["firstName"] = fullNameArr[0]
@@ -179,7 +174,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             user["graduationYear"] = self.graduation
             
             if self.newPhotoString != nil {
+                // Update then revert photo string
                 user["photoString"] = self.newPhotoString
+                self.newPhotoString = nil
             }
             
             // Update Firebase
@@ -197,28 +194,33 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func validateFields () -> Bool {
         // Validate name
-//        let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
         let fullNameArr = self.nameTextField.text!.characters.split{$0 == " "}.map(String.init)
-        if fullNameArr.count < 2 {
-            alert(self, description: "Please enter a valid full name.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        if nameTextField.text!.characters.count > 1 && fullNameArr.count != 2{
+            alert(self, description: "Please enter a valid first and last name.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             return false
+        } else if nameTextField.text!.characters.count > 1 && fullNameArr.count == 2 {
+            self.name = self.nameTextField.text!
         }
         
         // Validate major -- how can we do this?
         
         // Validate graduation year
-        if let year = Int(self.graduationTextField.text!){
-            if year < 2015 || year > 2021{
-                print("Graduation \(self.graduation) is an invalid graduation date")
-                alert(self, description: "Please enter a valid graduation date.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        if self.graduationTextField.text?.characters.count > 0 {
+            if let year = Int(self.graduationTextField.text!){
+                if year < 2015 || year > 2021{
+                    print("Graduation \(self.graduation) is an invalid graduation date")
+                    alert(self, description: "Please enter the expected year of your graduation.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    return false
+                } else {
+                    self.graduation = self.graduationTextField.text!
+                    return true
+                }
+            } else{
+                alert(self, description: "Please enter the expected year of your graduation.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 return false
-            }else{
-                return true
             }
-        }else{
-            alert(self, description: "Sammy you can't type things other than number for graduation", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            return false
         }
+        return true
     }
     
     func adjustButtonFunctionality () {
@@ -254,6 +256,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     @IBAction func onClickEmail(sender: AnyObject) {
+        let email = "foo@bar.com"
+        let url = NSURL(string: "mailto:\(email)")
+        UIApplication.sharedApplication().openURL(url!)
     }
     
     @IBAction func onClickRightBarButton(sender: AnyObject) {
@@ -273,9 +278,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             self.textFieldShouldReturn(self.nameTextField)
             self.textFieldShouldReturn(self.majorTextField)
             self.textFieldShouldReturn(self.graduationTextField)
-            
-            // Revert photo string
-            self.newPhotoString = nil
         }
     }
     

@@ -650,6 +650,8 @@ func getUserPhoto(username:String, imageView:UIImageView? = nil) {
     let userRef = getFirebase("users/" + username)
     userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
         if !(snapshot.value is NSNull) {
+            print("snapshot:")
+            print(snapshot.value)
             let photoString = snapshot.value["Photo String"] as! String
             if imageView != nil {
                 imageView!.image = decodePhoto(photoString)
