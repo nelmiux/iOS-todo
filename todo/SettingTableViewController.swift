@@ -49,11 +49,12 @@ class SettingTableViewController: UITableViewController {
             
         case "password"?:
             print("in password cell")
-            promptChangePassword()
+            promptChangeInfo("password")
             break;
             
         case "email"?:
             print("in email cell")
+            promptChangeInfo("email")
             break;
             
             
@@ -64,26 +65,60 @@ class SettingTableViewController: UITableViewController {
         
     }
 
-    private func promptChangePassword(){
-        var oldPassword: UITextField!
-        var newPassword: UITextField!
+    private func promptChangeInfo(info:String){
+        var old: UITextField!
+        var new: UITextField!
         
-        func oldPasswordTextField(textField: UITextField!)
+        var passwordEmail: UITextField!
+        
+        func oldTextField(textField: UITextField!)
         {
-            textField.placeholder = "oldPassword"
-            oldPassword = textField
+            textField.placeholder = "old"
+            old = textField
         }
-        func newPasswordTextField(textField: UITextField!)
+        func newTextField(textField: UITextField!)
         {
-            textField.placeholder = "newPassword"
-            newPassword = textField
+            textField.placeholder = "new"
+            new = textField
         }
+        func passwordEmailTextField(textField: UITextField!)
+        {
+            textField.placeholder = "password"
+            passwordEmail = textField
+        }
+        
         let alert = UIAlertController(title: "Enter Input", message: "", preferredStyle: UIAlertControllerStyle.Alert)
         
-        alert.addTextFieldWithConfigurationHandler(oldPasswordTextField)
-        alert.addTextFieldWithConfigurationHandler(newPasswordTextField)
+        alert.addTextFieldWithConfigurationHandler(oldTextField)
+        alert.addTextFieldWithConfigurationHandler(newTextField)
+        if(info == "email"){
+            alert.addTextFieldWithConfigurationHandler(passwordEmailTextField)
+        }
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction) in
-            modifyPassword(self, oldPassword: oldPassword.text!,  newPassword: newPassword.text!, userEmail: (user["email"] as? String)!)
+            switch info{
+            case "username":
+                /* TODO: Add email */
+                break;
+            case "password":
+                modifyPassword(self, oldPassword: old.text!,  newPassword: new.text!, userEmail: (user["email"] as? String)!)
+                /* TODO: update local dictionary */
+                /* TODO: update firebase */
+                break;
+            case "email":
+                modifyEmail(self, originalEmail: old.text!, modifiedEmail: new.text!, password: passwordEmail.text!)
+                /* TODO: update local dictionary */
+                /* TODO: update firebase */
+                break;
+            default:
+                print("neither")
+            }
+            
+            
+            
+            
+            
+            
+            
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:nil))
         self.presentViewController(alert, animated: true, completion: {
