@@ -13,6 +13,8 @@
 		87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3361CAB90F7009261CC /* SpentDotsBg.png */; };
 		87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3371CAB90F7009261CC /* GainedDotsBg.png */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
+		C6FE54001CC9C4060042E585 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */; };
+		C6FE54021CC9C4410042E585 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6FE54011CC9C4410042E585 /* Settings.storyboard */; };
 		CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */; };
 		CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */; };
 		CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */; };
@@ -34,7 +36,6 @@
 		CA7B013D1C9509530001D0F4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01321C9509530001D0F4 /* Home.storyboard */; };
 		CA7B013E1C9509530001D0F4 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01341C9509530001D0F4 /* Notifications.storyboard */; };
 		CA7B013F1C9509530001D0F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01361C9509530001D0F4 /* Profile.storyboard */; };
-		CA7B01401C9509530001D0F4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01381C9509530001D0F4 /* Settings.storyboard */; };
 		CA7B01411C9509530001D0F4 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B013A1C9509530001D0F4 /* SignUp.storyboard */; };
 		CA7B016D1C9515D40001D0F4 /* LoginScreenBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01681C9515D40001D0F4 /* LoginScreenBg.jpg */; };
 		CA7B016E1C9515D40001D0F4 /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01691C9515D40001D0F4 /* LoginButton.png */; };
@@ -137,6 +138,8 @@
 		87D0E3371CAB90F7009261CC /* GainedDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GainedDotsBg.png; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		C6FE54011CC9C4410042E585 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterStartSessionViewController.swift; path = src/RequesterStartSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterTutoringSessionViewController.swift; path = src/RequesterTutoringSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorTutoringSessionViewController.swift; path = src/TutorTutoringSessionViewController.swift; sourceTree = "<group>"; };
@@ -158,7 +161,6 @@
 		CA7B01331C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		CA7B01351C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notifications.storyboard; sourceTree = "<group>"; };
 		CA7B01371C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
-		CA7B01391C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		CA7B013B1C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
 		CA7B01681C9515D40001D0F4 /* LoginScreenBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LoginScreenBg.jpg; path = images/Login/LoginScreenBg.jpg; sourceTree = "<group>"; };
 		CA7B01691C9515D40001D0F4 /* LoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoginButton.png; path = images/Login/LoginButton.png; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 		8782F70B1C8D3EE300922859 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				C6FE54011CC9C4410042E585 /* Settings.storyboard */,
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
 				CAC137C21C85548B00586487 /* Main.storyboard */,
 				CA7B013A1C9509530001D0F4 /* SignUp.storyboard */,
@@ -304,7 +307,6 @@
 				CA7B01301C9509530001D0F4 /* History.storyboard */,
 				CA7B01341C9509530001D0F4 /* Notifications.storyboard */,
 				CA7B01361C9509530001D0F4 /* Profile.storyboard */,
-				CA7B01381C9509530001D0F4 /* Settings.storyboard */,
 			);
 			name = storyboards;
 			sourceTree = "<group>";
@@ -368,6 +370,7 @@
 				CA7B01871C951AF20001D0F4 /* StreamReader.swift */,
 				CA7B01781C951AF20001D0F4 /* DataManager.swift */,
 				CA040A941CA32EA900E06C37 /* CourseSelectionProtocol.swift */,
+				C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -678,7 +681,6 @@
 				CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */,
 				CAC137D01C855D8E00586487 /* History Example.png in Resources */,
 				CAC137D51C855D8E00586487 /* user3.png in Resources */,
-				CA7B01401C9509530001D0F4 /* Settings.storyboard in Resources */,
 				CA7B013E1C9509530001D0F4 /* Notifications.storyboard in Resources */,
 				CA7B013C1C9509530001D0F4 /* History.storyboard in Resources */,
 				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
@@ -704,6 +706,7 @@
 				CA7B016E1C9515D40001D0F4 /* LoginButton.png in Resources */,
 				CA7B01A81C951CCC0001D0F4 /* UTCS_Course_schedule.txt in Resources */,
 				CA7B013F1C9509530001D0F4 /* Profile.storyboard in Resources */,
+				C6FE54021CC9C4410042E585 /* Settings.storyboard in Resources */,
 				CA7B00DC1C9505FF0001D0F4 /* LoginScreenBg2.jpg in Resources */,
 				CA7B01A51C951CCC0001D0F4 /* UTCSCourses.json in Resources */,
 				CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */,
@@ -805,6 +808,7 @@
 				CAB160971CB3537600C0FD41 /* TimerAndDotsCounter.swift in Sources */,
 				CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */,
 				CA7B01C81C980D0A0001D0F4 /* RequestHelpViewController.swift in Sources */,
+				C6FE54001CC9C4060042E585 /* SettingTableViewController.swift in Sources */,
 				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,
 				CAB160A71CB861C100C0FD41 /* RegistrationTableViewController.swift in Sources */,
 				CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */,
@@ -885,14 +889,6 @@
 				CA7B01371C9509530001D0F4 /* Base */,
 			);
 			name = Profile.storyboard;
-			sourceTree = "<group>";
-		};
-		CA7B01381C9509530001D0F4 /* Settings.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA7B01391C9509530001D0F4 /* Base */,
-			);
-			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 		CA7B013A1C9509530001D0F4 /* SignUp.storyboard */ = {
