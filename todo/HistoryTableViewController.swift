@@ -27,8 +27,10 @@ class HistoryTableViewController: UITableViewController {
         var keys = [String]()
         var vals = [String]()
         for date in history.keys {
-            keys.append(date as String!)
-            vals.append(history[date] as String!)
+            if (history[date] as String!).rangeOfString("created") == nil {
+                keys.append(date as String!)
+                vals.append(history[date] as String!)
+            }
         }
         
         self.data.0 = keys
@@ -52,7 +54,7 @@ class HistoryTableViewController: UITableViewController {
         
         // Populate with general data regardless of tutor vs requestor.
         let parsedData = self.parseData(indexPath.row)
-        let role = parsedData["role"]
+        let role = parsedData["role"]!
         let involvedUser = parsedData["involvedUser"] as String!
         cell.setUser(involvedUser)
         cell.dateLabel.text = parsedData["date"]

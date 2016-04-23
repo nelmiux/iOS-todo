@@ -82,17 +82,19 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         dispatch_barrier_sync(concurrentDataAccessQueue) {
             userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if !(snapshot.value is NSNull) {
-                    let wholeName = (snapshot.value["First Name"] as! String!) + " " + (snapshot.value["Last Name"] as! String!)
-                    self.nameLabel.text = wholeName
-                    self.majorLabel.text = snapshot.value["Major"] as! String!
-                    self.graduationLabel.text = "Class of " + (snapshot.value["Graduation Year"] as! String!)
-                    self.numDotsLabel.text = String((snapshot.value["dots"] as? Int)!)
+                    if var wholeName = (snapshot.value["First Name"] as? String) {
+                        wholeName = (snapshot.value["First Name"] as? String)! + " " + (snapshot.value["Last Name"] as? String)!
+                        self.nameLabel.text = wholeName
+                        self.majorLabel.text = snapshot.value["Major"] as! String!
+                        self.graduationLabel.text = "Class of " + (snapshot.value["Graduation Year"] as! String!)
+                        self.numDotsLabel.text = String((snapshot.value["dots"] as? Int)!)
                     
-                    self.name = self.nameLabel.text!
-                    self.major = self.majorLabel.text!
-                    self.graduation = self.graduationLabel.text!
-                    // self.numDots = Int(numDotsLabel.text!)!
-                    print("data has been fetched: \(self.major), \(self.graduation), \(self.numDots)")
+                        self.name = self.nameLabel.text!
+                        self.major = self.majorLabel.text!
+                        self.graduation = self.graduationLabel.text!
+                        // self.numDots = Int(numDotsLabel.text!)!
+                        print("data has been fetched: \(self.major), \(self.graduation), \(self.numDots)")
+                    }
                 }
             })
         }
