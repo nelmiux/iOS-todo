@@ -351,7 +351,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
                 "Username": self.usernameText.text!,
                 "Password": self.passwordText.text!,
                 "Major": self.majorText.text!,
-                "Graduation Year": self.majorText.text!]
+                "Graduation Year": self.gYearText.text!]
             
             
             // If the input is VALID, create user and persist to Firebase
