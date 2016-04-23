@@ -624,7 +624,45 @@ func logOutUser () {
     let username = (user["username"] as! String)
     let currUserRef = getFirebase("users/" + username)
     currUserRef.updateChildValues(["lastLogin": date])
-    history = Dictionary<String, String>()
+    
+    user["firstName"] = ""
+    user["lastName"] = ""
+    user["username"] = ""
+    user["password"] = ""
+    user["email"] = ""
+    user["major"] = ""
+    user["graduationYear"] = ""
+    user["photoString"] = ""
+    user["courses"] = []
+    user["dots"] = ""
+    user["earned"] = ""
+    user["paid"] = ""
+    user["lastLogin"] = ""
+    user["requesterUsername"] = ""
+    user["requesterPhoto"] = ""
+    user["requesterCourse"] = ""
+    user["requesterDescription"] = ""
+    user["requesterLocation"] = ""
+    user["pairedUsername"] = ""
+    user["pairedPhoto"] = ""
+    user["start"] = ""
+    user["finish"] = ""
+    user["location"] = ""
+    user["cancel"] = ""
+    
+    requester["username"] = ""
+    requester["photoString"] = ""
+    requester["course"] = ""
+    requester["description"] = ""
+    requester["location"] = ""
+    
+    paired["photoString"] = ""
+    paired["username"] = ""
+    paired["course"] = ""
+    
+    notifications.removeAll()
+    history.removeAll()
+
     rootRef.unauth()
 }
 
