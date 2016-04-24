@@ -1,8 +1,5 @@
 # Todo
 
-## Status
-![Build Status](https://travis-ci.org/iOS-Mobile-Dev/todo.svg?branch=dev)
-
 # Tasks list
 
 - [X] BrainStorm
