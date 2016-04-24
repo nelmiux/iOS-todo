@@ -12,10 +12,7 @@
 - [X] Create a Paper or Digital Prototype
 - [X] Design UI/UX Components
 - [X] Get User Feedback
-- [ ] Build the App
-- [ ] Test
-- [ ] Pulish and Prepare for Submution/Presentation/Store
-- [ ] Pulish Documentation
-- [ ] Advertise
-- [ ] Test and Get Feedback <----> Find and Fix Bugs and Documentation
+- [X] Build the App
+- [ ] Test and Get Feedback <----> Find and Fix Bugs
+- [ ] Pulish and Prepare for Submission/Presentation
 
