@@ -1,6 +1,6 @@
 # Todo
 
-# Tasks list
+## Tasks list
 
 - [X] BrainStorm
 - [X] Create a Skeleton UI
