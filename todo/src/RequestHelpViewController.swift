@@ -47,7 +47,6 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
             
         })
         self.data = self.toStringArrayFrom(allCourses)
-        
         if sender.text! == "" || sender.text == nil{
             self.data = self.toStringArrayFrom(allCourses)
             self.filterData = self.data
