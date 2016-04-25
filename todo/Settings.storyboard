@@ -47,14 +47,14 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VeK-wN-4Wk">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VeK-wN-4Wk">
                                                     <rect key="frame" x="345" y="8" width="69" height="29"/>
                                                     <segments>
                                                         <segment title="On"/>
                                                         <segment title="Off"/>
                                                     </segments>
                                                 </segmentedControl>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Offline" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y6-Kc-5zF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Tutoring Mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y6-Kc-5zF">
                                                     <rect key="frame" x="0.0" y="12" width="189" height="24"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,9 +62,8 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="dRb-gQ-vHE" firstAttribute="leading" secondItem="Uth-6X-fwW" secondAttribute="leadingMargin" constant="4" id="BP1-WI-3Ky"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="VeK-wN-4Wk" secondAttribute="trailing" constant="4" id="cve-r5-14Z"/>
-                                                <constraint firstItem="2Y6-Kc-5zF" firstAttribute="leading" secondItem="Uth-6X-fwW" secondAttribute="leadingMargin" constant="4" id="nyg-AW-q1C"/>
+                                                <constraint firstItem="dRb-gQ-vHE" firstAttribute="leading" secondItem="Uth-6X-fwW" secondAttribute="leadingMargin" constant="12" id="UVL-ie-4mY"/>
+                                                <constraint firstItem="2Y6-Kc-5zF" firstAttribute="leading" secondItem="Uth-6X-fwW" secondAttribute="leadingMargin" constant="12" id="ium-TP-xZQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
