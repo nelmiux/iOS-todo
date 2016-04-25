@@ -176,6 +176,10 @@ func modifyEmail(view: AnyObject, originalEmail: String, modifiedEmail: String, 
             print(error)
             // There was an error processing the request
         } else {
+            user["email"] = modifiedEmail
+            let username = (user["username"] as! String)
+            let currUserRef = getFirebase("users/" + username)
+            currUserRef.updateChildValues(["Email Address": modifiedEmail])
             print("Email changed successfully")
             
             /** TODO: Display Alert View **/
@@ -191,6 +195,11 @@ func modifyPassword(view: AnyObject, oldPassword:String, newPassword:String, use
             print(error)
             // There was an error processing the request
         } else {
+            user["password"] = newPassword
+            let username = (user["username"] as! String)
+            let currUserRef = getFirebase("users/" + username)
+            currUserRef.updateChildValues(["Password": newPassword])
+
             print("Password changed successfully")
             
             /** TODO: Display Alert View **/
