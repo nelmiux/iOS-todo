@@ -176,6 +176,10 @@ func modifyEmail(view: AnyObject, originalEmail: String, modifiedEmail: String, 
             print(error)
             // There was an error processing the request
         } else {
+            user["email"] = modifiedEmail
+            let username = (user["username"] as! String)
+            let currUserRef = getFirebase("users/" + username)
+            currUserRef.updateChildValues(["Email Address": modifiedEmail])
             print("Email changed successfully")
             
             /** TODO: Display Alert View **/
@@ -191,6 +195,11 @@ func modifyPassword(view: AnyObject, oldPassword:String, newPassword:String, use
             print(error)
             // There was an error processing the request
         } else {
+            user["password"] = newPassword
+            let username = (user["username"] as! String)
+            let currUserRef = getFirebase("users/" + username)
+            currUserRef.updateChildValues(["Password": newPassword])
+
             print("Password changed successfully")
             
             /** TODO: Display Alert View **/
@@ -624,7 +633,45 @@ func logOutUser () {
     let username = (user["username"] as! String)
     let currUserRef = getFirebase("users/" + username)
     currUserRef.updateChildValues(["lastLogin": date])
-    history = Dictionary<String, String>()
+    
+    user["firstName"] = ""
+    user["lastName"] = ""
+    user["username"] = ""
+    user["password"] = ""
+    user["email"] = ""
+    user["major"] = ""
+    user["graduationYear"] = ""
+    user["photoString"] = ""
+    user["courses"] = []
+    user["dots"] = ""
+    user["earned"] = ""
+    user["paid"] = ""
+    user["lastLogin"] = ""
+    user["requesterUsername"] = ""
+    user["requesterPhoto"] = ""
+    user["requesterCourse"] = ""
+    user["requesterDescription"] = ""
+    user["requesterLocation"] = ""
+    user["pairedUsername"] = ""
+    user["pairedPhoto"] = ""
+    user["start"] = ""
+    user["finish"] = ""
+    user["location"] = ""
+    user["cancel"] = ""
+    
+    requester["username"] = ""
+    requester["photoString"] = ""
+    requester["course"] = ""
+    requester["description"] = ""
+    requester["location"] = ""
+    
+    paired["photoString"] = ""
+    paired["username"] = ""
+    paired["course"] = ""
+    
+    notifications.removeAll()
+    history.removeAll()
+
     rootRef.unauth()
 }
 
@@ -650,13 +697,14 @@ func getUserPhoto(username:String, imageView:UIImageView? = nil) {
     let userRef = getFirebase("users/" + username)
     userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
         if !(snapshot.value is NSNull) {
-            print("snapshot:")
-            print(snapshot.value)
-            let photoString = snapshot.value["Photo String"] as! String
-            if imageView != nil {
-                imageView!.image = decodePhoto(photoString)
-            } else {
-                tempUserPhoto = decodePhoto(photoString)
+            //print("snapshot:")
+            //print(snapshot.value)
+            if let photoString = snapshot.value["Photo String"] as? String {
+                if imageView != nil {
+                    imageView!.image = decodePhoto(photoString)
+                } else {
+                    tempUserPhoto = decodePhoto(photoString)
+                }
             }
             removeObservers(userRef)
         }

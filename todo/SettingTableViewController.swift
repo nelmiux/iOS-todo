@@ -40,12 +40,6 @@ class SettingTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         switch cell?.reuseIdentifier!{
-        case "username"? :
-            print("in username cell")
-            
-            
-            break;
-            
             
         case "password"?:
             print("in password cell")
@@ -56,7 +50,6 @@ class SettingTableViewController: UITableViewController {
             print("in email cell")
             promptChangeInfo("email")
             break;
-            
             
         default:
             print("neither")
@@ -96,18 +89,11 @@ class SettingTableViewController: UITableViewController {
         }
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction) in
             switch info{
-            case "username":
-                /* TODO: Add email */
-                break;
             case "password":
                 modifyPassword(self, oldPassword: old.text!,  newPassword: new.text!, userEmail: (user["email"] as? String)!)
-                /* TODO: update local dictionary */
-                /* TODO: update firebase */
                 break;
             case "email":
                 modifyEmail(self, originalEmail: old.text!, modifiedEmail: new.text!, password: passwordEmail.text!)
-                /* TODO: update local dictionary */
-                /* TODO: update firebase */
                 break;
             default:
                 print("neither")
