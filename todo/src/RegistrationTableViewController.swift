@@ -17,7 +17,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
     private var keyboardHeight:CGFloat = 0.0
     private var activeField: UITextField?
     private let imagePicker = UIImagePickerController()
-    private var data = lowerDivisionCourses
+    private var data:[String] = []
     private var filterData = [String]()
     private var coursesListViewController: CoursesListView? = nil
     private var referenceFrame:CGRect? = nil
@@ -187,8 +187,11 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
             allCourses = snapshot.value as! Dictionary<String, String>
             }, withCancelBlock: { error in
                 print(error.description)
+            
+            print("Loading all courses")
         })
-
+        
+        self.data = self.toStringArrayFrom(allCourses)
         if sender.text == nil || sender.text! == "" {
             self.data = self.toStringArrayFrom(allCourses)
             self.filterData = self.data
