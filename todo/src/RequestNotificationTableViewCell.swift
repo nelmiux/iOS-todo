@@ -26,12 +26,15 @@ class RequestNotificationTableViewCell: UITableViewCell {
     }
     
     @IBAction func onClickAccept(sender: AnyObject) {
+        print("Clicked accept")
     }
     
     @IBAction func onClickReject(sender: AnyObject) {
+        print("Clicked reject")
     }
     
     @IBAction func onClickContact(sender: AnyObject) {
+        print("Clicked contact")
     }
     
 }

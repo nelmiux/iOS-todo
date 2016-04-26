@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="requestCell" rowHeight="151" id="VHe-4m-IxZ" customClass="RequestNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="requestCell" rowHeight="151" id="VHe-4m-IxZ" customClass="RequestNotificationTableViewCell" customModule="todo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="414" height="151"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VHe-4m-IxZ" id="CUh-3i-FxU">
@@ -101,7 +101,7 @@
                                     <outlet property="messageLabel" destination="dwC-Bq-8oc" id="xfg-uR-GCv"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="standardCell" rowHeight="128" id="uaf-f0-ei0" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="standardCell" rowHeight="128" id="uaf-f0-ei0" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="243" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uaf-f0-ei0" id="akV-fO-o8Z">

@@ -9,8 +9,8 @@
 import UIKit
 
 class NotificationsTableViewController: UITableViewController {
-
-    private var isDataLoaded:Bool = false
+    
+    private let standardNotifications:[String] = ["request", "acceptance", "cancelledSession", "balanceUpdate"]
     
     var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
@@ -69,7 +69,7 @@ class NotificationsTableViewController: UITableViewController {
     } */
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath)
         
         let current_notification:(String,String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row],notificationCopy.2[indexPath.row])
         
@@ -77,13 +77,16 @@ class NotificationsTableViewController: UITableViewController {
         let type = current_notification.1
         let message = current_notification.2
         
-        if type == "" {
-            
-        } else {
+        if standardNotifications.contains(type) {
             let standardCell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath) as! StandardNotificationTableViewCell
             standardCell.dateLabel.text = self.parseDate(date)
             standardCell.messageLabel.text = message
             return standardCell
+        } else if type == "singleRequest" {
+            let requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+            requestCell.dateLabel.text = self.parseDate(date)
+            requestCell.messageLabel.text = message
+            return requestCell
         }
         
         return cell
