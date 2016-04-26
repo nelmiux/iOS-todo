@@ -10,8 +10,11 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
 
+    @IBOutlet weak var lbl_email: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        lbl_email.text = user["email"] as? String
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,18 +37,12 @@ class SettingTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 6
+        return 7
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         switch cell?.reuseIdentifier!{
-        case "username"? :
-            print("in username cell")
-            
-            
-            break;
-            
             
         case "password"?:
             print("in password cell")
@@ -57,6 +54,15 @@ class SettingTableViewController: UITableViewController {
             promptChangeInfo("email")
             break;
             
+        case "reset_Notification"?:
+            print("In reset notification")
+            clearNotification()
+            break;
+            
+        case "reset_History"?:
+            print("In reset history")
+            clearHistory()
+            break;
             
         default:
             print("neither")
@@ -74,16 +80,22 @@ class SettingTableViewController: UITableViewController {
         func oldTextField(textField: UITextField!)
         {
             textField.placeholder = "old"
+            textField.secureTextEntry = true
+
             old = textField
         }
         func newTextField(textField: UITextField!)
         {
             textField.placeholder = "new"
+            textField.secureTextEntry = true
+
             new = textField
         }
         func passwordEmailTextField(textField: UITextField!)
         {
             textField.placeholder = "password"
+            textField.secureTextEntry = true
+
             passwordEmail = textField
         }
         
@@ -96,31 +108,28 @@ class SettingTableViewController: UITableViewController {
         }
         alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction) in
             switch info{
-            case "username":
-                /* TODO: Add email */
-                break;
             case "password":
                 modifyPassword(self, oldPassword: old.text!,  newPassword: new.text!, userEmail: (user["email"] as? String)!)
-                /* TODO: update local dictionary */
-                /* TODO: update firebase */
+                self.displayMessage("Password")
                 break;
             case "email":
                 modifyEmail(self, originalEmail: old.text!, modifiedEmail: new.text!, password: passwordEmail.text!)
-                /* TODO: update local dictionary */
-                /* TODO: update firebase */
+                self.lbl_email.text = new.text!
+                self.displayMessage("Email")
                 break;
             default:
                 print("neither")
             }
             
-            
-            
-            
-            
-            
-            
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler:nil))
+        self.presentViewController(alert, animated: true, completion: {
+        })
+    }
+    
+    private func displayMessage(info:String){
+        let alert = UIAlertController(title: info, message: "Success", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:nil))
         self.presentViewController(alert, animated: true, completion: {
         })
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, CourseSelectionProtocol {
     
-    var data = lowerDivisionCourses
+    var data:[String] = []
     
     var filterData = [String]()
     
@@ -41,23 +41,24 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
     }
     
     @IBAction func coursesDropDownList(sender: UITextField) {
-        
+        filterData = []
         allCoursesRef.observeEventType(.Value, withBlock: { snapshot in
             allCourses = snapshot.value as! Dictionary<String, String>
-            if sender.text! == "" {
-                self.data = self.toStringArrayFrom(allCourses)
-                self.filterData = self.data
-            } else {
-                for i in 0...self.data.count - 1 {
-                    if self.data[i].rangeOfString(sender.text!) != nil || self.data[i].lowercaseString.rangeOfString(sender.text!) != nil {
-                        self.filterData.append(self.data[i])
-                    }
+            
+        })
+        self.data = self.toStringArrayFrom(allCourses)
+        if sender.text! == "" || sender.text == nil{
+            self.data = self.toStringArrayFrom(allCourses)
+            self.filterData = self.data
+        } else {
+            for i in 0...self.data.count - 1 {
+                if self.data[i].rangeOfString(sender.text!) != nil || self.data[i].lowercaseString.rangeOfString(sender.text!) != nil {
+                    self.filterData.append(self.data[i])
                 }
             }
-            self.presentPopover(sourceController: self, sourceView: self.coursesDropDown, sourceRect: CGRectMake(0, self.coursesDropDown.bounds.height + 1, self.coursesDropDown.bounds.width, 200))
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
+        }
+        self.presentPopover(sourceController: self, sourceView: self.coursesDropDown, sourceRect: CGRectMake(0, self.coursesDropDown.bounds.height + 1, self.coursesDropDown.bounds.width, 200))
+        
     }
     
     func toStringArrayFrom(dict:Dictionary<String,String>) -> [String]{
