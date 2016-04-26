@@ -56,12 +56,13 @@ class SettingTableViewController: UITableViewController {
             
         case "reset_Notification"?:
             print("In reset notification")
-            clearNotification()
+            print(user["history"])
+            
             break;
             
         case "reset_History"?:
             print("In reset history")
-            clearHistory()
+            
             break;
             
         default:

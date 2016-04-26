@@ -114,11 +114,11 @@ func alertWithPic (view: AnyObject, description: String, action: UIAlertAction, 
 }
 
 func clearHistory(){
-    history = Dictionary<String, String>()
+    
 }
 
 func clearNotification(){
-    notifications = Dictionary<String, String>()
+    
 }
 
 func removeObservers(handle: Firebase) {
