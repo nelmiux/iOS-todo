@@ -34,13 +34,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwC-Bq-8oc">
-                                            <rect key="frame" x="96" y="43" width="310" height="80"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwC-Bq-8oc">
+                                            <rect key="frame" x="96" y="41" width="310" height="80"/>
                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" restorationIdentifier="requestDateLabel" text="Date" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k88-JV-4fV">
-                                            <rect key="frame" x="0.0" y="7" width="414" height="28"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="requestDateLabel" text="Date" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k88-JV-4fV">
+                                            <rect key="frame" x="0.0" y="5" width="414" height="28"/>
                                             <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="LCx-Fg-mkj"/>
@@ -48,32 +48,32 @@
                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DefaultProfilePhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="pvB-eE-14S">
-                                            <rect key="frame" x="8" y="43" width="80" height="80"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfilePhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="pvB-eE-14S">
+                                            <rect key="frame" x="8" y="41" width="80" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="dSd-XT-NQS"/>
                                                 <constraint firstAttribute="height" constant="80" id="xsP-DP-m6H"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOo-2X-kse">
-                                            <rect key="frame" x="96" y="120" width="310" height="30"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOo-2X-kse">
+                                            <rect key="frame" x="96" y="118" width="310" height="30"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRu-5s-Dm8">
-                                                    <rect key="frame" x="15" y="0.0" width="68" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRu-5s-Dm8">
+                                                    <rect key="frame" x="15" y="0.0" width="99" height="30"/>
                                                     <state key="normal" title="Accept"/>
                                                     <connections>
                                                         <action selector="onClickAccept:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="b1R-U6-HLm"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmT-nn-T4q">
-                                                    <rect key="frame" x="224" y="0.0" width="70" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmT-nn-T4q">
+                                                    <rect key="frame" x="239" y="0.0" width="55" height="30"/>
                                                     <state key="normal" title="Contact"/>
                                                     <connections>
                                                         <action selector="onClickContact:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="jxR-lN-KhL"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbD-b9-Pwk">
-                                                    <rect key="frame" x="126" y="0.0" width="59" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbD-b9-Pwk">
+                                                    <rect key="frame" x="157" y="0.0" width="43" height="30"/>
                                                     <state key="normal" title="Reject"/>
                                                     <connections>
                                                         <action selector="onClickReject:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="2JV-Tv-KWI"/>
@@ -115,6 +115,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="k88-JV-4fV" id="gBJ-AK-I90"/>
                                     <outlet property="messageLabel" destination="dwC-Bq-8oc" id="xfg-uR-GCv"/>
+                                    <outlet property="userPic" destination="pvB-eE-14S" id="Q6i-O3-BD0"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="standardCell" rowHeight="128" id="uaf-f0-ei0" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">

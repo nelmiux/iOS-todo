@@ -30,10 +30,8 @@ class NotificationsTableViewController: UITableViewController {
                     // First separate the role and actual event description into two values.
                     let type = value.substringToIndex((rangeOfColon?.startIndex)!)
                     notificationTypesCopy.append(type)
-                    print("type: \(type)")
                     let message = value.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
                     notificationMessagesCopy.append(message)
-                    print("message: \(message)")
                 }
             }
             
@@ -84,6 +82,8 @@ class NotificationsTableViewController: UITableViewController {
             return standardCell
         } else if type == "singleRequest" {
             let requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+            let requester = (message.characters.split{$0 == " "}.map(String.init))[0]
+            getUserPhoto(requester, imageView: requestCell.userPic)
             requestCell.dateLabel.text = self.parseDate(date)
             requestCell.messageLabel.text = message
             return requestCell
