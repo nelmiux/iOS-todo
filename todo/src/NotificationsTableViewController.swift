@@ -14,7 +14,7 @@ class NotificationsTableViewController: UITableViewController {
     
     var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
-        var notificationStyleCopy = [String]()
+        var notificationTypesCopy = [String]()
         var notificationValuesCopy = [String]()
         var message = ""
         tableView.estimatedRowHeight = 68.0
@@ -26,13 +26,13 @@ class NotificationsTableViewController: UITableViewController {
             }
             for value in notifications.values{
                 if (value.lowercaseString.rangeOfString("request") != nil){
-                    notificationStyleCopy.append("request")
+                    notificationTypesCopy.append("request")
                 }else if (value.lowercaseString.rangeOfString("balance") != nil){
-                    notificationStyleCopy.append("balance")
+                    notificationTypesCopy.append("balance")
                 }else if (value.lowercaseString.rangeOfString("session") != nil){
-                    notificationStyleCopy.append("session")
+                    notificationTypesCopy.append("session")
                 }else{
-                    notificationStyleCopy.append("general")
+                    notificationTypesCopy.append("general")
                 }
                 
                 var valueArr = value.componentsSeparatedByString(":")
@@ -53,8 +53,9 @@ class NotificationsTableViewController: UITableViewController {
             
             
         }
-        return (notificationKeysCopy,notificationValuesCopy,notificationStyleCopy)
+        return (notificationKeysCopy,notificationValuesCopy,notificationTypesCopy)
     }
+    
 //    var notificationsKeys: [String]{
 //        var notificationsKeysCopy = [String]()
 //        
@@ -79,30 +80,13 @@ class NotificationsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (!isDataLoaded) {
-            self.loadData()
-        }
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func loadData () {
-        
-//        notifications.append(Notification(message: "Lucy Adams has requested you to tutor her in CS 378.", date: "2/29/16", type: "single request"))
-//        notifications.append(Notification(message: "Congrats! You earned 50 dots for tutoring John Smith.", date: "2/13/16"))
-//        notifications.append(Notification(message: "You've spent 50 dots on tutoring from Bob Wilson.", date: "2/2/16"))
-//        notifications.append(Notification(message: "There are 5 new tutoring opportunities that match your qualifications.", date: "1/15/16", type: "request pool"))
-        isDataLoaded = true
     }
     
     // MARK: - Table view data source
@@ -121,25 +105,6 @@ class NotificationsTableViewController: UITableViewController {
     } */
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//            
-//        let currNotification:Notification = notifications[indexPath.row]
-//        let notificationType = currNotification.getType()
-        
-        /*if (notificationType == "single request") {
-            let cell = tableView.dequeueReusableCellWithIdentifier("requestNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
-            cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()
-            return cell
-        } else if (notificationType == "request pool") {
-            let cell = tableView.dequeueReusableCellWithIdentifier("requestPoolNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
-            cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
-            cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()*/
-        
         /*  For now, just  throw everything out there, as a standard notification  */
         let current_notification:(String,String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row],notificationCopy.2[indexPath.row])
         
@@ -148,10 +113,6 @@ class NotificationsTableViewController: UITableViewController {
         let dateArr = (current_notification.0).characters.split{$0 == ","}.map(String.init)
         cell.dateLabel.text = (" \(dateArr[0]), \(dateArr[1])")
         cell.messageLabel.text = current_notification.1
-        // cell.type.text = current_notification.2
-        
-//        lbl_title!.text = current_notification.1
-//        lbl_detail!.text = current_notification.0
         
         return cell
     }
