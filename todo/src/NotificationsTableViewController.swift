@@ -15,8 +15,7 @@ class NotificationsTableViewController: UITableViewController {
     var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
         var notificationTypesCopy = [String]()
-        var notificationValuesCopy = [String]()
-        var message = ""
+        var notificationMessagesCopy = [String]()
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -30,63 +29,18 @@ class NotificationsTableViewController: UITableViewController {
                 if rangeOfColon != nil {
                     // First separate the role and actual event description into two values.
                     let type = value.substringToIndex((rangeOfColon?.startIndex)!)
+                    notificationTypesCopy.append(type)
                     print("type: \(type)")
                     let message = value.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
+                    notificationMessagesCopy.append(message)
                     print("message: \(message)")
                 }
-                
-                if (value.lowercaseString.rangeOfString("request") != nil){
-                    notificationTypesCopy.append("request")
-                }else if (value.lowercaseString.rangeOfString("balance") != nil){
-                    notificationTypesCopy.append("balance")
-                }else if (value.lowercaseString.rangeOfString("session") != nil){
-                    notificationTypesCopy.append("session")
-                }else{
-                    notificationTypesCopy.append("general")
-                }
-                
-                var valueArr = value.componentsSeparatedByString(":")
-                
-                if valueArr.count > 1 {
-                    if  valueArr.count > 2 {
-                        let joinWord = valueArr[2]
-                        message = valueArr[1] + joinWord
-                    } else {
-                        message = valueArr[1]
-                    }
-                } else {
-                    
-                    message = value.insert(" ", ind: 0)
-                }
-                notificationValuesCopy.append(message)
             }
             
             
         }
-        return (notificationKeysCopy,notificationValuesCopy,notificationTypesCopy)
+        return (notificationKeysCopy, notificationTypesCopy, notificationMessagesCopy)
     }
-    
-//    var notificationsKeys: [String]{
-//        var notificationsKeysCopy = [String]()
-//        
-//        dispatch_sync(concurrentDataAccessQueue) {
-//            for key in notifications.keys {
-//                notificationsKeysCopy.append(key)
-//            }
-//        }
-//        return notificationsKeysCopy
-//    }
-//    
-//    var notificationsValues: [String]{
-//        var notificationsValuesCopy = [String]()
-//        
-//        dispatch_sync(concurrentDataAccessQueue) {
-//            for value in notifications.values{
-//                notificationsValuesCopy.append(value)
-//            }
-//        }
-//        return notificationsValuesCopy
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,16 +69,29 @@ class NotificationsTableViewController: UITableViewController {
     } */
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        /*  For now, just  throw everything out there, as a standard notification  */
+        var cell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath)
+        
         let current_notification:(String,String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row],notificationCopy.2[indexPath.row])
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath) as! StandardNotificationTableViewCell
+        let date = current_notification.0
+        let type = current_notification.1
+        let message = current_notification.2
         
-        let dateArr = (current_notification.0).characters.split{$0 == ","}.map(String.init)
-        cell.dateLabel.text = (" \(dateArr[0]), \(dateArr[1])")
-        cell.messageLabel.text = current_notification.1
+        if type == "" {
+            
+        } else {
+            let standardCell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath) as! StandardNotificationTableViewCell
+            standardCell.dateLabel.text = self.parseDate(date)
+            standardCell.messageLabel.text = message
+            return standardCell
+        }
         
         return cell
+    }
+    
+    func parseDate (date:String) -> String {
+        let dateArr = date.characters.split{$0 == ","}.map(String.init)
+        return ("\(dateArr[0]), \(dateArr[1])")
     }
 
 
