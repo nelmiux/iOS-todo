@@ -230,6 +230,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="gyY-1n-uSu">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="TzD-EW-aZ9"/>
                         <barButtonItem key="rightBarButtonItem" image="logout" id="Azo-tB-XtK">
                             <color key="tintColor" red="0.25329121469999999" green="1" blue="0.95315603500000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
