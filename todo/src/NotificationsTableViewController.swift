@@ -9,14 +9,13 @@
 import UIKit
 
 class NotificationsTableViewController: UITableViewController {
-
-    private var isDataLoaded:Bool = false
+    
+    private let standardNotifications:[String] = ["request", "acceptance", "cancelledSession", "balanceUpdate"]
     
     var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
-        var notificationStyleCopy = [String]()
-        var notificationValuesCopy = [String]()
-        var message = ""
+        var notificationTypesCopy = [String]()
+        var notificationMessagesCopy = [String]()
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
@@ -25,84 +24,31 @@ class NotificationsTableViewController: UITableViewController {
                 notificationKeysCopy.append(key)
             }
             for value in notifications.values{
-                if (value.lowercaseString.rangeOfString("request") != nil){
-                    notificationStyleCopy.append("request")
-                }else if (value.lowercaseString.rangeOfString("balance") != nil){
-                    notificationStyleCopy.append("balance")
-                }else if (value.lowercaseString.rangeOfString("session") != nil){
-                    notificationStyleCopy.append("session")
-                }else{
-                    notificationStyleCopy.append("general")
+                // Parse to extract type and message
+                let rangeOfColon = value.rangeOfString(":")
+                if rangeOfColon != nil {
+                    // First separate the role and actual event description into two values.
+                    let type = value.substringToIndex((rangeOfColon?.startIndex)!)
+                    notificationTypesCopy.append(type)
+                    let message = value.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
+                    notificationMessagesCopy.append(message)
                 }
-                
-                var valueArr = value.componentsSeparatedByString(":")
-                
-                if valueArr.count > 1 {
-                    if  valueArr.count > 2 {
-                        let joinWord = valueArr[2]
-                        message = valueArr[1] + joinWord
-                    } else {
-                        message = valueArr[1]
-                    }
-                } else {
-                    
-                    message = value.insert(" ", ind: 0)
-                }
-                notificationValuesCopy.append(message)
             }
             
             
         }
-        return (notificationKeysCopy,notificationValuesCopy,notificationStyleCopy)
+        return (notificationKeysCopy, notificationTypesCopy, notificationMessagesCopy)
     }
-//    var notificationsKeys: [String]{
-//        var notificationsKeysCopy = [String]()
-//        
-//        dispatch_sync(concurrentDataAccessQueue) {
-//            for key in notifications.keys {
-//                notificationsKeysCopy.append(key)
-//            }
-//        }
-//        return notificationsKeysCopy
-//    }
-//    
-//    var notificationsValues: [String]{
-//        var notificationsValuesCopy = [String]()
-//        
-//        dispatch_sync(concurrentDataAccessQueue) {
-//            for value in notifications.values{
-//                notificationsValuesCopy.append(value)
-//            }
-//        }
-//        return notificationsValuesCopy
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (!isDataLoaded) {
-            self.loadData()
-        }
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func loadData () {
-        
-//        notifications.append(Notification(message: "Lucy Adams has requested you to tutor her in CS 378.", date: "2/29/16", type: "single request"))
-//        notifications.append(Notification(message: "Congrats! You earned 50 dots for tutoring John Smith.", date: "2/13/16"))
-//        notifications.append(Notification(message: "You've spent 50 dots on tutoring from Bob Wilson.", date: "2/2/16"))
-//        notifications.append(Notification(message: "There are 5 new tutoring opportunities that match your qualifications.", date: "1/15/16", type: "request pool"))
-        isDataLoaded = true
     }
     
     // MARK: - Table view data source
@@ -121,39 +67,34 @@ class NotificationsTableViewController: UITableViewController {
     } */
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//            
-//        let currNotification:Notification = notifications[indexPath.row]
-//        let notificationType = currNotification.getType()
+        let cell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath)
         
-        /*if (notificationType == "single request") {
-            let cell = tableView.dequeueReusableCellWithIdentifier("requestNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
-            cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()
-            return cell
-        } else if (notificationType == "request pool") {
-            let cell = tableView.dequeueReusableCellWithIdentifier("requestPoolNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
-            cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
-            cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()*/
-        
-        /*  For now, just  throw everything out there, as a standard notification  */
         let current_notification:(String,String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row],notificationCopy.2[indexPath.row])
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath) as! StandardNotificationTableViewCell
+        let date = current_notification.0
+        let type = current_notification.1
+        let message = current_notification.2
         
-        let dateArr = (current_notification.0).characters.split{$0 == ","}.map(String.init)
-        cell.dateLabel.text = (" \(dateArr[0]), \(dateArr[1])")
-        cell.messageLabel.text = current_notification.1
-        // cell.type.text = current_notification.2
-        
-//        lbl_title!.text = current_notification.1
-//        lbl_detail!.text = current_notification.0
+        if standardNotifications.contains(type) {
+            let standardCell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath) as! StandardNotificationTableViewCell
+            standardCell.dateLabel.text = self.parseDate(date)
+            standardCell.messageLabel.text = message
+            return standardCell
+        } else if type == "singleRequest" {
+            let requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+            let requester = (message.characters.split{$0 == " "}.map(String.init))[0]
+            getUserPhoto(requester, imageView: requestCell.userPic)
+            requestCell.dateLabel.text = self.parseDate(date)
+            requestCell.messageLabel.text = message
+            return requestCell
+        }
         
         return cell
+    }
+    
+    func parseDate (date:String) -> String {
+        let dateArr = date.characters.split{$0 == ","}.map(String.init)
+        return ("\(dateArr[0]), \(dateArr[1])")
     }
 
 

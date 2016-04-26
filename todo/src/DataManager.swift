@@ -159,7 +159,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 user["location"] = ""
                 user["cancel"] = ""
                 newUserRef.setValue(user)
-                let notice = "created: User created"
+                let notice = "created: You have joined todo!”"
                 let date = getDateTime()
                 notifications[date] = notice
                 getFirebase("notifications/").updateChildValues([inputs["Username"]!: [date: notice]])
@@ -373,7 +373,7 @@ func requestListener(view: AnyObject) {
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     var notificationUserRef = getFirebase("notifications/" + username)
-                    var notice = "singleRequest: " + (snapshot.value["requesterUsername"] as! String) + " is requesting tutoring on:\n" + (snapshot.value["requesterCourse"] as! String) + "\n" + (snapshot.value["requesterDescription"] as! String) + "\nLocation: " + (snapshot.value["requesterLocation"] as! String)
+                    var notice = "singleRequest: " + ((snapshot.value["requesterUsername"] as! String) + " has requested tutoring in " + (snapshot.value["requesterCourse"] as! String) + "\n" + (snapshot.value["requesterDescription"] as! String) + "\nLocation: " + (snapshot.value["requesterLocation"] as! String))
                     let date = getDateTime()
                     notificationUserRef.updateChildValues([date: notice])
                     notifications[date] = notice
@@ -384,8 +384,7 @@ func requestListener(view: AnyObject) {
                             requesterUserRef.updateChildValues(["pairedPhoto": picString])
                             
                             notificationUserRef = getFirebase("notifications/" + username)
-                            notice = "acceptance: You accepted to help " + (snapshot.value["requesterUsername"] as! String) + " on " + (snapshot.value["requesterCourse"] as! String)
-                            
+                            notice = "acceptance: You accepted " + (snapshot.value["requesterUsername"] as! String) + "’s tutoring request for " + (snapshot.value["requesterCourse"] as! String) + "."
                             let date = getDateTime()
                             notificationUserRef.updateChildValues([date: notice])
                             notifications[date] = notice
@@ -433,7 +432,7 @@ func requestListener(view: AnyObject) {
                             requester["cancel"] = ""
                             
                             let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-                            let notice = "cancelledSession: " + requester["username"]! + " cancel a tutoring session"
+                            let notice = "cancelledSession: " + requester["username"]! + " cancelled a tutoring session."
                             let date = getDateTime()
                             notificationUserRef.updateChildValues([date: notice])
                             notifications[date] = notice
@@ -542,7 +541,7 @@ func startSession (mainView: AnyObject, view: AnyObject) {
                 user["paid"] = (user["paid"] as! Int) + dotsTotal
                 
                 let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-                let notice = "balanceUpdate: You paid " + String(dotsTotal) + " dots on the tutoring session, your new total is: " + String(dots)
+                let notice = "balanceUpdate: You paid " + String(dotsTotal) + " dots for a recent tutoring session. Your new total is: " + String(dots)
                 let date = getDateTime()
                 notificationUserRef.updateChildValues([date: notice])
                 notifications[date] = notice
@@ -587,7 +586,7 @@ func cancelSession() {
         paired["course"] = ""
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-        let notice = "cancelledSession: You cancel a tutoring session"
+        let notice = "cancelledSession: You cancelled a tutoring session."
         let date = getDateTime()
         notificationUserRef.updateChildValues([date: notice])
         notifications[date] = notice
@@ -602,7 +601,7 @@ func finishSession() {
         user["earned"] = (user["earned"] as! Int) + dotsTotal
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-        let notice = "balanceUpdate: You earned " + String(dotsTotal) + " dots on the tutoring session, your new total is: " + String(dots)
+        let notice = "balanceUpdate: You earned " + String(dotsTotal) + " dots for a recent tutoring session. Your new total is: " + String(dots)
         let date = getDateTime()
         notificationUserRef.updateChildValues([date: notice])
         notifications[date] = notice
