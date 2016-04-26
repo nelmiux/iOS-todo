@@ -13,6 +13,7 @@
 		87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3361CAB90F7009261CC /* SpentDotsBg.png */; };
 		87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3371CAB90F7009261CC /* GainedDotsBg.png */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
+		C6CFE3D31CCEE9FD0097537F /* todo-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6CFE3D21CCEE9FD0097537F /* todo-icon.png */; };
 		C6FE54001CC9C4060042E585 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */; };
 		C6FE54021CC9C4410042E585 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6FE54011CC9C4410042E585 /* Settings.storyboard */; };
 		CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */; };
@@ -138,6 +139,7 @@
 		87D0E3371CAB90F7009261CC /* GainedDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GainedDotsBg.png; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C6CFE3D21CCEE9FD0097537F /* todo-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todo-icon.png"; sourceTree = "<group>"; };
 		C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingTableViewController.swift; path = src/SettingTableViewController.swift; sourceTree = "<group>"; };
 		C6FE54011CC9C4410042E585 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterStartSessionViewController.swift; path = src/RequesterStartSessionViewController.swift; sourceTree = "<group>"; };
@@ -537,6 +539,7 @@
 		CADD3C701C7E4E7B0085F014 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C6CFE3D21CCEE9FD0097537F /* todo-icon.png */,
 				CA7B01721C95169D0001D0F4 /* Notifications */,
 				04B6C3261C865E6E00BA7882 /* Profile */,
 				0435DD611C85709C009D3245 /* Login */,
@@ -698,6 +701,7 @@
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
 				87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */,
 				CA7B01741C9516E50001D0F4 /* LocationIcon.png in Resources */,
+				C6CFE3D31CCEE9FD0097537F /* todo-icon.png in Resources */,
 				CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */,
 				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
 				CA7B00DF1C9505FF0001D0F4 /* TodoSlogan_LightGray.png in Resources */,
