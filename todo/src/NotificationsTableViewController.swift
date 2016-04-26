@@ -25,6 +25,16 @@ class NotificationsTableViewController: UITableViewController {
                 notificationKeysCopy.append(key)
             }
             for value in notifications.values{
+                // Parse to extract type and message
+                let rangeOfColon = value.rangeOfString(":")
+                if rangeOfColon != nil {
+                    // First separate the role and actual event description into two values.
+                    let type = value.substringToIndex((rangeOfColon?.startIndex)!)
+                    print("type: \(type)")
+                    let message = value.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
+                    print("message: \(message)")
+                }
+                
                 if (value.lowercaseString.rangeOfString("request") != nil){
                     notificationTypesCopy.append("request")
                 }else if (value.lowercaseString.rangeOfString("balance") != nil){
