@@ -10,7 +10,7 @@ import UIKit
 
 class NotificationsTableViewController: UITableViewController {
     
-    private let standardNotifications:[String] = ["request", "acceptance", "cancelledSession", "balanceUpdate"]
+    private let standardNotifications:[String] = ["request", "acceptance", "cancelledSession"]
     
     var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
@@ -85,8 +85,28 @@ class NotificationsTableViewController: UITableViewController {
             let requester = (message.characters.split{$0 == " "}.map(String.init))[0]
             getUserPhoto(requester, imageView: requestCell.userPic)
             requestCell.dateLabel.text = self.parseDate(date)
-            requestCell.messageLabel.text = message
+            let messageArr = message.characters.split{$0 == "\n"}.map(String.init)
+            if messageArr.count == 3 {
+                requestCell.messageLabel.text = messageArr[0]
+                requestCell.descriptionLabel.text = messageArr[1]
+                requestCell.locationLabel.text = messageArr[2]
+            } else {
+                requestCell.messageLabel.text = message
+            }
             return requestCell
+        } else if type == "balanceUpdate" {
+            let balanceUpdateCell = tableView.dequeueReusableCellWithIdentifier("balanceUpdateCell", forIndexPath: indexPath) as! BalanceUpdateTableViewCell
+            balanceUpdateCell.dateLabel.text = date
+            balanceUpdateCell.messageLabel.text = message
+            let numDots = self.getNumDots(message)
+            if numDots > 0 {
+                balanceUpdateCell.dotsLabel.text = "+" + String(numDots)
+                balanceUpdateCell.dotsImage.image = UIImage(named: "GainedDotsBg.png")
+            } else {
+                balanceUpdateCell.dotsLabel.text = String(numDots)
+                balanceUpdateCell.dotsImage.image = UIImage(named: "SpentDotsBg.png")
+            }
+            return balanceUpdateCell
         }
         
         return cell
@@ -95,6 +115,22 @@ class NotificationsTableViewController: UITableViewController {
     func parseDate (date:String) -> String {
         let dateArr = date.characters.split{$0 == ","}.map(String.init)
         return ("\(dateArr[0]), \(dateArr[1])")
+    }
+    
+    func getNumDots (message:String) -> Int {
+        let messageArr = message.characters.split{$0 == " "}.map(String.init)
+        var result = 0
+        
+        for item in messageArr {
+            let components = item.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+            let part = components.joinWithSeparator("")
+            
+            if let intVal = Int(part) {
+                result = message.containsString("paid") ? intVal * -1 : intVal
+                break
+            }
+        }
+        return result
     }
 
 
