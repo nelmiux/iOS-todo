@@ -153,6 +153,19 @@ class HistoryTableViewController: UITableViewController {
         return true
     }
     */
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated);
+        print("----------")
+        print("Re-entering History")
+        self.loadData()
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
+        
+        
+        print(history)
+        
+    }
 
     
     // MARK: - Navigation

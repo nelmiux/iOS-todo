@@ -117,12 +117,14 @@ func alertWithPic (view: AnyObject, description: String, action: UIAlertAction, 
 func clearHistory(){
     let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
     historyUserRef.removeValue()
+    history = [:]
 }
 
 /*  Remove all notification record in Firebase  */
 func clearNotification(){
     let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
     notificationUserRef.removeValue()
+    notifications = [:]
 }
 
 func removeObservers(handle: Firebase) {

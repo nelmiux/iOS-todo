@@ -80,6 +80,7 @@ class SettingTableViewController: UITableViewController {
             case "history":
                 clearHistory()
                 self.displayMessage(info)
+                
                 break;
             case "notification":
                 clearNotification()
