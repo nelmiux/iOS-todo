@@ -85,7 +85,14 @@ class NotificationsTableViewController: UITableViewController {
             let requester = (message.characters.split{$0 == " "}.map(String.init))[0]
             getUserPhoto(requester, imageView: requestCell.userPic)
             requestCell.dateLabel.text = self.parseDate(date)
-            requestCell.messageLabel.text = message
+            let messageArr = message.characters.split{$0 == "\n"}.map(String.init)
+            if messageArr.count == 3 {
+                requestCell.messageLabel.text = messageArr[0]
+                requestCell.descriptionLabel.text = messageArr[1]
+                requestCell.locationLabel.text = messageArr[2]
+            } else {
+                requestCell.messageLabel.text = message
+            }
             return requestCell
         }
         
