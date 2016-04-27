@@ -134,6 +134,12 @@ class NotificationsTableViewController: UITableViewController {
         }
         return result
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
+    }
 
 
     /*
