@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		874A951A1CD08A290060AC87 /* BalanceUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874A95191CD08A290060AC87 /* BalanceUpdateTableViewCell.swift */; };
 		879193881CB5BA8300F5A08D /* UserPhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879193871CB5BA8300F5A08D /* UserPhotoButton.swift */; };
 		87D0E3311CAB23F2009261CC /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */; };
 		87D0E3351CAB2680009261CC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */; };
@@ -131,6 +132,7 @@
 /* Begin PBXFileReference section */
 		04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_Teal.png; sourceTree = "<group>"; };
 		04B6C3221C85786C00BA7882 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_White.png; sourceTree = "<group>"; };
+		874A95191CD08A290060AC87 /* BalanceUpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BalanceUpdateTableViewCell.swift; path = src/BalanceUpdateTableViewCell.swift; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
 		879193871CB5BA8300F5A08D /* UserPhotoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhotoButton.swift; sourceTree = "<group>"; };
 		87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */,
 				CA7B01841C951AF20001D0F4 /* RequestPoolTableViewCell.swift */,
 				CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */,
+				874A95191CD08A290060AC87 /* BalanceUpdateTableViewCell.swift */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				CAB160A71CB861C100C0FD41 /* RegistrationTableViewController.swift in Sources */,
 				CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */,
 				CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */,
+				874A951A1CD08A290060AC87 /* BalanceUpdateTableViewCell.swift in Sources */,
 				CA040A911CA328E300E06C37 /* TutorWaitingViewController.swift in Sources */,
 				87D0E3351CAB2680009261CC /* HistoryTableViewController.swift in Sources */,
 				CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */,

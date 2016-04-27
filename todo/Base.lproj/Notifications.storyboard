@@ -17,6 +17,9 @@
             <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
         </mutableArray>
         <mutableArray key="SEGOEUIB.TTF">
             <string>SegoeUI-Bold</string>
@@ -221,6 +224,65 @@
                                     <outlet property="messageLabel" destination="Hzt-lV-hpI" id="8Cn-59-vMJ"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="balanceUpdateCell" rowHeight="128" id="ZTF-7Z-VE9" customClass="BalanceUpdateTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="412" width="414" height="128"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZTF-7Z-VE9" id="4Hw-as-CQw">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="balanceUpdateDateLabel" text="Date" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45b-bC-RTG">
+                                            <rect key="frame" x="0.0" y="5" width="414" height="28"/>
+                                            <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7a-od-EB5">
+                                            <rect key="frame" x="98" y="43" width="302" height="74"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32A-D7-wtE">
+                                            <rect key="frame" x="8" y="41" width="76" height="76"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GainedDotsBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="lxE-wF-eHt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="76" height="76"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="aTB-02-7Jg">
+                                                    <rect key="frame" x="7" y="28" width="61" height="21"/>
+                                                    <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="lxE-wF-eHt" secondAttribute="bottom" id="6ih-2h-WOA"/>
+                                                <constraint firstAttribute="trailing" secondItem="lxE-wF-eHt" secondAttribute="trailing" id="8Yg-pT-VsZ"/>
+                                                <constraint firstItem="aTB-02-7Jg" firstAttribute="centerX" secondItem="32A-D7-wtE" secondAttribute="centerX" id="9WG-th-b6L"/>
+                                                <constraint firstAttribute="width" constant="76" id="BT5-QN-lka"/>
+                                                <constraint firstItem="aTB-02-7Jg" firstAttribute="centerY" secondItem="32A-D7-wtE" secondAttribute="centerY" id="J4B-9F-zXp"/>
+                                                <constraint firstItem="lxE-wF-eHt" firstAttribute="leading" secondItem="32A-D7-wtE" secondAttribute="leading" id="MD9-au-viW"/>
+                                                <constraint firstItem="lxE-wF-eHt" firstAttribute="top" secondItem="32A-D7-wtE" secondAttribute="top" id="tWM-yk-eLQ"/>
+                                                <constraint firstAttribute="height" constant="76" id="u6Q-gV-3Kv"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="45b-bC-RTG" firstAttribute="top" secondItem="4Hw-as-CQw" secondAttribute="topMargin" constant="-3" id="6jF-M7-dC6"/>
+                                        <constraint firstItem="32A-D7-wtE" firstAttribute="leading" secondItem="4Hw-as-CQw" secondAttribute="leadingMargin" id="8VA-v9-dYi"/>
+                                        <constraint firstItem="45b-bC-RTG" firstAttribute="leading" secondItem="4Hw-as-CQw" secondAttribute="leading" id="FsD-oS-NmU"/>
+                                        <constraint firstItem="32A-D7-wtE" firstAttribute="top" secondItem="45b-bC-RTG" secondAttribute="bottom" constant="8" id="T3R-Gp-XsN"/>
+                                        <constraint firstAttribute="trailing" secondItem="45b-bC-RTG" secondAttribute="trailing" id="Wqi-3T-zHc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="32A-D7-wtE" secondAttribute="bottom" constant="2" id="lzU-0K-ICG"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="45b-bC-RTG" id="nJv-Jq-gFw"/>
+                                    <outlet property="dotsImage" destination="lxE-wF-eHt" id="bOj-rC-Ktx"/>
+                                    <outlet property="dotsLabel" destination="aTB-02-7Jg" id="CZx-ua-xoS"/>
+                                    <outlet property="messageLabel" destination="s7a-od-EB5" id="t0O-bh-G0K"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="gVw-wf-Bz1" id="9V7-EB-Jlu"/>
@@ -336,6 +398,7 @@
     </scenes>
     <resources>
         <image name="DefaultProfilePhoto.png" width="512" height="512"/>
+        <image name="GainedDotsBg.png" width="100" height="100"/>
         <image name="LocationIcon.png" width="32" height="32"/>
         <image name="NotificationsTabIcon_Black" width="32" height="30"/>
         <image name="NotificationsTabIcon_Teal" width="32" height="30"/>
