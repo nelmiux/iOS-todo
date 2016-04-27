@@ -13,8 +13,8 @@
 		87D0E3351CAB2680009261CC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */; };
 		87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3361CAB90F7009261CC /* SpentDotsBg.png */; };
 		87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3371CAB90F7009261CC /* GainedDotsBg.png */; };
+		99A41DD31CD15A6000F2A920 /* todo-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A41DD21CD15A6000F2A920 /* todo-icon.png */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
-		C674B8AD1CD00BD200B2EDA1 /* todo-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C674B8AC1CD00BD200B2EDA1 /* todo-icon.png */; };
 		C6FE54001CC9C4060042E585 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */; };
 		C6FE54021CC9C4410042E585 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6FE54011CC9C4410042E585 /* Settings.storyboard */; };
 		CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */; };
@@ -140,8 +140,8 @@
 		87D0E3361CAB90F7009261CC /* SpentDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpentDotsBg.png; sourceTree = "<group>"; };
 		87D0E3371CAB90F7009261CC /* GainedDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GainedDotsBg.png; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99A41DD21CD15A6000F2A920 /* todo-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "todo-icon.png"; path = "Docs/todo-icon.png"; sourceTree = SOURCE_ROOT; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		C674B8AC1CD00BD200B2EDA1 /* todo-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "todo-icon.png"; sourceTree = "<group>"; };
 		C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingTableViewController.swift; path = src/SettingTableViewController.swift; sourceTree = "<group>"; };
 		C6FE54011CC9C4410042E585 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterStartSessionViewController.swift; path = src/RequesterStartSessionViewController.swift; sourceTree = "<group>"; };
@@ -542,7 +542,7 @@
 		CADD3C701C7E4E7B0085F014 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				C674B8AC1CD00BD200B2EDA1 /* todo-icon.png */,
+				99A41DD21CD15A6000F2A920 /* todo-icon.png */,
 				CA7B01721C95169D0001D0F4 /* Notifications */,
 				04B6C3261C865E6E00BA7882 /* Profile */,
 				0435DD611C85709C009D3245 /* Login */,
@@ -704,7 +704,7 @@
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
 				87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */,
 				CA7B01741C9516E50001D0F4 /* LocationIcon.png in Resources */,
-				C674B8AD1CD00BD200B2EDA1 /* todo-icon.png in Resources */,
+				99A41DD31CD15A6000F2A920 /* todo-icon.png in Resources */,
 				CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */,
 				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
 				CA7B00DF1C9505FF0001D0F4 /* TodoSlogan_LightGray.png in Resources */,
