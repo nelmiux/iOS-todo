@@ -16,10 +16,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var majorLabel: UILabel!
     @IBOutlet weak var graduationLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
-    @IBOutlet weak var activityImage: UIImageView!
     @IBOutlet weak var numDotsLabel: UILabel!
     @IBOutlet weak var coursesLabel: UILabel!
-    //@IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var rightBarButton: UIBarButtonItem!
     @IBOutlet weak var leftBarButton: UIBarButtonItem!
     @IBOutlet weak var nameTextField: UITextField!
