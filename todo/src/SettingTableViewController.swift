@@ -56,19 +56,43 @@ class SettingTableViewController: UITableViewController {
             
         case "reset_Notification"?:
             print("In reset notification")
-            print(user["history"])
-            
+            promptClearInfo("notification")
             break;
             
         case "reset_History"?:
             print("In reset history")
-            
+            promptClearInfo("history")
             break;
             
         default:
             print("neither")
             break;
         }
+        
+    }
+    
+    private func promptClearInfo(info:String){
+        let warningMessage:String = "Once you clicked OK, your \(info) information will be remove permanently"
+        let alert = UIAlertController(title: "WARNING", message:warningMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ (UIAlertAction) in
+            switch info{
+            case "history":
+                clearHistory()
+                self.displayMessage(info)
+                break;
+            case "notification":
+                clearNotification()
+                self.displayMessage(info)
+                break;
+            default:
+                print("neither")
+            }
+            
+        }))
+        alert.addAction(UIAlertAction(title: "CANCEL", style: UIAlertActionStyle.Default, handler:nil))
+        self.presentViewController(alert, animated: true, completion: {
+        })
         
     }
 

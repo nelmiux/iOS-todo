@@ -113,12 +113,16 @@ func alertWithPic (view: AnyObject, description: String, action: UIAlertAction, 
     }
 }
 
+/*  Remove all history record in Firebase  */
 func clearHistory(){
-    
+    let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
+    historyUserRef.removeValue()
 }
 
+/*  Remove all notification record in Firebase  */
 func clearNotification(){
-    
+    let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
+    notificationUserRef.removeValue()
 }
 
 func removeObservers(handle: Firebase) {

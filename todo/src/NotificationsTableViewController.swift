@@ -43,6 +43,8 @@ class NotificationsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 68.0
+        print("--------------")
+        print(notifications)
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
