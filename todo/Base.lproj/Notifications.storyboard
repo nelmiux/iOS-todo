@@ -15,8 +15,11 @@
             <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
+            <string>SegoeUI</string>
+            <string>SegoeUI</string>
         </mutableArray>
         <mutableArray key="SEGOEUIB.TTF">
+            <string>SegoeUI-Bold</string>
             <string>SegoeUI-Bold</string>
         </mutableArray>
         <mutableArray key="segoeuii.ttf">
@@ -33,11 +36,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="requestCell" rowHeight="200" id="VHe-4m-IxZ" customClass="RequestNotificationTableViewCell" customModule="todo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="414" height="200"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="requestCell" rowHeight="192" id="VHe-4m-IxZ" customClass="RequestNotificationTableViewCell" customModule="todo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="414" height="192"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VHe-4m-IxZ" id="CUh-3i-FxU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="199"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="191"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="requestDateLabel" text="Date" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k88-JV-4fV">
@@ -56,7 +59,7 @@
                                                 <constraint firstAttribute="width" constant="80" id="l8O-JL-oxf"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N4n-i4-Mdx">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N4n-i4-Mdx">
                                             <rect key="frame" x="96" y="41" width="310" height="114"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwC-Bq-8oc">
@@ -76,20 +79,17 @@
                                                     <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unknown location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1z-OH-s5H">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unknown location" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1z-OH-s5H">
                                                     <rect key="frame" x="23" y="93" width="282" height="21"/>
                                                     <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="14"/>
                                                     <color key="textColor" red="0.15999068490000001" green="0.4338058541" blue="0.40532034020000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Location.png" translatesAutoresizingMaskIntoConstraints="NO" id="Art-SA-ttX">
-                                                    <rect key="frame" x="0.0" y="93" width="16" height="21"/>
-                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="dwC-Bq-8oc" firstAttribute="top" secondItem="N4n-i4-Mdx" secondAttribute="top" id="58q-k3-OBy"/>
-                                                <constraint firstAttribute="height" constant="94" id="GG6-U7-7ZK"/>
+                                                <constraint firstAttribute="height" constant="114" id="GG6-U7-7ZK"/>
                                                 <constraint firstItem="lXd-SE-t3e" firstAttribute="leading" secondItem="N4n-i4-Mdx" secondAttribute="leading" id="Kz2-Z7-6Bi"/>
                                                 <constraint firstItem="lXd-SE-t3e" firstAttribute="top" secondItem="dwC-Bq-8oc" secondAttribute="bottom" id="RiN-5e-P5Z"/>
                                                 <constraint firstItem="dwC-Bq-8oc" firstAttribute="leading" secondItem="N4n-i4-Mdx" secondAttribute="leading" id="Roa-TK-iax"/>
@@ -97,66 +97,84 @@
                                                 <constraint firstAttribute="trailing" secondItem="lXd-SE-t3e" secondAttribute="trailing" id="z2H-J7-Olv"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WOo-2X-kse">
-                                            <rect key="frame" x="8" y="161" width="398" height="30"/>
+                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOo-2X-kse">
+                                            <rect key="frame" x="49" y="161" width="320" height="30"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRu-5s-Dm8">
-                                                    <rect key="frame" x="15" y="0.0" width="99" height="30"/>
+                                                    <rect key="frame" x="0.0" y="-2" width="86" height="32"/>
+                                                    <color key="backgroundColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="99" id="pDg-Do-R64"/>
+                                                        <constraint firstAttribute="width" constant="86" id="pDg-Do-R64"/>
                                                     </constraints>
-                                                    <state key="normal" title="Accept"/>
+                                                    <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="15"/>
+                                                    <state key="normal" title="Accept">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="onClickAccept:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="b1R-U6-HLm"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbD-b9-Pwk">
-                                                    <rect key="frame" x="178" y="0.0" width="43" height="30"/>
-                                                    <state key="normal" title="Reject"/>
-                                                    <connections>
-                                                        <action selector="onClickReject:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="2JV-Tv-KWI"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmT-nn-T4q">
-                                                    <rect key="frame" x="309" y="0.0" width="55" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmT-nn-T4q">
+                                                    <rect key="frame" x="248" y="0.0" width="72" height="30"/>
+                                                    <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="55" id="4Y5-dn-M53"/>
+                                                        <constraint firstAttribute="width" constant="72" id="4Y5-dn-M53"/>
                                                     </constraints>
-                                                    <state key="normal" title="Contact"/>
+                                                    <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                                    <state key="normal" title="Contact">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="onClickContact:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="jxR-lN-KhL"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sbD-b9-Pwk">
+                                                    <rect key="frame" x="134" y="-2" width="67" height="32"/>
+                                                    <color key="backgroundColor" red="0.59212740379999995" green="0.29783177709999997" blue="0.001681333462" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                                    <state key="normal" title="Reject">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onClickReject:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="2JV-Tv-KWI"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="HRu-5s-Dm8" firstAttribute="top" secondItem="WOo-2X-kse" secondAttribute="top" id="6Aa-kI-xTc"/>
-                                                <constraint firstItem="sbD-b9-Pwk" firstAttribute="top" secondItem="WOo-2X-kse" secondAttribute="top" id="DL5-h1-Rcq"/>
+                                                <constraint firstItem="HRu-5s-Dm8" firstAttribute="top" secondItem="WOo-2X-kse" secondAttribute="top" constant="-2" id="6Aa-kI-xTc"/>
                                                 <constraint firstAttribute="bottom" secondItem="mmT-nn-T4q" secondAttribute="bottom" id="I09-Dz-JA1"/>
-                                                <constraint firstAttribute="bottom" secondItem="sbD-b9-Pwk" secondAttribute="bottom" id="IUz-ku-z7r"/>
-                                                <constraint firstAttribute="trailing" secondItem="mmT-nn-T4q" secondAttribute="trailing" constant="34" id="OPn-du-3nz"/>
-                                                <constraint firstItem="mmT-nn-T4q" firstAttribute="leading" secondItem="sbD-b9-Pwk" secondAttribute="trailing" constant="88" id="bfM-rN-40V"/>
+                                                <constraint firstItem="mmT-nn-T4q" firstAttribute="leading" secondItem="sbD-b9-Pwk" secondAttribute="trailing" constant="47" id="KvY-hE-v0W"/>
+                                                <constraint firstAttribute="trailing" secondItem="mmT-nn-T4q" secondAttribute="trailing" id="OPn-du-3nz"/>
+                                                <constraint firstItem="sbD-b9-Pwk" firstAttribute="leading" secondItem="HRu-5s-Dm8" secondAttribute="trailing" constant="48" id="WHu-nD-p1f"/>
                                                 <constraint firstItem="mmT-nn-T4q" firstAttribute="top" secondItem="WOo-2X-kse" secondAttribute="top" id="eKD-J0-TXJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="HRu-5s-Dm8" secondAttribute="bottom" id="f23-55-5Pl"/>
-                                                <constraint firstItem="HRu-5s-Dm8" firstAttribute="leading" secondItem="WOo-2X-kse" secondAttribute="leading" constant="15" id="hHI-pb-lBe"/>
-                                                <constraint firstItem="sbD-b9-Pwk" firstAttribute="leading" secondItem="HRu-5s-Dm8" secondAttribute="trailing" constant="64" id="w5v-JD-tUw"/>
+                                                <constraint firstItem="HRu-5s-Dm8" firstAttribute="leading" secondItem="WOo-2X-kse" secondAttribute="leading" id="hHI-pb-lBe"/>
+                                                <constraint firstItem="sbD-b9-Pwk" firstAttribute="top" secondItem="WOo-2X-kse" secondAttribute="top" constant="-2" id="jZa-xH-CFg"/>
+                                                <constraint firstAttribute="bottom" secondItem="sbD-b9-Pwk" secondAttribute="bottom" id="sMt-Il-F4m"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="k88-JV-4fV" secondAttribute="trailing" id="4YD-A1-g8v"/>
-                                        <constraint firstItem="WOo-2X-kse" firstAttribute="trailing" secondItem="CUh-3i-FxU" secondAttribute="trailingMargin" id="9GW-Wt-Jmc"/>
+                                        <constraint firstItem="WOo-2X-kse" firstAttribute="trailing" secondItem="CUh-3i-FxU" secondAttribute="trailingMargin" constant="-37" id="9GW-Wt-Jmc"/>
                                         <constraint firstItem="pvB-eE-14S" firstAttribute="top" secondItem="k88-JV-4fV" secondAttribute="bottom" constant="8" id="MH3-5T-r8l"/>
                                         <constraint firstItem="k88-JV-4fV" firstAttribute="leading" secondItem="CUh-3i-FxU" secondAttribute="leading" id="NnV-7X-E5W"/>
+                                        <constraint firstItem="WOo-2X-kse" firstAttribute="centerX" secondItem="CUh-3i-FxU" secondAttribute="centerX" id="OoB-P7-QXq"/>
                                         <constraint firstItem="N4n-i4-Mdx" firstAttribute="trailing" secondItem="CUh-3i-FxU" secondAttribute="trailingMargin" id="Paq-iH-oOL"/>
                                         <constraint firstItem="pvB-eE-14S" firstAttribute="leading" secondItem="CUh-3i-FxU" secondAttribute="leadingMargin" id="aQq-Qa-VRl"/>
-                                        <constraint firstItem="WOo-2X-kse" firstAttribute="bottom" secondItem="CUh-3i-FxU" secondAttribute="bottomMargin" id="aU8-lP-dyX"/>
+                                        <constraint firstItem="WOo-2X-kse" firstAttribute="bottom" secondItem="CUh-3i-FxU" secondAttribute="bottomMargin" constant="8" id="aU8-lP-dyX"/>
                                         <constraint firstItem="k88-JV-4fV" firstAttribute="top" secondItem="CUh-3i-FxU" secondAttribute="topMargin" constant="-3" id="dUq-yV-xmL"/>
-                                        <constraint firstItem="WOo-2X-kse" firstAttribute="leading" secondItem="CUh-3i-FxU" secondAttribute="leadingMargin" id="iGs-fp-2oh"/>
+                                        <constraint firstItem="WOo-2X-kse" firstAttribute="leading" secondItem="CUh-3i-FxU" secondAttribute="leadingMargin" constant="41" id="iGs-fp-2oh"/>
                                         <constraint firstItem="N4n-i4-Mdx" firstAttribute="top" secondItem="k88-JV-4fV" secondAttribute="bottom" constant="8" id="iam-Id-fDp"/>
                                         <constraint firstItem="N4n-i4-Mdx" firstAttribute="leading" secondItem="pvB-eE-14S" secondAttribute="trailing" constant="8" id="j6a-hk-dXG"/>
-                                        <constraint firstItem="WOo-2X-kse" firstAttribute="top" secondItem="N4n-i4-Mdx" secondAttribute="bottom" constant="26" id="jWr-l9-nGp"/>
+                                        <constraint firstItem="WOo-2X-kse" firstAttribute="top" secondItem="N4n-i4-Mdx" secondAttribute="bottom" constant="6" id="jWr-l9-nGp"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="iGs-fp-2oh"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="k88-JV-4fV" id="gBJ-AK-I90"/>
@@ -167,7 +185,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="standardCell" rowHeight="128" id="uaf-f0-ei0" customClass="StandardNotificationTableViewCell" customModule="todo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="292" width="414" height="128"/>
+                                <rect key="frame" x="0.0" y="284" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uaf-f0-ei0" id="akV-fO-o8Z">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
@@ -318,7 +336,6 @@
     </scenes>
     <resources>
         <image name="DefaultProfilePhoto.png" width="512" height="512"/>
-        <image name="Location.png" width="35" height="47"/>
         <image name="LocationIcon.png" width="32" height="32"/>
         <image name="NotificationsTabIcon_Black" width="32" height="30"/>
         <image name="NotificationsTabIcon_Teal" width="32" height="30"/>
