@@ -45,9 +45,7 @@ var requester = Dictionary<String, String>()
 
 var paired = Dictionary<String, String>()
 
-let sema: dispatch_semaphore_t = dispatch_semaphore_create(0)
-
-let semaPhoto: dispatch_semaphore_t = dispatch_semaphore_create(0)
+var sema: dispatch_semaphore_t = dispatch_semaphore_create(0)
 
 var currCourse = ""
 
@@ -133,53 +131,62 @@ func removeObservers(handle: Firebase) {
 
 func createUser(view: AnyObject, inputs: [String: String], courses: [String], segueIdentifier: String) {
     dispatch_barrier_async(concurrentDataAccessQueue) {
-        rootRef.createUser(inputs["Email Address"], password: inputs["Password"], withValueCompletionBlock: {
-            error, result in
-            if error == nil {
-                // Insert the user data
-                let newUserRef = usersRef.childByAppendingPath(inputs["Username"])
-                user = inputs
-                user["dots"] = 100
-                user["earned"] = 100
-                user["paid"] = 0
-                
-                if courses.count > 0 {
-                    for i in 0...courses.count - 1 {
-                        courseDic[courses[i].componentsSeparatedByString(":")[0]] = courses[i].componentsSeparatedByString(":")[1]
+        let currUserRef = getFirebase("users/" + inputs["Username"]!)
+        currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if snapshot.value["Email Address"] as? String != nil {
+                alert(view, description: "An error has occurred. There may be an existing account for the provided username.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            } else {
+                rootRef.createUser(inputs["Email Address"], password: inputs["Password"], withValueCompletionBlock: {
+                    error, result in
+                    if error == nil {
+                        // Insert the user data
+                        let newUserRef = usersRef.childByAppendingPath(inputs["Username"])
+                        user = inputs
+                        user["dots"] = 100
+                        user["earned"] = 100
+                        user["paid"] = 0
+                        
+                        if courses.count > 0 {
+                            for i in 0...courses.count - 1 {
+                                courseDic[courses[i].componentsSeparatedByString(":")[0]] = courses[i].componentsSeparatedByString(":")[1]
+                            }
+                        } else {
+                            courseDic["dummy"] = ""
+                        }
+                        
+                        user["courses"] = courseDic
+                        user["requesterUsername"] = ""
+                        user["requesterPhoto"] = ""
+                        user["requesterCourse"] = ""
+                        user["requesterDescription"] = ""
+                        user["requesterLocation"] = ""
+                        user["pairedUsername"] = ""
+                        user["pairedPhoto"] = ""
+                        user["start"] = ""
+                        user["finish"] = ""
+                        user["lastLogin"] = ""
+                        user["location"] = ""
+                        user["cancel"] = ""
+                        newUserRef.setValue(user)
+                        let notice = "created: You have joined todo!”"
+                        let date = getDateTime()
+                        notifications[date] = notice
+                        getFirebase("notifications/").updateChildValues([inputs["Username"]!: [date: notice]])
+                        getFirebase("history/").updateChildValues([inputs["Username"]!: [date: notice]])
+                        updateCourses(courses)
+                        print("Successfully created user account with username: \(inputs["Username"]!)")
+                        alert(view, description: "Congrats! You are ready to start using todo.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                            result in
+                            view.performSegueWithIdentifier(segueIdentifier, sender: nil)
+                            })
+                        removeObservers(currUserRef)
+                        return
                     }
-                } else {
-                    courseDic["dummy"] = ""
-                }
-                
-                user["courses"] = courseDic
-                user["requesterUsername"] = ""
-                user["requesterPhoto"] = ""
-                user["requesterCourse"] = ""
-                user["requesterDescription"] = ""
-                user["requesterLocation"] = ""
-                user["pairedUsername"] = ""
-                user["pairedPhoto"] = ""
-                user["start"] = ""
-                user["finish"] = ""
-                user["lastLogin"] = ""
-                user["location"] = ""
-                user["cancel"] = ""
-                newUserRef.setValue(user)
-                let notice = "created: You have joined todo!”"
-                let date = getDateTime()
-                notifications[date] = notice
-                getFirebase("notifications/").updateChildValues([inputs["Username"]!: [date: notice]])
-                getFirebase("history/").updateChildValues([inputs["Username"]!: [date: notice]])
-                updateCourses(courses)
-                print("Successfully created user account with username: \(inputs["Username"]!)")
-                alert(view, description: "Congrats! You are ready to start using todo.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
-                    result in
-                    view.performSegueWithIdentifier(segueIdentifier, sender: nil)
-                    })
-                return
+                    alert(view, description: "An error has occurred. There may be an existing account for the provided email address.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                })
             }
-            alert(view, description: "An error has occurred. There may be an existing account for the provided email address.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         })
+        
     }
 }
 
@@ -222,8 +229,6 @@ func modifyPassword(view: AnyObject, oldPassword:String, newPassword:String, use
     })
     
 }
-
-
 
 func loginUser(view: AnyObject, username: String, password:String, segueIdentifier: String) {
     dispatch_barrier_sync(concurrentDataAccessQueue) {
@@ -347,7 +352,6 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
 
 func requestListener(view: AnyObject) {
     dotsTotal = 0
-    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)
     dispatch_barrier_sync(concurrentDataAccessQueue) {
         let mainViewController = view as? HomeViewController
         let username = (user["username"] as! String)
@@ -686,6 +690,7 @@ func logOutUser () {
     history.removeAll()
 
     rootRef.unauth()
+    
 }
 
 func getDateTime() -> String {
