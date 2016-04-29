@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -35,31 +35,6 @@
                         <rect key="frame" x="0.0" y="64" width="350" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MeN-hp-I17">
-                                <rect key="frame" x="184" y="175" width="131" height="128"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DotsBalance_Profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="acb-Dw-ubU">
-                                        <rect key="frame" x="0.0" y="0.0" width="131" height="128"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maN-Vt-1Qn">
-                                        <rect key="frame" x="8" y="34" width="115" height="43"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="43" id="pmb-DM-2sa"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="131" id="24I-zX-Tuj"/>
-                                    <constraint firstItem="maN-Vt-1Qn" firstAttribute="top" secondItem="MeN-hp-I17" secondAttribute="top" constant="34" id="5uK-Ge-Y4w"/>
-                                    <constraint firstAttribute="trailing" secondItem="maN-Vt-1Qn" secondAttribute="trailing" constant="8" id="OH6-jZ-dlj"/>
-                                    <constraint firstAttribute="height" constant="128" id="gb0-5n-XUF"/>
-                                    <constraint firstItem="maN-Vt-1Qn" firstAttribute="leading" secondItem="MeN-hp-I17" secondAttribute="leading" constant="8" id="vDF-a9-aQf"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="as5-8A-JRs">
                                 <rect key="frame" x="0.0" y="0.0" width="350" height="148"/>
                                 <subviews>
@@ -249,13 +224,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ModerateActivity_Profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="Je6-2d-xdO">
-                                <rect key="frame" x="15" y="215" width="161" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="KOh-f0-A39"/>
-                                    <constraint firstAttribute="width" constant="161" id="dpJ-eP-OtC"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tutoring Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncW-9i-ysn">
                                 <rect key="frame" x="7" y="156" width="177" height="28"/>
                                 <constraints>
@@ -265,6 +233,31 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeN-hp-I17">
+                                <rect key="frame" x="109" y="175" width="131" height="128"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DotsBalance_Profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="acb-Dw-ubU">
+                                        <rect key="frame" x="0.0" y="0.0" width="131" height="128"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maN-Vt-1Qn">
+                                        <rect key="frame" x="8" y="34" width="115" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="pmb-DM-2sa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="131" id="24I-zX-Tuj"/>
+                                    <constraint firstItem="maN-Vt-1Qn" firstAttribute="top" secondItem="MeN-hp-I17" secondAttribute="top" constant="34" id="5uK-Ge-Y4w"/>
+                                    <constraint firstAttribute="trailing" secondItem="maN-Vt-1Qn" secondAttribute="trailing" constant="8" id="OH6-jZ-dlj"/>
+                                    <constraint firstAttribute="height" constant="128" id="gb0-5n-XUF"/>
+                                    <constraint firstItem="maN-Vt-1Qn" firstAttribute="leading" secondItem="MeN-hp-I17" secondAttribute="leading" constant="8" id="vDF-a9-aQf"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -272,18 +265,22 @@
                             <constraint firstItem="F7c-MZ-VAd" firstAttribute="leading" secondItem="LoK-FE-M41" secondAttribute="leadingMargin" constant="-13" id="25q-tO-KfX"/>
                             <constraint firstItem="MeN-hp-I17" firstAttribute="top" secondItem="as5-8A-JRs" secondAttribute="bottom" constant="27" id="2TK-AW-fNA"/>
                             <constraint firstItem="Qrx-Xk-0M5" firstAttribute="leading" secondItem="LoK-FE-M41" secondAttribute="leadingMargin" constant="-20" id="3Oq-qT-bfw"/>
-                            <constraint firstItem="Je6-2d-xdO" firstAttribute="top" secondItem="ncW-9i-ysn" secondAttribute="bottom" constant="31" id="78t-bW-WZh"/>
                             <constraint firstItem="ncW-9i-ysn" firstAttribute="leading" secondItem="LoK-FE-M41" secondAttribute="leadingMargin" constant="-13" id="7Gc-4U-Pn3"/>
                             <constraint firstItem="ncW-9i-ysn" firstAttribute="top" secondItem="as5-8A-JRs" secondAttribute="bottom" constant="8" id="8Zm-XR-WMe"/>
                             <constraint firstItem="F7c-MZ-VAd" firstAttribute="top" secondItem="Qrx-Xk-0M5" secondAttribute="bottom" constant="8" id="Fdk-X8-gH8"/>
-                            <constraint firstItem="Je6-2d-xdO" firstAttribute="leading" secondItem="LoK-FE-M41" secondAttribute="leadingMargin" constant="-5" id="HwU-ZA-voA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MeN-hp-I17" secondAttribute="trailing" constant="15" id="KTH-TQ-ewI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MeN-hp-I17" secondAttribute="trailing" constant="90" id="KTH-TQ-ewI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F7c-MZ-VAd" secondAttribute="trailing" constant="-12" id="Qcc-J8-vhp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qrx-Xk-0M5" secondAttribute="trailing" constant="-20" id="Ss9-SQ-zxq"/>
+                            <constraint firstItem="MeN-hp-I17" firstAttribute="centerX" secondItem="LoK-FE-M41" secondAttribute="centerX" id="W7s-Ep-Ded"/>
                             <constraint firstItem="Qrx-Xk-0M5" firstAttribute="top" secondItem="MeN-hp-I17" secondAttribute="bottom" constant="14" id="odI-5e-ddv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="as5-8A-JRs" secondAttribute="trailing" constant="-20" id="v8c-eY-6S0"/>
                             <constraint firstItem="as5-8A-JRs" firstAttribute="leading" secondItem="LoK-FE-M41" secondAttribute="leadingMargin" constant="-20" id="yd6-yb-jf6"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KTH-TQ-ewI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="avY-2c-MYx">
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="ujx-4q-L8G">
@@ -304,7 +301,6 @@
                     <size key="freeformSize" width="350" height="800"/>
                     <connections>
                         <outlet property="CoursesTableView" destination="F7c-MZ-VAd" id="0aC-wq-kb3"/>
-                        <outlet property="activityImage" destination="Je6-2d-xdO" id="O8p-Eh-aX2"/>
                         <outlet property="basicInfoView" destination="as5-8A-JRs" id="wH7-hN-bnx"/>
                         <outlet property="changePhotoButton" destination="t0s-0M-9Uu" id="ZVc-oD-Vyx"/>
                         <outlet property="coursesLabel" destination="Qrx-Xk-0M5" id="UqY-Re-Zut"/>
@@ -356,7 +352,6 @@
         <image name="DefaultProfilePhoto.png" width="512" height="512"/>
         <image name="DotsBalance_Profile.png" width="233" height="223"/>
         <image name="EmailButton_Profile.png" width="300" height="71"/>
-        <image name="ModerateActivity_Profile.png" width="268" height="76"/>
         <image name="ProfileTabIcon_Black" width="25" height="30"/>
         <image name="ProfileTabIcon_Teal" width="25" height="30"/>
     </resources>
