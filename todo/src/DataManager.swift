@@ -179,9 +179,11 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                             result in
                             view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                             })
+                        
                         removeObservers(currUserRef)
                         return
                     }
+                    
                     alert(view, description: "An error has occurred. There may be an existing account for the provided email address.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 })
             }
@@ -298,6 +300,20 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                         }
                     })
                     
+                    currUserRef.updateChildValues(["pairedCourse": ""])
+                    currUserRef.updateChildValues(["pairedPhoto": ""])
+                    currUserRef.updateChildValues(["pairedUsername": ""])
+                    currUserRef.updateChildValues(["requesterCourse": ""])
+                    currUserRef.updateChildValues(["requesterDescription": ""])
+                    currUserRef.updateChildValues(["requesterLocation": ""])
+                    currUserRef.updateChildValues(["requesterPhoto": ""])
+                    currUserRef.updateChildValues(["requesterUsername": ""])
+                    currUserRef.updateChildValues(["start": ""])
+                    currUserRef.updateChildValues(["cancel": ""])
+                    currUserRef.updateChildValues(["finish": ""])
+                    currUserRef.updateChildValues(["location": ""])
+
+                    
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                     removeObservers(notificationUserRef)
                     removeObservers(historyUserRef)
@@ -377,7 +393,7 @@ func requestListener(view: AnyObject) {
                     requester["location"] = (snapshot.value["requesterLocation"] as! String)
                 }
             
-                let decodedImage = decodeImage(snapshot.value["requesterPhoto"] as! String)
+                let decodedImage = decodePhoto(snapshot.value["requesterPhoto"] as! String)
                 
                 let requesterUserRef = getFirebase("users/" + requester["username"]!)
                 
@@ -517,7 +533,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.requesterStartSessionViewController?.tutorCourse.text = paired["course"]
                 
-                mainViewController!.requesterStartSessionViewController?.tutorPhoto.image = decodeImage(paired["photoString"]!)
+                mainViewController!.requesterStartSessionViewController?.tutorPhoto.image = decodePhoto(paired["photoString"]!)
                 
                 mainViewController!.tutorStudentSwitch.hidden = true
                 
@@ -538,7 +554,7 @@ func startSession (mainView: AnyObject, view: AnyObject) {
     mainViewController.requesterSessionContainerView.hidden = false
     mainViewController.requesterTutoringSessionViewController!.requesterTutoringSessionTutorUsername.text = "Tutoring Session with " + paired["username"]!
     mainViewController.requesterTutoringSessionViewController!.requesterTutotringSessionCourse.text = paired["course"]
-    mainViewController.requesterTutoringSessionViewController!.requesterTutoringSessionTutorPhoto.image = decodeImage(paired["photoString"]!)
+    mainViewController.requesterTutoringSessionViewController!.requesterTutoringSessionTutorPhoto.image = decodePhoto(paired["photoString"]!)
     mainViewController.requesterSessionContainerView.hidden = false
     let pairedUserRef = getFirebase("users/" + (paired["username"]! ))
     dispatch_barrier_async(concurrentDataAccessQueue) {
@@ -698,18 +714,6 @@ func getDateTime() -> String {
     return timestamp
 }
 
-func decodeImage(stringPhoto: String) -> UIImage {
-    
-    if stringPhoto == "" || stringPhoto == " " || stringPhoto == "none" {
-        return defaultImage()
-    }
-    
-    let imageData = NSData(base64EncodedString: stringPhoto, options: NSDataBase64DecodingOptions(rawValue: 0))
-    
-    let decodedImage = UIImage(data: imageData!)
-    
-    return decodedImage!
-}
 
 func getUserPhoto(username:String, imageView:UIImageView? = nil) {
     let userRef = getFirebase("users/" + username)
