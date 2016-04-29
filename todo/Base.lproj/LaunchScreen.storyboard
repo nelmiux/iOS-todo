@@ -17,18 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TodoLogo_Teal.png" translatesAutoresizingMaskIntoConstraints="NO" id="LUi-HT-Bug">
-                                <rect key="frame" x="187" y="187" width="226" height="226"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TodoAppIcon_White.png" translatesAutoresizingMaskIntoConstraints="NO" id="LUi-HT-Bug">
+                                <rect key="frame" x="238" y="238" width="125" height="125"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="226" id="Plb-Qx-7jq"/>
-                                    <constraint firstAttribute="width" constant="226" id="aAu-O8-z5l"/>
+                                    <constraint firstAttribute="height" constant="125" id="vJs-dN-HK0"/>
+                                    <constraint firstAttribute="width" constant="125" id="yti-LM-tfe"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="LUi-HT-Bug" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="C9o-B6-eTO"/>
-                            <constraint firstItem="LUi-HT-Bug" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iBt-lX-YdP"/>
+                            <constraint firstItem="LUi-HT-Bug" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="MnZ-MA-BNb"/>
+                            <constraint firstItem="LUi-HT-Bug" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="veE-1R-mDn"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TodoLogo_Teal.png" width="331" height="142"/>
+        <image name="TodoAppIcon_White.png" width="400" height="400"/>
     </resources>
 </document>
