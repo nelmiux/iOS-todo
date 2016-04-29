@@ -573,7 +573,7 @@ func startSession (mainView: AnyObject, view: AnyObject) {
                 notifications[date] = notice
                 
                 let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
-                var noticeH = "requester: You spent" + String(dotsTotal) + " dots on tutoring in "
+                var noticeH = "requester: You spent " + String(dotsTotal) + " dots on tutoring in "
                 noticeH = noticeH + paired["course"]! + " from " + paired["username"]!
                 
                 let dateH = getDateTime()
