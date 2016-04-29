@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		874A951A1CD08A290060AC87 /* BalanceUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874A95191CD08A290060AC87 /* BalanceUpdateTableViewCell.swift */; };
+		874A95211CD3BB470060AC87 /* emailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 874A95201CD3BB470060AC87 /* emailIcon.png */; };
+		874A95231CD3BB600060AC87 /* dotIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 874A95221CD3BB600060AC87 /* dotIcon.png */; };
 		879193881CB5BA8300F5A08D /* UserPhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879193871CB5BA8300F5A08D /* UserPhotoButton.swift */; };
 		87D0E3311CAB23F2009261CC /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */; };
 		87D0E3351CAB2680009261CC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */; };
-		87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3361CAB90F7009261CC /* SpentDotsBg.png */; };
-		87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3371CAB90F7009261CC /* GainedDotsBg.png */; };
+		87D47D131CD3BD2F003E6254 /* GainedDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D47D121CD3BD2F003E6254 /* GainedDotsBg.png */; };
+		87D47D151CD3BD36003E6254 /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D47D141CD3BD36003E6254 /* SpentDotsBg.png */; };
 		99A41DD31CD15A6000F2A920 /* todo-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A41DD21CD15A6000F2A920 /* todo-icon.png */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		C6FE54001CC9C4060042E585 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */; };
@@ -133,12 +135,14 @@
 		04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_Teal.png; sourceTree = "<group>"; };
 		04B6C3221C85786C00BA7882 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_White.png; sourceTree = "<group>"; };
 		874A95191CD08A290060AC87 /* BalanceUpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BalanceUpdateTableViewCell.swift; path = src/BalanceUpdateTableViewCell.swift; sourceTree = "<group>"; };
+		874A95201CD3BB470060AC87 /* emailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emailIcon.png; path = images/Profile/emailIcon.png; sourceTree = "<group>"; };
+		874A95221CD3BB600060AC87 /* dotIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dotIcon.png; path = images/Profile/dotIcon.png; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
 		879193871CB5BA8300F5A08D /* UserPhotoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhotoButton.swift; sourceTree = "<group>"; };
 		87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
-		87D0E3361CAB90F7009261CC /* SpentDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpentDotsBg.png; sourceTree = "<group>"; };
-		87D0E3371CAB90F7009261CC /* GainedDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GainedDotsBg.png; sourceTree = "<group>"; };
+		87D47D121CD3BD2F003E6254 /* GainedDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GainedDotsBg.png; path = images/History/GainedDotsBg.png; sourceTree = "<group>"; };
+		87D47D141CD3BD36003E6254 /* SpentDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpentDotsBg.png; path = images/History/SpentDotsBg.png; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A41DD21CD15A6000F2A920 /* todo-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "todo-icon.png"; path = "Docs/todo-icon.png"; sourceTree = SOURCE_ROOT; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 		04B6C3261C865E6E00BA7882 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				874A95221CD3BB600060AC87 /* dotIcon.png */,
+				874A95201CD3BB470060AC87 /* emailIcon.png */,
 				CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */,
 				CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */,
 				CA7B00CC1C9504C90001D0F4 /* EmailButton_Profile.png */,
@@ -342,10 +348,10 @@
 		CA2A50F71C8533BC000E2E94 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				87D47D121CD3BD2F003E6254 /* GainedDotsBg.png */,
+				87D47D141CD3BD36003E6254 /* SpentDotsBg.png */,
 				CAC137CA1C855D8E00586487 /* History Example.png */,
 				CAC137CB1C855D8E00586487 /* HistoryExample.png */,
-				87D0E3361CAB90F7009261CC /* SpentDotsBg.png */,
-				87D0E3371CAB90F7009261CC /* GainedDotsBg.png */,
 				CAC137CC1C855D8E00586487 /* Location.png */,
 				CAC137CD1C855D8E00586487 /* user1.png */,
 				CAC137CE1C855D8E00586487 /* user2.png */,
@@ -699,16 +705,17 @@
 				CAC482751C83F4A900059FDD /* Maiandra GD Regular.ttf in Resources */,
 				CAC137D21C855D8E00586487 /* Location.png in Resources */,
 				CA7B013D1C9509530001D0F4 /* Home.storyboard in Resources */,
+				87D47D131CD3BD2F003E6254 /* GainedDotsBg.png in Resources */,
 				CA7B01701C9515D40001D0F4 /* TodoLogo_Teal.png in Resources */,
 				CA7B01711C9515D40001D0F4 /* TodoLogo_White.png in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
-				87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */,
 				CA7B01741C9516E50001D0F4 /* LocationIcon.png in Resources */,
 				99A41DD31CD15A6000F2A920 /* todo-icon.png in Resources */,
 				CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */,
 				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
 				CA7B00DF1C9505FF0001D0F4 /* TodoSlogan_LightGray.png in Resources */,
 				CA7B01411C9509530001D0F4 /* SignUp.storyboard in Resources */,
+				87D47D151CD3BD36003E6254 /* SpentDotsBg.png in Resources */,
 				CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */,
 				CA7B016E1C9515D40001D0F4 /* LoginButton.png in Resources */,
 				CA7B01A81C951CCC0001D0F4 /* UTCS_Course_schedule.txt in Resources */,
@@ -720,6 +727,7 @@
 				CAC482711C83F49A00059FDD /* SEGOEUIB.TTF in Resources */,
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
+				874A95211CD3BB470060AC87 /* emailIcon.png in Resources */,
 				CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */,
 				CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */,
 				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
@@ -728,12 +736,12 @@
 				CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */,
 				CA7B00DD1C9505FF0001D0F4 /* LoginButton2.png in Resources */,
 				CAC137C41C85548B00586487 /* Main.storyboard in Resources */,
-				87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */,
 				CAC482881C84209E00059FDD /* Home Analitics.png in Resources */,
 				CAC137D41C855D8E00586487 /* user2.png in Resources */,
 				CAC4827D1C83F85A00059FDD /* NotificationsTabIcon_Teal.png in Resources */,
 				CA7B00D41C9504C90001D0F4 /* FrequentActivity_Profile.png in Resources */,
 				CAC482891C84209E00059FDD /* Home-Item1.png in Resources */,
+				874A95231CD3BB600060AC87 /* dotIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
