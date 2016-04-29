@@ -84,12 +84,13 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
                         wholeName = (snapshot.value["First Name"] as? String)! + " " + (snapshot.value["Last Name"] as? String)!
                         self.nameLabel.text = wholeName
                         self.majorLabel.text = snapshot.value["Major"] as! String!
-                        self.graduationLabel.text = "Class of " + (snapshot.value["Graduation Year"] as! String!)
+                        let graduationYear = snapshot.value["Graduation Year"] as! String!
+                        self.graduationLabel.text = "Class of " + graduationYear
                         self.numDotsLabel.text = String((snapshot.value["dots"] as? Int)!)
                     
                         self.name = self.nameLabel.text!
                         self.major = self.majorLabel.text!
-                        self.graduation = self.graduationLabel.text!
+                        self.graduation = graduationYear
                         // self.numDots = Int(numDotsLabel.text!)!
                         print("data has been fetched: \(self.major), \(self.graduation), \(self.numDots)")
                     }
