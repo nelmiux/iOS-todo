@@ -98,7 +98,7 @@ class NotificationsTableViewController: UITableViewController {
             return requestCell
         } else if type == "balanceUpdate" {
             let balanceUpdateCell = tableView.dequeueReusableCellWithIdentifier("balanceUpdateCell", forIndexPath: indexPath) as! BalanceUpdateTableViewCell
-            balanceUpdateCell.dateLabel.text = date
+            balanceUpdateCell.dateLabel.text = self.parseDate(date)
             balanceUpdateCell.messageLabel.text = message
             let numDots = self.getNumDots(message)
             if numDots > 0 {
