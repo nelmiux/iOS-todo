@@ -13,6 +13,7 @@
             <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
+            <string>SegoeUI</string>
         </mutableArray>
         <mutableArray key="SEGOEUIB.TTF">
             <string>SegoeUI-Bold</string>
@@ -234,19 +235,31 @@
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltM-fp-Yoh">
                                                 <rect key="frame" x="0.0" y="0.0" width="161" height="58"/>
                                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
-                                                <state key="normal" title="Message">
+                                                <state key="normal">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="onClickEmail:" destination="zqS-v6-t5E" eventType="touchUpInside" id="cBP-1n-La0"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uch-Bh-8Vp">
+                                                <rect key="frame" x="48" y="18" width="76" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="76" id="7Js-dW-808"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="ltM-fp-Yoh" secondAttribute="bottom" id="8BT-xJ-Aax"/>
+                                            <constraint firstItem="Uch-Bh-8Vp" firstAttribute="leading" secondItem="qQ3-Vh-ezv" secondAttribute="trailing" constant="8" id="CW6-lS-H2x"/>
                                             <constraint firstAttribute="height" constant="58" id="KBB-Lh-yfQ"/>
                                             <constraint firstItem="qQ3-Vh-ezv" firstAttribute="leading" secondItem="uDA-aK-AQG" secondAttribute="leading" constant="20" id="LEh-BC-Dhw"/>
                                             <constraint firstItem="ltM-fp-Yoh" firstAttribute="leading" secondItem="uDA-aK-AQG" secondAttribute="leading" id="RjC-Lh-zHA"/>
+                                            <constraint firstAttribute="bottom" secondItem="Uch-Bh-8Vp" secondAttribute="bottom" constant="19" id="Xbc-2D-EKk"/>
+                                            <constraint firstItem="Uch-Bh-8Vp" firstAttribute="top" secondItem="uDA-aK-AQG" secondAttribute="top" constant="18" id="b6R-Jp-I2o"/>
                                             <constraint firstItem="qQ3-Vh-ezv" firstAttribute="top" secondItem="uDA-aK-AQG" secondAttribute="top" constant="20" id="cbx-Rv-By3"/>
                                             <constraint firstAttribute="trailing" secondItem="ltM-fp-Yoh" secondAttribute="trailing" id="nD6-fi-N5f"/>
                                             <constraint firstItem="ltM-fp-Yoh" firstAttribute="top" secondItem="uDA-aK-AQG" secondAttribute="top" id="yzh-iZ-oJ2"/>
