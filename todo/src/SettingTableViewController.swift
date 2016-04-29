@@ -42,32 +42,38 @@ class SettingTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
-        switch cell?.reuseIdentifier!{
-            
-        case "password"?:
-            print("in password cell")
-            promptChangeInfo("password")
-            break;
-            
-        case "email"?:
-            print("in email cell")
-            promptChangeInfo("email")
-            break;
-            
-        case "reset_Notification"?:
-            print("In reset notification")
-            promptClearInfo("notification")
-            break;
-            
-        case "reset_History"?:
-            print("In reset history")
-            promptClearInfo("history")
-            break;
-            
-        default:
-            print("neither")
-            break;
+        
+        if let cell = cell?.reuseIdentifier{
+            switch cell{
+                
+            case "password":
+                print("in password cell")
+                promptChangeInfo("password")
+                break;
+                
+            case "email":
+                print("in email cell")
+                promptChangeInfo("email")
+                break;
+                
+            case "reset_Notification":
+                print("In reset notification")
+                promptClearInfo("notification")
+                break;
+                
+            case "reset_History":
+                print("In reset history")
+                promptClearInfo("history")
+                break;
+                
+            default:
+                print("neither")
+                break;
+            }
+        }else{
+            print("Vær så s\"nil\"l")
         }
+        
         
     }
     
