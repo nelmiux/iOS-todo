@@ -43,7 +43,6 @@ class HomeViewController: UIViewController {
     var presented: Bool = false
     
     override func viewDidLoad() {
-        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)
         super.viewDidLoad()
         requestTutoringButton!.backgroundColor = requestButtonColor
         startHomeViewController()

@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         var coursesKeysCopy = [String]()
         var coursesValuesCopy = [String]()
         
-        dispatch_sync(concurrentDataAccessQueue) {
+        dispatch_sync(taskQueue) {
             for key in (user["courses"] as! [String: String]).keys {
                 coursesKeysCopy.append(key)
             }
@@ -77,7 +77,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         }
         
         let userRef = getFirebase("users/" + username)
-        dispatch_barrier_sync(concurrentDataAccessQueue) {
+        dispatch_barrier_sync(taskQueue) {
             userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
                 if !(snapshot.value is NSNull) {
                     if var wholeName = (snapshot.value["First Name"] as? String) {
