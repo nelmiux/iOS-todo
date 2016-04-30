@@ -71,7 +71,7 @@ class SettingTableViewController: UITableViewController {
                 break;
             }
         }else{
-            print("Vær så s\"nil\"l")
+            print("s\"nil\"l")
         }
         
         
