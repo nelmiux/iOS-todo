@@ -9,8 +9,6 @@
         <mutableArray key="SEGOEUI.TTF">
             <string>SegoeUI</string>
             <string>SegoeUI</string>
-            <string>SegoeUI</string>
-            <string>SegoeUI</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -29,22 +27,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginScreenBg2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="F5U-Rq-mRx">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TodoLogo_White.png" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zSN-cL-inS">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TodoLogo_White.png" translatesAutoresizingMaskIntoConstraints="NO" id="zSN-cL-inS">
                                 <rect key="frame" x="90" y="41" width="222" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="QLe-Dc-ziz"/>
+                                    <constraint firstAttribute="height" constant="90" id="ATK-sI-Zky"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="to7-bA-m8k">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="to7-bA-m8k">
                                 <rect key="frame" x="92" y="614" width="230" height="38"/>
                                 <color key="backgroundColor" red="0.92317688465118408" green="0.32955902814865112" blue="0.21469742059707642" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="6AY-Uv-Ndg"/>
+                                    <constraint firstAttribute="height" constant="38" id="Isb-DO-ICP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="16"/>
                                 <color key="tintColor" red="0.89297652244567871" green="0.32243806980676942" blue="0.33171299900356765" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="SIGN UP">
-                                    <color key="titleShadowColor" white="1" alpha="0.80188038790000005" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="a7J-WO-piz" kind="showDetail" id="s4M-8W-ail"/>
@@ -60,7 +57,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="TodoSlogan_LightGray.png" translatesAutoresizingMaskIntoConstraints="NO" id="wkS-aK-x0d">
                                 <rect key="frame" x="90" y="131" width="222" height="11"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="11" id="S3d-Ud-dMc"/>
+                                    <constraint firstAttribute="height" constant="11" id="aOD-dC-tQb"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bpd-3V-rj9">
@@ -75,19 +72,15 @@
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEQ-lP-kQb">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEQ-lP-kQb">
                                 <rect key="frame" x="92" y="414" width="230" height="38"/>
                                 <color key="backgroundColor" red="0.22437195090000001" green="0.87523449289999999" blue="0.82929350150000003" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="fmx-v1-2WN"/>
+                                    <constraint firstAttribute="height" constant="38" id="0uS-Qg-JVK"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
                                 <color key="tintColor" red="0.25329121469999999" green="1" blue="0.95315603500000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="LOG IN">
-                                    <color key="titleShadowColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleShadowColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="ErG-cG-D21" kind="showDetail" identifier="enterApplication" id="xSX-h8-Ya5"/>
@@ -96,32 +89,32 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wkS-aK-x0d" firstAttribute="top" secondItem="zSN-cL-inS" secondAttribute="bottom" id="0yG-bu-1rB"/>
-                            <constraint firstItem="aIh-jr-Pgi" firstAttribute="top" secondItem="bpd-3V-rj9" secondAttribute="bottom" constant="3" id="2ai-yY-n5p"/>
-                            <constraint firstItem="GEQ-lP-kQb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="71" id="46v-NA-C3N"/>
-                            <constraint firstAttribute="bottom" secondItem="GEQ-lP-kQb" secondAttribute="bottom" constant="284" id="7Qz-d5-9ZZ"/>
-                            <constraint firstItem="F5U-Rq-mRx" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="8QX-Lw-JHh"/>
-                            <constraint firstItem="X8Z-ZV-kXF" firstAttribute="top" secondItem="to7-bA-m8k" secondAttribute="bottom" id="AxC-yp-UW6"/>
-                            <constraint firstItem="bpd-3V-rj9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="61" id="DuP-Md-mNO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zSN-cL-inS" secondAttribute="trailing" constant="82" id="GNC-rZ-LLa"/>
-                            <constraint firstItem="F5U-Rq-mRx" firstAttribute="centerX" secondItem="bpd-3V-rj9" secondAttribute="centerX" id="HLK-vf-Rl4"/>
-                            <constraint firstItem="F5U-Rq-mRx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IdP-fm-9Oa"/>
-                            <constraint firstItem="zSN-cL-inS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="NbI-a3-ieL"/>
-                            <constraint firstItem="X8Z-ZV-kXF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Q4G-mt-YLs"/>
-                            <constraint firstItem="to7-bA-m8k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="72" id="ThJ-ep-TpC"/>
-                            <constraint firstItem="aIh-jr-Pgi" firstAttribute="leading" secondItem="bpd-3V-rj9" secondAttribute="leading" id="UMv-7p-FDK"/>
-                            <constraint firstItem="GEQ-lP-kQb" firstAttribute="top" secondItem="aIh-jr-Pgi" secondAttribute="bottom" constant="16" id="Vur-Z2-frR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GEQ-lP-kQb" secondAttribute="trailing" constant="73" id="cJl-pJ-CoH"/>
-                            <constraint firstItem="aIh-jr-Pgi" firstAttribute="trailing" secondItem="bpd-3V-rj9" secondAttribute="trailing" id="f4g-FV-eM8"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X8Z-ZV-kXF" secondAttribute="bottom" constant="54" id="gSJ-re-IJ1"/>
-                            <constraint firstAttribute="trailing" secondItem="F5U-Rq-mRx" secondAttribute="trailing" id="jUZ-66-bPx"/>
-                            <constraint firstItem="X8Z-ZV-kXF" firstAttribute="centerX" secondItem="to7-bA-m8k" secondAttribute="centerX" id="kzG-gx-Eti"/>
-                            <constraint firstAttribute="bottom" secondItem="to7-bA-m8k" secondAttribute="bottom" constant="84" id="lsw-kO-WU5"/>
-                            <constraint firstItem="wkS-aK-x0d" firstAttribute="trailing" secondItem="zSN-cL-inS" secondAttribute="trailing" id="mYA-S3-P9y"/>
-                            <constraint firstItem="F5U-Rq-mRx" firstAttribute="centerX" secondItem="to7-bA-m8k" secondAttribute="centerX" id="mpC-Pi-l9q"/>
-                            <constraint firstItem="F5U-Rq-mRx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nhU-zg-jgx"/>
-                            <constraint firstItem="wkS-aK-x0d" firstAttribute="leading" secondItem="zSN-cL-inS" secondAttribute="leading" id="qb1-3k-kvN"/>
-                            <constraint firstItem="zSN-cL-inS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="70" id="whs-x3-EvC"/>
+                            <constraint firstItem="X8Z-ZV-kXF" firstAttribute="centerX" secondItem="to7-bA-m8k" secondAttribute="centerX" id="0Y2-Bp-gHq"/>
+                            <constraint firstAttribute="bottom" secondItem="GEQ-lP-kQb" secondAttribute="bottom" constant="284" id="32K-zm-dDt"/>
+                            <constraint firstItem="bpd-3V-rj9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="61" id="6kN-P9-MJo"/>
+                            <constraint firstItem="X8Z-ZV-kXF" firstAttribute="top" secondItem="to7-bA-m8k" secondAttribute="bottom" id="9gQ-T2-oIT"/>
+                            <constraint firstItem="zSN-cL-inS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="70" id="D75-d5-piW"/>
+                            <constraint firstItem="aIh-jr-Pgi" firstAttribute="leading" secondItem="bpd-3V-rj9" secondAttribute="leading" id="EVj-bO-iZi"/>
+                            <constraint firstItem="aIh-jr-Pgi" firstAttribute="trailing" secondItem="bpd-3V-rj9" secondAttribute="trailing" id="H4u-rl-mhf"/>
+                            <constraint firstItem="to7-bA-m8k" firstAttribute="leading" secondItem="GEQ-lP-kQb" secondAttribute="leading" id="LrB-uq-g0c"/>
+                            <constraint firstAttribute="bottom" secondItem="to7-bA-m8k" secondAttribute="bottom" constant="84" id="QOt-ro-x8v"/>
+                            <constraint firstItem="aIh-jr-Pgi" firstAttribute="top" secondItem="bpd-3V-rj9" secondAttribute="bottom" constant="3" id="RJr-iH-vQJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zSN-cL-inS" secondAttribute="trailing" constant="82" id="SFx-9m-ZAM"/>
+                            <constraint firstItem="F5U-Rq-mRx" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Uhb-0m-NoT"/>
+                            <constraint firstItem="GEQ-lP-kQb" firstAttribute="centerX" secondItem="F5U-Rq-mRx" secondAttribute="centerX" id="V7q-G3-UwC"/>
+                            <constraint firstItem="wkS-aK-x0d" firstAttribute="top" secondItem="zSN-cL-inS" secondAttribute="bottom" id="WvQ-BM-RMz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="X8Z-ZV-kXF" secondAttribute="bottom" constant="54" id="X8H-UU-xJf"/>
+                            <constraint firstItem="wkS-aK-x0d" firstAttribute="trailing" secondItem="zSN-cL-inS" secondAttribute="trailing" id="XEv-zi-e6a"/>
+                            <constraint firstItem="GEQ-lP-kQb" firstAttribute="centerX" secondItem="aIh-jr-Pgi" secondAttribute="centerX" id="YFt-p8-n1L"/>
+                            <constraint firstItem="GEQ-lP-kQb" firstAttribute="top" secondItem="aIh-jr-Pgi" secondAttribute="bottom" constant="16" id="Yn5-O6-iNk"/>
+                            <constraint firstItem="zSN-cL-inS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="a6z-AF-3R6"/>
+                            <constraint firstItem="F5U-Rq-mRx" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bO2-dM-zDv"/>
+                            <constraint firstItem="F5U-Rq-mRx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gVu-Uv-RBh"/>
+                            <constraint firstItem="GEQ-lP-kQb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="72" id="hfy-wc-ISo"/>
+                            <constraint firstItem="GEQ-lP-kQb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pSg-bE-UHn"/>
+                            <constraint firstItem="X8Z-ZV-kXF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="uH7-sn-XjL"/>
+                            <constraint firstItem="wkS-aK-x0d" firstAttribute="leading" secondItem="zSN-cL-inS" secondAttribute="leading" id="uaJ-5c-vh9"/>
+                            <constraint firstItem="to7-bA-m8k" firstAttribute="trailing" secondItem="GEQ-lP-kQb" secondAttribute="trailing" id="vRc-rd-5q8"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>

@@ -31,11 +31,24 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
         self.editedDropDown.delegate = self
         self.locationText.delegate = self
         self.descriptionText.delegate = self
+        let newHeight: CGFloat = 700.0
+        
+        let textViewFrame = descriptionText.frame;
+        descriptionText.frame = CGRectMake(textViewFrame.origin.x, textViewFrame.origin.y, textViewFrame.size.width, newHeight)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textViewDidChange(textView: UITextView){
+        let fixedWidth = textView.frame.size.width
+        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = textView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        textView.frame = newFrame;
     }
     
     @IBAction func editedDropDown(sender: UITextField) {

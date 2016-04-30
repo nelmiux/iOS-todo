@@ -63,15 +63,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aH-Ql-e1C">
-                                <rect key="frame" x="25" y="194" width="71" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="ZXn-VT-DAp"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7eL-lb-Vw9">
                                 <rect key="frame" x="121" y="190" width="273" height="30"/>
                                 <color key="backgroundColor" red="0.99194461109999998" green="0.99615627529999995" blue="0.99600595240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,18 +72,26 @@
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="369" placeholderIntrinsicHeight="157" translatesAutoresizingMaskIntoConstraints="NO" id="oui-FR-WDb">
-                                <rect key="frame" x="20" y="304" width="369" height="157"/>
+                            <textView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="369" placeholderIntrinsicHeight="157" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oui-FR-WDb">
+                                <rect key="frame" x="20" y="304" width="369" height="100"/>
                                 <color key="backgroundColor" red="0.99194461109999998" green="0.99615627529999995" blue="0.99600595240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" staticText="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="oui-FR-WDb" secondAttribute="height" multiplier="369:157" id="heP-o6-ErP"/>
-                                    <constraint firstAttribute="height" constant="157" id="p5a-nb-AO4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="157" id="Hja-bX-CUa"/>
+                                    <constraint firstAttribute="width" constant="369" id="Kez-0X-jag"/>
+                                    <constraint firstAttribute="width" secondItem="oui-FR-WDb" secondAttribute="height" multiplier="369:157" placeholder="YES" id="heP-o6-ErP"/>
+                                    <constraint firstAttribute="height" constant="100" id="p5a-nb-AO4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Hja-bX-CUa"/>
+                                        <exclude reference="heP-o6-ErP"/>
+                                    </mask>
+                                </variation>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFs-B2-ZF3">
                                 <rect key="frame" x="20" y="275" width="93" height="21"/>
@@ -126,14 +125,16 @@
                                     <action selector="editedDropDown:" destination="vve-Wi-Tqe" eventType="editingChanged" id="0kA-rH-APT"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hk7-RM-vVg">
-                                <rect key="frame" x="54" y="520" width="306" height="49"/>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hk7-RM-vVg">
+                                <rect key="frame" x="63" y="617" width="306" height="42"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.6705882353" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="8MN-nU-jDr"/>
                                     <constraint firstAttribute="width" secondItem="hk7-RM-vVg" secondAttribute="height" multiplier="306:49" id="o7u-IR-nhd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="tintColor" red="0.25329121469999999" green="1" blue="0.95315603500000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="50" minY="2" maxX="50" maxY="2"/>
                                 <state key="normal" title="Send Request">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="0.69999999999999996" colorSpace="calibratedWhite"/>
@@ -143,15 +144,28 @@
                                         <exclude reference="o7u-IR-nhd"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="hDx-dv-KCV" kind="unwind" identifier="sendRequestSegue" unwindAction="returnHomeViewController:" id="C69-QN-yLy"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aH-Ql-e1C">
+                                <rect key="frame" x="25" y="194" width="71" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="ZXn-VT-DAp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="hk7-RM-vVg" firstAttribute="leading" secondItem="eBW-gV-96O" secondAttribute="leadingMargin" constant="43" id="6ql-YC-Oqd"/>
                             <constraint firstItem="6aH-Ql-e1C" firstAttribute="leading" secondItem="zbD-6g-9TW" secondAttribute="leading" id="7vl-r4-ly9"/>
-                            <constraint firstItem="hk7-RM-vVg" firstAttribute="leading" secondItem="eBW-gV-96O" secondAttribute="leadingMargin" constant="34" id="9db-Yy-2Ja"/>
+                            <constraint firstItem="NIl-39-o48" firstAttribute="top" secondItem="hk7-RM-vVg" secondAttribute="bottom" constant="33" id="9C2-ce-F7P"/>
                             <constraint firstItem="zbD-6g-9TW" firstAttribute="centerY" secondItem="Ai9-Vm-G9s" secondAttribute="centerY" id="CJa-f3-ywk"/>
                             <constraint firstItem="qFs-B2-ZF3" firstAttribute="leading" secondItem="6aH-Ql-e1C" secondAttribute="leading" constant="-5" id="Eq2-j0-vOb"/>
-                            <constraint firstItem="hk7-RM-vVg" firstAttribute="top" secondItem="oui-FR-WDb" secondAttribute="bottom" constant="59" id="FnB-Ae-Gcq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hk7-RM-vVg" secondAttribute="trailing" constant="25" id="Fhq-IW-ZeE"/>
                             <constraint firstItem="qFs-B2-ZF3" firstAttribute="top" secondItem="6aH-Ql-e1C" secondAttribute="bottom" constant="60" id="FoU-uW-GxB"/>
                             <constraint firstItem="zbD-6g-9TW" firstAttribute="leading" secondItem="eBW-gV-96O" secondAttribute="leadingMargin" constant="5" id="Ibp-Sv-0gU"/>
                             <constraint firstItem="Ai9-Vm-G9s" firstAttribute="leading" secondItem="so8-qn-fi2" secondAttribute="leading" id="Ixg-jY-8CQ"/>
@@ -159,7 +173,6 @@
                             <constraint firstItem="Ai9-Vm-G9s" firstAttribute="leading" secondItem="zbD-6g-9TW" secondAttribute="trailing" constant="33" id="NkW-do-a5z"/>
                             <constraint firstItem="oui-FR-WDb" firstAttribute="top" secondItem="qFs-B2-ZF3" secondAttribute="bottom" constant="8" symbolic="YES" id="OAd-uc-epB"/>
                             <constraint firstItem="Ai9-Vm-G9s" firstAttribute="centerY" secondItem="so8-qn-fi2" secondAttribute="centerY" id="OBq-FS-DKa"/>
-                            <constraint firstItem="NIl-39-o48" firstAttribute="top" secondItem="hk7-RM-vVg" secondAttribute="bottom" constant="123" id="PAo-YV-E3P"/>
                             <constraint firstItem="6aH-Ql-e1C" firstAttribute="centerY" secondItem="7eL-lb-Vw9" secondAttribute="centerY" id="PoX-dX-umf"/>
                             <constraint firstItem="oui-FR-WDb" firstAttribute="trailing" secondItem="7eL-lb-Vw9" secondAttribute="trailing" constant="-5" id="WXX-SH-pPR"/>
                             <constraint firstItem="7eL-lb-Vw9" firstAttribute="leading" secondItem="so8-qn-fi2" secondAttribute="leading" id="Xcw-Vz-Ij4"/>
@@ -171,12 +184,11 @@
                             <constraint firstItem="7eL-lb-Vw9" firstAttribute="trailing" secondItem="so8-qn-fi2" secondAttribute="trailing" id="ifJ-a9-VG7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ai9-Vm-G9s" secondAttribute="trailing" id="npr-cO-e5J"/>
                             <constraint firstItem="7eL-lb-Vw9" firstAttribute="top" secondItem="Ai9-Vm-G9s" secondAttribute="bottom" constant="58" id="rRn-lJ-Zzc"/>
-                            <constraint firstItem="hk7-RM-vVg" firstAttribute="centerX" secondItem="eBW-gV-96O" secondAttribute="centerX" id="vWD-uQ-8Gk"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Request for Help" id="bof-uR-JKf">
-                        <barButtonItem key="backBarButtonItem" style="plain" systemItem="cancel" id="QnE-pj-MU6">
+                        <barButtonItem key="backBarButtonItem" style="done" systemItem="cancel" id="QnE-pj-MU6">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
@@ -190,6 +202,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Zy-5j-Peq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hDx-dv-KCV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1625" y="-2238"/>
         </scene>
@@ -633,7 +646,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAX-BP-Gvk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mfz-aa-lW1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2040" y="-1782.5"/>
+            <point key="canvasLocation" x="2076" y="-1782.5"/>
         </scene>
         <!--Requester Tutoring Session View Controller-->
         <scene sceneID="sCq-B4-h2t">
