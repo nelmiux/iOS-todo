@@ -24,6 +24,8 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
     
     @IBOutlet weak var descriptionText: UITextView!
     
+    let requestHelpButtonColor = UIColor(red: 235.0/255.0, green: 84.0/255.0, blue: 55.0/255.0, alpha: 0.8)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.editedDropDown.delegate = self
