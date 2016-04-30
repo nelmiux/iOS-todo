@@ -29,7 +29,7 @@ class ChartViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.pieChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
-        dotsCategory = ["Earned", "Payed"]
+        dotsCategory = ["Earned", "Paid"]
         let dotsAmount = [(user["earned"] as? Int)!, (user["paid"] as? Int)!]
         payedAmount.text = String((user["paid"] as? Int)!)
         earnedAmount.text = String((user["earned"] as? Int)!)
@@ -64,7 +64,7 @@ class ChartViewController: UIViewController {
         paragraphStyle.lineBreakMode = .ByTruncatingTail
         paragraphStyle.alignment = .Center
         let centerText: NSMutableAttributedString = NSMutableAttributedString(string: "dots total\n" + String(user["dots"]!))
-        centerText.setAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20.0)!, NSParagraphStyleAttributeName: paragraphStyle], range: NSMakeRange(0, centerText.length))
+        centerText.setAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 16.0)!, NSParagraphStyleAttributeName: paragraphStyle], range: NSMakeRange(0, centerText.length))
         
         self.pieChartView.centerAttributedText = centerText
         
@@ -86,15 +86,4 @@ class ChartViewController: UIViewController {
         payedLegend.backgroundColor = colors[1]
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
