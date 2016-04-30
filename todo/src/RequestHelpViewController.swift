@@ -68,7 +68,6 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
             result.append(key.0 + ": " + key.1)
         }
         
-        
         return result
     }
     

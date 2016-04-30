@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -123,11 +123,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Request for Help" id="bof-uR-JKf">
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="QnE-pj-MU6">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="yDL-aP-ccJ">
+                            <connections>
+                                <segue destination="Fbh-oW-a4S" kind="showDetail" id="LTb-rN-GKL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="coursesDropDown" destination="so8-qn-fi2" id="Bg4-83-jM8"/>
@@ -249,7 +256,6 @@
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="gyY-1n-uSu">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="TzD-EW-aZ9"/>
                         <barButtonItem key="rightBarButtonItem" image="logout" id="Azo-tB-XtK">
                             <color key="tintColor" red="0.25329121469999999" green="1" blue="0.95315603500000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -737,4 +743,7 @@
         <image name="logout" width="22" height="22"/>
         <image name="user-pic" width="250" height="250"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LTb-rN-GKL"/>
+    </inferredMetricsTieBreakers>
 </document>
