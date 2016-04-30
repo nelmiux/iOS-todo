@@ -42,6 +42,10 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func sendrequestButton(sender: AnyObject) {
+        performSegueWithIdentifier("sendRequestSegue", sender: sender)
+    }
+    
     func textViewDidChange(textView: UITextView){
         let fixedWidth = textView.frame.size.width
         textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))

@@ -64,7 +64,7 @@ class ChartViewController: UIViewController {
         paragraphStyle.lineBreakMode = .ByTruncatingTail
         paragraphStyle.alignment = .Center
         let centerText: NSMutableAttributedString = NSMutableAttributedString(string: "dots total\n" + String(user["dots"]!))
-        centerText.setAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20.0)!, NSParagraphStyleAttributeName: paragraphStyle], range: NSMakeRange(0, centerText.length))
+        centerText.setAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 16.0)!, NSParagraphStyleAttributeName: paragraphStyle], range: NSMakeRange(0, centerText.length))
         
         self.pieChartView.centerAttributedText = centerText
         
