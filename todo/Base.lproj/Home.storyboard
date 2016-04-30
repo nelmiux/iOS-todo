@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -128,10 +127,14 @@
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="QnE-pj-MU6">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="yDL-aP-ccJ">
-                            <connections>
-                                <segue destination="Fbh-oW-a4S" kind="showDetail" id="LTb-rN-GKL"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="bA6-5V-xC8">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LiQ-gj-VE7">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="0.97999999999999998" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -156,13 +159,82 @@
                         <viewControllerLayoutGuide type="top" id="qTn-IA-1n2"/>
                         <viewControllerLayoutGuide type="bottom" id="mbc-6Q-SST"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleAspectFit" id="5Gg-uU-MmJ">
+                    <view key="view" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" id="5Gg-uU-MmJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="blurEffect" translatesAutoresizingMaskIntoConstraints="NO" id="j0e-AU-jaR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutoring Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PAq-aK-bLw">
+                                <rect key="frame" x="20" y="85" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="yU1-11-Tae"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voj-nE-EwO" userLabel="Chart Container View">
+                                <rect key="frame" x="0.0" y="135" width="414" height="473"/>
+                                <connections>
+                                    <segue destination="qIk-5f-1vv" kind="embed" id="Q8H-yh-zvO"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="4uA-UP-Ogr">
+                                <rect key="frame" x="174" y="115" width="66" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="66" id="5VV-Wx-Ncv"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="On"/>
+                                    <segment title="Off"/>
+                                </segments>
+                                <connections>
+                                    <action selector="tutorStudentSwitch:" destination="Fbh-oW-a4S" eventType="valueChanged" id="mhU-ga-7z9"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3Y-Op-8Tb">
+                                <rect key="frame" x="20" y="660" width="374" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="rx1-Qi-NWT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="23"/>
+                                <inset key="contentEdgeInsets" minX="50" minY="7" maxX="50" maxY="7"/>
+                                <state key="normal" title="Request Tutoring">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.81545184339999999" green="0.81545184339999999" blue="0.81545184339999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vve-Wi-Tqe" kind="show" identifier="requestHelp" id="Vio-i3-zci">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BuE-D8-b9b" userLabel="Requester Container View">
+                                <rect key="frame" x="0.0" y="540" width="414" height="175"/>
+                                <connections>
+                                    <segue destination="d1Q-Cd-ehl" kind="embed" identifier="requesterSegue" id="0mm-Ix-sfx"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-1b-9H1" userLabel="Requester Session Container View">
+                                <rect key="frame" x="0.0" y="540" width="414" height="175"/>
+                                <connections>
+                                    <segue destination="mQZ-IA-xGa" kind="embed" identifier="requesterSessionSegue" id="wdT-m8-1DF"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3N-Ir-eYU" userLabel="TutorWaiting Container View">
+                                <rect key="frame" x="0.0" y="540" width="414" height="175"/>
+                                <connections>
+                                    <segue destination="EH6-jY-Xae" kind="embed" identifier="tutorWaitingSegue" id="MgL-k4-4Tg"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TeL-MY-9ul" userLabel="TutorSession Container View">
+                                <rect key="frame" x="0.0" y="540" width="414" height="175"/>
+                                <connections>
+                                    <segue destination="2dY-Op-zAq" kind="embed" identifier="tutorSessionSegue" id="xqp-78-PmI"/>
+                                </connections>
+                            </containerView>
+                            <visualEffectView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" restorationIdentifier="blurEffect" translatesAutoresizingMaskIntoConstraints="NO" id="j0e-AU-jaR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="1HB-vm-cL0">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1HB-vm-cL0">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -196,67 +268,42 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3Y-Op-8Tb">
-                                <rect key="frame" x="20" y="596" width="374" height="46"/>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="23"/>
-                                <state key="normal" title="Request Tutoring">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" red="0.81545184339999999" green="0.81545184339999999" blue="0.81545184339999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vve-Wi-Tqe" kind="show" identifier="requestHelp" id="Vio-i3-zci">
-                                        <nil key="action"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voj-nE-EwO" userLabel="Chart Container View">
-                                <rect key="frame" x="0.0" y="135" width="414" height="409"/>
-                                <connections>
-                                    <segue destination="qIk-5f-1vv" kind="embed" id="Q8H-yh-zvO"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BuE-D8-b9b" userLabel="Requester Container View">
-                                <rect key="frame" x="0.0" y="540" width="414" height="175"/>
-                                <connections>
-                                    <segue destination="d1Q-Cd-ehl" kind="embed" identifier="requesterSegue" id="0mm-Ix-sfx"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-1b-9H1" userLabel="Requester Session Container View">
-                                <rect key="frame" x="0.0" y="540" width="414" height="175"/>
-                                <connections>
-                                    <segue destination="mQZ-IA-xGa" kind="embed" identifier="requesterSessionSegue" id="wdT-m8-1DF"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P3N-Ir-eYU" userLabel="TutorWaiting Container View">
-                                <rect key="frame" x="0.0" y="540" width="414" height="175"/>
-                                <connections>
-                                    <segue destination="EH6-jY-Xae" kind="embed" identifier="tutorWaitingSegue" id="MgL-k4-4Tg"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TeL-MY-9ul" userLabel="TutorSession Container View">
-                                <rect key="frame" x="0.0" y="540" width="414" height="175"/>
-                                <connections>
-                                    <segue destination="2dY-Op-zAq" kind="embed" identifier="tutorSessionSegue" id="xqp-78-PmI"/>
-                                </connections>
-                            </containerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tutoring Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PAq-aK-bLw">
-                                <rect key="frame" x="20" y="85" width="374" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="4uA-UP-Ogr">
-                                <rect key="frame" x="174" y="115" width="66" height="29"/>
-                                <segments>
-                                    <segment title="On"/>
-                                    <segment title="Off"/>
-                                </segments>
-                                <connections>
-                                    <action selector="tutorStudentSwitch:" destination="Fbh-oW-a4S" eventType="valueChanged" id="mhU-ga-7z9"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TeL-MY-9ul" firstAttribute="leading" secondItem="P3N-Ir-eYU" secondAttribute="leading" id="3TL-cE-4iJ"/>
+                            <constraint firstItem="j0e-AU-jaR" firstAttribute="leading" secondItem="5Gg-uU-MmJ" secondAttribute="leading" id="4Q4-Va-Kvz"/>
+                            <constraint firstItem="v3Y-Op-8Tb" firstAttribute="leading" secondItem="5Gg-uU-MmJ" secondAttribute="leadingMargin" id="4bm-WO-dIh"/>
+                            <constraint firstItem="eAE-1b-9H1" firstAttribute="top" secondItem="BuE-D8-b9b" secondAttribute="top" id="Dvj-4s-AjW"/>
+                            <constraint firstItem="v3Y-Op-8Tb" firstAttribute="trailing" secondItem="PAq-aK-bLw" secondAttribute="trailing" id="FtH-q7-4hT"/>
+                            <constraint firstItem="v3Y-Op-8Tb" firstAttribute="centerX" secondItem="TeL-MY-9ul" secondAttribute="centerX" id="GaK-bG-1vL"/>
+                            <constraint firstItem="TeL-MY-9ul" firstAttribute="bottom" secondItem="P3N-Ir-eYU" secondAttribute="bottom" id="HAb-87-FoG"/>
+                            <constraint firstItem="voj-nE-EwO" firstAttribute="leading" secondItem="eAE-1b-9H1" secondAttribute="leading" id="I0R-CM-cz2"/>
+                            <constraint firstItem="j0e-AU-jaR" firstAttribute="leading" secondItem="P3N-Ir-eYU" secondAttribute="leading" id="I65-Rt-gg6"/>
+                            <constraint firstItem="mbc-6Q-SST" firstAttribute="top" secondItem="v3Y-Op-8Tb" secondAttribute="bottom" constant="30" id="Mpy-b0-e1T"/>
+                            <constraint firstItem="voj-nE-EwO" firstAttribute="trailing" secondItem="j0e-AU-jaR" secondAttribute="trailing" id="Pd7-do-KGk"/>
+                            <constraint firstItem="4uA-UP-Ogr" firstAttribute="centerX" secondItem="PAq-aK-bLw" secondAttribute="centerX" id="QUk-en-djF"/>
+                            <constraint firstItem="v3Y-Op-8Tb" firstAttribute="leading" secondItem="PAq-aK-bLw" secondAttribute="leading" id="T7i-UF-c3v"/>
+                            <constraint firstItem="BuE-D8-b9b" firstAttribute="bottom" secondItem="P3N-Ir-eYU" secondAttribute="bottom" id="TUB-hK-36d"/>
+                            <constraint firstItem="eAE-1b-9H1" firstAttribute="leading" secondItem="TeL-MY-9ul" secondAttribute="leading" id="TzA-ih-XFJ"/>
+                            <constraint firstItem="eAE-1b-9H1" firstAttribute="trailing" secondItem="TeL-MY-9ul" secondAttribute="trailing" id="UcB-bN-g5s"/>
+                            <constraint firstItem="BuE-D8-b9b" firstAttribute="trailing" secondItem="TeL-MY-9ul" secondAttribute="trailing" id="X6e-Wu-F8K"/>
+                            <constraint firstItem="4uA-UP-Ogr" firstAttribute="top" secondItem="PAq-aK-bLw" secondAttribute="bottom" constant="9" id="X9n-Dd-m4Z"/>
+                            <constraint firstItem="eAE-1b-9H1" firstAttribute="trailing" secondItem="P3N-Ir-eYU" secondAttribute="trailing" id="YpY-WV-mnl"/>
+                            <constraint firstItem="mbc-6Q-SST" firstAttribute="top" secondItem="BuE-D8-b9b" secondAttribute="bottom" constant="21" id="ZUn-Yb-niB"/>
+                            <constraint firstItem="voj-nE-EwO" firstAttribute="top" secondItem="PAq-aK-bLw" secondAttribute="bottom" constant="29" id="ZWI-P6-gKp"/>
+                            <constraint firstItem="v3Y-Op-8Tb" firstAttribute="top" secondItem="voj-nE-EwO" secondAttribute="bottom" constant="52" id="bo8-sL-6hL"/>
+                            <constraint firstItem="TeL-MY-9ul" firstAttribute="top" secondItem="P3N-Ir-eYU" secondAttribute="top" id="e6O-oY-yzG"/>
+                            <constraint firstItem="voj-nE-EwO" firstAttribute="trailing" secondItem="TeL-MY-9ul" secondAttribute="trailing" id="eho-pI-wjl"/>
+                            <constraint firstItem="BuE-D8-b9b" firstAttribute="top" secondItem="TeL-MY-9ul" secondAttribute="top" id="iX2-nO-Ulm"/>
+                            <constraint firstItem="PAq-aK-bLw" firstAttribute="top" secondItem="qTn-IA-1n2" secondAttribute="bottom" constant="21" id="j6o-z1-XHv"/>
+                            <constraint firstItem="eAE-1b-9H1" firstAttribute="leading" secondItem="BuE-D8-b9b" secondAttribute="leading" id="m9F-jg-fZW"/>
+                            <constraint firstItem="BuE-D8-b9b" firstAttribute="top" secondItem="5Gg-uU-MmJ" secondAttribute="top" constant="540" id="nbr-6g-OXC"/>
+                            <constraint firstAttribute="trailing" secondItem="j0e-AU-jaR" secondAttribute="trailing" id="now-ys-k90"/>
+                            <constraint firstItem="j0e-AU-jaR" firstAttribute="top" secondItem="5Gg-uU-MmJ" secondAttribute="top" id="qNR-CL-Qls"/>
+                            <constraint firstItem="eAE-1b-9H1" firstAttribute="bottom" secondItem="P3N-Ir-eYU" secondAttribute="bottom" id="vnb-ma-wpK"/>
+                            <constraint firstItem="j0e-AU-jaR" firstAttribute="bottom" secondItem="mbc-6Q-SST" secondAttribute="top" id="xxJ-u1-vTE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="3AV-f0-yED">
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="gyY-1n-uSu">
@@ -331,90 +378,52 @@
                         <viewControllerLayoutGuide type="top" id="BlY-fd-HOu"/>
                         <viewControllerLayoutGuide type="bottom" id="GoG-dr-2ho"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dRb-s8-7eQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="409"/>
+                    <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" id="dRb-s8-7eQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="473"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" restorationIdentifier="pieGraphView" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-Zr-otj" customClass="PieChartView" customModule="Charts">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blo-Zy-adH">
+                                <rect key="frame" x="28" y="28" width="359" height="42"/>
+                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="30"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="pieGraphView" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-Zr-otj" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="6" y="68" width="401" height="273"/>
                                 <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuH-zb-qEr">
-                                <rect key="frame" x="281" y="341" width="54" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="Lf4-OC-g1h"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-E5-5lo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-E5-5lo">
                                 <rect key="frame" x="108" y="341" width="43" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="43" id="Hty-w2-JPP"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="earnedAmount" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-rL-xY3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Earned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuH-zb-qEr">
+                                <rect key="frame" x="281" y="341" width="54" height="21"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="payedAmount" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sg-99-pxE" userLabel="Paid Amount">
+                                <rect key="frame" x="108" y="361" width="100" height="40"/>
+                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="earnedAmount" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-rL-xY3">
                                 <rect key="frame" x="281" y="361" width="100" height="40"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="payedAmount" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sg-99-pxE" userLabel="Paid Amount">
-                                <rect key="frame" x="108" y="361" width="100" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Clf-it-XS9"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="30"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sjr-if-Dyt">
-                                <rect key="frame" x="265" y="341" width="8" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4p-Hm-xgQ" userLabel="Paid Legend">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G4p-Hm-xgQ" userLabel="Paid Legend">
                                 <rect key="frame" x="89" y="341" width="8" height="56"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Summary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blo-Zy-adH">
-                                <rect key="frame" x="28" y="28" width="359" height="42"/>
-                                <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="30"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sjr-if-Dyt">
+                                <rect key="frame" x="265" y="341" width="8" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94796544309999997" green="0.98458629850000001" blue="0.98052161930000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="G4p-Hm-xgQ" firstAttribute="bottom" secondItem="Sjr-if-Dyt" secondAttribute="bottom" id="37r-kZ-Olc"/>
-                            <constraint firstItem="TqF-E5-5lo" firstAttribute="leading" secondItem="3sg-99-pxE" secondAttribute="leading" id="48P-Pl-Bv4"/>
-                            <constraint firstItem="GoG-dr-2ho" firstAttribute="top" secondItem="TqF-E5-5lo" secondAttribute="bottom" constant="47" id="89s-8S-iAd"/>
-                            <constraint firstItem="Sjr-if-Dyt" firstAttribute="top" secondItem="ZuH-zb-qEr" secondAttribute="top" id="AAT-v3-OC4"/>
-                            <constraint firstItem="3sg-99-pxE" firstAttribute="top" secondItem="oIt-Zr-otj" secondAttribute="bottom" constant="20" id="BXd-ag-EOP"/>
-                            <constraint firstItem="G4p-Hm-xgQ" firstAttribute="top" secondItem="oIt-Zr-otj" secondAttribute="bottom" id="EQF-HY-PsZ"/>
-                            <constraint firstItem="TqF-E5-5lo" firstAttribute="firstBaseline" secondItem="ZuH-zb-qEr" secondAttribute="firstBaseline" id="HZn-BZ-Aus"/>
-                            <constraint firstItem="3sg-99-pxE" firstAttribute="baseline" secondItem="KAG-rL-xY3" secondAttribute="baseline" id="IRO-EN-MEy"/>
-                            <constraint firstItem="GoG-dr-2ho" firstAttribute="top" secondItem="3sg-99-pxE" secondAttribute="bottom" constant="8" symbolic="YES" id="IXA-Fl-XPC"/>
-                            <constraint firstItem="G4p-Hm-xgQ" firstAttribute="leading" secondItem="dRb-s8-7eQ" secondAttribute="leadingMargin" constant="69" id="Jjn-Ac-aJB"/>
-                            <constraint firstItem="ZuH-zb-qEr" firstAttribute="leading" secondItem="KAG-rL-xY3" secondAttribute="leading" id="LeG-Ce-bRm"/>
-                            <constraint firstItem="oIt-Zr-otj" firstAttribute="centerX" secondItem="dRb-s8-7eQ" secondAttribute="centerX" id="Lel-BM-25F"/>
-                            <constraint firstItem="GoG-dr-2ho" firstAttribute="top" secondItem="G4p-Hm-xgQ" secondAttribute="bottom" constant="12" id="Ubz-WQ-qG0"/>
-                            <constraint firstItem="G4p-Hm-xgQ" firstAttribute="top" secondItem="TqF-E5-5lo" secondAttribute="top" id="VDA-Me-CGt"/>
-                            <constraint firstItem="ZuH-zb-qEr" firstAttribute="leading" secondItem="Sjr-if-Dyt" secondAttribute="trailing" constant="8" symbolic="YES" id="Y1f-bN-Dyv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KAG-rL-xY3" secondAttribute="trailing" constant="13" id="bWC-5p-Q2M"/>
-                            <constraint firstItem="blo-Zy-adH" firstAttribute="top" secondItem="BlY-fd-HOu" secondAttribute="bottom" constant="28" id="fMR-BE-orY"/>
-                            <constraint firstItem="oIt-Zr-otj" firstAttribute="leading" secondItem="dRb-s8-7eQ" secondAttribute="leadingMargin" constant="-14" id="fbj-sL-WB0"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZuH-zb-qEr" secondAttribute="trailing" constant="59" id="fjb-Cd-Ysj"/>
-                            <constraint firstItem="TqF-E5-5lo" firstAttribute="leading" secondItem="dRb-s8-7eQ" secondAttribute="leading" constant="108" id="hg4-TI-aRP"/>
-                            <constraint firstItem="blo-Zy-adH" firstAttribute="centerX" secondItem="dRb-s8-7eQ" secondAttribute="centerX" id="iyw-U1-QJ6"/>
-                            <constraint firstItem="oIt-Zr-otj" firstAttribute="top" secondItem="blo-Zy-adH" secondAttribute="bottom" constant="-2" id="sMV-ZB-cfi"/>
-                            <constraint firstItem="blo-Zy-adH" firstAttribute="leading" secondItem="dRb-s8-7eQ" secondAttribute="leadingMargin" constant="8" id="tho-93-7il"/>
-                            <constraint firstItem="oIt-Zr-otj" firstAttribute="centerY" secondItem="dRb-s8-7eQ" secondAttribute="centerY" id="w9Y-jc-gTf"/>
-                            <constraint firstItem="TqF-E5-5lo" firstAttribute="baseline" secondItem="ZuH-zb-qEr" secondAttribute="baseline" id="y22-gQ-R2y"/>
-                            <constraint firstItem="Sjr-if-Dyt" firstAttribute="leading" secondItem="3sg-99-pxE" secondAttribute="trailing" constant="57" id="yYw-OB-rJl"/>
-                            <constraint firstItem="TqF-E5-5lo" firstAttribute="leading" secondItem="G4p-Hm-xgQ" secondAttribute="trailing" constant="11" id="zqR-I1-WP0"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
@@ -749,7 +758,4 @@
         <image name="logout" width="22" height="22"/>
         <image name="user-pic" width="250" height="250"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="LTb-rN-GKL"/>
-    </inferredMetricsTieBreakers>
 </document>
