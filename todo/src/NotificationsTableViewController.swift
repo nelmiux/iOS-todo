@@ -86,6 +86,7 @@ class NotificationsTableViewController: UITableViewController {
             let requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell", forIndexPath: indexPath) as! RequestNotificationTableViewCell
             let requester = (message.characters.split{$0 == " "}.map(String.init))[0]
             getUserPhoto(requester, imageView: requestCell.userPic)
+            requestCell.userPhotoButton.setUser(requester)
             requestCell.dateLabel.text = self.parseDate(date)
             let messageArr = message.characters.split{$0 == "\n"}.map(String.init)
             if messageArr.count == 3 {
