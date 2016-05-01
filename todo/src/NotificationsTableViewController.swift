@@ -19,7 +19,7 @@ class NotificationsTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        dispatch_sync(concurrentDataAccessQueue) {
+        dispatch_sync(taskQueue) {
             for key in notifications.keys{
                 notificationKeysCopy.append(key)
             }

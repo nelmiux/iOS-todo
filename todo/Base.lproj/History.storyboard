@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -139,6 +139,7 @@
                                         <constraint firstItem="mKa-xv-acT" firstAttribute="top" secondItem="iXz-LG-bZV" secondAttribute="bottom" constant="-28" id="a0g-JO-bDP"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="3nU-DL-6LU" secondAttribute="trailing" constant="-8" id="doL-ml-qYz"/>
                                         <constraint firstItem="RyE-Dt-XrR" firstAttribute="top" secondItem="3nU-DL-6LU" secondAttribute="bottom" constant="8" id="hOh-RX-oVI"/>
+                                        <constraint firstItem="mKa-xv-acT" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leadingMargin" constant="61" id="vPe-Mb-5oy"/>
                                         <constraint firstItem="3nU-DL-6LU" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leadingMargin" constant="-8" id="zAh-ea-VgL"/>
                                     </constraints>
                                 </tableViewCellContentView>
