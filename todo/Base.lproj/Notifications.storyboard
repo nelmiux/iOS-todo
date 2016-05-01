@@ -175,7 +175,7 @@
                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRo-NZ-wBl">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRo-NZ-wBl" customClass="UserPhotoButton" customModule="todo" customModuleProvider="target">
                                             <rect key="frame" x="13" y="41" width="75" height="80"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="75" id="RFs-JL-qh5"/>
@@ -215,6 +215,7 @@
                                     <outlet property="descriptionLabel" destination="lXd-SE-t3e" id="OCy-sa-hWA"/>
                                     <outlet property="locationLabel" destination="W1z-OH-s5H" id="Ryy-1a-Zfi"/>
                                     <outlet property="messageLabel" destination="dwC-Bq-8oc" id="xfg-uR-GCv"/>
+                                    <outlet property="userPhotoButton" destination="ZRo-NZ-wBl" id="6BO-ck-PWp"/>
                                     <outlet property="userPic" destination="pvB-eE-14S" id="Q6i-O3-BD0"/>
                                 </connections>
                             </tableViewCell>
