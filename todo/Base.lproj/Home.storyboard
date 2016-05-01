@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -311,13 +311,13 @@
                                         <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Lbl-MY-nYT">
                                             <rect key="frame" x="67" y="367" width="280" height="1"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Looking for available Tutors" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Au7-EM-JZY">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looking for available Tutors" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Au7-EM-JZY">
                                                     <rect key="frame" x="30" y="10" width="219" height="24"/>
                                                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u6F-Zh-bpB">
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="u6F-Zh-bpB">
                                                     <rect key="frame" x="122" y="44" width="37" height="37"/>
                                                     <color key="color" red="0.086274509799999996" green="0.56470588239999997" blue="0.53333333329999999" alpha="0.90018857760000004" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
@@ -486,7 +486,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="374" height="442"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Activity Summary" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RKo-4r-iU4">
+                            <label opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" text="Activity Summary" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RKo-4r-iU4">
                                 <rect key="frame" x="109" y="7" width="156" height="27"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="20"/>
                                 <nil key="highlightedColor"/>
@@ -501,24 +501,24 @@
                                     <constraint firstAttribute="height" constant="357.5" id="NeR-9y-Ll0"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-E5-5lo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqF-E5-5lo">
                                 <rect key="frame" x="55" y="389" width="27" height="19"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Earned" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuH-zb-qEr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Earned" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZuH-zb-qEr">
                                 <rect key="frame" x="286" y="389" width="43" height="19"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="payedAmount" text="0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sg-99-pxE" userLabel="Paid Amount">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="payedAmount" text="0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sg-99-pxE" userLabel="Paid Amount">
                                 <rect key="frame" x="55" y="403" width="52" height="32"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="earnedAmount" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-rL-xY3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="earnedAmount" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAG-rL-xY3">
                                 <rect key="frame" x="286" y="403" width="52" height="32"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="24"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -532,7 +532,7 @@
                                     <constraint firstAttribute="width" secondItem="G4p-Hm-xgQ" secondAttribute="height" multiplier="4:23" id="kT6-UT-gbn"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="3" verticalCompressionResistancePriority="3" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sjr-if-Dyt">
+                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="3" verticalCompressionResistancePriority="3" translatesAutoresizingMaskIntoConstraints="NO" id="Sjr-if-Dyt">
                                 <rect key="frame" x="270" y="389" width="8" height="46"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -782,7 +782,7 @@
                                     <constraint firstAttribute="width" secondItem="hdu-72-wuo" secondAttribute="height" multiplier="65:67" id="BcB-ge-mKD"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tutoring Session with Brian" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vrk-Jc-k9m">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutoring Session with Brian" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vrk-Jc-k9m">
                                 <rect key="frame" x="98" y="29" width="203" height="23"/>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -802,7 +802,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="253" misplaced="YES" text="00:00:00" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MKC-HW-HOx">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="253" text="00:00:00" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MKC-HW-HOx">
                                         <rect key="frame" x="63" y="17" width="89" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="MKC-HW-HOx" secondAttribute="height" multiplier="104:27" id="8ay-wn-oko"/>
@@ -830,7 +830,7 @@
                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="ihk-e8-nJv">
                                 <rect key="frame" x="192" y="80" width="159" height="58"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Paying:" textAlignment="right" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OGx-R7-wgo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paying:" textAlignment="right" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OGx-R7-wgo">
                                         <rect key="frame" x="7" y="17" width="54" height="23"/>
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -842,7 +842,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="dots" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ShD-cC-GbI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dots" textAlignment="natural" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ShD-cC-GbI">
                                         <rect key="frame" x="119" y="19" width="33" height="23"/>
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -997,7 +997,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" misplaced="YES" text="dots" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uE4-Bq-tMA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" text="dots" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uE4-Bq-tMA">
                                         <rect key="frame" x="116" y="7" width="33" height="23"/>
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
