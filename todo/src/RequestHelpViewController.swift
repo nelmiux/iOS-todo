@@ -42,9 +42,9 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func sendrequestButton(sender: AnyObject) {
-        performSegueWithIdentifier("sendRequestSegue", sender: sender)
-    }
+    /*@IBAction func sendrequestButton(sender: AnyObject) {
+        performSegueWithIdentifier("lookingTutorsSegue", sender: sender)
+    }*/
     
     func textViewDidChange(textView: UITextView){
         let fixedWidth = textView.frame.size.width
@@ -131,7 +131,7 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        if identifier == "lookingTutors" {
+        if identifier == "lookingTutorsSegue" {
             sendRequest(self, askedCourse: self.editedDropDown.text!.uppercaseString, location: self.locationText.text!, description: descriptionText.text!, segueIdentifier: identifier)
         }
         return false

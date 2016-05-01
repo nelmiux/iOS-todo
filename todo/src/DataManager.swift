@@ -367,7 +367,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 dispatch_group_leave(downloadGroup)
                 return
             }
-            alert(view, description: "This course does not exist in our Database.\nPlease enter a valid UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            alert(view, description: "Tere is not existing tutor for this course.\nPlease enter other UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         })
     }
 }
@@ -414,7 +414,7 @@ func requestListener(view: AnyObject) {
                     dispatch_group_enter(downloadGroup)
                     notifications[date] = notice
                     dispatch_group_leave(downloadGroup)
-                    
+                    notice = notice.componentsSeparatedByString(":")[1]
                     alertWithPic(view, description: "\n\n\n" + notice, action:
                         UIAlertAction(title: "OK, I will Help", style: UIAlertActionStyle.Default) { result in
                             requesterUserRef.updateChildValues(["pairedUsername": username])
@@ -550,7 +550,6 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.requesterContainerView.hidden = false
                 
-                dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
                 mainViewController!.requesterStartSessionViewController?.tutorUsername.text = paired["username"]! + " is coming to help you on:"
                 
                 mainViewController!.requesterStartSessionViewController?.tutorCourse.text = paired["course"]
