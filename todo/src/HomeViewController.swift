@@ -50,6 +50,11 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        if settingsSwitch != -1 && settingsSwitch != self.tutorStudentSwitch.selectedSegmentIndex {
+            self.tutorStudentSwitch.selectedSegmentIndex = settingsSwitch
+            self.tutorStudentSwitch.sendActionsForControlEvents(UIControlEvents.ValueChanged)
+        }
+        settingsSwitch = self.tutorStudentSwitch.selectedSegmentIndex
     }
     
     @IBAction func requestTutoringButton(sender: AnyObject) {
@@ -114,6 +119,7 @@ class HomeViewController: UIViewController {
     }
     
     func getTutorStudentSwitchAction() {
+        settingsSwitch = self.tutorStudentSwitch.selectedSegmentIndex
         if tutorStudentSwitch.selectedSegmentIndex == 0 {
             requestTutoringButton!.enabled = false
             requestTutoringButton!.userInteractionEnabled = false
