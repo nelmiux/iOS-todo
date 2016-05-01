@@ -701,9 +701,9 @@ func logOutUser () {
     user["graduationYear"] = ""
     user["photoString"] = ""
     user["courses"] = []
-    user["dots"] = ""
-    user["earned"] = ""
-    user["paid"] = ""
+    user["dots"] = 0
+    user["earned"] = 0
+    user["paid"] = 0
     user["lastLogin"] = ""
     user["requesterUsername"] = ""
     user["requesterPhoto"] = ""
