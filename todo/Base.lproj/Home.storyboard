@@ -263,7 +263,7 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3N-Ir-eYU" userLabel="TutorWaiting Container View">
-                                <rect key="frame" x="20" y="584" width="373.5" height="145"/>
+                                <rect key="frame" x="20" y="584" width="374" height="145"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="P3N-Ir-eYU" secondAttribute="height" multiplier="430:167" id="c6s-p7-sCI"/>
                                 </constraints>
@@ -272,19 +272,19 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TeL-MY-9ul" userLabel="TutorSession Container View">
-                                <rect key="frame" x="20" y="584" width="373.5" height="145"/>
+                                <rect key="frame" x="20" y="584" width="374" height="145"/>
                                 <connections>
                                     <segue destination="2dY-Op-zAq" kind="embed" identifier="tutorSessionSegue" id="xqp-78-PmI"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BuE-D8-b9b" userLabel="Requester Container View">
-                                <rect key="frame" x="20" y="584" width="373.5" height="145"/>
+                                <rect key="frame" x="20" y="584" width="374" height="145"/>
                                 <connections>
                                     <segue destination="d1Q-Cd-ehl" kind="embed" identifier="requesterSegue" id="0mm-Ix-sfx"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="300" verticalHuggingPriority="300" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-1b-9H1" userLabel="Requester Session Container View">
-                                <rect key="frame" x="20" y="584" width="373.5" height="145"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eAE-1b-9H1" userLabel="Requester Session Container View">
+                                <rect key="frame" x="20" y="584" width="374" height="145"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eAE-1b-9H1" secondAttribute="height" multiplier="430:167" id="uC4-UG-45g"/>
                                 </constraints>
@@ -352,6 +352,7 @@
                             <constraint firstItem="eAE-1b-9H1" firstAttribute="width" secondItem="BuE-D8-b9b" secondAttribute="width" id="1Am-5d-tjH"/>
                             <constraint firstItem="BuE-D8-b9b" firstAttribute="trailing" secondItem="P3N-Ir-eYU" secondAttribute="trailing" id="3Iw-31-37y"/>
                             <constraint firstItem="eAE-1b-9H1" firstAttribute="centerX" secondItem="5Gg-uU-MmJ" secondAttribute="centerX" id="3PL-FM-Qkf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="eAE-1b-9H1" secondAttribute="leading" id="5gH-X1-FhN"/>
                             <constraint firstItem="mbc-6Q-SST" firstAttribute="top" secondItem="v3Y-Op-8Tb" secondAttribute="bottom" constant="20" id="7Iz-dX-hWo"/>
                             <constraint firstItem="P3N-Ir-eYU" firstAttribute="top" secondItem="voj-nE-EwO" secondAttribute="bottom" id="7Xd-O4-PPT"/>
                             <constraint firstItem="voj-nE-EwO" firstAttribute="top" secondItem="4uA-UP-Ogr" secondAttribute="bottom" constant="7" id="AfZ-TL-jgn"/>
@@ -380,6 +381,7 @@
                             <constraint firstItem="4uA-UP-Ogr" firstAttribute="centerX" secondItem="5Gg-uU-MmJ" secondAttribute="centerX" id="ejm-Fl-EAW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eAE-1b-9H1" secondAttribute="trailing" id="jqi-cO-HcE"/>
                             <constraint firstItem="BuE-D8-b9b" firstAttribute="centerX" secondItem="5Gg-uU-MmJ" secondAttribute="centerX" id="kKH-OH-FRx"/>
+                            <constraint firstItem="eAE-1b-9H1" firstAttribute="centerX" secondItem="BuE-D8-b9b" secondAttribute="centerX" id="lai-Tx-FZG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="voj-nE-EwO" secondAttribute="trailing" constant="-20" id="mFd-YN-xZ4"/>
                             <constraint firstItem="TeL-MY-9ul" firstAttribute="leading" secondItem="P3N-Ir-eYU" secondAttribute="leading" id="mpz-ry-ZFB"/>
                             <constraint firstItem="j0e-AU-jaR" firstAttribute="centerX" secondItem="5Gg-uU-MmJ" secondAttribute="centerX" id="nb8-d7-fnT"/>
@@ -754,7 +756,7 @@
         <!--Requester Tutoring Session View Controller-->
         <scene sceneID="sCq-B4-h2t">
             <objects>
-                <viewController definesPresentationContext="YES" providesPresentationContextTransitionStyle="YES" modalPresentationStyle="currentContext" id="mQZ-IA-xGa" customClass="RequesterTutoringSessionViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController providesPresentationContextTransitionStyle="YES" modalPresentationStyle="currentContext" id="mQZ-IA-xGa" customClass="RequesterTutoringSessionViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iMw-hQ-nii"/>
                         <viewControllerLayoutGuide type="bottom" id="amq-PL-wTr"/>

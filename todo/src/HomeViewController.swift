@@ -132,7 +132,7 @@ class HomeViewController: UIViewController {
         self.requestTutoringButton!.hidden = false
         self.blurEffect.hidden = true
         self.requesterContainerView.hidden = true
-        //self.requesterSessionContainerView.hidden = true
+        self.requesterSessionContainerView.hidden = true
         self.tutorContainerView.hidden = true
         self.tutorSessionContainerView.hidden = true
         return
