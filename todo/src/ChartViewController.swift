@@ -17,11 +17,11 @@ class ChartViewController: UIViewController {
     
     @IBOutlet weak var earnedLegend: UIView!
     
-    @IBOutlet weak var payedLegend: UIView!
-    
-    @IBOutlet weak var payedAmount: UILabel!
-    
     @IBOutlet weak var earnedAmount: UILabel!
+    
+    @IBOutlet weak var paidAmount: UILabel!
+    
+    @IBOutlet weak var paidLegend: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ChartViewController: UIViewController {
         self.pieChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
         dotsCategory = ["Earned", "Paid"]
         let dotsAmount = [(user["earned"] as? Int)!, (user["paid"] as? Int)!]
-        payedAmount.text = String((user["paid"] as? Int)!)
+        paidAmount.text = String((user["paid"] as? Int)!)
         earnedAmount.text = String((user["earned"] as? Int)!)
         
         setChart(dotsCategory, values: dotsAmount)
@@ -83,7 +83,7 @@ class ChartViewController: UIViewController {
         
         earnedLegend.backgroundColor = colors[0]
         
-        payedLegend.backgroundColor = colors[1]
+        paidLegend.backgroundColor = colors[1]
         
     }
 }

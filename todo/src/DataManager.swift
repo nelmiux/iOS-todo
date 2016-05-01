@@ -50,6 +50,8 @@ var timeCount = 0
 
 var dotsTotal = 1
 
+var settingsSwitch = -1
+
 let burntOranges:[UIColor] = [UIColor.init(red: 186/255, green: 74/255, blue: 0, alpha: 1.0), UIColor.init(red: 214/255, green: 137/255, blue: 16/255, alpha: 1.0), UIColor.init(red: 175/255, green: 96/255, blue: 26/255, alpha: 1.0), UIColor.init(red: 185/255, green: 119/255, blue: 14/255, alpha: 1.0), UIColor.init(red: 110/255, green: 44/255, blue: 0, alpha: 1.0), UIColor.init(red: 120/255, green: 66/255, blue: 18/255, alpha: 1.0)]
 
 func getFirebase(loc: String) -> Firebase! {
@@ -347,7 +349,6 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 usersPerCourse = snapshot.value[askedCourse] as! Dictionary<String, String>
                 for key in usersPerCourse.keys {
                     if key != user["username"] as! String {
-                        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterPhoto": user["photoString"]!])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterCourse": askedCourse])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterDescription": description])
@@ -367,7 +368,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 dispatch_group_leave(downloadGroup)
                 return
             }
-            alert(view, description: "This course does not exist in our Database.\nPlease enter a valid UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            alert(view, description: "Tere is not existing tutor for this course.\nPlease enter other UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         })
     }
 }
@@ -376,7 +377,6 @@ func requestListener(view: AnyObject) {
     dotsTotal = 0
     dispatch_barrier_sync(taskQueue) {
         let mainViewController = view as? HomeViewController
-        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
         let username = (user["username"] as! String)
         let picString = (user["photoString"] as! String)
         let currUserRef = getFirebase("users/" + username)
@@ -405,7 +405,6 @@ func requestListener(view: AnyObject) {
                 
                 let requesterUserRef = getFirebase("users/" + requester["username"]!)
                 dispatch_group_leave(downloadGroup)
-                dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
                 dispatch_async(dispatch_get_main_queue(), {
                     var notificationUserRef = getFirebase("notifications/" + username)
                     var notice = "singleRequest: " + ((snapshot.value["requesterUsername"] as! String) + " has requested tutoring in " + (snapshot.value["requesterCourse"] as! String) + "\n" + (snapshot.value["requesterDescription"] as! String) + "\nLocation: " + (snapshot.value["requesterLocation"] as! String))
@@ -414,7 +413,7 @@ func requestListener(view: AnyObject) {
                     dispatch_group_enter(downloadGroup)
                     notifications[date] = notice
                     dispatch_group_leave(downloadGroup)
-                    
+                    notice = notice.componentsSeparatedByString(":")[1]
                     alertWithPic(view, description: "\n\n\n" + notice, action:
                         UIAlertAction(title: "OK, I will Help", style: UIAlertActionStyle.Default) { result in
                             requesterUserRef.updateChildValues(["pairedUsername": username])
@@ -433,7 +432,6 @@ func requestListener(view: AnyObject) {
                             mainViewController!.tutorStudentSwitch.hidden = true
                             mainViewController!.logout.enabled = false
                             
-                            dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
                             mainViewController?.tutorWaitingViewController!.requesterUsername.text = "Waiting for " + requester["username"]! + " to Start the Session"
                             
                             mainViewController?.tutorWaitingViewController!.requesterCourse.text = (snapshot.value["requesterCourse"] as! String)
@@ -508,7 +506,6 @@ func requestListener(view: AnyObject) {
                     }
                 })
             } else {
-                dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
                 if  (snapshot.value["requesterUsername"] as! String) == "" {
                     if let _ = mainViewController?.presentedViewController {
                         view.presentedViewController?!.dismissViewControllerAnimated(false, completion: nil)
@@ -522,7 +519,6 @@ func requestListener(view: AnyObject) {
 func pairedListener(view: AnyObject, askedCourse: String) {
     dispatch_barrier_async(taskQueue) {
         let mainViewController = view as? HomeViewController
-        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
@@ -550,7 +546,6 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.requesterContainerView.hidden = false
                 
-                dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
                 mainViewController!.requesterStartSessionViewController?.tutorUsername.text = paired["username"]! + " is coming to help you on:"
                 
                 mainViewController!.requesterStartSessionViewController?.tutorCourse.text = paired["course"]
@@ -568,7 +563,6 @@ func pairedListener(view: AnyObject, askedCourse: String) {
 }
 
 func startSession (mainView: AnyObject, view: AnyObject) {
-    dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
     var dots = (user["dots"]! as! Int)
     let currUserRef = getFirebase("users/" + (user["username"]! as! String))
     removeObservers(currUserRef)
@@ -627,7 +621,6 @@ func startSession (mainView: AnyObject, view: AnyObject) {
 
 func cancelSession() {
     dispatch_barrier_async(taskQueue) {
-        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
         currUserRef.updateChildValues(["pairedPhoto": ""])
@@ -652,7 +645,6 @@ func cancelSession() {
 
 func finishSession() {
     dispatch_barrier_async(taskQueue) {
-        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
         var dots = (user["dots"]! as! Int)
         dots = dots + dotsTotal
         dispatch_group_enter(downloadGroup)
@@ -711,9 +703,9 @@ func logOutUser () {
     user["graduationYear"] = ""
     user["photoString"] = ""
     user["courses"] = []
-    user["dots"] = ""
-    user["earned"] = ""
-    user["paid"] = ""
+    user["dots"] = 0
+    user["earned"] = 0
+    user["paid"] = 0
     user["lastLogin"] = ""
     user["requesterUsername"] = ""
     user["requesterPhoto"] = ""

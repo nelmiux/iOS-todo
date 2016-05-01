@@ -31,7 +31,6 @@ class RequesterTutoringSessionViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.view.frame = CGRectMake(0, 0, 414, 175)
     }
 
     override func didReceiveMemoryWarning() {
