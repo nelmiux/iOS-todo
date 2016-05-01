@@ -10,7 +10,7 @@ import UIKit
 
 class NotificationsTableViewController: UITableViewController {
     
-    private let standardNotifications:[String] = ["request", "acceptance", "cancelledSession"]
+    private let standardNotifications:[String] = ["request", "acceptance", "cancelledSession", "created"]
     
     var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
