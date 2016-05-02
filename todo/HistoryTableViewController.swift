@@ -66,11 +66,11 @@ class HistoryTableViewController: UITableViewController {
                 cell.userPhoto.image = userPhotos[involvedUser]
                 print("\(involvedUser) was found in list")
             } else {
-                dispatch_group_enter(downloadGroup)
+                dispatch_group_enter(hisnotGroup)
                 getUserPhoto(involvedUser, imageView: cell.userPhoto)
-                dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
+                dispatch_group_wait(hisnotGroup, DISPATCH_TIME_FOREVER)
                 userPhotos[involvedUser] = cell.userPhoto.image
-                dispatch_group_leave(downloadGroup)
+                dispatch_group_leave(hisnotGroup)
                 print("\(involvedUser) was added to list")
             }
         } */
