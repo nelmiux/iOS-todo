@@ -33,15 +33,16 @@ class HistoryTableViewController: UITableViewController {
     func loadData () {
         var keys = [String]()
         var vals = [String]()
-        for date in history.keys {
-            if (history[date] as String!).rangeOfString("created") == nil {
-                keys.append(date as String!)
-                vals.append(history[date] as String!)
+        dispatch_sync(taskQueue) {
+            for date in history.keys {
+                if (history[date] as String!).rangeOfString("created") == nil {
+                    keys.append(date as String!)
+                    vals.append(history[date] as String!)
+                }
             }
+            self.data.0 = keys
+            self.data.1 = vals
         }
-        
-        self.data.0 = keys
-        self.data.1 = vals
     }
 
     // MARK: - Table view data source

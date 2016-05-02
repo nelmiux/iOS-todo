@@ -34,8 +34,6 @@ class NotificationsTableViewController: UITableViewController {
                     notificationMessagesCopy.append(message)
                 }
             }
-            
-            
         }
         return (notificationKeysCopy, notificationTypesCopy, notificationMessagesCopy)
     }
@@ -189,6 +187,10 @@ class NotificationsTableViewController: UITableViewController {
             destVC.username = user
             destVC.isOwnProfile = false
         }
+    }
+    
+    @IBAction func returnToNotificationsViewController(segue:UIStoryboardSegue) {
+        
     }
     
     
