@@ -216,6 +216,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dJR-TF-1oP">
+                                <rect key="frame" x="184" y="353" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="IYS-hc-BIm" kind="unwind" identifier="goToNotificationsSegue" unwindAction="returnToNotificationsViewController:" id="kE8-vB-4eE"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutoring Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PAq-aK-bLw">
                                 <rect key="frame" x="158" y="71" width="99" height="18"/>
                                 <constraints>
@@ -427,6 +434,7 @@
                         <outlet property="earnedLegend" destination="Sjr-if-Dyt" id="XYx-iP-HWZ"/>
                         <outlet property="logout" destination="Azo-tB-XtK" id="HfA-NC-Eu7"/>
                         <outlet property="lookingTutorsNoticeView" destination="Lbl-MY-nYT" id="n7T-5I-VtY"/>
+                        <outlet property="noButton" destination="dJR-TF-1oP" id="alN-lq-8NY"/>
                         <outlet property="pieChartView" destination="oIt-Zr-otj" id="4dB-vI-htm"/>
                         <outlet property="requestTutoringButton" destination="v3Y-Op-8Tb" id="T2W-Xw-82Z"/>
                         <outlet property="requesterContainerView" destination="BuE-D8-b9b" id="5TF-u5-iKZ"/>
@@ -438,6 +446,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bL-SX-o3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="IYS-hc-BIm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1473" y="-1364"/>
         </scene>
