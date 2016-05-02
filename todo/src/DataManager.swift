@@ -85,17 +85,14 @@ func updateCourses (courses:[String]) {
     }
 }
 
-func alert (view: AnyObject, description: String, action: UIAlertAction?) {
+func alert (view: AnyObject, description: String, okAction: UIAlertAction?) {
     let alertController = UIAlertController(title: nil, message: description, preferredStyle: UIAlertControllerStyle.Alert)
-    let OKAction = action
-    alertController.addAction(OKAction!)
+    alertController.addAction(okAction!)
     view.presentViewController(alertController, animated: true, completion:nil)
 }
 
-func alertWithPic (view: AnyObject, description: String, action: UIAlertAction, pic: UIImage) {
+func alertWithPic (view: AnyObject, description: String, okAction: UIAlertAction, cancelAction: UIAlertAction, pic: UIImage) {
     let alertController = AlertController(title: nil, message: description, preferredStyle: UIAlertControllerStyle.Alert)
-    
-    let OKAction = action
     
     let imageView = UIImageView(frame: CGRectMake((alertController.view.bounds.width)/3 - 30, 15, 60, 60))
     imageView.image = pic as UIImage
@@ -103,7 +100,8 @@ func alertWithPic (view: AnyObject, description: String, action: UIAlertAction, 
     imageView.layer.cornerRadius = imageView.frame.size.width / 2
     
     alertController.view.addSubview(imageView)
-    alertController.addAction(OKAction)
+    alertController.addAction(okAction)
+    alertController.addAction(cancelAction)
     if !passed {
         alertController.show()
         passed = true
@@ -133,12 +131,11 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
         let currUserRef = getFirebase("users/" + inputs["Username"]!)
         currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if snapshot.value["Email Address"] as? String != nil {
-                alert(view, description: "An error has occurred. There may be an existing account for the provided username.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                alert(view, description: "An error has occurred. There may be an existing account for the provided username.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             } else {
                 rootRef.createUser(inputs["Email Address"], password: inputs["Password"], withValueCompletionBlock: {
                     error, result in
                     if error == nil {
-                        dispatch_group_enter(downloadGroup)
                         // Insert the user data
                         let newUserRef = usersRef.childByAppendingPath(inputs["Username"])
                         user = inputs
@@ -175,17 +172,16 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                         getFirebase("history/").updateChildValues([inputs["Username"]!: [date: notice]])
                         updateCourses(courses)
                         print("Successfully created user account with username: \(inputs["Username"]!)")
-                        alert(view, description: "Congrats! You are ready to start using todo.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                        alert(view, description: "Congrats! You are ready to start using todo.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
                             result in
                             view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                             })
-                        dispatch_group_leave(downloadGroup)
                         
                         removeObservers(currUserRef)
                         return
                     }
                     
-                    alert(view, description: "An error has occurred. There may be an existing account for the provided email address.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    alert(view, description: "An error has occurred. There may be an existing account for the provided email address.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 })
             }
         })
@@ -199,13 +195,11 @@ func modifyEmail(view: AnyObject, originalEmail: String, modifiedEmail: String, 
             print(error)
             // There was an error processing the request
         } else {
-            dispatch_group_enter(downloadGroup)
             user["email"] = modifiedEmail
             let username = (user["username"] as! String)
             let currUserRef = getFirebase("users/" + username)
             currUserRef.updateChildValues(["Email Address": modifiedEmail])
             print("Email changed successfully")
-            dispatch_group_leave(downloadGroup)
             
             /** TODO: Display Alert View **/
             /** TODO: Also change email field in the userRef **/
@@ -220,13 +214,11 @@ func modifyPassword(view: AnyObject, oldPassword:String, newPassword:String, use
             print(error)
             // There was an error processing the request
         } else {
-            dispatch_group_enter(downloadGroup)
             user["password"] = newPassword
             let username = (user["username"] as! String)
             let currUserRef = getFirebase("users/" + username)
             currUserRef.updateChildValues(["Password": newPassword])
             print("Password changed successfully")
-            dispatch_group_leave(downloadGroup)
             
             /** TODO: Display Alert View **/
             /** TODO: Also change password field in the userRef **/
@@ -249,11 +241,10 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     error, authData in
                     if error != nil {
                         print("Unable to login.\nInvalid password.")
-                        alert(view, description: "Unable to login. Invalid password.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                        alert(view, description: "Unable to login. Invalid password.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                         return
                     }
                     
-                    dispatch_group_enter(downloadGroup)
                     user["firstName"] = (snapshot.value["First Name"] as? String)!
                     user["lastName"] = (snapshot.value["Last Name"] as? String)!
                     user["username"] = (snapshot.value["Username"] as? String)!
@@ -321,7 +312,6 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     currUserRef.updateChildValues(["cancel": ""])
                     currUserRef.updateChildValues(["finish": ""])
                     currUserRef.updateChildValues(["location": ""])
-                    dispatch_group_leave(downloadGroup)
                     
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                     
@@ -329,7 +319,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                 }
             } else {
                 print("Unable to login. Invalid username.")
-                alert(view, description: "Unable to login.\nInvalid username.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                alert(view, description: "Unable to login.\nInvalid username.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             }
         })
     }
@@ -338,7 +328,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
 func sendRequest (view: AnyObject, askedCourse: String, location:String,  description: String, segueIdentifier: String) {
     let dots = (user["dots"]! as! Int)
     if dotsTotal > dots {
-        alert(view, description: "You do not have enough dots to make the request", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        alert(view, description: "You do not have enough dots to make the request", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         view.performSegueWithIdentifier(segueIdentifier, sender: nil)
         return
     }
@@ -365,12 +355,10 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 let notice = "request: You requested tutoring help in " + askedCourse + "."
                 let date = getDateTime()
                 notificationUserRef.updateChildValues([date: notice])
-                dispatch_group_enter(downloadGroup)
                 notifications[date] = notice
-                dispatch_group_leave(downloadGroup)
                 return
             }
-            alert(view, description: "Tere is not existing tutor for this course.\nPlease enter other UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            alert(view, description: "Tere is not existing tutor for this course.\nPlease enter other UT course.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         })
     }
 }
@@ -385,7 +373,6 @@ func requestListener(view: AnyObject) {
         
         currUserRef.observeEventType(.Value, withBlock: { snapshot in
             if snapshot.value["requesterUsername"] as! String != "" {
-                dispatch_group_enter(downloadGroup)
                 if requester["username"] == "" {
                     requester["username"] = (snapshot.value["requesterUsername"] as! String)
                 }
@@ -406,17 +393,14 @@ func requestListener(view: AnyObject) {
                 let decodedImage = decodePhoto(snapshot.value["requesterPhoto"] as! String)
                 
                 let requesterUserRef = getFirebase("users/" + requester["username"]!)
-                dispatch_group_leave(downloadGroup)
                 dispatch_async(dispatch_get_main_queue(), {
                     var notificationUserRef = getFirebase("notifications/" + username)
                     var notice = "singleRequest: " + ((snapshot.value["requesterUsername"] as! String) + " has requested tutoring in " + (snapshot.value["requesterCourse"] as! String) + "\n" + (snapshot.value["requesterDescription"] as! String) + "\nLocation: " + (snapshot.value["requesterLocation"] as! String))
                     let date = getDateTime()
                     notificationUserRef.updateChildValues([date: notice])
-                    dispatch_group_enter(downloadGroup)
                     notifications[date] = notice
-                    dispatch_group_leave(downloadGroup)
                     notice = notice.componentsSeparatedByString(":")[1]
-                    alertWithPic(view, description: "\n\n\n" + notice, action:
+                    alertWithPic(view, description: "\n\n\n" + notice, okAction:
                         UIAlertAction(title: "OK, I will Help", style: UIAlertActionStyle.Default) { result in
                             requesterUserRef.updateChildValues(["pairedUsername": username])
                             requesterUserRef.updateChildValues(["pairedPhoto": picString])
@@ -425,13 +409,12 @@ func requestListener(view: AnyObject) {
                             notice = "acceptance: You accepted " + (snapshot.value["requesterUsername"] as! String) + "’s tutoring request for " + (snapshot.value["requesterCourse"] as! String) + "."
                             let date = getDateTime()
                             notificationUserRef.updateChildValues([date: notice])
-                            dispatch_group_enter(downloadGroup)
                             notifications[date] = notice
-                            dispatch_group_leave(downloadGroup)
                             
                             mainViewController?.tutorContainerView.hidden = false
                             mainViewController?.requestTutoringButton.hidden = true
                             mainViewController!.tutorStudentSwitch.hidden = true
+                            mainViewController!.tutorStudentSwiftLabel.hidden = true
                             mainViewController!.logout.enabled = false
                             
                             mainViewController?.tutorWaitingViewController!.requesterUsername.text = "Waiting for " + requester["username"]! + " to Start the Session"
@@ -446,7 +429,35 @@ func requestListener(view: AnyObject) {
                             
                             mainViewController?.tutorSessionViewController!.tutorTutoringSessionPhoto.image = decodedImage
                             
-                        }, pic: decodedImage)
+                        },
+                        cancelAction: UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { result in
+                            let username = (user["username"] as! String)
+                            let currUserRef = getFirebase("users/" + username)
+                            currUserRef.updateChildValues(["requesterPhoto": ""])
+                            currUserRef.updateChildValues(["requesterCourse": ""])
+                            currUserRef.updateChildValues(["requesterDescription": ""])
+                            currUserRef.updateChildValues(["requesterLocation": ""])
+                            currUserRef.updateChildValues(["requesterUsername": ""])
+                            currUserRef.updateChildValues(["cancel": "yes"])
+                            requester["photoString"] = ""
+                            requester["course"] = ""
+                            requester["description"] = ""
+                            requester["location"] = ""
+                            requester["username"] = ""
+                            requester["start"] = ""
+                            removeObservers(rootRef)
+                            mainViewController!.tutorStudentSwitch.hidden = false
+                            mainViewController!.tutorStudentSwiftLabel.hidden = false
+                            mainViewController!.logout.enabled = true
+                            mainViewController!.requestTutoringButton!.hidden = false
+                            mainViewController!.blurEffect.hidden = true
+                            mainViewController!.requesterContainerView.hidden = true
+                            mainViewController!.tutorContainerView.hidden = true
+                            mainViewController!.tutorSessionContainerView.hidden = true
+                            
+                            removeObservers(currUserRef)
+                        },
+                        pic: decodedImage)
                 })
                 
                 let startRequesterUserRef = getFirebase("users/" + (snapshot.value["requesterUsername"] as! String) + "/" + "start")
@@ -475,7 +486,6 @@ func requestListener(view: AnyObject) {
                 cancelRequesterUserRef.observeEventType(.Value, withBlock: { snap in
                     if let v_ = snap.value as? String {
                         if v_ == "yes" {
-                            dispatch_group_enter(downloadGroup)
                             requester["cancel"] = ""
                             
                             let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
@@ -508,7 +518,6 @@ func requestListener(view: AnyObject) {
                             mainViewController!.tutorSessionContainerView.hidden = true
                             passed = false
                             
-                            dispatch_group_leave(downloadGroup)
                             removeObservers(currUserRef)
                         }
                     }
@@ -525,18 +534,18 @@ func requestListener(view: AnyObject) {
 }
 
 func pairedListener(view: AnyObject, askedCourse: String) {
+    var tutorCounter = 0
+    var tempDict = [:]
     dispatch_barrier_async(taskQueue) {
         let mainViewController = view as? HomeViewController
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
         currUserRef.observeEventType(.Value, withBlock: { snapshot in
-            dispatch_group_enter(downloadGroup)
             paired["username"] = snapshot.value.objectForKey("pairedUsername") as? String
             if paired["username"] != "" && (snapshot.value.objectForKey("start") as? String) == "" {
                 paired["photoString"] = snapshot.value.objectForKey("pairedPhoto") as? String
                 paired["course"] = askedCourse
-                dispatch_group_leave(downloadGroup)
                 
                 for key in usersPerCourse.keys {
                     if key != username {
@@ -562,9 +571,37 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.tutorStudentSwitch.hidden = true
                 
+                mainViewController!.tutorStudentSwiftLabel.hidden = true
+                
                 mainViewController!.logout.enabled = false
                 
                 removeObservers(currUserRef)
+            } else {
+                
+                for key in usersPerCourse.keys {
+                    if tempDict[key] != nil {
+                        let otherUserRef = getFirebase("users/" + key + "/" + "cancel")
+                        otherUserRef.observeEventType(.Value, withBlock: { snap in
+                            if let v_ = snap.value as? String {
+                                if v_ == "yes" {
+                                    tempDict.setValue(v_, forKey: key)
+                                    usersRef.childByAppendingPath(key).updateChildValues(["cancel": ""])
+                                }
+                            }
+                            removeObservers(otherUserRef)
+                        })
+                    }
+                }
+                
+                if tempDict.count == usersPerCourse.count {
+                    mainViewController!.blurEffect.hidden = true
+                    
+                    mainViewController!.startHomeViewController()
+                    
+                    alert(view, description: "All Tutors, for your requester subject, are busy right now, please try again later.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    
+                    removeObservers(currUserRef)
+                }
             }
         })
     }
@@ -584,7 +621,6 @@ func startSession (mainView: AnyObject, view: AnyObject) {
     let pairedUserRef = getFirebase("users/" + (paired["username"]! ))
     dispatch_barrier_async(taskQueue) {
         currUserRef.updateChildValues(["start": "yes"])
-        dispatch_group_enter(downloadGroup)
         user["start"] = "yes"
         pairedUserRef.observeEventType(.Value, withBlock: { snapshot in
             if (snapshot.value.objectForKey("finish") as? String) != "" || dotsTotal > dots {
@@ -620,7 +656,6 @@ func startSession (mainView: AnyObject, view: AnyObject) {
                 mainViewController.requesterTutoringSessionViewController!.performSegueWithIdentifier("returnToHomeRequesterSegue", sender: nil)
                 mainViewController.requesterSessionContainerView.hidden = true
                 
-                dispatch_group_leave(downloadGroup)
                 removeObservers(pairedUserRef)
             }
         })
@@ -635,19 +670,15 @@ func cancelSession() {
         currUserRef.updateChildValues(["pairedCourse": ""])
         currUserRef.updateChildValues(["cancel": "yes"])
         currUserRef.updateChildValues(["pairedUsername": ""])
-        dispatch_group_enter(downloadGroup)
         paired["photoString"] = ""
         paired["username"] = ""
         paired["course"] = ""
-        dispatch_group_leave(downloadGroup)
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
         let notice = "cancelledSession: You cancelled a tutoring session."
         let date = getDateTime()
         notificationUserRef.updateChildValues([date: notice])
-        dispatch_group_enter(downloadGroup)
         notifications[date] = notice
-        dispatch_group_leave(downloadGroup)
     }
 }
 
@@ -655,7 +686,6 @@ func finishSession() {
     dispatch_barrier_async(taskQueue) {
         var dots = (user["dots"]! as! Int)
         dots = dots + dotsTotal
-        dispatch_group_enter(downloadGroup)
         user["dots"] = dots
         user["earned"] = (user["earned"] as! Int) + dotsTotal
         
@@ -690,13 +720,11 @@ func finishSession() {
         requester["location"] = ""
         requester["username"] = ""
         requester["start"] = ""
-        dispatch_group_leave(downloadGroup)
     }
 }
 
 func logOutUser () {
     let date = getDateTime()
-    dispatch_group_enter(downloadGroup)
     user["lastLogin"] = date
     let username = (user["username"] as! String)
     let currUserRef = getFirebase("users/" + username)
@@ -739,8 +767,6 @@ func logOutUser () {
     
     notifications.removeAll()
     history.removeAll()
-    
-    dispatch_group_leave(downloadGroup)
 
     rootRef.unauth()
     

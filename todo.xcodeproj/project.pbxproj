@@ -17,6 +17,7 @@
 		87D47D151CD3BD36003E6254 /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D47D141CD3BD36003E6254 /* SpentDotsBg.png */; };
 		87D47D1B1CD40474003E6254 /* TodoAppIcon_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D47D1A1CD40474003E6254 /* TodoAppIcon_Teal.png */; };
 		87D47D1D1CD4047A003E6254 /* TodoAppIcon_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D47D1C1CD4047A003E6254 /* TodoAppIcon_White.png */; };
+		87D47D2B1CD6C905003E6254 /* HistoryEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D47D2A1CD6C905003E6254 /* HistoryEvent.swift */; };
 		99A41DD31CD15A6000F2A920 /* todo-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 99A41DD21CD15A6000F2A920 /* todo-icon.png */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
 		C6FE54001CC9C4060042E585 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */; };
@@ -185,6 +186,7 @@
 		87D47D141CD3BD36003E6254 /* SpentDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpentDotsBg.png; path = images/History/SpentDotsBg.png; sourceTree = "<group>"; };
 		87D47D1A1CD40474003E6254 /* TodoAppIcon_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TodoAppIcon_Teal.png; path = images/General/TodoAppIcon_Teal.png; sourceTree = "<group>"; };
 		87D47D1C1CD4047A003E6254 /* TodoAppIcon_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TodoAppIcon_White.png; path = images/General/TodoAppIcon_White.png; sourceTree = "<group>"; };
+		87D47D2A1CD6C905003E6254 /* HistoryEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryEvent.swift; path = src/HistoryEvent.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A41DD21CD15A6000F2A920 /* todo-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "todo-icon.png"; path = "Docs/todo-icon.png"; sourceTree = SOURCE_ROOT; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */,
 				87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */,
 				879193871CB5BA8300F5A08D /* UserPhotoButton.swift */,
+				87D47D2A1CD6C905003E6254 /* HistoryEvent.swift */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 			files = (
 				CA7B01901C951AF20001D0F4 /* LoginViewController.swift in Sources */,
 				CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */,
+				87D47D2B1CD6C905003E6254 /* HistoryEvent.swift in Sources */,
 				CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */,
 				CAB160A51CB85D1600C0FD41 /* CourseCollectionViewCell.swift in Sources */,
 				87D0E3311CAB23F2009261CC /* HistoryTableViewCell.swift in Sources */,

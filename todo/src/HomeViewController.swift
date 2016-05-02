@@ -17,6 +17,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tutorStudentSwitch: UISegmentedControl!
     
+    @IBOutlet weak var tutorStudentSwiftLabel: UISegmentedControl!
+    
     @IBOutlet weak var requestTutoringButton: UIButton!
     
     @IBOutlet weak var lookingTutorsNoticeView: UIView!
@@ -45,6 +47,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
         requestTutoringButton!.backgroundColor = requestButtonColor
         startHomeViewController()
     }
@@ -135,6 +138,7 @@ class HomeViewController: UIViewController {
     
     func startHomeViewController() {
         self.tutorStudentSwitch.hidden = false
+        self.tutorStudentSwiftLabel.hidden = false
         self.logout.enabled = true
         self.requestTutoringButton!.hidden = false
         self.blurEffect.hidden = true
