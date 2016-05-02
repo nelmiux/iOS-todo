@@ -189,6 +189,8 @@ class NotificationsTableViewController: UITableViewController {
         }
     }
     
+    func returnToNotifications
+    
     
 }
 extension String {
