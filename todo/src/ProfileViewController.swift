@@ -257,9 +257,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     @IBAction func onClickEmail(sender: AnyObject) {
-        let email = "foo@bar.com"
-        let url = NSURL(string: "mailto:\(email)")
-        UIApplication.sharedApplication().openURL(url!)
+        let userRef = getFirebase("users/" + self.username)
+        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if !(snapshot.value is NSNull) {
+                if let email = snapshot.value["Email Address"] as? String {
+                    let url = NSURL(string: "mailto:\(email)")
+                    UIApplication.sharedApplication().openURL(url!)
+                }
+            }
+        })
     }
     
     @IBAction func onClickRightBarButton(sender: AnyObject) {

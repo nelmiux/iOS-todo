@@ -91,7 +91,7 @@ class HistoryTableViewController: UITableViewController {
                 result["involvedUser"] = eventArr[3]
             } else if role == "requester" {
                 let tutor = eventArr[eventArr.count - 1]
-                let name = tutor.substringToIndex(tutor.endIndex.predecessor())
+                let name = tutor.substringToIndex(tutor.endIndex.predecessor().advancedBy(1))
                 result["involvedUser"] = name
             }
             
