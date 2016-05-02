@@ -781,6 +781,9 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutoring Session with Brian" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vrk-Jc-k9m">
                                 <rect key="frame" x="98" y="29" width="203" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vrk-Jc-k9m" secondAttribute="height" multiplier="203:23" id="FmP-Ox-1Cb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -793,8 +796,8 @@
                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" translatesAutoresizingMaskIntoConstraints="NO" id="irS-Q4-wdd">
                                 <rect key="frame" x="23" y="80" width="159" height="58"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Time:" textAlignment="right" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QVy-GV-AMA">
-                                        <rect key="frame" x="7" y="17" width="55" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Time:" textAlignment="right" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QVy-GV-AMA">
+                                        <rect key="frame" x="7" y="17" width="54" height="23"/>
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -833,8 +836,8 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="230" verticalHuggingPriority="260" misplaced="YES" text="0" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wuR-TY-ivr">
-                                        <rect key="frame" x="62" y="19" width="55" height="23"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="230" verticalHuggingPriority="260" text="0" textAlignment="center" lineBreakMode="characterWrap" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wuR-TY-ivr">
+                                        <rect key="frame" x="63" y="19" width="54" height="23"/>
                                         <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -863,6 +866,7 @@
                             <constraint firstItem="vrk-Jc-k9m" firstAttribute="leading" secondItem="hdu-72-wuo" secondAttribute="trailing" constant="10" id="DmX-zF-zFB"/>
                             <constraint firstItem="irS-Q4-wdd" firstAttribute="width" secondItem="jkQ-Os-BYK" secondAttribute="height" multiplier="161:145" id="JDf-nQ-6oR"/>
                             <constraint firstItem="ihk-e8-nJv" firstAttribute="leading" secondItem="irS-Q4-wdd" secondAttribute="trailing" constant="10" id="Nh6-v7-Krc"/>
+                            <constraint firstItem="vrk-Jc-k9m" firstAttribute="width" secondItem="jkQ-Os-BYK" secondAttribute="height" multiplier="7:5" id="Pb2-t2-M9r"/>
                             <constraint firstItem="ihk-e8-nJv" firstAttribute="bottom" secondItem="irS-Q4-wdd" secondAttribute="bottom" id="Scv-2k-ZwB"/>
                             <constraint firstItem="irS-Q4-wdd" firstAttribute="leading" secondItem="jkQ-Os-BYK" secondAttribute="leadingMargin" constant="7" id="UOD-X4-FEE"/>
                             <constraint firstItem="ihk-e8-nJv" firstAttribute="width" secondItem="irS-Q4-wdd" secondAttribute="width" id="VvM-Uy-seU"/>
