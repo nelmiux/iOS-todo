@@ -22,15 +22,13 @@ class NotificationsTableViewController: UITableViewController {
         
         dispatch_sync(taskQueue) {
             for key in sortedDict{
-                print("printing key")
-                print(key)
+                
                 notificationKeysCopy.append(key.0)
             }
             for value in sortedDict{
                 // Parse to extract type and message
                 let rangeOfColon = value.1.rangeOfString(":")
-                print("printing value")
-                print(value)
+                
                 if rangeOfColon != nil {
                     // First separate the role and actual event description into two values.
                     let type = value.1.substringToIndex((rangeOfColon?.startIndex)!)
