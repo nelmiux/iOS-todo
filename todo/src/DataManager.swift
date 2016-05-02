@@ -91,7 +91,7 @@ func alert (view: AnyObject, description: String, okAction: UIAlertAction?) {
     view.presentViewController(alertController, animated: true, completion:nil)
 }
 
-func alertWithPic (view: AnyObject, description: String, okAction: UIAlertAction, cancelAction: UIAlertAction, pic: UIImage) {
+func alertWithPic (view: AnyObject, description: String, okAction: UIAlertAction, cancelAction: UIAlertAction, otherAction: UIAlertAction, pic: UIImage) {
     let alertController = AlertController(title: nil, message: description, preferredStyle: UIAlertControllerStyle.Alert)
     
     let imageView = UIImageView(frame: CGRectMake((alertController.view.bounds.width)/3 - 30, 15, 60, 60))
@@ -101,6 +101,7 @@ func alertWithPic (view: AnyObject, description: String, okAction: UIAlertAction
     
     alertController.view.addSubview(imageView)
     alertController.addAction(okAction)
+    alertController.addAction(otherAction)
     alertController.addAction(cancelAction)
     if !passed {
         alertController.show()
@@ -457,6 +458,9 @@ func requestListener(view: AnyObject) {
                             mainViewController!.tutorSessionContainerView.hidden = true
                             
                             removeObservers(currUserRef)
+                        },
+                        otherAction: UIAlertAction(title: "View on Notifications", style: UIAlertActionStyle.Default) { result in
+                            mainViewController?.performSegueWithIdentifier("goToNotificationsSegue", sender: mainViewController)
                         },
                         pic: decodedImage)
                 })

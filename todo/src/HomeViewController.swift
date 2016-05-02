@@ -35,6 +35,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tutorSessionContainerView: UIView!
     
+    @IBOutlet weak var noButton: UIButton!
+    
     var tutorWaitingViewController: TutorWaitingViewController? = nil
     
     var tutorSessionViewController: TutorTutoringSessionViewController? = nil
@@ -54,6 +56,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        noButton.hidden = true
         if settingsSwitch != -1 && settingsSwitch != self.tutorStudentSwitch.selectedSegmentIndex {
             self.tutorStudentSwitch.selectedSegmentIndex = settingsSwitch
             self.tutorStudentSwitch.sendActionsForControlEvents(UIControlEvents.ValueChanged)
