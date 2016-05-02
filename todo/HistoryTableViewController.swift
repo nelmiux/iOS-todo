@@ -12,6 +12,7 @@ class HistoryTableViewController: UITableViewController {
     
     // Class attributes
     private var data:([String],[String]) = ([],[])
+    private var userPhotos = Dictionary<String, UIImage>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,20 @@ class HistoryTableViewController: UITableViewController {
         cell.dateLabel.text = parsedData["date"]
         cell.descriptionLabel.text = parsedData["event"]
         cell.dotsLabel.text = parsedData["numDots"]
+        /* if involvedUser.characters.count > 0 {
+            if userPhotos.keys.contains(involvedUser) {
+                cell.userPhoto.image = userPhotos[involvedUser]
+                print("\(involvedUser) was found in list")
+            } else {
+                dispatch_group_enter(downloadGroup)
+                getUserPhoto(involvedUser, imageView: cell.userPhoto)
+                dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
+                userPhotos[involvedUser] = cell.userPhoto.image
+                dispatch_group_leave(downloadGroup)
+                print("\(involvedUser) was added to list")
+            }
+        } */
+        
         getUserPhoto(involvedUser, imageView: cell.userPhoto)
         
         // Do any additional UI modifications accourding to tutor vs requestor.
