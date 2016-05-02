@@ -19,6 +19,12 @@ class HistoryTableViewController: UITableViewController {
         self.loadData()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
