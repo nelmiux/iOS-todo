@@ -45,7 +45,7 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return history.count
+        return self.data.0.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -90,6 +90,9 @@ class HistoryTableViewController: UITableViewController {
     func parseData (index:Int) -> Dictionary<String, String> {
         var result: Dictionary<String, String> = ["date" : "", "role" : "", "event" : "", "numDots": "", "involvedUser": ""]
         
+        let dateArr = self.data.0[index].characters.split{$0 == ","}.map(String.init)
+        result["date"] = (" \(dateArr[0]), \(dateArr[1])")
+        
         let value = self.data.1[index]
         
         let rangeOfColon = value.rangeOfString(":")
@@ -124,8 +127,6 @@ class HistoryTableViewController: UITableViewController {
             result["event"] = value
         }
         
-        let dateArr = self.data.0[index].characters.split{$0 == ","}.map(String.init)
-        result["date"] = (" \(dateArr[0]), \(dateArr[1])")
         return result
     }
     
