@@ -136,6 +136,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 rootRef.createUser(inputs["Email Address"], password: inputs["Password"], withValueCompletionBlock: {
                     error, result in
                     if error == nil {
+                        dispatch_group_enter(downloadGroup)
                         // Insert the user data
                         let newUserRef = usersRef.childByAppendingPath(inputs["Username"])
                         user = inputs
@@ -165,7 +166,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                         user["location"] = ""
                         user["cancel"] = ""
                         newUserRef.setValue(user)
-                        let notice = "created: You have joined todo!”"
+                        let notice = "created: You have joined todo!"
                         let date = getDateTime()
                         notifications[date] = notice
                         getFirebase("notifications/").updateChildValues([inputs["Username"]!: [date: notice]])
@@ -176,7 +177,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                             result in
                             view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                             })
-                        
+                        dispatch_group_leave(downloadGroup)
                         removeObservers(currUserRef)
                         return
                     }
@@ -576,9 +577,9 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 mainViewController!.logout.enabled = false
                 
                 removeObservers(currUserRef)
-            } else {
+            } //else {
                 
-                for key in usersPerCourse.keys {
+                /*for key in usersPerCourse.keys {
                     if tempDict[key] != nil {
                         let otherUserRef = getFirebase("users/" + key + "/" + "cancel")
                         otherUserRef.observeEventType(.Value, withBlock: { snap in
@@ -602,7 +603,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                     
                     removeObservers(currUserRef)
                 }
-            }
+            }*/
         })
     }
 }
@@ -682,7 +683,7 @@ func cancelSession() {
     }
 }
 
-func finishSession() {
+func finishSession(view: HomeViewController) {
     dispatch_barrier_async(taskQueue) {
         var dots = (user["dots"]! as! Int)
         dots = dots + dotsTotal
@@ -690,7 +691,7 @@ func finishSession() {
         user["earned"] = (user["earned"] as! Int) + dotsTotal
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-        let notice = "balanceUpdate: You earned " + String(dotsTotal) + " dots for a recent tutoring session. Your new total is: " + String(dots)
+        let notice = "balanceUpdate: You earned " + view.tutorSessionViewController!.tutorTutoringSessionEarning.text! + " dots for a recent tutoring session. Your new total is: " + String(dots)
         let date = getDateTime()
         notificationUserRef.updateChildValues([date: notice])
         notifications[date] = notice

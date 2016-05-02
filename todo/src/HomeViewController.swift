@@ -111,7 +111,7 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
-        finishSession()
+        finishSession(self)
         startHomeViewController()
         requestListener(self)
         return
