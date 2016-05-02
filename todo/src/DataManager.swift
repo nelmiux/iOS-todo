@@ -136,6 +136,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 rootRef.createUser(inputs["Email Address"], password: inputs["Password"], withValueCompletionBlock: {
                     error, result in
                     if error == nil {
+                        dispatch_group_enter(downloadGroup)
                         // Insert the user data
                         let newUserRef = usersRef.childByAppendingPath(inputs["Username"])
                         user = inputs
@@ -176,7 +177,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                             result in
                             view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                             })
-                        
+                        dispatch_group_leave(downloadGroup)
                         removeObservers(currUserRef)
                         return
                     }
