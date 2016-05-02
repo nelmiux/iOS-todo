@@ -197,7 +197,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Validate name
         let fullNameArr = self.nameTextField.text!.characters.split{$0 == " "}.map(String.init)
         if nameTextField.text!.characters.count > 1 && fullNameArr.count != 2{
-            alert(self, description: "Please enter a valid first and last name.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            alert(self, description: "Please enter a valid first and last name.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             return false
         } else if nameTextField.text!.characters.count > 1 && fullNameArr.count == 2 {
             self.name = self.nameTextField.text!
@@ -210,14 +210,14 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             if let year = Int(self.graduationTextField.text!){
                 if year < 2015 || year > 2021{
                     print("Graduation \(self.graduation) is an invalid graduation date")
-                    alert(self, description: "Please enter the expected year of your graduation.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    alert(self, description: "Please enter the expected year of your graduation.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                     return false
                 } else {
                     self.graduation = self.graduationTextField.text!
                     return true
                 }
             } else{
-                alert(self, description: "Please enter the expected year of your graduation.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                alert(self, description: "Please enter the expected year of your graduation.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 return false
             }
         }

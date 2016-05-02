@@ -85,17 +85,14 @@ func updateCourses (courses:[String]) {
     }
 }
 
-func alert (view: AnyObject, description: String, action: UIAlertAction?) {
+func alert (view: AnyObject, description: String, okAction: UIAlertAction?) {
     let alertController = UIAlertController(title: nil, message: description, preferredStyle: UIAlertControllerStyle.Alert)
-    let OKAction = action
-    alertController.addAction(OKAction!)
+    alertController.addAction(okAction!)
     view.presentViewController(alertController, animated: true, completion:nil)
 }
 
-func alertWithPic (view: AnyObject, description: String, action: UIAlertAction, pic: UIImage) {
+func alertWithPic (view: AnyObject, description: String, okAction: UIAlertAction, cancelAction: UIAlertAction, pic: UIImage) {
     let alertController = AlertController(title: nil, message: description, preferredStyle: UIAlertControllerStyle.Alert)
-    
-    let OKAction = action
     
     let imageView = UIImageView(frame: CGRectMake((alertController.view.bounds.width)/3 - 30, 15, 60, 60))
     imageView.image = pic as UIImage
@@ -103,7 +100,8 @@ func alertWithPic (view: AnyObject, description: String, action: UIAlertAction, 
     imageView.layer.cornerRadius = imageView.frame.size.width / 2
     
     alertController.view.addSubview(imageView)
-    alertController.addAction(OKAction)
+    alertController.addAction(okAction)
+    alertController.addAction(cancelAction)
     if !passed {
         alertController.show()
         passed = true
@@ -133,7 +131,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
         let currUserRef = getFirebase("users/" + inputs["Username"]!)
         currUserRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if snapshot.value["Email Address"] as? String != nil {
-                alert(view, description: "An error has occurred. There may be an existing account for the provided username.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                alert(view, description: "An error has occurred. There may be an existing account for the provided username.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             } else {
                 rootRef.createUser(inputs["Email Address"], password: inputs["Password"], withValueCompletionBlock: {
                     error, result in
@@ -175,7 +173,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                         getFirebase("history/").updateChildValues([inputs["Username"]!: [date: notice]])
                         updateCourses(courses)
                         print("Successfully created user account with username: \(inputs["Username"]!)")
-                        alert(view, description: "Congrats! You are ready to start using todo.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
+                        alert(view, description: "Congrats! You are ready to start using todo.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {
                             result in
                             view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                             })
@@ -185,7 +183,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                         return
                     }
                     
-                    alert(view, description: "An error has occurred. There may be an existing account for the provided email address.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    alert(view, description: "An error has occurred. There may be an existing account for the provided email address.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 })
             }
         })
@@ -249,7 +247,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     error, authData in
                     if error != nil {
                         print("Unable to login.\nInvalid password.")
-                        alert(view, description: "Unable to login. Invalid password.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                        alert(view, description: "Unable to login. Invalid password.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                         return
                     }
                     
@@ -329,7 +327,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                 }
             } else {
                 print("Unable to login. Invalid username.")
-                alert(view, description: "Unable to login.\nInvalid username.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                alert(view, description: "Unable to login.\nInvalid username.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             }
         })
     }
@@ -338,7 +336,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
 func sendRequest (view: AnyObject, askedCourse: String, location:String,  description: String, segueIdentifier: String) {
     let dots = (user["dots"]! as! Int)
     if dotsTotal > dots {
-        alert(view, description: "You do not have enough dots to make the request", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        alert(view, description: "You do not have enough dots to make the request", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         view.performSegueWithIdentifier(segueIdentifier, sender: nil)
         return
     }
@@ -370,7 +368,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 dispatch_group_leave(downloadGroup)
                 return
             }
-            alert(view, description: "Tere is not existing tutor for this course.\nPlease enter other UT course.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            alert(view, description: "Tere is not existing tutor for this course.\nPlease enter other UT course.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
         })
     }
 }
@@ -416,7 +414,7 @@ func requestListener(view: AnyObject) {
                     notifications[date] = notice
                     dispatch_group_leave(downloadGroup)
                     notice = notice.componentsSeparatedByString(":")[1]
-                    alertWithPic(view, description: "\n\n\n" + notice, action:
+                    alertWithPic(view, description: "\n\n\n" + notice, okAction:
                         UIAlertAction(title: "OK, I will Help", style: UIAlertActionStyle.Default) { result in
                             requesterUserRef.updateChildValues(["pairedUsername": username])
                             requesterUserRef.updateChildValues(["pairedPhoto": picString])
@@ -446,7 +444,9 @@ func requestListener(view: AnyObject) {
                             
                             mainViewController?.tutorSessionViewController!.tutorTutoringSessionPhoto.image = decodedImage
                             
-                        }, pic: decodedImage)
+                        }, cancelAction: UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { result in
+                        },
+                        pic: decodedImage)
                 })
                 
                 let startRequesterUserRef = getFirebase("users/" + (snapshot.value["requesterUsername"] as! String) + "/" + "start")

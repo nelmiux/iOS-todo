@@ -44,7 +44,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //            
             // Check that username and password are non-empty
             if usernameInput.characters.count < 1 || passwordInput.characters.count < 1 {
-                alert(self, description: "Please enter a username and password.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                alert(self, description: "Please enter a username and password.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 return false
             }
             
