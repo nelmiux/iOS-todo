@@ -52,6 +52,8 @@ var dotsTotal = 1
 
 var settingsSwitch = -1
 
+var time_: TimerAndDotsCounter?
+
 let burntOranges:[UIColor] = [UIColor.init(red: 186/255, green: 74/255, blue: 0, alpha: 1.0), UIColor.init(red: 214/255, green: 137/255, blue: 16/255, alpha: 1.0), UIColor.init(red: 175/255, green: 96/255, blue: 26/255, alpha: 1.0), UIColor.init(red: 185/255, green: 119/255, blue: 14/255, alpha: 1.0), UIColor.init(red: 110/255, green: 44/255, blue: 0, alpha: 1.0), UIColor.init(red: 120/255, green: 66/255, blue: 18/255, alpha: 1.0)]
 
 func getFirebase(loc: String) -> Firebase! {
@@ -451,13 +453,19 @@ func requestListener(view: AnyObject) {
                 startRequesterUserRef.observeEventType(.Value, withBlock: { snap in
                     if let v_ = snap.value as? String {
                         if v_ == "yes"{
-                            let time_ = TimerAndDotsCounter(viewControler: mainViewController!.requesterTutoringSessionViewController!)
-                            time_.startCounter()
+                            
+                            time_ = TimerAndDotsCounter(viewControler: mainViewController!.tutorSessionViewController!)
+
+                            if !timer.valid {
+                                time_!.startCounter()
+                            }
+                            
                             requester["start"] = "yes"
                             mainViewController!.tutorContainerView.hidden = true
                             mainViewController!.tutorSessionContainerView.hidden = false
                             timeCount = 0
                             passed = false
+                            removeObservers(startRequesterUserRef)
                             removeObservers(currUserRef)
                         }
                     }

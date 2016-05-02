@@ -31,8 +31,11 @@ class RequesterStartSessionViewController: UIViewController {
     }
     
     @IBAction func startSessionButton(sender: AnyObject) {
-        let time_ = TimerAndDotsCounter(viewControler: self.mainViewController!.requesterTutoringSessionViewController!)
-        time_.startCounter()
+        time_ = TimerAndDotsCounter(viewControler: mainViewController!.tutorSessionViewController!)
+        
+        if !timer.valid {
+            time_!.startCounter()
+        }
         dotsTotal = 0
         startSession(mainViewController!, view: self)
     }

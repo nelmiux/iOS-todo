@@ -8,22 +8,25 @@
 
 import Foundation
 
+var timer = NSTimer()
+
+var dots = NSTimer()
+
 class TimerAndDotsCounter {
-    
-    var timer = NSTimer()
-    
-    var dots = NSTimer()
     
     var viewControler: AnyObject? = nil
     
     init (viewControler: AnyObject) {
         self.viewControler = viewControler
-        self.timer.invalidate()
-        self.dots.invalidate()
+        timer.invalidate()
+        dots.invalidate()
         timeCount = 0
     }
     
     func startCounter () {
+        timeCount = 0
+        timer.invalidate()
+        dots.invalidate()
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.timeCounter), userInfo: nil, repeats: true)
         
         dots = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.dotsCounter), userInfo: nil, repeats: true)
