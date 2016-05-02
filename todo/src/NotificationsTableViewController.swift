@@ -18,19 +18,24 @@ class NotificationsTableViewController: UITableViewController {
         var notificationMessagesCopy = [String]()
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        let sortedDict = notifications.sort { $0.0 > $1.0 }
         
         dispatch_sync(taskQueue) {
-            for key in notifications.keys{
-                notificationKeysCopy.append(key)
+            for key in sortedDict{
+                print("printing key")
+                print(key)
+                notificationKeysCopy.append(key.0)
             }
-            for value in notifications.values{
+            for value in sortedDict{
                 // Parse to extract type and message
-                let rangeOfColon = value.rangeOfString(":")
+                let rangeOfColon = value.1.rangeOfString(":")
+                print("printing value")
+                print(value)
                 if rangeOfColon != nil {
                     // First separate the role and actual event description into two values.
-                    let type = value.substringToIndex((rangeOfColon?.startIndex)!)
+                    let type = value.1.substringToIndex((rangeOfColon?.startIndex)!)
                     notificationTypesCopy.append(type)
-                    let message = value.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
+                    let message = value.1.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
                     notificationMessagesCopy.append(message)
                 }
             }
@@ -41,8 +46,15 @@ class NotificationsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 68.0
-        print("--------------")
-        print(notifications)
+        print("---------------")
+        print("In notification")
+        let sortedDict = notifications.sort { $0.0 < $1.0 }
+        print(sortedDict)
+
+        
+
+        
+        
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
