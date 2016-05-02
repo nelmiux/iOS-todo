@@ -165,7 +165,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                         user["location"] = ""
                         user["cancel"] = ""
                         newUserRef.setValue(user)
-                        let notice = "created: You have joined todo!”"
+                        let notice = "created: You have joined todo!"
                         let date = getDateTime()
                         notifications[date] = notice
                         getFirebase("notifications/").updateChildValues([inputs["Username"]!: [date: notice]])
