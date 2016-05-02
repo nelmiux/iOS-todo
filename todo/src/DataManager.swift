@@ -630,13 +630,13 @@ func startSession (mainView: AnyObject, view: AnyObject) {
                 user["paid"] = (user["paid"] as! Int) + dotsTotal
                 
                 let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-                let notice = "balanceUpdate: You paid " + String(dotsTotal) + " dots for a recent tutoring session. Your new total is: " + String(dots)
+                let notice = "balanceUpdate: You paid " + (mainViewController.requesterTutoringSessionViewController?.requesterTutoringSessionPaying.text)! + " dots for a recent tutoring session. Your new total is: " + String(dots)
                 let date = getDateTime()
                 notificationUserRef.updateChildValues([date: notice])
                 notifications[date] = notice
                 
                 let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
-                var noticeH = "requester: You spent " + String(dotsTotal) + " dots on tutoring in "
+                var noticeH = "requester: You spent " + (mainViewController.requesterTutoringSessionViewController?.requesterTutoringSessionPaying.text)! + " dots on tutoring in "
                 noticeH = noticeH + paired["course"]! + " from " + paired["username"]!
                 
                 let dateH = getDateTime()
@@ -690,6 +690,7 @@ func finishSession(view: HomeViewController) {
         user["dots"] = dots
         user["earned"] = (user["earned"] as! Int) + dotsTotal
         
+        
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
         let notice = "balanceUpdate: You earned " + view.tutorSessionViewController!.tutorTutoringSessionEarning.text! + " dots for a recent tutoring session. Your new total is: " + String(dots)
         let date = getDateTime()
@@ -698,13 +699,12 @@ func finishSession(view: HomeViewController) {
         
         let username = (user["username"]! as! String)
         
-        let historyUserRef = getFirebase("history/" + username)
+        let historyUserRef = getFirebase("history/" + (user["username"]! as! String))
         var noticeH = "tutor: You tutored " + requester["username"]!
-        noticeH = noticeH + " for " + String(dotsTotal) + " dots in " + currCourse + "."
+        noticeH = noticeH + " for " + view.tutorSessionViewController!.tutorTutoringSessionEarning.text! + " dots in " + currCourse + "."
+        historyUserRef.updateChildValues([date: noticeH])
+        history[date] = noticeH
         
-        let dateH = getDateTime()
-        historyUserRef.updateChildValues([dateH: noticeH])
-        history[dateH] = noticeH
         let currUserRef = getFirebase("users/" + username)
         currUserRef.updateChildValues(["dots": dots])
         currUserRef.updateChildValues(["earned": (user["earned"] as! Int)])
@@ -730,6 +730,7 @@ func logOutUser () {
     let username = (user["username"] as! String)
     let currUserRef = getFirebase("users/" + username)
     currUserRef.updateChildValues(["lastLogin": date])
+    settingsSwitch = 1
     
     user["firstName"] = ""
     user["lastName"] = ""

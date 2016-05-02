@@ -34,8 +34,6 @@ class NotificationsTableViewController: UITableViewController {
                     notificationMessagesCopy.append(message)
                 }
             }
-            
-            
         }
         return (notificationKeysCopy, notificationTypesCopy, notificationMessagesCopy)
     }
