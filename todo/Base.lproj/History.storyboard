@@ -463,9 +463,10 @@
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="zYM-0Y-1p9">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ZAl-76-KTK">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="ZAl-76-KTK">
                             <connections>
                                 <action selector="onClickLeftBarButton:" destination="urJ-Cj-qcg" id="GRA-Gc-Rzh"/>
+                                <segue destination="bqe-bq-QaI" kind="unwind" unwindAction="returnToHistoryViewController:" id="OJx-2t-Gln"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="Svb-Yd-ZeZ">
@@ -495,6 +496,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qhZ-1y-V1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bqe-bq-QaI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1963" y="-541"/>
         </scene>
