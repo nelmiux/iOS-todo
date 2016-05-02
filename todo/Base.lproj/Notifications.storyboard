@@ -182,7 +182,7 @@
                                                 <constraint firstAttribute="height" constant="80" id="bub-Fk-wxc"/>
                                             </constraints>
                                             <connections>
-                                                <segue destination="MIf-XX-raj" kind="push" identifier="displayUserProfile" id="anT-dQ-6qc"/>
+                                                <segue destination="MIf-XX-raj" kind="show" identifier="displayUserProfile" id="anT-dQ-6qc"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -356,7 +356,7 @@
         <!--Notifications-->
         <scene sceneID="576-vG-yo5">
             <objects>
-                <navigationController storyboardIdentifier="notificationsEntry" title="Notifications" automaticallyAdjustsScrollViewInsets="NO" id="NqN-3r-7Dq" userLabel="Notifications" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="notificationsEntry" title="Notifications" automaticallyAdjustsScrollViewInsets="NO" definesPresentationContext="YES" id="NqN-3r-7Dq" userLabel="Notifications" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notifications" image="NotificationsTabIcon_Black" selectedImage="NotificationsTabIcon_Teal" id="bEM-5S-ejA" userLabel="Notifications"/>
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
@@ -371,6 +371,10 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="XhZ-vZ-Tl3">
+                        <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="gVw-wf-Bz1" kind="relationship" relationship="rootViewController" id="Vbe-r3-Dbr"/>
                     </connections>
@@ -681,7 +685,8 @@
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="TdH-T2-dj5">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
-                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="gsa-wH-Q38">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" width="20" id="gsa-wH-Q38">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onClickLeftBarButton:" destination="MIf-XX-raj" id="w47-Rb-8ww"/>
                                 <segue destination="t8k-JK-urY" kind="unwind" unwindAction="returnToNotificationsViewController:" id="DpP-MM-3fG"/>
