@@ -577,9 +577,9 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 mainViewController!.logout.enabled = false
                 
                 removeObservers(currUserRef)
-            } else {
+            } //else {
                 
-                for key in usersPerCourse.keys {
+                /*for key in usersPerCourse.keys {
                     if tempDict[key] != nil {
                         let otherUserRef = getFirebase("users/" + key + "/" + "cancel")
                         otherUserRef.observeEventType(.Value, withBlock: { snap in
@@ -603,7 +603,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                     
                     removeObservers(currUserRef)
                 }
-            }
+            }*/
         })
     }
 }
@@ -683,7 +683,7 @@ func cancelSession() {
     }
 }
 
-func finishSession() {
+func finishSession(view: HomeViewController) {
     dispatch_barrier_async(taskQueue) {
         var dots = (user["dots"]! as! Int)
         dots = dots + dotsTotal
@@ -691,7 +691,7 @@ func finishSession() {
         user["earned"] = (user["earned"] as! Int) + dotsTotal
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-        let notice = "balanceUpdate: You earned " + String(dotsTotal) + " dots for a recent tutoring session. Your new total is: " + String(dots)
+        let notice = "balanceUpdate: You earned " + view.tutorSessionViewController!.tutorTutoringSessionEarning.text! + " dots for a recent tutoring session. Your new total is: " + String(dots)
         let date = getDateTime()
         notificationUserRef.updateChildValues([date: notice])
         notifications[date] = notice
