@@ -684,6 +684,7 @@
                         <barButtonItem key="leftBarButtonItem" title="&lt;Back" id="gsa-wH-Q38">
                             <connections>
                                 <action selector="onClickLeftBarButton:" destination="MIf-XX-raj" id="w47-Rb-8ww"/>
+                                <segue destination="t8k-JK-urY" kind="unwind" unwindAction="returnToNotificationsViewController:" id="DpP-MM-3fG"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="gNf-dF-BBs">
@@ -713,6 +714,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tuT-b4-iHj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="t8k-JK-urY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1961" y="305"/>
         </scene>

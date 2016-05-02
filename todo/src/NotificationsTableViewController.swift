@@ -189,7 +189,9 @@ class NotificationsTableViewController: UITableViewController {
         }
     }
     
-    func returnToNotifications
+    @IBAction func returnToNotificationsViewController(segue:UIStoryboardSegue) {
+        
+    }
     
     
 }
