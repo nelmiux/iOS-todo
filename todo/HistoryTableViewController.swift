@@ -21,6 +21,8 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            
+            
             self.tableView.reloadData()
         })
     }
@@ -31,20 +33,26 @@ class HistoryTableViewController: UITableViewController {
     }
     
     func loadData () {
+        let sortedDict = history.sort { $0.0 > $1.0 }
+        print("-------------")
+        print("printing sortd history")
+        print(sortedDict)
+        print("printing history")
+        print(history)
         var keys = [String]()
         var vals = [String]()
         dispatch_sync(taskQueue) {
-            for date in history.keys {
-                if (history[date] as String!).rangeOfString("created") == nil {
-                    keys.append(date as String!)
-                    vals.append(history[date] as String!)
+            
+            for date in sortedDict {
+                if (date.1 as String!).rangeOfString("created") == nil {
+                    keys.append(date.0 as String!)
+                    vals.append(date.1 as String!)
                 }
             }
             self.data.0 = keys
             self.data.1 = vals
         }
     }
-
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

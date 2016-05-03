@@ -44,14 +44,6 @@ class NotificationsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 68.0
-        print("---------------")
-        print("In notification")
-        let sortedDict = notifications.sort { $0.0 < $1.0 }
-        print(sortedDict)
-
-        
-
-        
         
         tableView.rowHeight = UITableViewAutomaticDimension
     }
