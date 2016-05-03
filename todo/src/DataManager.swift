@@ -403,7 +403,7 @@ func requestListener(view: AnyObject) {
                     notifications[date] = notice
                     notice = notice.componentsSeparatedByString(":")[1]
                     alertWithPic(view, description: "\n\n\n" + notice, okAction:
-                        UIAlertAction(title: "OK, I will Help", style: UIAlertActionStyle.Default) { result in
+                        UIAlertAction(title: "OK, I will help", style: UIAlertActionStyle.Default) { result in
                             requesterUserRef.updateChildValues(["pairedUsername": username])
                             requesterUserRef.updateChildValues(["pairedPhoto": picString])
                             
@@ -459,7 +459,7 @@ func requestListener(view: AnyObject) {
                             
                             removeObservers(currUserRef)
                         },
-                        otherAction: UIAlertAction(title: "View on Notifications", style: UIAlertActionStyle.Default) { result in
+                        otherAction: UIAlertAction(title: "View in Notifications", style: UIAlertActionStyle.Default) { result in
                             mainViewController?.performSegueWithIdentifier("goToNotificationsSegue", sender: mainViewController)
                         },
                         pic: decodedImage)
