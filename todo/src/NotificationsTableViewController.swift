@@ -12,6 +12,11 @@ class NotificationsTableViewController: UITableViewController {
     
     private let standardNotifications:[String] = ["request", "acceptance", "cancelledSession", "created"]
     
+    /* Prepare to follow the pattern of history
+     Check out the loadData function, please let me know
+     wheher this is the right way*/
+    private var data:([String],[String],[String]) = ([],[],[])
+    
     var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
         var notificationTypesCopy = [String]()
@@ -22,13 +27,12 @@ class NotificationsTableViewController: UITableViewController {
         
         dispatch_sync(taskQueue) {
             for key in sortedDict{
-                
                 notificationKeysCopy.append(key.0)
             }
+            
             for value in sortedDict{
                 // Parse to extract type and message
                 let rangeOfColon = value.1.rangeOfString(":")
-                
                 if rangeOfColon != nil {
                     // First separate the role and actual event description into two values.
                     let type = value.1.substringToIndex((rangeOfColon?.startIndex)!)
@@ -37,28 +41,63 @@ class NotificationsTableViewController: UITableViewController {
                     notificationMessagesCopy.append(message)
                 }
             }
+            
         }
+        
         return (notificationKeysCopy, notificationTypesCopy, notificationMessagesCopy)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 68.0
-        print("---------------")
-        print("In notification")
-        let sortedDict = notifications.sort { $0.0 < $1.0 }
-        print(sortedDict)
-
-        
-
-        
         
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.loadData()
+            self.tableView.reloadData()
+        })
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func loadData(){
+        var notificationKeysCopy = [String]()
+        var notificationTypesCopy = [String]()
+        var notificationMessagesCopy = [String]()
+        
+        tableView.estimatedRowHeight = 68.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        let sortedDict = notifications.sort { $0.0 > $1.0 }
+        
+        dispatch_sync(taskQueue) {
+            for key in sortedDict{
+                notificationKeysCopy.append(key.0)
+            }
+            
+            for value in sortedDict{
+                // Parse to extract type and message
+                let rangeOfColon = value.1.rangeOfString(":")
+                if rangeOfColon != nil {
+                    // First separate the role and actual event description into two values.
+                    let type = value.1.substringToIndex((rangeOfColon?.startIndex)!)
+                    notificationTypesCopy.append(type)
+                    let message = value.1.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
+                    notificationMessagesCopy.append(message)
+                }
+            }
+            
+        }
+        
+        self.data.0 = notificationKeysCopy
+        self.data.1 = notificationTypesCopy
+        self.data.2 = notificationMessagesCopy
+        
     }
     
     // MARK: - Table view data source
@@ -144,11 +183,7 @@ class NotificationsTableViewController: UITableViewController {
         return result
     }
     
-    override func viewDidAppear(animated: Bool) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.tableView.reloadData()
-        })
-    }
+
 
 
     /*
