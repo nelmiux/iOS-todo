@@ -21,7 +21,7 @@ class HistoryTableViewController: UITableViewController {
     
     override func viewDidAppear(animated: Bool) {
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            
+            self.loadData()
             self.tableView.reloadData()
         })
     }
