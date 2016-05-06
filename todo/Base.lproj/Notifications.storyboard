@@ -37,10 +37,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Notifications-->
+        <!--Notifications Table View Controler-->
         <scene sceneID="Nx1-Jc-N1S">
             <objects>
-                <tableViewController id="gVw-wf-Bz1" customClass="NotificationsTableViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="gVw-wf-Bz1" userLabel="Notifications Table View Controler" customClass="NotificationsTableViewController" customModule="todo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="28" sectionFooterHeight="28" id="YfR-fE-JbT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -371,7 +371,7 @@
                         <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.086274509799999996" green="0.56470588239999997" blue="0.53333333329999999" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="MaiandraGD-Regular" family="Maiandra GD" pointSize="0.0"/>
+                            <fontDescription key="fontDescription" name="MaiandraGD-Regular" family="Maiandra GD" pointSize="1"/>
                             <color key="textColor" white="1" alpha="0.96999999999999997" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
@@ -687,14 +687,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="smU-5X-1LN">
-                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="TdH-T2-dj5">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="TdH-T2-dj5">
                             <color key="tintColor" red="0.87991219759999995" green="0.96958476309999997" blue="0.93682241440000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                        <barButtonItem key="leftBarButtonItem" title="&lt;Back" width="20" id="gsa-wH-Q38">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="onClickLeftBarButton:" destination="MIf-XX-raj" id="w47-Rb-8ww"/>
-                                <segue destination="t8k-JK-urY" kind="unwind" unwindAction="returnToNotificationsViewController:" id="DpP-MM-3fG"/>
+                                <action selector="onClickLeftBarButton:" destination="MIf-XX-raj" id="z2b-CA-kRe"/>
+                                <segue destination="t8k-JK-urY" kind="unwind" unwindAction="returnToNotificationsViewController:" id="cn6-6Q-ThV"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Edit" id="gNf-dF-BBs">
@@ -713,7 +710,7 @@
                         <outlet property="emailButton" destination="We4-Tx-5pj" id="4WR-OC-h8d"/>
                         <outlet property="graduationLabel" destination="JEB-TN-ORq" id="Jfv-V8-TzH"/>
                         <outlet property="graduationTextField" destination="cbJ-RR-FI2" id="L6Z-iJ-dJQ"/>
-                        <outlet property="leftBarButton" destination="gsa-wH-Q38" id="O9b-vK-Sdj"/>
+                        <outlet property="leftBarButton" destination="TdH-T2-dj5" id="jaq-35-T1D"/>
                         <outlet property="majorLabel" destination="svz-yS-xci" id="JnO-Sz-pHM"/>
                         <outlet property="majorTextField" destination="cOZ-if-yg0" id="NAB-IA-S6n"/>
                         <outlet property="nameLabel" destination="3Io-Nw-H93" id="Lkn-fk-4AL"/>

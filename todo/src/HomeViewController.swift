@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class HomeViewController: UIViewController {
     
     var logInViewControler = LoginViewController()
@@ -168,6 +167,5 @@ class HomeViewController: UIViewController {
         self.tutorSessionContainerView.hidden = true
         return
     }
-    
 }
 

@@ -19,7 +19,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var numDotsLabel: UILabel!
     @IBOutlet weak var coursesLabel: UILabel!
     @IBOutlet weak var rightBarButton: UIBarButtonItem!
+    
     @IBOutlet weak var leftBarButton: UIBarButtonItem!
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var majorTextField: UITextField!
     @IBOutlet weak var graduationTextField: UITextField!
@@ -305,7 +307,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.textFieldShouldReturn(self.majorTextField)
         self.textFieldShouldReturn(self.graduationTextField)
     }
-    
     
     // ImagePicker Functionality
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
