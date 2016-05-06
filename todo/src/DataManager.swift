@@ -563,14 +563,12 @@ func requestListener(view: AnyObject) {
 }
 
 func pairedListener(view: AnyObject, askedCourse: String) {
-    var passed = false
     dispatch_barrier_async(taskQueue) {
         let mainViewController = view as? HomeViewController
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
         currUserRef.observeEventType(.Value, withBlock: { snapshot in
-            passed = false
             paired["username"] = snapshot.value.objectForKey("pairedUsername") as? String
             if paired["username"] != "" && (snapshot.value.objectForKey("start") as? String) == "" {
                 currUserRef!.updateChildValues(["possiblePairedUsers": 0])
@@ -608,20 +606,28 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 mainViewController!.logout.enabled = false
                 
                 removeObservers(currUserRef)
-            } else {
-                
-                if passed && possiblePairedUsers < 1 {
-                    possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
-
-                    mainViewController!.blurEffect.hidden = true
-                    
-                    mainViewController!.startHomeViewController()
-                    
-                    alert(view, description: "All Tutors, for your requester subject, are busy right now, please try again later.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-                    
-                    removeObservers(currUserRef)
+            }
+            for key in usersPerCourse.keys {
+                if key != username {
+                    let cancelRequesterUserRef = getFirebase("users/" + key + "/" + "cancel")
+                    cancelRequesterUserRef.observeSingleEventOfType(.Value, withBlock: { snap in
+                        if let v_ = snap.value as? String {
+                            if v_ == "yes" {
+                                possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
+                                if possiblePairedUsers < 1 {
+                                    
+                                    mainViewController!.blurEffect.hidden = true
+                                    
+                                    mainViewController!.startHomeViewController()
+                                    
+                                    alert(view, description: "All Tutors, for your requester subject, are busy right now, please try again later.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                                    
+                                    removeObservers(currUserRef)
+                                }
+                            }
+                        }
+                    })
                 }
-                passed = true
             }
         })
     }
