@@ -343,6 +343,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
         let username = (user["username"] as! String)
         let currUserRef = getFirebase("users/" + username)
+        possiblePairedUsers = 0
         currCourse = askedCourse
         coursesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let _ = snapshot.value[askedCourse] as? Dictionary<String, String> {
