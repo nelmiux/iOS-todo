@@ -16,33 +16,33 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     @IBOutlet weak var majorLabel: UILabel!
     @IBOutlet weak var graduationLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
-    @IBOutlet weak var activityImage: UIImageView!
     @IBOutlet weak var numDotsLabel: UILabel!
     @IBOutlet weak var coursesLabel: UILabel!
-    //@IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var rightBarButton: UIBarButtonItem!
-    @IBOutlet weak var cancelBarButton: UIBarButtonItem!
+    
+    @IBOutlet weak var leftBarButton: UIBarButtonItem!
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var majorTextField: UITextField!
     @IBOutlet weak var graduationTextField: UITextField!
     @IBOutlet weak var basicInfoView: UIView!
     @IBOutlet weak var changePhotoButton: UIButton!
     private let imagePicker = UIImagePickerController()
-
     
     // Class variables
-    // private var courseList:[[String:String]] = user["courses"] as! [[String:String]]
+    var username:String = ""
+    var isOwnProfile:Bool = true
     private var name:String = ""
     private var major:String = ""
     private var graduation:String = ""
-    var isOwnProfile:Bool = true
+    private var numDots:Int = 0
     private var isEditing:Bool = false
     private var newPhotoString:String? = nil
     private var coursesCopy:([String],[String]){
         var coursesKeysCopy = [String]()
         var coursesValuesCopy = [String]()
         
-        dispatch_sync(concurrentDataAccessQueue) {
+        dispatch_sync(taskQueue) {
             for key in (user["courses"] as! [String: String]).keys {
                 coursesKeysCopy.append(key)
             }
@@ -62,23 +62,61 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.CoursesTableView.dataSource = self
         self.CoursesTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "courseCell")
         
+        self.loadData()
         self.hideEditing()
-        self.displayUserData(true)
+        self.displayUserPhoto()
+        // self.displayUserData(true)
         self.adjustButtonFunctionality()
+        
+        // Format profile photo to be circular
+        self.photo.layer.cornerRadius = self.photo.frame.size.width / 2
+        self.photo.clipsToBounds = true
+    }
+    
+    func loadData () {
+        if isOwnProfile {
+            self.username = user["username"] as! String!
+        }
+        
+        let userRef = getFirebase("users/" + username)
+        dispatch_barrier_sync(taskQueue) {
+            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+                if !(snapshot.value is NSNull) {
+                    if var wholeName = (snapshot.value["First Name"] as? String) {
+                        wholeName = (snapshot.value["First Name"] as? String)! + " " + (snapshot.value["Last Name"] as? String)!
+                        self.nameLabel.text = wholeName
+                        self.majorLabel.text = snapshot.value["Major"] as! String!
+                        let graduationYear = snapshot.value["Graduation Year"] as! String!
+                        self.graduationLabel.text = "Class of " + graduationYear
+                        self.numDotsLabel.text = String((snapshot.value["dots"] as? Int)!)
+                    
+                        self.name = self.nameLabel.text!
+                        self.major = self.majorLabel.text!
+                        self.graduation = graduationYear
+                        // self.numDots = Int(numDotsLabel.text!)!
+                        print("data has been fetched: \(self.major), \(self.graduation), \(self.numDots)")
+                    }
+                }
+            })
+        }
+        
+        
     }
     
     func hideEditing () {
         if isOwnProfile {
             self.rightBarButton.enabled = true
             self.rightBarButton.title = "Edit"
+            self.leftBarButton.enabled = false
+            self.leftBarButton.title = ""
         } else {
             self.rightBarButton.enabled = false
             self.rightBarButton.title = ""
+            self.leftBarButton.enabled = true
+            self.leftBarButton.title = "Back"
         }
         
         // Hide text fields and button(s)
-        self.cancelBarButton.enabled = false
-        self.cancelBarButton.title = ""
         self.nameTextField.hidden = true
         self.majorTextField.hidden = true
         self.graduationTextField.hidden = true
@@ -94,8 +132,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Display save button in top nav bar
         self.rightBarButton.enabled = true
         self.rightBarButton.title = "Save"
-        self.cancelBarButton.enabled = true
-        self.cancelBarButton.title = "Cancel"
+        self.leftBarButton.enabled = true
+        self.leftBarButton.title = "Cancel"
         
         // Hide labels
         self.nameLabel.hidden = true
@@ -105,6 +143,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         // Show text fields and button(s)
         self.nameTextField.hidden = false
         self.nameTextField.placeholder = self.name
+        
         self.majorTextField.hidden = false
         self.majorTextField.placeholder = self.major
         self.graduationTextField.hidden = false
@@ -113,14 +152,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func displayUserData (needToRetrieveData:Bool) {
-        // Get data from Firebase if necessary
-        if needToRetrieveData {
-            self.displayUserPhoto()
-            self.name = ("\(user["firstName"] as! String!) \(user["lastName"] as! String!)")
-            self.major = user["major"] as! String!
-            self.graduation = user["graduationYear"] as! String!
-        }
-        
         self.nameLabel.text = self.name
         let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
         let firstName = fullNameArr[0]
@@ -132,9 +163,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func saveInfo () -> Bool {
-        self.name = self.nameTextField.text?.characters.count > 0 ? self.nameTextField.text! : self.name
         self.major = self.majorTextField.text?.characters.count > 0 ? self.majorTextField.text! : self.major
-        self.graduation = self.graduationTextField.text?.characters.count > 0 ? self.graduationTextField.text! : self.graduation
+        
         let valid:Bool = self.validateFields()
         
         // Save
@@ -147,7 +177,9 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             user["graduationYear"] = self.graduation
             
             if self.newPhotoString != nil {
+                // Update then revert photo string
                 user["photoString"] = self.newPhotoString
+                self.newPhotoString = nil
             }
             
             // Update Firebase
@@ -165,21 +197,32 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     
     func validateFields () -> Bool {
         // Validate name
-        let fullNameArr = self.name.characters.split{$0 == " "}.map(String.init)
-        if fullNameArr.count < 2 {
-            alert(self, description: "Please enter a valid full name.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        let fullNameArr = self.nameTextField.text!.characters.split{$0 == " "}.map(String.init)
+        if nameTextField.text!.characters.count > 1 && fullNameArr.count != 2{
+            alert(self, description: "Please enter a valid first and last name.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             return false
+        } else if nameTextField.text!.characters.count > 1 && fullNameArr.count == 2 {
+            self.name = self.nameTextField.text!
         }
         
         // Validate major -- how can we do this?
         
         // Validate graduation year
-        if self.graduation != "2016" && self.graduation != "2017" && self.graduation != "2018" && self.graduation != "2019" && self.graduation != "2020" {
-            print("Graduation \(self.graduation) is an invalid graduation date")
-            alert(self, description: "Please enter a valid graduation date.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            return false
+        if self.graduationTextField.text?.characters.count > 0 {
+            if let year = Int(self.graduationTextField.text!){
+                if year < 2015 || year > 2021{
+                    print("Graduation \(self.graduation) is an invalid graduation date")
+                    alert(self, description: "Please enter the expected year of your graduation.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                    return false
+                } else {
+                    self.graduation = self.graduationTextField.text!
+                    return true
+                }
+            } else{
+                alert(self, description: "Please enter the expected year of your graduation.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                return false
+            }
         }
-        
         return true
     }
     
@@ -195,18 +238,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     func displayUserPhoto () {
-        let base64String = user["photoString"] as! String!
-        var decodedImage = UIImage(named: "DefaultProfilePhoto.png")
-        
-        // If user has selected image other than default image, decode the image
-        if base64String.characters.count > 0 {
-            let decodedData = NSData(base64EncodedString: base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-            decodedImage = UIImage(data: decodedData!)!
-        }
-        
-        self.photo.layer.cornerRadius = self.photo.frame.size.width / 2
-        self.photo.clipsToBounds = true
-        self.photo.image = decodedImage!
+        getUserPhoto(self.username, imageView: self.photo)
     }
 
     override func didReceiveMemoryWarning() {
@@ -227,6 +259,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
     }
     
     @IBAction func onClickEmail(sender: AnyObject) {
+        let userRef = getFirebase("users/" + self.username)
+        userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            if !(snapshot.value is NSNull) {
+                if let email = snapshot.value["Email Address"] as? String {
+                    let url = NSURL(string: "mailto:\(email)")
+                    UIApplication.sharedApplication().openURL(url!)
+                }
+            }
+        })
     }
     
     @IBAction func onClickRightBarButton(sender: AnyObject) {
@@ -246,13 +287,10 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
             self.textFieldShouldReturn(self.nameTextField)
             self.textFieldShouldReturn(self.majorTextField)
             self.textFieldShouldReturn(self.graduationTextField)
-            
-            // Revert photo string
-            self.newPhotoString = nil
         }
     }
     
-    @IBAction func onClickCancel(sender: AnyObject) {
+    @IBAction func onClickLeftBarButton(sender: AnyObject) {
         // Revert all fields back to previous values
         self.nameTextField.text = ""
         self.majorTextField.text = ""
@@ -269,7 +307,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         self.textFieldShouldReturn(self.majorTextField)
         self.textFieldShouldReturn(self.graduationTextField)
     }
-    
     
     // ImagePicker Functionality
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {

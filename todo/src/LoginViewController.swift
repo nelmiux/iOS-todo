@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+    
     // UI Elements
     
     @IBOutlet weak var usernameInputField: UITextField!
@@ -35,14 +35,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         if identifier == "enterApplication" {
-            //let usernameInput = usernameInputField.text!
-            //let passwordInput = passwordInputField.text!
-            let usernameInput = "testNelma"
-            let passwordInput = "1234567"
-            
+            let usernameInput = usernameInputField.text!
+            let passwordInput = passwordInputField.text!
+            //let usernameInput = "testTutor"
+            //let passwordInput = "1234567"
+//             let usernameInput = "kiulam"
+//             let passwordInput = "321"
+//            
             // Check that username and password are non-empty
             if usernameInput.characters.count < 1 || passwordInput.characters.count < 1 {
-                alert(self, description: "Please enter a username and password.", action: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                alert(self, description: "Please enter a username and password.", okAction: UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 return false
             }
             

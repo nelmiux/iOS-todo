@@ -3,6 +3,7 @@
 # Uncomment this line if you're using Swift
 use_frameworks!
 pod 'Firebase', '>= 2.5.0'
+pod 'Charts'
 
 target 'todo' do
 

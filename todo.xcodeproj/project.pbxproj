@@ -7,17 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		874A951A1CD08A290060AC87 /* BalanceUpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874A95191CD08A290060AC87 /* BalanceUpdateTableViewCell.swift */; };
+		874A95211CD3BB470060AC87 /* emailIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 874A95201CD3BB470060AC87 /* emailIcon.png */; };
+		874A95231CD3BB600060AC87 /* dotIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 874A95221CD3BB600060AC87 /* dotIcon.png */; };
+		879193881CB5BA8300F5A08D /* UserPhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879193871CB5BA8300F5A08D /* UserPhotoButton.swift */; };
+		87A451841CD8080D007D30A4 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87A4517D1CD807FB007D30A4 /* Charts.framework */; };
+		87A451851CD8080D007D30A4 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 87A4517D1CD807FB007D30A4 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		87D0E3311CAB23F2009261CC /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */; };
 		87D0E3351CAB2680009261CC /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */; };
-		87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3361CAB90F7009261CC /* SpentDotsBg.png */; };
-		87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D0E3371CAB90F7009261CC /* GainedDotsBg.png */; };
+		87D47D131CD3BD2F003E6254 /* GainedDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D47D121CD3BD2F003E6254 /* GainedDotsBg.png */; };
+		87D47D151CD3BD36003E6254 /* SpentDotsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D47D141CD3BD36003E6254 /* SpentDotsBg.png */; };
+		87D47D1D1CD4047A003E6254 /* TodoAppIcon_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 87D47D1C1CD4047A003E6254 /* TodoAppIcon_White.png */; };
+		87D47D2B1CD6C905003E6254 /* HistoryEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D47D2A1CD6C905003E6254 /* HistoryEvent.swift */; };
+		9998865A1CD8152400B7BC2D /* todo-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 999886591CD8152400B7BC2D /* todo-icon.png */; };
 		C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C38DF7D0F490F56A7AA3F93 /* Pods.framework */; };
+		C6FE54001CC9C4060042E585 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */; };
+		C6FE54021CC9C4410042E585 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6FE54011CC9C4410042E585 /* Settings.storyboard */; };
 		CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */; };
 		CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */; };
 		CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */; };
 		CA040A911CA328E300E06C37 /* TutorWaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A901CA328E300E06C37 /* TutorWaitingViewController.swift */; };
 		CA040A951CA32EA900E06C37 /* CourseSelectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A941CA32EA900E06C37 /* CourseSelectionProtocol.swift */; };
-		CA040A971CA32EC500E06C37 /* CourseButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA040A961CA32EC500E06C37 /* CourseButtonView.swift */; };
 		CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */ = {isa = PBXBuildFile; fileRef = CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */; };
 		CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */; };
 		CA7B00D21C9504C90001D0F4 /* DotsBalance_Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */; };
@@ -34,7 +44,6 @@
 		CA7B013D1C9509530001D0F4 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01321C9509530001D0F4 /* Home.storyboard */; };
 		CA7B013E1C9509530001D0F4 /* Notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01341C9509530001D0F4 /* Notifications.storyboard */; };
 		CA7B013F1C9509530001D0F4 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01361C9509530001D0F4 /* Profile.storyboard */; };
-		CA7B01401C9509530001D0F4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01381C9509530001D0F4 /* Settings.storyboard */; };
 		CA7B01411C9509530001D0F4 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA7B013A1C9509530001D0F4 /* SignUp.storyboard */; };
 		CA7B016D1C9515D40001D0F4 /* LoginScreenBg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01681C9515D40001D0F4 /* LoginScreenBg.jpg */; };
 		CA7B016E1C9515D40001D0F4 /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01691C9515D40001D0F4 /* LoginButton.png */; };
@@ -42,18 +51,13 @@
 		CA7B01701C9515D40001D0F4 /* TodoLogo_Teal.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B016B1C9515D40001D0F4 /* TodoLogo_Teal.png */; };
 		CA7B01711C9515D40001D0F4 /* TodoLogo_White.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B016C1C9515D40001D0F4 /* TodoLogo_White.png */; };
 		CA7B01741C9516E50001D0F4 /* LocationIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA7B01731C9516E50001D0F4 /* LocationIcon.png */; };
-		CA7B018B1C951AF20001D0F4 /* AddCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */; };
 		CA7B018C1C951AF20001D0F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01771C951AF20001D0F4 /* AppDelegate.swift */; };
 		CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01781C951AF20001D0F4 /* DataManager.swift */; };
 		CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01791C951AF20001D0F4 /* HomeViewController.swift */; };
 		CA7B01901C951AF20001D0F4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */; };
 		CA7B01911C951AF20001D0F4 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017C1C951AF20001D0F4 /* Notification.swift */; };
 		CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017D1C951AF20001D0F4 /* NotificationsTableViewController.swift */; };
-		CA7B01931C951AF20001D0F4 /* OptionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */; };
-		CA7B01941C951AF20001D0F4 /* OptionsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */; };
 		CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01801C951AF20001D0F4 /* ProfileViewController.swift */; };
-		CA7B01961C951AF20001D0F4 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */; };
-		CA7B01971C951AF20001D0F4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */; };
 		CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */; };
 		CA7B019B1C951AF20001D0F4 /* StandardNotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01861C951AF20001D0F4 /* StandardNotificationTableViewCell.swift */; };
 		CA7B019C1C951AF20001D0F4 /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7B01871C951AF20001D0F4 /* StreamReader.swift */; };
@@ -67,6 +71,9 @@
 		CA8B11851C86A00B0039D8F3 /* Home Analitics2.png in Resources */ = {isa = PBXBuildFile; fileRef = CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */; };
 		CAB102041C8442E600033929 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102031C8442E600033929 /* logout.png */; };
 		CAB102061C844FA500033929 /* user-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = CAB102051C844FA500033929 /* user-pic.png */; };
+		CAB160971CB3537600C0FD41 /* TimerAndDotsCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB160961CB3537600C0FD41 /* TimerAndDotsCounter.swift */; };
+		CAB160A51CB85D1600C0FD41 /* CourseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB160A31CB85D1600C0FD41 /* CourseCollectionViewCell.swift */; };
+		CAB160A71CB861C100C0FD41 /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB160A61CB861C100C0FD41 /* RegistrationTableViewController.swift */; };
 		CAC137C41C85548B00586487 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CAC137C21C85548B00586487 /* Main.storyboard */; };
 		CAC137D01C855D8E00586487 /* History Example.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CA1C855D8E00586487 /* History Example.png */; };
 		CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC137CB1C855D8E00586487 /* HistoryExample.png */; };
@@ -99,6 +106,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		87A4517C1CD807FB007D30A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87A451751CD807FA007D30A4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		87A4517E1CD807FB007D30A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87A451751CD807FA007D30A4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		87A451801CD807FB007D30A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87A451751CD807FA007D30A4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		87A451821CD807FB007D30A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87A451751CD807FA007D30A4 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		87A451861CD8080D007D30A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87A451751CD807FA007D30A4 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 		CADD3C541C7E46030085F014 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CADD3C371C7E46030085F014 /* Project object */;
@@ -122,6 +164,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				87A451851CD8080D007D30A4 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,19 +174,28 @@
 /* Begin PBXFileReference section */
 		04B6C3211C85786C00BA7882 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_Teal.png; sourceTree = "<group>"; };
 		04B6C3221C85786C00BA7882 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TodoLogo_White.png; sourceTree = "<group>"; };
+		874A95191CD08A290060AC87 /* BalanceUpdateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BalanceUpdateTableViewCell.swift; path = src/BalanceUpdateTableViewCell.swift; sourceTree = "<group>"; };
+		874A95201CD3BB470060AC87 /* emailIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = emailIcon.png; path = images/Profile/emailIcon.png; sourceTree = "<group>"; };
+		874A95221CD3BB600060AC87 /* dotIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dotIcon.png; path = images/Profile/dotIcon.png; sourceTree = "<group>"; };
 		8780982A1C86BF88005DDE9E /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LocationIcon.png; sourceTree = "<group>"; };
+		879193871CB5BA8300F5A08D /* UserPhotoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhotoButton.swift; sourceTree = "<group>"; };
+		87A451751CD807FA007D30A4 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = todo/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
-		87D0E3361CAB90F7009261CC /* SpentDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SpentDotsBg.png; sourceTree = "<group>"; };
-		87D0E3371CAB90F7009261CC /* GainedDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GainedDotsBg.png; sourceTree = "<group>"; };
+		87D47D121CD3BD2F003E6254 /* GainedDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GainedDotsBg.png; path = images/History/GainedDotsBg.png; sourceTree = "<group>"; };
+		87D47D141CD3BD36003E6254 /* SpentDotsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SpentDotsBg.png; path = images/History/SpentDotsBg.png; sourceTree = "<group>"; };
+		87D47D1C1CD4047A003E6254 /* TodoAppIcon_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TodoAppIcon_White.png; path = images/General/TodoAppIcon_White.png; sourceTree = "<group>"; };
+		87D47D2A1CD6C905003E6254 /* HistoryEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryEvent.swift; path = src/HistoryEvent.swift; sourceTree = "<group>"; };
 		8C38DF7D0F490F56A7AA3F93 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		999886591CD8152400B7BC2D /* todo-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "todo-icon.png"; path = "images/General/todo-icon.png"; sourceTree = "<group>"; };
 		B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingTableViewController.swift; path = src/SettingTableViewController.swift; sourceTree = "<group>"; };
+		C6FE54011CC9C4410042E585 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		CA040A891CA31B7800E06C37 /* RequesterStartSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterStartSessionViewController.swift; path = src/RequesterStartSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8A1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequesterTutoringSessionViewController.swift; path = src/RequesterTutoringSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorTutoringSessionViewController.swift; path = src/TutorTutoringSessionViewController.swift; sourceTree = "<group>"; };
 		CA040A901CA328E300E06C37 /* TutorWaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorWaitingViewController.swift; path = src/TutorWaitingViewController.swift; sourceTree = "<group>"; };
 		CA040A941CA32EA900E06C37 /* CourseSelectionProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseSelectionProtocol.swift; path = src/CourseSelectionProtocol.swift; sourceTree = "<group>"; };
-		CA040A961CA32EC500E06C37 /* CourseButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseButtonView.swift; path = src/CourseButtonView.swift; sourceTree = "<group>"; };
 		CA2A50F51C8528AD000E2E94 /* Home Analitics1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics1.png"; path = "images/Home/Home Analitics1.png"; sourceTree = "<group>"; };
 		CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DefaultProfilePhoto.png; path = images/Profile/DefaultProfilePhoto.png; sourceTree = "<group>"; };
 		CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DotsBalance_Profile.png; path = images/Profile/DotsBalance_Profile.png; sourceTree = "<group>"; };
@@ -160,7 +212,6 @@
 		CA7B01331C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		CA7B01351C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notifications.storyboard; sourceTree = "<group>"; };
 		CA7B01371C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
-		CA7B01391C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		CA7B013B1C9509530001D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignUp.storyboard; sourceTree = "<group>"; };
 		CA7B01681C9515D40001D0F4 /* LoginScreenBg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LoginScreenBg.jpg; path = images/Login/LoginScreenBg.jpg; sourceTree = "<group>"; };
 		CA7B01691C9515D40001D0F4 /* LoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoginButton.png; path = images/Login/LoginButton.png; sourceTree = "<group>"; };
@@ -168,18 +219,13 @@
 		CA7B016B1C9515D40001D0F4 /* TodoLogo_Teal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TodoLogo_Teal.png; path = todo/images/Login/TodoLogo_Teal.png; sourceTree = SOURCE_ROOT; };
 		CA7B016C1C9515D40001D0F4 /* TodoLogo_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TodoLogo_White.png; path = todo/images/Login/TodoLogo_White.png; sourceTree = SOURCE_ROOT; };
 		CA7B01731C9516E50001D0F4 /* LocationIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LocationIcon.png; path = images/Notifications/LocationIcon.png; sourceTree = "<group>"; };
-		CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddCoursesTableViewController.swift; path = src/AddCoursesTableViewController.swift; sourceTree = "<group>"; };
 		CA7B01771C951AF20001D0F4 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = src/AppDelegate.swift; sourceTree = "<group>"; };
 		CA7B01781C951AF20001D0F4 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = src/DataManager.swift; sourceTree = "<group>"; };
 		CA7B01791C951AF20001D0F4 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = src/HomeViewController.swift; sourceTree = "<group>"; };
 		CA7B017B1C951AF20001D0F4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = src/LoginViewController.swift; sourceTree = "<group>"; };
 		CA7B017C1C951AF20001D0F4 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = src/Notification.swift; sourceTree = "<group>"; };
 		CA7B017D1C951AF20001D0F4 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationsTableViewController.swift; path = src/NotificationsTableViewController.swift; sourceTree = "<group>"; };
-		CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsListViewController.swift; path = src/OptionsListViewController.swift; sourceTree = "<group>"; };
-		CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsPopoverViewController.swift; path = src/OptionsPopoverViewController.swift; sourceTree = "<group>"; };
 		CA7B01801C951AF20001D0F4 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = src/ProfileViewController.swift; sourceTree = "<group>"; };
-		CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationTableViewCell.swift; path = src/RegistrationTableViewCell.swift; sourceTree = "<group>"; };
-		CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationViewController.swift; path = src/RegistrationViewController.swift; sourceTree = "<group>"; };
 		CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestNotificationTableViewCell.swift; path = src/RequestNotificationTableViewCell.swift; sourceTree = "<group>"; };
 		CA7B01841C951AF20001D0F4 /* RequestPoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestPoolTableViewCell.swift; path = src/RequestPoolTableViewCell.swift; sourceTree = "<group>"; };
 		CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestPoolTableViewController.swift; path = src/RequestPoolTableViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +241,9 @@
 		CA8B11841C86A00B0039D8F3 /* Home Analitics2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Home Analitics2.png"; path = "images/Home/Home Analitics2.png"; sourceTree = "<group>"; };
 		CAB102031C8442E600033929 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logout.png; path = images/General/logout.png; sourceTree = "<group>"; };
 		CAB102051C844FA500033929 /* user-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-pic.png"; path = "images/Home/user-pic.png"; sourceTree = "<group>"; };
+		CAB160961CB3537600C0FD41 /* TimerAndDotsCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerAndDotsCounter.swift; path = src/TimerAndDotsCounter.swift; sourceTree = "<group>"; };
+		CAB160A31CB85D1600C0FD41 /* CourseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CourseCollectionViewCell.swift; path = src/CourseCollectionViewCell.swift; sourceTree = "<group>"; };
+		CAB160A61CB861C100C0FD41 /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationTableViewController.swift; path = src/RegistrationTableViewController.swift; sourceTree = "<group>"; };
 		CAC137C31C85548B00586487 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CAC137CA1C855D8E00586487 /* History Example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "History Example.png"; path = "images/History/History Example.png"; sourceTree = "<group>"; };
 		CAC137CB1C855D8E00586487 /* HistoryExample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HistoryExample.png; path = images/History/HistoryExample.png; sourceTree = "<group>"; };
@@ -239,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C477A84576E3A26F2C5FCC88 /* Pods.framework in Frameworks */,
+				87A451841CD8080D007D30A4 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +328,8 @@
 		04B6C3261C865E6E00BA7882 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				874A95221CD3BB600060AC87 /* dotIcon.png */,
+				874A95201CD3BB470060AC87 /* emailIcon.png */,
 				CA7B00CA1C9504C90001D0F4 /* DefaultProfilePhoto.png */,
 				CA7B00CB1C9504C90001D0F4 /* DotsBalance_Profile.png */,
 				CA7B00CC1C9504C90001D0F4 /* EmailButton_Profile.png */,
@@ -301,6 +353,7 @@
 		8782F70B1C8D3EE300922859 /* storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				C6FE54011CC9C4410042E585 /* Settings.storyboard */,
 				CADD3C4B1C7E46030085F014 /* LaunchScreen.storyboard */,
 				CAC137C21C85548B00586487 /* Main.storyboard */,
 				CA7B013A1C9509530001D0F4 /* SignUp.storyboard */,
@@ -308,7 +361,6 @@
 				CA7B01301C9509530001D0F4 /* History.storyboard */,
 				CA7B01341C9509530001D0F4 /* Notifications.storyboard */,
 				CA7B01361C9509530001D0F4 /* Profile.storyboard */,
-				CA7B01381C9509530001D0F4 /* Settings.storyboard */,
 			);
 			name = storyboards;
 			sourceTree = "<group>";
@@ -322,8 +374,20 @@
 				CA7B01831C951AF20001D0F4 /* RequestNotificationTableViewCell.swift */,
 				CA7B01841C951AF20001D0F4 /* RequestPoolTableViewCell.swift */,
 				CA7B01851C951AF20001D0F4 /* RequestPoolTableViewController.swift */,
+				874A95191CD08A290060AC87 /* BalanceUpdateTableViewCell.swift */,
 			);
 			name = Notifications;
+			sourceTree = "<group>";
+		};
+		87A451761CD807FA007D30A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87A4517D1CD807FB007D30A4 /* Charts.framework */,
+				87A4517F1CD807FB007D30A4 /* Charts.framework */,
+				87A451811CD807FB007D30A4 /* Charts.framework */,
+				87A451831CD807FB007D30A4 /* ChartsTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		87D0E32F1CAB23CC009261CC /* History */ = {
@@ -331,6 +395,8 @@
 			children = (
 				87D0E3301CAB23F2009261CC /* HistoryTableViewCell.swift */,
 				87D0E3341CAB2680009261CC /* HistoryTableViewController.swift */,
+				879193871CB5BA8300F5A08D /* UserPhotoButton.swift */,
+				87D47D2A1CD6C905003E6254 /* HistoryEvent.swift */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -338,10 +404,10 @@
 		CA2A50F71C8533BC000E2E94 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				87D47D121CD3BD2F003E6254 /* GainedDotsBg.png */,
+				87D47D141CD3BD36003E6254 /* SpentDotsBg.png */,
 				CAC137CA1C855D8E00586487 /* History Example.png */,
 				CAC137CB1C855D8E00586487 /* HistoryExample.png */,
-				87D0E3361CAB90F7009261CC /* SpentDotsBg.png */,
-				87D0E3371CAB90F7009261CC /* GainedDotsBg.png */,
 				CAC137CC1C855D8E00586487 /* Location.png */,
 				CAC137CD1C855D8E00586487 /* user1.png */,
 				CAC137CE1C855D8E00586487 /* user2.png */,
@@ -371,6 +437,7 @@
 				CA7B01871C951AF20001D0F4 /* StreamReader.swift */,
 				CA7B01781C951AF20001D0F4 /* DataManager.swift */,
 				CA040A941CA32EA900E06C37 /* CourseSelectionProtocol.swift */,
+				C6FE53FF1CC9C4060042E585 /* SettingTableViewController.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -389,12 +456,8 @@
 		CA7B01A91C951D470001D0F4 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
-				CA7B01821C951AF20001D0F4 /* RegistrationViewController.swift */,
-				CA7B01811C951AF20001D0F4 /* RegistrationTableViewCell.swift */,
-				CA7B017F1C951AF20001D0F4 /* OptionsPopoverViewController.swift */,
-				CA7B017E1C951AF20001D0F4 /* OptionsListViewController.swift */,
-				CA7B01761C951AF20001D0F4 /* AddCoursesTableViewController.swift */,
-				CA040A961CA32EC500E06C37 /* CourseButtonView.swift */,
+				CAB160A61CB861C100C0FD41 /* RegistrationTableViewController.swift */,
+				CAB160A31CB85D1600C0FD41 /* CourseCollectionViewCell.swift */,
 			);
 			name = Registration;
 			sourceTree = "<group>";
@@ -410,6 +473,7 @@
 				CA040A901CA328E300E06C37 /* TutorWaitingViewController.swift */,
 				CA040A8B1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift */,
 				CA7B01C31C97B4DC0001D0F4 /* ChartViewController.swift */,
+				CAB160961CB3537600C0FD41 /* TimerAndDotsCounter.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -486,6 +550,7 @@
 		CADD3C361C7E46020085F014 = {
 			isa = PBXGroup;
 			children = (
+				87A451751CD807FA007D30A4 /* Charts.xcodeproj */,
 				CADD3C411C7E46030085F014 /* todo */,
 				CADD3C561C7E46030085F014 /* todoTests */,
 				CADD3C611C7E46030085F014 /* todoUITests */,
@@ -540,6 +605,8 @@
 		CADD3C701C7E4E7B0085F014 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				999886591CD8152400B7BC2D /* todo-icon.png */,
+				87D47D1C1CD4047A003E6254 /* TodoAppIcon_White.png */,
 				CA7B01721C95169D0001D0F4 /* Notifications */,
 				04B6C3261C865E6E00BA7882 /* Profile */,
 				0435DD611C85709C009D3245 /* Login */,
@@ -577,6 +644,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				87A451871CD8080D007D30A4 /* PBXTargetDependency */,
 			);
 			name = todo;
 			productName = todo;
@@ -631,7 +699,7 @@
 				TargetAttributes = {
 					CADD3C3E1C7E46030085F014 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 8YWW2795B4;
+						DevelopmentTeam = 8KD9A85DYL;
 					};
 					CADD3C521C7E46030085F014 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -656,6 +724,12 @@
 			mainGroup = CADD3C361C7E46020085F014;
 			productRefGroup = CADD3C401C7E46030085F014 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 87A451761CD807FA007D30A4 /* Products */;
+					ProjectRef = 87A451751CD807FA007D30A4 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CADD3C3E1C7E46030085F014 /* todo */,
@@ -664,6 +738,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		87A4517D1CD807FB007D30A4 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 87A4517C1CD807FB007D30A4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		87A4517F1CD807FB007D30A4 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 87A4517E1CD807FB007D30A4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		87A451811CD807FB007D30A4 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 87A451801CD807FB007D30A4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		87A451831CD807FB007D30A4 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 87A451821CD807FB007D30A4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CADD3C3D1C7E46030085F014 /* Resources */ = {
@@ -684,7 +789,6 @@
 				CAC482631C83D92600059FDD /* NotificationsTabIcon_Black.png in Resources */,
 				CAC137D01C855D8E00586487 /* History Example.png in Resources */,
 				CAC137D51C855D8E00586487 /* user3.png in Resources */,
-				CA7B01401C9509530001D0F4 /* Settings.storyboard in Resources */,
 				CA7B013E1C9509530001D0F4 /* Notifications.storyboard in Resources */,
 				CA7B013C1C9509530001D0F4 /* History.storyboard in Resources */,
 				CAC482651C83D92600059FDD /* ProfileTabIcon_Black.png in Resources */,
@@ -697,26 +801,31 @@
 				CAC482751C83F4A900059FDD /* Maiandra GD Regular.ttf in Resources */,
 				CAC137D21C855D8E00586487 /* Location.png in Resources */,
 				CA7B013D1C9509530001D0F4 /* Home.storyboard in Resources */,
+				87D47D131CD3BD2F003E6254 /* GainedDotsBg.png in Resources */,
 				CA7B01701C9515D40001D0F4 /* TodoLogo_Teal.png in Resources */,
 				CA7B01711C9515D40001D0F4 /* TodoLogo_White.png in Resources */,
 				CADD3C4D1C7E46030085F014 /* LaunchScreen.storyboard in Resources */,
-				87D0E3391CAB90F7009261CC /* GainedDotsBg.png in Resources */,
 				CA7B01741C9516E50001D0F4 /* LocationIcon.png in Resources */,
 				CA7B00D11C9504C90001D0F4 /* DefaultProfilePhoto.png in Resources */,
 				CAC482801C83FED800059FDD /* SEGOEUI.TTF in Resources */,
 				CA7B00DF1C9505FF0001D0F4 /* TodoSlogan_LightGray.png in Resources */,
 				CA7B01411C9509530001D0F4 /* SignUp.storyboard in Resources */,
+				87D47D151CD3BD36003E6254 /* SpentDotsBg.png in Resources */,
 				CA2A50F61C8528AD000E2E94 /* Home Analitics1.png in Resources */,
 				CA7B016E1C9515D40001D0F4 /* LoginButton.png in Resources */,
 				CA7B01A81C951CCC0001D0F4 /* UTCS_Course_schedule.txt in Resources */,
 				CA7B013F1C9509530001D0F4 /* Profile.storyboard in Resources */,
+				C6FE54021CC9C4410042E585 /* Settings.storyboard in Resources */,
 				CA7B00DC1C9505FF0001D0F4 /* LoginScreenBg2.jpg in Resources */,
 				CA7B01A51C951CCC0001D0F4 /* UTCSCourses.json in Resources */,
 				CAC4825F1C83D92600059FDD /* HistoryTabIcon_Black.png in Resources */,
 				CAC482711C83F49A00059FDD /* SEGOEUIB.TTF in Resources */,
 				CADD3C4A1C7E46030085F014 /* Assets.xcassets in Resources */,
+				9998865A1CD8152400B7BC2D /* todo-icon.png in Resources */,
 				CAC482731C83F49A00059FDD /* SEGOEUIZ.TTF in Resources */,
+				874A95211CD3BB470060AC87 /* emailIcon.png in Resources */,
 				CAC4828A1C84209E00059FDD /* Home-Item2.png in Resources */,
+				87D47D1D1CD4047A003E6254 /* TodoAppIcon_White.png in Resources */,
 				CAC137D11C855D8E00586487 /* HistoryExample.png in Resources */,
 				CAC4827E1C83F85A00059FDD /* ProfileTabIcon_Teal.png in Resources */,
 				CA7B00D51C9504C90001D0F4 /* MinimalActivity_Profile.png in Resources */,
@@ -724,12 +833,12 @@
 				CAC4827F1C83F85A00059FDD /* SettingsTabIcon_Teal.png in Resources */,
 				CA7B00DD1C9505FF0001D0F4 /* LoginButton2.png in Resources */,
 				CAC137C41C85548B00586487 /* Main.storyboard in Resources */,
-				87D0E3381CAB90F7009261CC /* SpentDotsBg.png in Resources */,
 				CAC482881C84209E00059FDD /* Home Analitics.png in Resources */,
 				CAC137D41C855D8E00586487 /* user2.png in Resources */,
 				CAC4827D1C83F85A00059FDD /* NotificationsTabIcon_Teal.png in Resources */,
 				CA7B00D41C9504C90001D0F4 /* FrequentActivity_Profile.png in Resources */,
 				CAC482891C84209E00059FDD /* Home-Item1.png in Resources */,
+				874A95231CD3BB600060AC87 /* dotIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,27 +913,28 @@
 			files = (
 				CA7B01901C951AF20001D0F4 /* LoginViewController.swift in Sources */,
 				CA7B018E1C951AF20001D0F4 /* HomeViewController.swift in Sources */,
+				87D47D2B1CD6C905003E6254 /* HistoryEvent.swift in Sources */,
 				CA7B01921C951AF20001D0F4 /* NotificationsTableViewController.swift in Sources */,
-				CA040A971CA32EC500E06C37 /* CourseButtonView.swift in Sources */,
+				CAB160A51CB85D1600C0FD41 /* CourseCollectionViewCell.swift in Sources */,
 				87D0E3311CAB23F2009261CC /* HistoryTableViewCell.swift in Sources */,
 				CA7B01F31C981A450001D0F4 /* CoursesListView.swift in Sources */,
+				CAB160971CB3537600C0FD41 /* TimerAndDotsCounter.swift in Sources */,
 				CA040A8E1CA31B7800E06C37 /* RequesterTutoringSessionViewController.swift in Sources */,
 				CA7B01C81C980D0A0001D0F4 /* RequestHelpViewController.swift in Sources */,
+				C6FE54001CC9C4060042E585 /* SettingTableViewController.swift in Sources */,
 				CA7B018D1C951AF20001D0F4 /* DataManager.swift in Sources */,
+				CAB160A71CB861C100C0FD41 /* RegistrationTableViewController.swift in Sources */,
 				CA040A8F1CA31B7800E06C37 /* TutorTutoringSessionViewController.swift in Sources */,
 				CA7B01951C951AF20001D0F4 /* ProfileViewController.swift in Sources */,
+				874A951A1CD08A290060AC87 /* BalanceUpdateTableViewCell.swift in Sources */,
 				CA040A911CA328E300E06C37 /* TutorWaitingViewController.swift in Sources */,
 				87D0E3351CAB2680009261CC /* HistoryTableViewController.swift in Sources */,
-				CA7B01961C951AF20001D0F4 /* RegistrationTableViewCell.swift in Sources */,
-				CA7B01971C951AF20001D0F4 /* RegistrationViewController.swift in Sources */,
 				CA7B01981C951AF20001D0F4 /* RequestNotificationTableViewCell.swift in Sources */,
 				CA7B019B1C951AF20001D0F4 /* StandardNotificationTableViewCell.swift in Sources */,
 				CA040A951CA32EA900E06C37 /* CourseSelectionProtocol.swift in Sources */,
 				CA7B019C1C951AF20001D0F4 /* StreamReader.swift in Sources */,
 				CA040A8D1CA31B7800E06C37 /* RequesterStartSessionViewController.swift in Sources */,
-				CA7B01931C951AF20001D0F4 /* OptionsListViewController.swift in Sources */,
-				CA7B01941C951AF20001D0F4 /* OptionsPopoverViewController.swift in Sources */,
-				CA7B018B1C951AF20001D0F4 /* AddCoursesTableViewController.swift in Sources */,
+				879193881CB5BA8300F5A08D /* UserPhotoButton.swift in Sources */,
 				CA7B01911C951AF20001D0F4 /* Notification.swift in Sources */,
 				CA7B018C1C951AF20001D0F4 /* AppDelegate.swift in Sources */,
 				CA7B01C41C97B4DC0001D0F4 /* ChartViewController.swift in Sources */,
@@ -850,6 +960,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		87A451871CD8080D007D30A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = 87A451861CD8080D007D30A4 /* PBXContainerItemProxy */;
+		};
 		CADD3C551C7E46030085F014 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CADD3C3E1C7E46030085F014 /* todo */;
@@ -893,14 +1008,6 @@
 				CA7B01371C9509530001D0F4 /* Base */,
 			);
 			name = Profile.storyboard;
-			sourceTree = "<group>";
-		};
-		CA7B01381C9509530001D0F4 /* Settings.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA7B01391C9509530001D0F4 /* Base */,
-			);
-			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 		CA7B013A1C9509530001D0F4 /* SignUp.storyboard */ = {
@@ -1027,11 +1134,14 @@
 			baseConfigurationReference = D5618CBE1DE39FAE33E6B2AE /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = todo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "compact-cs378.todo";
+				PRODUCT_BUNDLE_IDENTIFIER = "ios-cs378.todo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1040,11 +1150,14 @@
 			baseConfigurationReference = B95B17BA7525CA57F61545CA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = todo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "compact-cs378.todo";
+				PRODUCT_BUNDLE_IDENTIFIER = "ios-cs378.todo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

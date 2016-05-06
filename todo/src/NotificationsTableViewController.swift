@@ -9,56 +9,61 @@
 import UIKit
 
 class NotificationsTableViewController: UITableViewController {
-
-    private var isDataLoaded:Bool = false
     
-    var notificationCopy:([String],[String]){
+    private let standardNotifications:[String] = ["request", "acceptance", "cancelledSession", "created"]
+    
+    /* Prepare to follow the pattern of history
+     Check out the loadData function, please let me know
+     wheher this is the right way*/
+    private var data:([String],[String],[String]) = ([],[],[])
+    
+    var lastRequestCell: RequestNotificationTableViewCell? = nil
+    
+    var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
-        var notificationValuesCopy = [String]()
+        var notificationTypesCopy = [String]()
+        var notificationMessagesCopy = [String]()
+        tableView.estimatedRowHeight = 68.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        let sortedDict = notifications.sort { $0.0 > $1.0 }
         
-        dispatch_sync(concurrentDataAccessQueue) {
-            for key in notifications.keys{
-                notificationKeysCopy.append(key)
+        dispatch_sync(taskQueue) {
+            for key in sortedDict{
+                notificationKeysCopy.append(key.0)
             }
-            for value in notifications.values{
-                notificationValuesCopy.append(value)
+            
+            for value in sortedDict{
+                // Parse to extract type and message
+                let rangeOfColon = value.1.rangeOfString(":")
+                if rangeOfColon != nil {
+                    // First separate the role and actual event description into two values.
+                    let type = value.1.substringToIndex((rangeOfColon?.startIndex)!)
+                    notificationTypesCopy.append(type)
+                    let message = value.1.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
+                    notificationMessagesCopy.append(message)
+                }
             }
             
         }
-        return (notificationKeysCopy,notificationValuesCopy)
+        
+        return (notificationKeysCopy, notificationTypesCopy, notificationMessagesCopy)
     }
-//    var notificationsKeys: [String]{
-//        var notificationsKeysCopy = [String]()
-//        
-//        dispatch_sync(concurrentDataAccessQueue) {
-//            for key in notifications.keys {
-//                notificationsKeysCopy.append(key)
-//            }
-//        }
-//        return notificationsKeysCopy
-//    }
-//    
-//    var notificationsValues: [String]{
-//        var notificationsValuesCopy = [String]()
-//        
-//        dispatch_sync(concurrentDataAccessQueue) {
-//            for value in notifications.values{
-//                notificationsValuesCopy.append(value)
-//            }
-//        }
-//        return notificationsValuesCopy
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if (!isDataLoaded) {
-            self.loadData()
-        }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        tableView.estimatedRowHeight = 68.0
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if (alertPicController != nil) {
+            alertPicController = nil
+        }
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.loadData()
+            self.tableView.reloadData()
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,13 +71,35 @@ class NotificationsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadData () {
+    private func loadData(){
+        var notificationKeysCopy = [String]()
+        var notificationTypesCopy = [String]()
+        var notificationMessagesCopy = [String]()
         
-//        notifications.append(Notification(message: "Lucy Adams has requested you to tutor her in CS 378.", date: "2/29/16", type: "single request"))
-//        notifications.append(Notification(message: "Congrats! You earned 50 dots for tutoring John Smith.", date: "2/13/16"))
-//        notifications.append(Notification(message: "You've spent 50 dots on tutoring from Bob Wilson.", date: "2/2/16"))
-//        notifications.append(Notification(message: "There are 5 new tutoring opportunities that match your qualifications.", date: "1/15/16", type: "request pool"))
-        isDataLoaded = true
+        tableView.estimatedRowHeight = 68.0
+        tableView.rowHeight = UITableViewAutomaticDimension
+        let sortedDict = notifications.sort { $0.0 > $1.0 }
+        
+        dispatch_sync(taskQueue) {
+            for key in sortedDict{
+                notificationKeysCopy.append(key.0)
+            }
+            
+            for value in sortedDict{
+                // Parse to extract type and message
+                let rangeOfColon = value.1.rangeOfString(":")
+                if rangeOfColon != nil {
+                    // First separate the role and actual event description into two values.
+                    let type = value.1.substringToIndex((rangeOfColon?.startIndex)!)
+                    notificationTypesCopy.append(type)
+                    let message = value.1.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
+                    notificationMessagesCopy.append(message)
+                }
+            }
+        }
+        self.data.0 = notificationKeysCopy
+        self.data.1 = notificationTypesCopy
+        self.data.2 = notificationMessagesCopy
     }
     
     // MARK: - Table view data source
@@ -85,98 +112,105 @@ class NotificationsTableViewController: UITableViewController {
         return notifications.count
     }
     
-    override func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
-    {
-//        let currNotification = notifications["Date"]
-//        if (currNotification.getType() == "single request"){
-//            return 80
-//        } else {
-//            return 65
-//        }
-        return 80
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//            
-//        let currNotification:Notification = notifications[indexPath.row]
-//        let notificationType = currNotification.getType()
         
-        /*if (notificationType == "single request") {
-            let cell = tableView.dequeueReusableCellWithIdentifier("requestNotification", forIndexPath: indexPath) as! RequestNotificationTableViewCell
-            cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()
-            return cell
-        } else if (notificationType == "request pool") {
-            let cell = tableView.dequeueReusableCellWithIdentifier("requestPoolNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
-            cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("standardNotification", forIndexPath: indexPath) as! StandardNotificationTableViewCell
-            cell.messageLabel.text = currNotification.getMessage()
-            cell.dateLabel.text = currNotification.getDate()*/
+        let cell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath)
         
-        /*  For now, just  throw everything out there, as a standard notification  */
-        let current_notification:(String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row])
+        let current_notification:(String,String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row],notificationCopy.2[indexPath.row])
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("CellId", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+        let date = current_notification.0
+        let type = current_notification.1
+        let message = current_notification.2
         
-        cell.dateLabel.text = current_notification.1
-        cell.messageLabel.text = current_notification.0
-        
-        
-        
-        
-//        lbl_title!.text = current_notification.1
-//        lbl_detail!.text = current_notification.0
+        if standardNotifications.contains(type) {
+            let standardCell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath) as! StandardNotificationTableViewCell
+            standardCell.dateLabel.text = self.parseDate(date)
+            standardCell.messageLabel.text = message
+            return standardCell
+        } else if type == "singleRequest" {
+            let requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell", forIndexPath: indexPath) as! RequestNotificationTableViewCell
+            let requesterString = (message.characters.split{$0 == " "}.map(String.init))[0]
+            getUserPhoto(requesterString, imageView: requestCell.userPic)
+            requestCell.userPhotoButton.setUser(requesterString)
+            requestCell.dateLabel.text = self.parseDate(date)
+            let messageArr = message.characters.split{$0 == "\n"}.map(String.init)
+            if messageArr.count == 3 {
+                requestCell.messageLabel.text = messageArr[0]
+                requestCell.descriptionLabel.text = messageArr[1]
+                requestCell.locationLabel.text = messageArr[2]
+            } else {
+                requestCell.messageLabel.text = message
+            }
+            requestCell.acceptButton.enabled = false
+            requestCell.acceptButton.hidden = true
+            requestCell.rejectButton.enabled = false
+            requestCell.rejectButton.hidden = true
+            if notificationButtonsState == 1 && requestCell.messageLabel.text?.rangeOfString(requester["username"]!) != nil  {
+                requestCell.acceptButton.enabled = true
+                requestCell.acceptButton.hidden = false
+                requestCell.rejectButton.enabled = true
+                requestCell.rejectButton.hidden = false
+            }
+
+            return requestCell
+        } else if type == "balanceUpdate" {
+            let balanceUpdateCell = tableView.dequeueReusableCellWithIdentifier("balanceUpdateCell", forIndexPath: indexPath) as! BalanceUpdateTableViewCell
+            balanceUpdateCell.dateLabel.text = self.parseDate(date)
+            balanceUpdateCell.messageLabel.text = message
+            let numDots = self.getNumDots(message)
+            if numDots > 0 {
+                balanceUpdateCell.dotsLabel.text = "+" + String(numDots)
+                balanceUpdateCell.dotsImage.image = UIImage(named: "GainedDotsBg.png")
+            } else {
+                balanceUpdateCell.dotsLabel.text = String(numDots)
+                balanceUpdateCell.dotsImage.image = UIImage(named: "SpentDotsBg.png")
+            }
+            return balanceUpdateCell
+        }
         
         return cell
     }
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
+    
+    func parseDate (date:String) -> String {
+        let dateArr = date.characters.split{$0 == ","}.map(String.init)
+        return ("\(dateArr[0]), \(dateArr[1])")
     }
-    */
     
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    func getNumDots (message:String) -> Int {
+        let messageArr = message.characters.split{$0 == " "}.map(String.init)
+        var result = 0
+        
+        for item in messageArr {
+            let components = item.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+            let part = components.joinWithSeparator("")
+            
+            if let intVal = Int(part) {
+                result = message.containsString("paid") ? intVal * -1 : intVal
+                break
+            }
+        }
+        return result
     }
-    }
-    */
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        if segue.identifier == "displayUserProfile" {
+            let destVC = segue.destinationViewController as! ProfileViewController
+            let user = (sender as! UserPhotoButton).getUser()
+            
+            destVC.username = user
+            destVC.isOwnProfile = false
+        }
     }
-    */
     
+    @IBAction func returnToNotificationsViewController(segue:UIStoryboardSegue) {
+        if segue.identifier == "goToNotificationsSegue" {
+            notificationButtonsState = 1
+        }
+    }
+}
+
+extension String {
+    func insert(string:String,ind:Int) -> String {
+        return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))
+    }
 }

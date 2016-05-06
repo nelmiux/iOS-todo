@@ -10,7 +10,7 @@ import UIKit
 
 class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate, UITextViewDelegate, CourseSelectionProtocol {
     
-    var data = lowerDivisionCourses
+    var data:[String] = []
     
     var filterData = [String]()
     
@@ -24,11 +24,17 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
     
     @IBOutlet weak var descriptionText: UITextView!
     
+    let requestHelpButtonColor = UIColor(red: 235.0/255.0, green: 84.0/255.0, blue: 55.0/255.0, alpha: 0.8)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.editedDropDown.delegate = self
         self.locationText.delegate = self
         self.descriptionText.delegate = self
+        let newHeight: CGFloat = 700.0
+        
+        let textViewFrame = descriptionText.frame;
+        descriptionText.frame = CGRectMake(textViewFrame.origin.x, textViewFrame.origin.y, textViewFrame.size.width, newHeight)
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,24 +42,52 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
         // Dispose of any resources that can be recreated.
     }
     
+    /*@IBAction func sendrequestButton(sender: AnyObject) {
+        performSegueWithIdentifier("lookingTutorsSegue", sender: sender)
+    }*/
+    
+    func textViewDidChange(textView: UITextView){
+        let fixedWidth = textView.frame.size.width
+        textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.max))
+        var newFrame = textView.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        textView.frame = newFrame;
+    }
+    
     @IBAction func editedDropDown(sender: UITextField) {
         coursesDropDownList(sender)
     }
     
     @IBAction func coursesDropDownList(sender: UITextField) {
-        
         filterData = []
-        if sender.text! == "" {
-            filterData = data
+        allCoursesRef.observeEventType(.Value, withBlock: { snapshot in
+            allCourses = snapshot.value as! Dictionary<String, String>
+            
+        })
+        self.data = self.toStringArrayFrom(allCourses)
+        if sender.text! == "" || sender.text == nil{
+            self.data = self.toStringArrayFrom(allCourses)
+            self.filterData = self.data
         } else {
-            for i in 0...data.count - 1 {
-                if data[i].rangeOfString(sender.text!) != nil || data[i].lowercaseString.rangeOfString(sender.text!) != nil {
-                    self.filterData.append(data[i])
+            for i in 0...self.data.count - 1 {
+                if self.data[i].rangeOfString(sender.text!) != nil || self.data[i].lowercaseString.rangeOfString(sender.text!) != nil {
+                    self.filterData.append(self.data[i])
                 }
             }
         }
-        
         self.presentPopover(sourceController: self, sourceView: self.coursesDropDown, sourceRect: CGRectMake(0, self.coursesDropDown.bounds.height + 1, self.coursesDropDown.bounds.width, 200))
+        
+    }
+    
+    func toStringArrayFrom(dict:Dictionary<String,String>) -> [String]{
+        
+        var result:[String] = []
+        for key in dict{
+            result.append(key.0 + ": " + key.1)
+        }
+        
+        return result
     }
     
     func presentPopover(sourceController sourceController:UIViewController, sourceView:UIView, sourceRect:CGRect) {
@@ -81,7 +115,7 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
         popoverShowViewController?.delegate = self
         popoverShowViewController?.sourceView = sourceView
         popoverShowViewController?.sourceRect = sourceRect
-                
+        
         // Show the popup.
         // Notice we are presenting form a view controller passed in. We need to present from a view controller
         // that has views that are already in the view hierarchy.
@@ -97,7 +131,7 @@ class RequestHelpViewController: UIViewController, UITableViewDelegate, UIPopove
     }
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        if identifier == "lookingTutors" {
+        if identifier == "lookingTutorsSegue" {
             sendRequest(self, askedCourse: self.editedDropDown.text!.uppercaseString, location: self.locationText.text!, description: descriptionText.text!, segueIdentifier: identifier)
         }
         return false

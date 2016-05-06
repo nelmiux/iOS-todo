@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tutorStudentSwitch: UISegmentedControl!
     
+    @IBOutlet weak var tutorStudentSwiftLabel: UILabel!
+    
     @IBOutlet weak var requestTutoringButton: UIButton!
     
     @IBOutlet weak var lookingTutorsNoticeView: UIView!
@@ -32,6 +34,8 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tutorSessionContainerView: UIView!
     
+    @IBOutlet weak var noButton: UIButton!
+    
     var tutorWaitingViewController: TutorWaitingViewController? = nil
     
     var tutorSessionViewController: TutorTutoringSessionViewController? = nil
@@ -40,9 +44,12 @@ class HomeViewController: UIViewController {
     
     var requesterTutoringSessionViewController: RequesterTutoringSessionViewController? = nil
     
+    var chartViewController: ChartViewController? = nil
+    
     var presented: Bool = false
     
     override func viewDidLoad() {
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)
         super.viewDidLoad()
         requestTutoringButton!.backgroundColor = requestButtonColor
         startHomeViewController()
@@ -50,6 +57,12 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
+        noButton.hidden = true
+        if settingsSwitch != -1 && settingsSwitch != self.tutorStudentSwitch.selectedSegmentIndex {
+            self.tutorStudentSwitch.selectedSegmentIndex = settingsSwitch
+            self.tutorStudentSwitch.sendActionsForControlEvents(UIControlEvents.ValueChanged)
+        }
+        settingsSwitch = self.tutorStudentSwitch.selectedSegmentIndex
     }
     
     @IBAction func requestTutoringButton(sender: AnyObject) {
@@ -86,7 +99,13 @@ class HomeViewController: UIViewController {
             where segue.identifier == "requesterSessionSegue" {
             self.requesterTutoringSessionViewController = vc
         }
+        if let vc = segue.destinationViewController as? ChartViewController
+            where segue.identifier == "chartSegue" {
+            self.chartViewController = vc
+        }
     }
+    
+    @IBAction func returnHomeViewControllerFromNot(segue:UIStoryboardSegue) {}
     
     @IBAction func returnHomeViewController(segue:UIStoryboardSegue) {
         let askedCourse = (segue.sourceViewController as! RequestHelpViewController).editedDropDown.text!
@@ -102,7 +121,16 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
-        finishSession()
+        var dots = (user["dots"]! as! Int)
+        dots = dots + dotsTotal
+        user["dots"] = dots
+        user["earned"] = (user["earned"] as! Int) + dotsTotal
+        
+        let dotsCategory = ["Earned", "Paid"]
+        let dotsAmount = [(user["earned"] as? Int)!, (user["paid"] as? Int)!]
+        chartViewController?.earnedAmount.text = String(user["earned"] as! Int)
+        chartViewController?.setChart(dotsCategory, values: dotsAmount)
+        finishSession(self)
         startHomeViewController()
         return
     }
@@ -113,6 +141,7 @@ class HomeViewController: UIViewController {
     }
     
     func getTutorStudentSwitchAction() {
+        settingsSwitch = self.tutorStudentSwitch.selectedSegmentIndex
         if tutorStudentSwitch.selectedSegmentIndex == 0 {
             requestTutoringButton!.enabled = false
             requestTutoringButton!.userInteractionEnabled = false
@@ -123,10 +152,12 @@ class HomeViewController: UIViewController {
         requestTutoringButton!.backgroundColor = requestButtonColor
         requestTutoringButton!.enabled = true
         requestTutoringButton!.userInteractionEnabled = true
+        removeObservers(cUserRef!)
     }
     
     func startHomeViewController() {
         self.tutorStudentSwitch.hidden = false
+        self.tutorStudentSwiftLabel.hidden = false
         self.logout.enabled = true
         self.requestTutoringButton!.hidden = false
         self.blurEffect.hidden = true
@@ -136,6 +167,5 @@ class HomeViewController: UIViewController {
         self.tutorSessionContainerView.hidden = true
         return
     }
-    
 }
 

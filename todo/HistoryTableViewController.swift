@@ -12,30 +12,40 @@ class HistoryTableViewController: UITableViewController {
     
     // Class attributes
     private var data:([String],[String]) = ([],[])
+    private var userPhotos = Dictionary<String, UIImage>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadData()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.loadData()
+            self.tableView.reloadData()
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func loadData () {
-        let keys = ["March 28, 2016, 7:43 PM", "March 10, 2016, 9:30 AM"]
-        let vals = ["tutor: You tutored testNelma for 45 dots in CS 378: iOS Mobile Computing.", "requester: You spent 60 dots on tutoring in CS 312: Introduction to Java Programming from testTutor."]
-        self.data.0 = keys
-        self.data.1 = vals
+        let sortedDict = history.sort { $0.0 > $1.0 }
+        var keys = [String]()
+        var vals = [String]()
+        dispatch_sync(taskQueue) {
+            for date in sortedDict {
+                if (date.1 as String!).rangeOfString("created") == nil {
+                    keys.append(date.0 as String!)
+                    vals.append(date.1 as String!)
+                }
+            }
+            self.data.0 = keys
+            self.data.1 = vals
+        }
     }
-
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -49,14 +59,31 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Create the history cell and populate with data
         let cell = tableView.dequeueReusableCellWithIdentifier("historyCell", forIndexPath: indexPath) as! HistoryTableViewCell
+        cell.parentViewController = self
         
         // Populate with general data regardless of tutor vs requestor.
-        // Below includes
         let parsedData = self.parseData(indexPath.row)
-        let role = parsedData["role"]
+        let role = parsedData["role"]!
+        let involvedUser = parsedData["involvedUser"] as String!
+        cell.setUser(involvedUser)
         cell.dateLabel.text = parsedData["date"]
         cell.descriptionLabel.text = parsedData["event"]
         cell.dotsLabel.text = parsedData["numDots"]
+        /* if involvedUser.characters.count > 0 {
+            if userPhotos.keys.contains(involvedUser) {
+                cell.userPhoto.image = userPhotos[involvedUser]
+                print("\(involvedUser) was found in list")
+            } else {
+                dispatch_group_enter(hisnotGroup)
+                getUserPhoto(involvedUser, imageView: cell.userPhoto)
+                dispatch_group_wait(hisnotGroup, DISPATCH_TIME_FOREVER)
+                userPhotos[involvedUser] = cell.userPhoto.image
+                dispatch_group_leave(hisnotGroup)
+                print("\(involvedUser) was added to list")
+            }
+        } */
+        
+        getUserPhoto(involvedUser, imageView: cell.userPhoto)
         
         // Do any additional UI modifications accourding to tutor vs requestor.
         if role == "tutor" {
@@ -64,79 +91,66 @@ class HistoryTableViewController: UITableViewController {
         } else if role == "requester" {
             cell.dotsBg.image = UIImage(named: "SpentDotsBg.png")
         }
-    
+        
         return cell
     }
     
     func parseData (index:Int) -> Dictionary<String, String> {
-        var result: Dictionary<String, String> = ["date" : "", "role" : "", "event" : "", "numDots": ""]
+        var result: Dictionary<String, String> = ["date" : "", "role" : "", "event" : "", "numDots": "", "involvedUser": ""]
         
-        let value = self.data.1[index]
-        let indexOfColon = value.characters.indexOf(":")
-        let posOfColon = value.startIndex.distanceTo(indexOfColon!)
-        let role = value.substringToIndex(value.startIndex.advancedBy(posOfColon))
-        result["role"] = role
-        let event = value.substringFromIndex(value.startIndex.advancedBy(posOfColon).advancedBy(2))
-        result["event"] = event
-        let eventArr = event.characters.split{$0 == " "}.map(String.init)
-        for item in eventArr {
-            let components = item.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-            let part = components.joinWithSeparator("")
-            
-            if let intVal = Int(part) {
-                result["numDots"] = result["role"] == "tutor" ? ("+\(part)") : ("-\(part)")
-                break
-            }
-        }
         let dateArr = self.data.0[index].characters.split{$0 == ","}.map(String.init)
         result["date"] = (" \(dateArr[0]), \(dateArr[1])")
+        
+        let value = self.data.1[index]
+        
+        let rangeOfColon = value.rangeOfString(":")
+        if rangeOfColon != nil {
+            // First separate the role and actual event description into two values.
+            let role = value.substringToIndex((rangeOfColon?.startIndex)!)
+            result["role"] = role
+            let event = value.substringFromIndex((rangeOfColon?.startIndex.advancedBy(2))!)
+            result["event"] = event
+            
+            // Retrieve the other user involved (ie., the tutor or the requestor).
+            let eventArr = value.characters.split{$0 == " "}.map(String.init)
+            if role == "tutor" {
+                result["involvedUser"] = eventArr[3]
+            } else if role == "requester" {
+                let tutor = eventArr[eventArr.count - 1]
+                let name = tutor.substringToIndex(tutor.endIndex.predecessor().advancedBy(1))
+                result["involvedUser"] = name
+            }
+            
+            for item in eventArr {
+                let components = item.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+                let part = components.joinWithSeparator("")
+                
+                if Int(part) != nil {
+                    result["numDots"] = result["role"] == "tutor" ? ("+\(part)") : ("-\(part)")
+                    break
+                }
+            }
+            
+        } else {
+            result["event"] = value
+        }
+        
         return result
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            self.data.0.removeAtIndex(indexPath.row)
-            self.data.1.removeAtIndex(indexPath.row)
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    } */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
+    @IBAction func returnToHistoryViewController(segue:UIStoryboardSegue) {}
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "displayUserProfile" {
+            let destVC = segue.destinationViewController as! ProfileViewController
+            let user = (sender as! UserPhotoButton).getUser()
+            
+            destVC.username = user
+            destVC.isOwnProfile = false
+        }
     }
-    */
 
 }
