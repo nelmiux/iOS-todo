@@ -4,9 +4,9 @@ import Firebase
 
 let taskQueue = dispatch_queue_create("com.CS378.todo.dataAccessQueue", DISPATCH_QUEUE_CONCURRENT)
 
-let downloadGroup: dispatch_group_t = dispatch_group_create();
+let sema = dispatch_semaphore_create(0)
 
-let hisnotGroup: dispatch_group_t = dispatch_group_create();
+let sema1 = dispatch_semaphore_create(0)
 
 // Firebase Refs
 let firebaseURL:String = "https://scorching-heat-4336.firebaseio.com"
@@ -19,8 +19,6 @@ let coursesRef = getFirebase("courses")
 var tempUserPhoto = UIImage(named:"DefaultProfilePhoto.png")
 
 let registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"),  ("Email Address", "jappleseed@gmail.com"), ("Username", "abc123"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
-// TODO: We will want this in the database
-let lowerDivisionCourses:[String] = ["CS312: Introduction to Programming", "CS314: Data Structures", "CS314H: Data Structures Honors", "CS302: Computer Fluency", "CS105: Computer Programming", "CS311: Discrete Math for Computer Science", "CS311H: Discrete Math for Computer Science: Honors", "CS109: Topics in Computer Science", "CS313E: Elements of Software Design"]
 
 let upperDivisionCourses:[String] = [String]()
 
@@ -42,6 +40,8 @@ var requester = Dictionary<String, String>()
 
 var paired = Dictionary<String, String>()
 
+var alertPicController: AlertController?
+
 var currCourse = ""
 
 var passed = false
@@ -51,6 +51,10 @@ var timeCount = 0
 var dotsTotal = 1
 
 var settingsSwitch = -1
+
+var notificationButtonsState = -1
+
+var possiblePairedUsers = 0
 
 var time_: TimerAndDotsCounter?
 
@@ -92,19 +96,20 @@ func alert (view: AnyObject, description: String, okAction: UIAlertAction?) {
 }
 
 func alertWithPic (view: AnyObject, description: String, okAction: UIAlertAction, cancelAction: UIAlertAction, otherAction: UIAlertAction, pic: UIImage) {
-    let alertController = AlertController(title: nil, message: description, preferredStyle: UIAlertControllerStyle.Alert)
+    alertPicController = AlertController(title: nil, message: description, preferredStyle: UIAlertControllerStyle.Alert)
     
-    let imageView = UIImageView(frame: CGRectMake((alertController.view.bounds.width)/3 - 30, 15, 60, 60))
+    let imageView = UIImageView(frame: CGRectMake((alertPicController!.view.bounds.width)/3 - 30, 15, 60, 60))
     imageView.image = pic as UIImage
     
     imageView.layer.cornerRadius = imageView.frame.size.width / 2
     
-    alertController.view.addSubview(imageView)
-    alertController.addAction(okAction)
-    alertController.addAction(otherAction)
-    alertController.addAction(cancelAction)
+    alertPicController!.view.addSubview(imageView)
+    alertPicController!.addAction(okAction)
+    alertPicController!.addAction(otherAction)
+    alertPicController!.addAction(cancelAction)
+    
     if !passed {
-        alertController.show()
+        alertPicController!.show()
         passed = true
     }
 }
@@ -137,7 +142,6 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                 rootRef.createUser(inputs["Email Address"], password: inputs["Password"], withValueCompletionBlock: {
                     error, result in
                     if error == nil {
-                        dispatch_group_enter(downloadGroup)
                         // Insert the user data
                         let newUserRef = usersRef.childByAppendingPath(inputs["Username"])
                         user = inputs
@@ -178,7 +182,6 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                             result in
                             view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                             })
-                        dispatch_group_leave(downloadGroup)
                         removeObservers(currUserRef)
                         return
                     }
@@ -226,7 +229,6 @@ func modifyPassword(view: AnyObject, oldPassword:String, newPassword:String, use
             /** TODO: Also change password field in the userRef **/
         }
     })
-    
 }
 
 func loginUser(view: AnyObject, username: String, password:String, segueIdentifier: String) {
@@ -284,8 +286,6 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     requester["description"] = ""
                     requester["location"] = ""
                     
-                    dispatch_group_enter(hisnotGroup)
-                    
                     let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
                     notificationUserRef.observeEventType(.Value, withBlock: { snap in
                         if !(snap.value is NSNull) {
@@ -318,6 +318,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                     
                     removeObservers(currUserRef)
+                    dispatch_semaphore_signal(sema)
                 }
             } else {
                 print("Unable to login. Invalid username.")
@@ -348,6 +349,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterDescription": description])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterLocation": location])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterUsername": user["username"]!])
+                        possiblePairedUsers = possiblePairedUsers + 1
                     }
                 }
                 
@@ -365,22 +367,86 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
     }
 }
 
+var reqUserRef: Firebase?
+var notUserRef: Firebase?
+var cUserRef: Firebase?
+var mViewControler: HomeViewController?
+var decImage: UIImage?
+
+func tutorAccept () {
+    possiblePairedUsers = 0
+    reqUserRef!.updateChildValues(["pairedUsername": (user["username"] as! String)])
+    reqUserRef!.updateChildValues(["pairedPhoto": (user["photoString"] as! String)])
+    
+    if requester["username"] != nil {
+        let notice = "acceptance: You accepted " + requester["username"]! + "’s tutoring request for " + requester["course"]! + "."
+        let date = getDateTime()
+        notUserRef!.updateChildValues([date: notice])
+        notifications[date] = notice
+    
+        mViewControler?.tutorContainerView.hidden = false
+        mViewControler?.requestTutoringButton.hidden = true
+        mViewControler!.tutorStudentSwitch.hidden = true
+        mViewControler!.tutorStudentSwiftLabel.hidden = true
+        mViewControler!.logout.enabled = false
+    
+        mViewControler?.tutorWaitingViewController!.requesterUsername.text = "Waiting for " + requester["username"]! + " to Start the Session"
+    
+        mViewControler?.tutorWaitingViewController!.requesterCourse.text = requester["course"]!
+    
+        mViewControler?.tutorWaitingViewController!.requesterPhoto.image = decImage
+    
+        mViewControler?.tutorSessionViewController!.tutorTutoringSessionUsername.text = "Tutoring Session with " + requester["username"]!
+    
+        mViewControler?.tutorSessionViewController!.tutorTutoringSessionCourse.text = requester["course"]!
+    
+        mViewControler?.tutorSessionViewController!.tutorTutoringSessionPhoto.image = decImage
+    }
+}
+
+func tutorReject () {
+    possiblePairedUsers = possiblePairedUsers - 1
+    cUserRef!.updateChildValues(["requesterPhoto": ""])
+    cUserRef!.updateChildValues(["requesterCourse": ""])
+    cUserRef!.updateChildValues(["requesterDescription": ""])
+    cUserRef!.updateChildValues(["requesterLocation": ""])
+    cUserRef!.updateChildValues(["requesterUsername": ""])
+    cUserRef!.updateChildValues(["cancel": "yes"])
+    requester["photoString"] = ""
+    requester["course"] = ""
+    requester["description"] = ""
+    requester["location"] = ""
+    requester["username"] = ""
+    requester["start"] = ""
+    removeObservers(rootRef)
+    mViewControler!.tutorStudentSwitch.hidden = false
+    mViewControler!.tutorStudentSwiftLabel.hidden = false
+    mViewControler!.logout.enabled = true
+    mViewControler!.requestTutoringButton!.hidden = false
+    mViewControler!.blurEffect.hidden = true
+    mViewControler!.requesterContainerView.hidden = true
+    mViewControler!.tutorContainerView.hidden = true
+    mViewControler!.tutorSessionContainerView.hidden = true
+    
+    removeObservers(cUserRef!)
+}
+
+
 func requestListener(view: AnyObject) {
     dotsTotal = 0
     dispatch_barrier_sync(taskQueue) {
-        let mainViewController = view as? HomeViewController
+        mViewControler = view as? HomeViewController
         let username = (user["username"] as! String)
-        let picString = (user["photoString"] as! String)
-        let currUserRef = getFirebase("users/" + username)
+        cUserRef = getFirebase("users/" + username)
         
-        currUserRef.observeEventType(.Value, withBlock: { snapshot in
+        cUserRef!.observeEventType(.Value, withBlock: { snapshot in
             if snapshot.value["requesterUsername"] as! String != "" {
                 if requester["username"] == "" {
                     requester["username"] = (snapshot.value["requesterUsername"] as! String)
                 }
-                if requester["couse"] == "" {
-                    requester["couse"] = (snapshot.value["requesterCourse"] as! String)
-                    currCourse = requester["couse"]!
+                if requester["course"] == "" {
+                    requester["course"] = (snapshot.value["requesterCourse"] as! String)
+                    currCourse = requester["course"]!
                 }
                 if requester["photoString"] == "" {
                     requester["photoString"] = (snapshot.value["requesterPhoto"] as! String)
@@ -391,78 +457,26 @@ func requestListener(view: AnyObject) {
                 if requester["location"] == "" {
                     requester["location"] = (snapshot.value["requesterLocation"] as! String)
                 }
-            
-                let decodedImage = decodePhoto(snapshot.value["requesterPhoto"] as! String)
-                
-                let requesterUserRef = getFirebase("users/" + requester["username"]!)
+                reqUserRef = getFirebase("users/" + requester["username"]!)
                 dispatch_async(dispatch_get_main_queue(), {
-                    var notificationUserRef = getFirebase("notifications/" + username)
+                    decImage = decodePhoto(snapshot.value["requesterPhoto"] as! String)
+                    notUserRef = getFirebase("notifications/" + username)
                     var notice = "singleRequest: " + ((snapshot.value["requesterUsername"] as! String) + " has requested tutoring in " + (snapshot.value["requesterCourse"] as! String) + "\n" + (snapshot.value["requesterDescription"] as! String) + "\nLocation: " + (snapshot.value["requesterLocation"] as! String))
                     let date = getDateTime()
-                    notificationUserRef.updateChildValues([date: notice])
+                    notUserRef!.updateChildValues([date: notice])
                     notifications[date] = notice
                     notice = notice.componentsSeparatedByString(":")[1]
                     alertWithPic(view, description: "\n\n\n" + notice, okAction:
                         UIAlertAction(title: "OK, I will help", style: UIAlertActionStyle.Default) { result in
-                            requesterUserRef.updateChildValues(["pairedUsername": username])
-                            requesterUserRef.updateChildValues(["pairedPhoto": picString])
-                            
-                            notificationUserRef = getFirebase("notifications/" + username)
-                            notice = "acceptance: You accepted " + (snapshot.value["requesterUsername"] as! String) + "’s tutoring request for " + (snapshot.value["requesterCourse"] as! String) + "."
-                            let date = getDateTime()
-                            notificationUserRef.updateChildValues([date: notice])
-                            notifications[date] = notice
-                            
-                            mainViewController?.tutorContainerView.hidden = false
-                            mainViewController?.requestTutoringButton.hidden = true
-                            mainViewController!.tutorStudentSwitch.hidden = true
-                            mainViewController!.tutorStudentSwiftLabel.hidden = true
-                            mainViewController!.logout.enabled = false
-                            
-                            mainViewController?.tutorWaitingViewController!.requesterUsername.text = "Waiting for " + requester["username"]! + " to Start the Session"
-                            
-                            mainViewController?.tutorWaitingViewController!.requesterCourse.text = (snapshot.value["requesterCourse"] as! String)
-                            
-                            mainViewController?.tutorWaitingViewController!.requesterPhoto.image = decodedImage
-                            
-                            mainViewController?.tutorSessionViewController!.tutorTutoringSessionUsername.text = "Tutoring Session with " + requester["username"]!
-                            
-                            mainViewController?.tutorSessionViewController!.tutorTutoringSessionCourse.text = (snapshot.value["requesterCourse"] as! String)
-                            
-                            mainViewController?.tutorSessionViewController!.tutorTutoringSessionPhoto.image = decodedImage
-                            
+                            tutorAccept()
                         },
-                        cancelAction: UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default) { result in
-                            let username = (user["username"] as! String)
-                            let currUserRef = getFirebase("users/" + username)
-                            currUserRef.updateChildValues(["requesterPhoto": ""])
-                            currUserRef.updateChildValues(["requesterCourse": ""])
-                            currUserRef.updateChildValues(["requesterDescription": ""])
-                            currUserRef.updateChildValues(["requesterLocation": ""])
-                            currUserRef.updateChildValues(["requesterUsername": ""])
-                            currUserRef.updateChildValues(["cancel": "yes"])
-                            requester["photoString"] = ""
-                            requester["course"] = ""
-                            requester["description"] = ""
-                            requester["location"] = ""
-                            requester["username"] = ""
-                            requester["start"] = ""
-                            removeObservers(rootRef)
-                            mainViewController!.tutorStudentSwitch.hidden = false
-                            mainViewController!.tutorStudentSwiftLabel.hidden = false
-                            mainViewController!.logout.enabled = true
-                            mainViewController!.requestTutoringButton!.hidden = false
-                            mainViewController!.blurEffect.hidden = true
-                            mainViewController!.requesterContainerView.hidden = true
-                            mainViewController!.tutorContainerView.hidden = true
-                            mainViewController!.tutorSessionContainerView.hidden = true
-                            
-                            removeObservers(currUserRef)
+                        cancelAction: UIAlertAction(title: "Reject", style: UIAlertActionStyle.Destructive) { result in
+                            tutorReject()
                         },
                         otherAction: UIAlertAction(title: "View in Notifications", style: UIAlertActionStyle.Default) { result in
-                            mainViewController?.performSegueWithIdentifier("goToNotificationsSegue", sender: mainViewController)
+                            mViewControler?.performSegueWithIdentifier("goToNotificationsSegue", sender: mViewControler)
                         },
-                        pic: decodedImage)
+                        pic: decImage!)
                 })
                 
                 let startRequesterUserRef = getFirebase("users/" + (snapshot.value["requesterUsername"] as! String) + "/" + "start")
@@ -470,19 +484,19 @@ func requestListener(view: AnyObject) {
                     if let v_ = snap.value as? String {
                         if v_ == "yes"{
                             
-                            time_ = TimerAndDotsCounter(viewControler: mainViewController!.tutorSessionViewController!)
+                            time_ = TimerAndDotsCounter(viewControler: mViewControler!.tutorSessionViewController!)
 
                             if !timer.valid {
                                 time_!.startCounter()
                             }
                             
                             requester["start"] = "yes"
-                            mainViewController!.tutorContainerView.hidden = true
-                            mainViewController!.tutorSessionContainerView.hidden = false
+                            mViewControler!.tutorContainerView.hidden = true
+                            mViewControler!.tutorSessionContainerView.hidden = false
                             timeCount = 0
                             passed = false
                             removeObservers(startRequesterUserRef)
-                            removeObservers(currUserRef)
+                            removeObservers(cUserRef!)
                         }
                     }
                 })
@@ -499,14 +513,12 @@ func requestListener(view: AnyObject) {
                             notificationUserRef.updateChildValues([date: notice])
                             notifications[date] = notice
                             
-                            let username = (user["username"] as! String)
-                            let currUserRef = getFirebase("users/" + username)
-                            currUserRef.updateChildValues(["requesterPhoto": ""])
-                            currUserRef.updateChildValues(["requesterCourse": ""])
-                            currUserRef.updateChildValues(["requesterDescription": ""])
-                            currUserRef.updateChildValues(["requesterLocation": ""])
-                            currUserRef.updateChildValues(["requesterUsername": ""])
-                            requesterUserRef.updateChildValues(["cancel": ""])
+                            cUserRef!.updateChildValues(["requesterPhoto": ""])
+                            cUserRef!.updateChildValues(["requesterCourse": ""])
+                            cUserRef!.updateChildValues(["requesterDescription": ""])
+                            cUserRef!.updateChildValues(["requesterLocation": ""])
+                            cUserRef!.updateChildValues(["requesterUsername": ""])
+                            reqUserRef!.updateChildValues(["cancel": ""])
                             requester["photoString"] = ""
                             requester["course"] = ""
                             requester["description"] = ""
@@ -514,23 +526,25 @@ func requestListener(view: AnyObject) {
                             requester["username"] = ""
                             requester["start"] = ""
                             removeObservers(rootRef)
-                            mainViewController!.tutorStudentSwitch.hidden = false
-                            mainViewController!.logout.enabled = true
-                            mainViewController!.requestTutoringButton!.hidden = false
-                            mainViewController!.blurEffect.hidden = true
-                            mainViewController!.requesterContainerView.hidden = true
-                            mainViewController!.tutorContainerView.hidden = true
-                            mainViewController!.tutorSessionContainerView.hidden = true
+                            mViewControler!.tutorStudentSwitch.hidden = false
+                            mViewControler!.logout.enabled = true
+                            mViewControler!.requestTutoringButton!.hidden = false
+                            mViewControler!.blurEffect.hidden = true
+                            mViewControler!.requesterContainerView.hidden = true
+                            mViewControler!.tutorContainerView.hidden = true
+                            mViewControler!.tutorSessionContainerView.hidden = true
                             passed = false
                             
-                            removeObservers(currUserRef)
+                            removeObservers(cUserRef!)
                         }
                     }
                 })
             } else {
                 if  (snapshot.value["requesterUsername"] as! String) == "" {
-                    if let _ = mainViewController?.presentedViewController {
-                        view.presentedViewController?!.dismissViewControllerAnimated(false, completion: nil)
+                    if let _ = mViewControler?.presentedViewController {
+                        if (alertPicController != nil) {
+                            alertPicController!.dismissViewControllerAnimated(false, completion: nil)
+                        }
                     }
                 }
             }
@@ -539,8 +553,6 @@ func requestListener(view: AnyObject) {
 }
 
 func pairedListener(view: AnyObject, askedCourse: String) {
-    var tutorCounter = 0
-    var tempDict = [:]
     dispatch_barrier_async(taskQueue) {
         let mainViewController = view as? HomeViewController
         let username = (user["username"] as! String)
@@ -574,6 +586,8 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.requesterStartSessionViewController?.tutorPhoto.image = decodePhoto(paired["photoString"]!)
                 
+                mainViewController!.requesterTutoringSessionViewController?.requesterTutoringSessionTutorPhoto.image = decodePhoto(paired["photoString"]!)
+                
                 mainViewController!.tutorStudentSwitch.hidden = true
                 
                 mainViewController!.tutorStudentSwiftLabel.hidden = true
@@ -581,24 +595,8 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 mainViewController!.logout.enabled = false
                 
                 removeObservers(currUserRef)
-            } //else {
-                
-                /*for key in usersPerCourse.keys {
-                    if tempDict[key] != nil {
-                        let otherUserRef = getFirebase("users/" + key + "/" + "cancel")
-                        otherUserRef.observeEventType(.Value, withBlock: { snap in
-                            if let v_ = snap.value as? String {
-                                if v_ == "yes" {
-                                    tempDict.setValue(v_, forKey: key)
-                                    usersRef.childByAppendingPath(key).updateChildValues(["cancel": ""])
-                                }
-                            }
-                            removeObservers(otherUserRef)
-                        })
-                    }
-                }
-                
-                if tempDict.count == usersPerCourse.count {
+            } else {
+                if possiblePairedUsers < 1 {
                     mainViewController!.blurEffect.hidden = true
                     
                     mainViewController!.startHomeViewController()
@@ -607,7 +605,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                     
                     removeObservers(currUserRef)
                 }
-            }*/
+            }
         })
     }
 }
@@ -825,7 +823,7 @@ func defaultImage() -> UIImage {
     return image
 }
 
-private class AlertController: UIAlertController {
+public class AlertController: UIAlertController {
     
     private lazy var alertWindow: UIWindow = {
         let window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -846,13 +844,13 @@ private class AlertController: UIAlertController {
     }
 }
 
-private class ClearViewController: UIViewController {
+public class ClearViewController: UIViewController {
     
-    private override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    public override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIApplication.sharedApplication().statusBarStyle
     }
     
-    private override func prefersStatusBarHidden() -> Bool {
+    public override func prefersStatusBarHidden() -> Bool {
         return UIApplication.sharedApplication().statusBarHidden
     }
 }

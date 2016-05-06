@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -50,7 +50,7 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="192"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VHe-4m-IxZ" id="CUh-3i-FxU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="191"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="191.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfilePhoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="pvB-eE-14S">
@@ -119,6 +119,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="onClickAccept:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="b1R-U6-HLm"/>
+                                                        <segue destination="2Wq-0h-sAG" kind="unwind" unwindAction="returnHomeViewControllerFromNot:" id="MNB-ra-aGZ"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmT-nn-T4q">
@@ -147,6 +148,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="onClickReject:" destination="VHe-4m-IxZ" eventType="touchUpInside" id="2JV-Tv-KWI"/>
+                                                        <segue destination="2Wq-0h-sAG" kind="unwind" unwindAction="returnHomeViewControllerFromNot:" id="qWh-Lz-V9T"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -211,10 +213,12 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="acceptButton" destination="HRu-5s-Dm8" id="NAh-qf-Vis"/>
                                     <outlet property="dateLabel" destination="k88-JV-4fV" id="gBJ-AK-I90"/>
                                     <outlet property="descriptionLabel" destination="lXd-SE-t3e" id="OCy-sa-hWA"/>
                                     <outlet property="locationLabel" destination="W1z-OH-s5H" id="Ryy-1a-Zfi"/>
                                     <outlet property="messageLabel" destination="dwC-Bq-8oc" id="xfg-uR-GCv"/>
+                                    <outlet property="rejectButton" destination="sbD-b9-Pwk" id="ta2-9G-lBo"/>
                                     <outlet property="userPhotoButton" destination="ZRo-NZ-wBl" id="6BO-ck-PWp"/>
                                     <outlet property="userPic" destination="pvB-eE-14S" id="Q6i-O3-BD0"/>
                                 </connections>
@@ -223,7 +227,7 @@
                                 <rect key="frame" x="0.0" y="284" width="414" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uaf-f0-ei0" id="akV-fO-o8Z">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="127.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzt-lV-hpI">
@@ -263,7 +267,7 @@
                                 <rect key="frame" x="0.0" y="412" width="414" height="133"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZTF-7Z-VE9" id="4Hw-as-CQw">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="132.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="32A-D7-wtE">
@@ -350,6 +354,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oki-9V-rw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="2Wq-0h-sAG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1438" y="305"/>
         </scene>
@@ -562,7 +567,7 @@
                                         <rect key="frame" x="0.0" y="28" width="358" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aRl-nu-h3Q" id="P3q-WR-wUA">
-                                            <rect key="frame" x="0.0" y="0.0" width="358" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="358" height="34.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

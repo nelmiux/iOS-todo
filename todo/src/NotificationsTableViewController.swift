@@ -17,6 +17,8 @@ class NotificationsTableViewController: UITableViewController {
      wheher this is the right way*/
     private var data:([String],[String],[String]) = ([],[],[])
     
+    var lastRequestCell: RequestNotificationTableViewCell? = nil
+    
     var notificationCopy:([String],[String],[String]){
         var notificationKeysCopy = [String]()
         var notificationTypesCopy = [String]()
@@ -55,6 +57,9 @@ class NotificationsTableViewController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        if (alertPicController != nil) {
+            alertPicController = nil
+        }
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.loadData()
             self.tableView.reloadData()
@@ -91,13 +96,10 @@ class NotificationsTableViewController: UITableViewController {
                     notificationMessagesCopy.append(message)
                 }
             }
-            
         }
-        
         self.data.0 = notificationKeysCopy
         self.data.1 = notificationTypesCopy
         self.data.2 = notificationMessagesCopy
-        
     }
     
     // MARK: - Table view data source
@@ -110,12 +112,8 @@ class NotificationsTableViewController: UITableViewController {
         return notifications.count
     }
     
-    /* override func tableView(tableView:UITableView!, heightForRowAtIndexPath indexPath:NSIndexPath)->CGFloat
-    {
-        // Programatically set the height of the cell
-    } */
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("standardCell", forIndexPath: indexPath)
         
         let current_notification:(String,String,String) = (notificationCopy.0[indexPath.row],notificationCopy.1[indexPath.row],notificationCopy.2[indexPath.row])
@@ -131,9 +129,9 @@ class NotificationsTableViewController: UITableViewController {
             return standardCell
         } else if type == "singleRequest" {
             let requestCell = tableView.dequeueReusableCellWithIdentifier("requestCell", forIndexPath: indexPath) as! RequestNotificationTableViewCell
-            let requester = (message.characters.split{$0 == " "}.map(String.init))[0]
-            getUserPhoto(requester, imageView: requestCell.userPic)
-            requestCell.userPhotoButton.setUser(requester)
+            let requesterString = (message.characters.split{$0 == " "}.map(String.init))[0]
+            getUserPhoto(requesterString, imageView: requestCell.userPic)
+            requestCell.userPhotoButton.setUser(requesterString)
             requestCell.dateLabel.text = self.parseDate(date)
             let messageArr = message.characters.split{$0 == "\n"}.map(String.init)
             if messageArr.count == 3 {
@@ -143,6 +141,17 @@ class NotificationsTableViewController: UITableViewController {
             } else {
                 requestCell.messageLabel.text = message
             }
+            requestCell.acceptButton.enabled = false
+            requestCell.acceptButton.hidden = true
+            requestCell.rejectButton.enabled = false
+            requestCell.rejectButton.hidden = true
+            if notificationButtonsState == 1 && requestCell.messageLabel.text?.rangeOfString(requester["username"]!) != nil  {
+                requestCell.acceptButton.enabled = true
+                requestCell.acceptButton.hidden = false
+                requestCell.rejectButton.enabled = true
+                requestCell.rejectButton.hidden = false
+            }
+
             return requestCell
         } else if type == "balanceUpdate" {
             let balanceUpdateCell = tableView.dequeueReusableCellWithIdentifier("balanceUpdateCell", forIndexPath: indexPath) as! BalanceUpdateTableViewCell
@@ -183,47 +192,6 @@ class NotificationsTableViewController: UITableViewController {
         return result
     }
     
-
-
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "displayUserProfile" {
             let destVC = segue.destinationViewController as! ProfileViewController
@@ -235,11 +203,12 @@ class NotificationsTableViewController: UITableViewController {
     }
     
     @IBAction func returnToNotificationsViewController(segue:UIStoryboardSegue) {
-        
+        if segue.identifier == "goToNotificationsSegue" {
+            notificationButtonsState = 1
+        }
     }
-    
-    
 }
+
 extension String {
     func insert(string:String,ind:Int) -> String {
         return  String(self.characters.prefix(ind)) + string + String(self.characters.suffix(self.characters.count-ind))

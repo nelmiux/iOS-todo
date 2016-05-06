@@ -16,8 +16,10 @@ class RequestNotificationTableViewCell: UITableViewCell {
     @IBOutlet weak var userPhotoButton: UserPhotoButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    
+    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var type: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -33,11 +35,21 @@ class RequestNotificationTableViewCell: UITableViewCell {
     }
     
     @IBAction func onClickAccept(sender: AnyObject) {
-        print("Clicked accept")
+        tutorAccept()
+        self.acceptButton.enabled = false
+        self.acceptButton.hidden = true
+        self.rejectButton.enabled = false
+        self.rejectButton.hidden = true
+        notificationButtonsState = 0
     }
     
     @IBAction func onClickReject(sender: AnyObject) {
-        print("Clicked reject")
+        tutorReject()
+        self.acceptButton.enabled = false
+        self.acceptButton.hidden = true
+        self.rejectButton.enabled = false
+        self.rejectButton.hidden = true
+        notificationButtonsState = 0
     }
     
     @IBAction func onClickContact(sender: AnyObject) {

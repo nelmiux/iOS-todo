@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var tutorStudentSwitch: UISegmentedControl!
     
-    @IBOutlet weak var tutorStudentSwiftLabel: UISegmentedControl!
+    @IBOutlet weak var tutorStudentSwiftLabel: UILabel!
     
     @IBOutlet weak var requestTutoringButton: UIButton!
     
@@ -48,8 +48,8 @@ class HomeViewController: UIViewController {
     var presented: Bool = false
     
     override func viewDidLoad() {
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER)
         super.viewDidLoad()
-        dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER)
         requestTutoringButton!.backgroundColor = requestButtonColor
         startHomeViewController()
     }
@@ -99,6 +99,8 @@ class HomeViewController: UIViewController {
             self.requesterTutoringSessionViewController = vc
         }
     }
+    
+    @IBAction func returnHomeViewControllerFromNot(segue:UIStoryboardSegue) {}
     
     @IBAction func returnHomeViewController(segue:UIStoryboardSegue) {
         let askedCourse = (segue.sourceViewController as! RequestHelpViewController).editedDropDown.text!
