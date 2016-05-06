@@ -414,7 +414,9 @@ func tutorReject () {
         possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
     })
     
-    reqUserRef!.updateChildValues(["possiblePairedUsers": possiblePairedUsers - 1])
+    if !passed {
+        reqUserRef!.updateChildValues(["possiblePairedUsers": possiblePairedUsers - 1])
+    }
     cUserRef!.updateChildValues(["requesterPhoto": ""])
     cUserRef!.updateChildValues(["requesterCourse": ""])
     cUserRef!.updateChildValues(["requesterDescription": ""])
