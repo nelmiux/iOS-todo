@@ -122,9 +122,17 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func startHomeViewControllerFinish(segue:UIStoryboardSegue) {
+        var dots = (user["dots"]! as! Int)
+        dots = dots + dotsTotal
+        user["dots"] = dots
+        user["earned"] = (user["earned"] as! Int) + dotsTotal
+        
+        let dotsCategory = ["Earned", "Paid"]
+        let dotsAmount = [(user["earned"] as? Int)!, (user["paid"] as? Int)!]
+        chartViewController?.earnedAmount.text = String(user["earned"] as! Int)
+        chartViewController?.setChart(dotsCategory, values: dotsAmount)
         finishSession(self)
         startHomeViewController()
-        requestListener(self)
         return
     }
     

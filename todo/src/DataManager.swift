@@ -718,15 +718,6 @@ func cancelSession() {
 
 func finishSession(view: HomeViewController) {
     dispatch_barrier_async(taskQueue) {
-        var dots = (user["dots"]! as! Int)
-        dots = dots + dotsTotal
-        user["dots"] = dots
-        user["earned"] = (user["earned"] as! Int) + dotsTotal
-        
-        let dotsCategory = ["Earned", "Paid"]
-        let dotsAmount = [(user["earned"] as? Int)!, (user["paid"] as? Int)!]
-        view.chartViewController?.earnedAmount.text = String(user["earned"] as! Int)
-        view.chartViewController?.setChart(dotsCategory, values: dotsAmount)
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
         let notice = "balanceUpdate: You earned " + view.tutorSessionViewController!.tutorTutoringSessionEarning.text! + " dots for a recent tutoring session. Your new total is: " + String(dots)
@@ -743,7 +734,7 @@ func finishSession(view: HomeViewController) {
         history[date] = noticeH
         
         let currUserRef = getFirebase("users/" + username)
-        currUserRef.updateChildValues(["dots": dots])
+        currUserRef.updateChildValues(["dots": (user["dots"] as! Int)])
         currUserRef.updateChildValues(["earned": (user["earned"] as! Int)])
         currUserRef.updateChildValues(["finish": "yes"])
         currUserRef.updateChildValues(["start": ""])
