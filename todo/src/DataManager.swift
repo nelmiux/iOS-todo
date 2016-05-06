@@ -569,6 +569,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
         let currUserRef = getFirebase("users/" + username)
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
         currUserRef.observeEventType(.Value, withBlock: { snapshot in
+            passed = true
             paired["username"] = snapshot.value.objectForKey("pairedUsername") as? String
             if paired["username"] != "" && (snapshot.value.objectForKey("start") as? String) == "" {
                 paired["photoString"] = snapshot.value.objectForKey("pairedPhoto") as? String
@@ -608,7 +609,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
             } else {
                 possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
                 
-                if paired["username"] != "" && possiblePairedUsers < 1 {
+                if passed && possiblePairedUsers < 1 {
                     mainViewController!.blurEffect.hidden = true
                     
                     mainViewController!.startHomeViewController()
