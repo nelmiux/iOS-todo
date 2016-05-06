@@ -10,6 +10,6 @@
 - [X] Design UI/UX Components
 - [X] Get User Feedback
 - [X] Build the App
-- [ ] Test and Get Feedback <----> Find and Fix Bugs
+- [X] Test and Get Feedback <----> Find and Fix Bugs
 - [ ] Pulish and Prepare for Submission/Presentation
 
