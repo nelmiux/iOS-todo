@@ -348,13 +348,13 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 usersPerCourse = snapshot.value[askedCourse] as! Dictionary<String, String>
                 for key in usersPerCourse.keys {
                     if key != user["username"] as! String {
+                        temp = temp + 1
+                        usersRef.childByAppendingPath(key).updateChildValues(["possiblePairedUsers": temp])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterPhoto": user["photoString"]!])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterCourse": askedCourse])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterDescription": description])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterLocation": location])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterUsername": user["username"]!])
-                        temp = temp + 1
-                        usersRef.childByAppendingPath(key).updateChildValues(["possiblePairedUsers": temp])
                     }
                 }
                 
@@ -562,6 +562,7 @@ func requestListener(view: AnyObject) {
 }
 
 func pairedListener(view: AnyObject, askedCourse: String) {
+    var passed = false
     dispatch_barrier_async(taskQueue) {
         let mainViewController = view as? HomeViewController
         let username = (user["username"] as! String)
@@ -607,7 +608,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
             } else {
                 possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
                 
-                if possiblePairedUsers < 1 {
+                if paired["username"] != "" && possiblePairedUsers < 1 {
                     mainViewController!.blurEffect.hidden = true
                     
                     mainViewController!.startHomeViewController()
@@ -617,6 +618,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                     removeObservers(currUserRef)
                 }
             }
+            passed = true
         })
     }
 }
