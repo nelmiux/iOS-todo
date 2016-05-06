@@ -354,7 +354,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterLocation": location])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterUsername": user["username"]!])
                         temp = temp + 1
-                        usersRef.updateChildValues(["possiblePairedUsers": temp])
+                        usersRef.childByAppendingPath(key).updateChildValues(["possiblePairedUsers": temp])
                     }
                 }
                 
