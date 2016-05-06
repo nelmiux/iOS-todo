@@ -91,7 +91,7 @@
                                                 <constraint firstAttribute="width" secondItem="xFq-CU-xf0" secondAttribute="height" multiplier="1:1" id="z6z-7L-LeG"/>
                                             </constraints>
                                             <connections>
-                                                <segue destination="urJ-Cj-qcg" kind="push" identifier="displayUserProfile" id="S5N-N3-agz"/>
+                                                <segue destination="urJ-Cj-qcg" kind="show" identifier="displayUserProfile" id="S5N-N3-agz"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You gained 50 dots for tutoring testNelma in CS 312." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXz-LG-bZV">

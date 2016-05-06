@@ -569,10 +569,13 @@ func pairedListener(view: AnyObject, askedCourse: String) {
         let currUserRef = getFirebase("users/" + username)
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
         currUserRef.observeEventType(.Value, withBlock: { snapshot in
-            paired["username"] = snapshot.value.objectForKey("pairedUsername") as? String
+            paired["username"] = (snapshot.value.objectForKey("pairedUsername") as? String)
             if paired["username"] != "" && (snapshot.value.objectForKey("start") as? String) == "" {
                 currUserRef!.updateChildValues(["possiblePairedUsers": 0])
-                paired["photoString"] = snapshot.value.objectForKey("pairedPhoto") as? String
+                
+                paired["photoString"] = (snapshot.value["pairedPhoto"] as! String)
+                decImage = decodePhoto(snapshot.value["pairedPhoto"] as! String)
+
                 paired["course"] = askedCourse
                 
                 for key in usersPerCourse.keys {
@@ -595,9 +598,9 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.requesterStartSessionViewController?.tutorCourse.text = paired["course"]
                 
-                mainViewController!.requesterStartSessionViewController?.tutorPhoto.image = decodePhoto(paired["photoString"]!)
+                mainViewController!.requesterStartSessionViewController?.tutorPhoto.image = decImage
                 
-                mainViewController!.requesterTutoringSessionViewController?.requesterTutoringSessionTutorPhoto.image = decodePhoto(paired["photoString"]!)
+                mainViewController!.requesterTutoringSessionViewController?.requesterTutoringSessionTutorPhoto.image = decImage
                 
                 mainViewController!.tutorStudentSwitch.hidden = true
                 
@@ -605,7 +608,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 mainViewController!.logout.enabled = false
                 
-                removeObservers(currUserRef)
+                //removeObservers(currUserRef)
             }
             for key in usersPerCourse.keys {
                 if key != username {
@@ -719,7 +722,6 @@ func finishSession(view: HomeViewController) {
         dots = dots + dotsTotal
         user["dots"] = dots
         user["earned"] = (user["earned"] as! Int) + dotsTotal
-        
         
         let dotsCategory = ["Earned", "Paid"]
         let dotsAmount = [(user["earned"] as? Int)!, (user["paid"] as? Int)!]
