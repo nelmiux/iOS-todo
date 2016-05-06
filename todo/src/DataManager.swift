@@ -341,15 +341,16 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
     dispatch_barrier_async(taskQueue) {
         let coursesRef = getFirebase("courses/")
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
-        var temp = 0
+        let username = (user["username"] as! String)
+        let currUserRef = getFirebase("users/" + username)
         currCourse = askedCourse
         coursesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let _ = snapshot.value[askedCourse] as? Dictionary<String, String> {
                 usersPerCourse = snapshot.value[askedCourse] as! Dictionary<String, String>
                 for key in usersPerCourse.keys {
                     if key != user["username"] as! String {
-                        temp = temp + 1
-                        usersRef.childByAppendingPath(key).updateChildValues(["possiblePairedUsers": temp])
+                        possiblePairedUsers = possiblePairedUsers + 1
+                        currUserRef.childByAppendingPath(key).updateChildValues(["possiblePairedUsers": possiblePairedUsers])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterPhoto": user["photoString"]!])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterCourse": askedCourse])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterDescription": description])
@@ -607,9 +608,10 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 removeObservers(currUserRef)
             } else {
-                possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
                 
                 if passed && possiblePairedUsers < 1 {
+                    possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
+
                     mainViewController!.blurEffect.hidden = true
                     
                     mainViewController!.startHomeViewController()
@@ -619,7 +621,6 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                     removeObservers(currUserRef)
                 }
             }
-            passed = true
         })
     }
 }
