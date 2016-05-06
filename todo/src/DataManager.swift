@@ -350,7 +350,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                 for key in usersPerCourse.keys {
                     if key != user["username"] as! String {
                         possiblePairedUsers = possiblePairedUsers + 1
-                        currUserRef.childByAppendingPath(key).updateChildValues(["possiblePairedUsers": possiblePairedUsers])
+                        currUserRef.updateChildValues(["possiblePairedUsers": possiblePairedUsers])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterPhoto": user["photoString"]!])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterCourse": askedCourse])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterDescription": description])
@@ -380,7 +380,6 @@ var mViewControler: HomeViewController?
 var decImage: UIImage?
 
 func tutorAccept () {
-    reqUserRef!.updateChildValues(["possiblePairedUsers": 0])
     reqUserRef!.updateChildValues(["pairedUsername": (user["username"] as! String)])
     reqUserRef!.updateChildValues(["pairedPhoto": (user["photoString"] as! String)])
     
@@ -570,9 +569,10 @@ func pairedListener(view: AnyObject, askedCourse: String) {
         let currUserRef = getFirebase("users/" + username)
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
         currUserRef.observeEventType(.Value, withBlock: { snapshot in
-            passed = true
+            passed = false
             paired["username"] = snapshot.value.objectForKey("pairedUsername") as? String
             if paired["username"] != "" && (snapshot.value.objectForKey("start") as? String) == "" {
+                currUserRef!.updateChildValues(["possiblePairedUsers": 0])
                 paired["photoString"] = snapshot.value.objectForKey("pairedPhoto") as? String
                 paired["course"] = askedCourse
                 
@@ -620,6 +620,7 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                     
                     removeObservers(currUserRef)
                 }
+                passed = true
             }
         })
     }
