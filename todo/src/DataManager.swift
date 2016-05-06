@@ -412,11 +412,10 @@ func tutorAccept () {
 func tutorReject () {
     reqUserRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
         possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
+        possiblePairedUsers = possiblePairedUsers - 1
+        reqUserRef!.updateChildValues(["possiblePairedUsers": possiblePairedUsers])
     })
     
-    if !passed {
-        reqUserRef!.updateChildValues(["possiblePairedUsers": possiblePairedUsers - 1])
-    }
     cUserRef!.updateChildValues(["requesterPhoto": ""])
     cUserRef!.updateChildValues(["requesterCourse": ""])
     cUserRef!.updateChildValues(["requesterDescription": ""])
