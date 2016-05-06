@@ -170,6 +170,7 @@ func createUser(view: AnyObject, inputs: [String: String], courses: [String], se
                         user["lastLogin"] = ""
                         user["location"] = ""
                         user["cancel"] = ""
+                        user["possiblePairedUsers"] = 0
                         newUserRef.setValue(user)
                         let notice = "created: You have joined todo!"
                         let date = getDateTime()
@@ -279,7 +280,8 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     user["finish"] = ""
                     user["location"] = ""
                     user["cancel"] = ""
-                    
+                    user["possiblePairedUsers"] = 0
+
                     requester["username"] = ""
                     requester["photoString"] = ""
                     requester["course"] = ""
@@ -314,6 +316,7 @@ func loginUser(view: AnyObject, username: String, password:String, segueIdentifi
                     currUserRef.updateChildValues(["cancel": ""])
                     currUserRef.updateChildValues(["finish": ""])
                     currUserRef.updateChildValues(["location": ""])
+                    currUserRef.updateChildValues(["possiblePairedUsers": 0])
                     
                     view.performSegueWithIdentifier(segueIdentifier, sender: nil)
                     
@@ -338,6 +341,7 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
     dispatch_barrier_async(taskQueue) {
         let coursesRef = getFirebase("courses/")
         let askedCourse = askedCourse.componentsSeparatedByString(":")[0]
+        var temp = 0
         currCourse = askedCourse
         coursesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             if let _ = snapshot.value[askedCourse] as? Dictionary<String, String> {
@@ -349,7 +353,8 @@ func sendRequest (view: AnyObject, askedCourse: String, location:String,  descri
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterDescription": description])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterLocation": location])
                         usersRef.childByAppendingPath(key).updateChildValues(["requesterUsername": user["username"]!])
-                        possiblePairedUsers = possiblePairedUsers + 1
+                        temp = temp + 1
+                        usersRef.updateChildValues(["possiblePairedUsers": temp])
                     }
                 }
                 
@@ -374,7 +379,7 @@ var mViewControler: HomeViewController?
 var decImage: UIImage?
 
 func tutorAccept () {
-    possiblePairedUsers = 0
+    reqUserRef!.updateChildValues(["possiblePairedUsers": 0])
     reqUserRef!.updateChildValues(["pairedUsername": (user["username"] as! String)])
     reqUserRef!.updateChildValues(["pairedPhoto": (user["photoString"] as! String)])
     
@@ -405,7 +410,11 @@ func tutorAccept () {
 }
 
 func tutorReject () {
-    possiblePairedUsers = possiblePairedUsers - 1
+    reqUserRef!.observeSingleEventOfType(.Value, withBlock: { snapshot in
+        possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
+    })
+    
+    reqUserRef!.updateChildValues(["possiblePairedUsers": possiblePairedUsers - 1])
     cUserRef!.updateChildValues(["requesterPhoto": ""])
     cUserRef!.updateChildValues(["requesterCourse": ""])
     cUserRef!.updateChildValues(["requesterDescription": ""])
@@ -596,6 +605,8 @@ func pairedListener(view: AnyObject, askedCourse: String) {
                 
                 removeObservers(currUserRef)
             } else {
+                possiblePairedUsers = (snapshot.value["possiblePairedUsers"] as! Int)
+                
                 if possiblePairedUsers < 1 {
                     mainViewController!.blurEffect.hidden = true
                     
