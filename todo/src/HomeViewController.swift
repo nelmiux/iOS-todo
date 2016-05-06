@@ -45,6 +45,8 @@ class HomeViewController: UIViewController {
     
     var requesterTutoringSessionViewController: RequesterTutoringSessionViewController? = nil
     
+    var chartViewController: ChartViewController? = nil
+    
     var presented: Bool = false
     
     override func viewDidLoad() {
@@ -98,6 +100,10 @@ class HomeViewController: UIViewController {
             where segue.identifier == "requesterSessionSegue" {
             self.requesterTutoringSessionViewController = vc
         }
+        if let vc = segue.destinationViewController as? ChartViewController
+            where segue.identifier == "chartSegue" {
+            self.chartViewController = vc
+        }
     }
     
     @IBAction func returnHomeViewControllerFromNot(segue:UIStoryboardSegue) {}
@@ -139,6 +145,7 @@ class HomeViewController: UIViewController {
         requestTutoringButton!.backgroundColor = requestButtonColor
         requestTutoringButton!.enabled = true
         requestTutoringButton!.userInteractionEnabled = true
+        removeObservers(cUserRef!)
     }
     
     func startHomeViewController() {

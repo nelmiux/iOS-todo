@@ -23,6 +23,8 @@ class ChartViewController: UIViewController {
     
     @IBOutlet weak var paidLegend: UIView!
     
+    var centerText: NSMutableAttributedString?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -63,8 +65,8 @@ class ChartViewController: UIViewController {
         let paragraphStyle: NSMutableParagraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
         paragraphStyle.lineBreakMode = .ByTruncatingTail
         paragraphStyle.alignment = .Center
-        let centerText: NSMutableAttributedString = NSMutableAttributedString(string: "dots total\n" + String(user["dots"]!))
-        centerText.setAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 16.0)!, NSParagraphStyleAttributeName: paragraphStyle], range: NSMakeRange(0, centerText.length))
+        centerText = NSMutableAttributedString(string: "dots total\n" + String(user["dots"]!))
+        centerText!.setAttributes([NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 16.0)!, NSParagraphStyleAttributeName: paragraphStyle], range: NSMakeRange(0, centerText!.length))
         
         self.pieChartView.centerAttributedText = centerText
         

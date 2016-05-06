@@ -654,6 +654,11 @@ func startSession (mainView: AnyObject, view: AnyObject) {
                 user["dots"] = dots
                 user["paid"] = (user["paid"] as! Int) + dotsTotal
                 
+                let dotsCategory = ["Earned", "Paid"]
+                let dotsAmount = [(user["earned"] as? Int)!, (user["paid"] as? Int)!]
+                mainViewController.chartViewController?.paidAmount.text = String(user["paid"] as! Int)
+                mainViewController.chartViewController?.setChart(dotsCategory, values: dotsAmount)
+                
                 let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
                 let notice = "balanceUpdate: You paid " + (mainViewController.requesterTutoringSessionViewController?.requesterTutoringSessionPaying.text)! + " dots for a recent tutoring session. Your new total is: " + String(dots)
                 let date = getDateTime()
@@ -715,6 +720,11 @@ func finishSession(view: HomeViewController) {
         user["dots"] = dots
         user["earned"] = (user["earned"] as! Int) + dotsTotal
         
+        
+        let dotsCategory = ["Earned", "Paid"]
+        let dotsAmount = [(user["earned"] as? Int)!, (user["paid"] as? Int)!]
+        view.chartViewController?.earnedAmount.text = String(user["earned"] as! Int)
+        view.chartViewController?.setChart(dotsCategory, values: dotsAmount)
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
         let notice = "balanceUpdate: You earned " + view.tutorSessionViewController!.tutorTutoringSessionEarning.text! + " dots for a recent tutoring session. Your new total is: " + String(dots)

@@ -248,7 +248,7 @@
                             <containerView opaque="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="voj-nE-EwO" userLabel="Chart Container View">
                                 <rect key="frame" x="20" y="135" width="374" height="442"/>
                                 <connections>
-                                    <segue destination="qIk-5f-1vv" kind="embed" id="Q8H-yh-zvO"/>
+                                    <segue destination="qIk-5f-1vv" kind="embed" identifier="chartSegue" id="Q8H-yh-zvO"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B14-vQ-4x2">
