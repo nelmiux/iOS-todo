@@ -722,7 +722,7 @@ func finishSession(view: HomeViewController) {
     dispatch_barrier_async(taskQueue) {
         
         let notificationUserRef = getFirebase("notifications/" + (user["username"]! as! String))
-        let notice = "balanceUpdate: You earned " + view.tutorSessionViewController!.tutorTutoringSessionEarning.text! + " dots for a recent tutoring session. Your new total is: " + String(dots)
+        let notice = "balanceUpdate: You earned " + view.tutorSessionViewController!.tutorTutoringSessionEarning.text! + " dots for a recent tutoring session. Your new total is: " + String(user["dots"] as! Int)
         let date = getDateTime()
         notificationUserRef.updateChildValues([date: notice])
         notifications[date] = notice

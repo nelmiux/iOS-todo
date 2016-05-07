@@ -53,6 +53,9 @@
                                                     <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="15" y="15" width="384" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -761,6 +764,9 @@
                                                     <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="15" y="15" width="384" height="21"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -803,6 +809,9 @@
                                                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="23" y="7" width="368" height="45.5"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -844,9 +853,15 @@
                                                     <fontDescription key="fontDescription" name="SegoeUI-Bold" family="Segoe UI" pointSize="12"/>
                                                     <color key="textColor" red="0.15999068490000001" green="0.4338058541" blue="0.40532034020000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="28" y="15.5" width="89" height="14"/>
+                                                    </variation>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="240" verticalHuggingPriority="240" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="roa-Wl-u54" userLabel="Add Course Button">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="124" y="7" width="212" height="30"/>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="onClickAddCourse:" destination="bzu-2V-BE7" eventType="touchUpInside" id="qYh-Uz-aAU"/>
                                                     </connections>
@@ -866,7 +881,8 @@
                                                             <exclude reference="Zf8-8y-8cK"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="343" y="7" width="43" height="29"/>
                                                         <mask key="constraints">
                                                             <include reference="Zf8-8y-8cK"/>
                                                         </mask>
@@ -883,6 +899,9 @@
                                                     <color key="textColor" red="0.25098039220000001" green="0.6705882353" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="124" y="7" width="212" height="30"/>
+                                                    </variation>
                                                     <connections>
                                                         <action selector="beginAddingCourse:" destination="bzu-2V-BE7" eventType="editingDidBegin" id="KFQ-rk-Qbx"/>
                                                         <action selector="editAddCourseField:" destination="bzu-2V-BE7" eventType="editingChanged" id="zuA-GU-uU5"/>
