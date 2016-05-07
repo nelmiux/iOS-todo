@@ -11,5 +11,5 @@
 - [X] Get User Feedback
 - [X] Build the App
 - [X] Test and Get Feedback <----> Find and Fix Bugs
-- [ ] Pulish and Prepare for Submission/Presentation
+- [X] Pulish and Prepare for Submission/Presentation
 
