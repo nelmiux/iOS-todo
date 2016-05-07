@@ -18,6 +18,7 @@
             <string>SegoeUI</string>
             <string>SegoeUI</string>
             <string>SegoeUI</string>
+            <string>SegoeUI</string>
         </mutableArray>
         <mutableArray key="SEGOEUIB.TTF">
             <string>SegoeUI-Bold</string>
@@ -68,11 +69,11 @@
                                 <rect key="frame" x="0.0" y="92" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2KN-qi-hTd" id="6Le-hY-oyT">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="149.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nU-DL-6LU">
-                                            <rect key="frame" x="0.0" y="8" width="414" height="23"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhE-WV-9of">
+                                            <rect key="frame" x="0.0" y="5" width="414" height="28"/>
                                             <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,7 +87,7 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFq-CU-xf0" customClass="UserPhotoButton" customModule="todo" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="32.5" width="85" height="85"/>
+                                            <rect key="frame" x="8" y="33" width="85" height="85"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="xFq-CU-xf0" secondAttribute="height" multiplier="1:1" id="z6z-7L-LeG"/>
                                             </constraints>
@@ -95,7 +96,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You gained 50 dots for tutoring testNelma in CS 312." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXz-LG-bZV">
-                                            <rect key="frame" x="130" y="25" width="276" height="98.5"/>
+                                            <rect key="frame" x="130" y="25" width="276" height="99"/>
                                             <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -115,26 +116,37 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Date" lineBreakMode="characterWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3nU-DL-6LU">
+                                            <rect key="frame" x="13" y="5" width="401" height="28"/>
+                                            <color key="backgroundColor" red="0.66602159360000002" green="0.8690693344" blue="0.82109866610000004" alpha="0.0" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" name="SegoeUI" family="Segoe UI" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="bottom" secondItem="HhE-WV-9of" secondAttribute="bottom" id="3St-3U-2xy"/>
                                         <constraint firstItem="iXz-LG-bZV" firstAttribute="centerY" secondItem="6Le-hY-oyT" secondAttribute="centerY" id="4Dp-XJ-gAC"/>
                                         <constraint firstItem="xFq-CU-xf0" firstAttribute="width" secondItem="6Le-hY-oyT" secondAttribute="height" multiplier="85:149" id="5Qa-mw-i0S"/>
                                         <constraint firstItem="SB1-jA-L38" firstAttribute="centerX" secondItem="23f-KF-21n" secondAttribute="centerX" id="6wd-EG-lv7"/>
                                         <constraint firstItem="iXz-LG-bZV" firstAttribute="leading" secondItem="xFq-CU-xf0" secondAttribute="trailing" constant="37" id="Bh4-Gt-3Qx"/>
                                         <constraint firstItem="SB1-jA-L38" firstAttribute="width" secondItem="6Le-hY-oyT" secondAttribute="height" multiplier="39:149" id="E04-6r-0Qe"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="23f-KF-21n" secondAttribute="bottom" constant="8.5" id="JOL-BY-3jx"/>
+                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="trailing" secondItem="HhE-WV-9of" secondAttribute="trailing" id="Kuu-Ny-kOc"/>
+                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leadingMargin" constant="5" id="O8e-at-vQ3"/>
                                         <constraint firstItem="23f-KF-21n" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leadingMargin" constant="58" id="OOt-9k-o1g"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="iXz-LG-bZV" secondAttribute="trailing" id="Qhs-3U-uQq"/>
-                                        <constraint firstAttribute="trailing" secondItem="3nU-DL-6LU" secondAttribute="trailing" id="U1D-nM-Gp4"/>
-                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leading" id="V3Q-Qt-u8y"/>
+                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="top" secondItem="HhE-WV-9of" secondAttribute="top" id="QoY-Mi-ghf"/>
                                         <constraint firstItem="SB1-jA-L38" firstAttribute="baseline" secondItem="iXz-LG-bZV" secondAttribute="baseline" id="VEy-Rv-WFg"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="xFq-CU-xf0" secondAttribute="leading" id="WTV-Cq-Pfc"/>
-                                        <constraint firstItem="SB1-jA-L38" firstAttribute="top" secondItem="3nU-DL-6LU" secondAttribute="bottom" constant="66" id="brg-S6-ae8"/>
+                                        <constraint firstItem="xFq-CU-xf0" firstAttribute="top" secondItem="HhE-WV-9of" secondAttribute="bottom" id="Ywq-w5-O3b"/>
+                                        <constraint firstItem="HhE-WV-9of" firstAttribute="top" secondItem="6Le-hY-oyT" secondAttribute="topMargin" constant="-3" id="ayc-AG-oHf"/>
+                                        <constraint firstAttribute="trailing" secondItem="3nU-DL-6LU" secondAttribute="trailing" id="d3k-Fw-HRJ"/>
                                         <constraint firstItem="RyE-Dt-XrR" firstAttribute="leading" secondItem="xFq-CU-xf0" secondAttribute="leading" id="j9S-Jd-EZR"/>
                                         <constraint firstItem="SB1-jA-L38" firstAttribute="bottom" secondItem="RyE-Dt-XrR" secondAttribute="bottom" id="mw3-Rs-zlU"/>
                                         <constraint firstItem="23f-KF-21n" firstAttribute="width" secondItem="6Le-hY-oyT" secondAttribute="height" multiplier="45:149" id="nKw-nM-9Zq"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="SB1-jA-L38" secondAttribute="bottom" constant="17.5" id="qQe-8D-oH2"/>
-                                        <constraint firstItem="3nU-DL-6LU" firstAttribute="top" secondItem="6Le-hY-oyT" secondAttribute="topMargin" id="tyH-PW-ra0"/>
+                                        <constraint firstItem="HhE-WV-9of" firstAttribute="leading" secondItem="6Le-hY-oyT" secondAttribute="leading" id="sF4-Nw-e7F"/>
                                         <constraint firstItem="xFq-CU-xf0" firstAttribute="centerY" secondItem="6Le-hY-oyT" secondAttribute="centerY" id="wWe-of-mny"/>
                                     </constraints>
                                 </tableViewCellContentView>
