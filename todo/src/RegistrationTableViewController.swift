@@ -270,7 +270,7 @@ class RegistrationTableViewController: UITableViewController, UIImagePickerContr
         }
         
         // Ensure that a course is not added twice
-        if !addedCourses.contains(course) {
+        if !addedCourses.contains(course) && course != "" {
             addedCourses.append(course)
             let index = addedCourses.count - 1
             let indexPath = NSIndexPath(forItem: index, inSection: 0)

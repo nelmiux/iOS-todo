@@ -699,7 +699,7 @@
 				TargetAttributes = {
 					CADD3C3E1C7E46030085F014 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 8KD9A85DYL;
+						DevelopmentTeam = 8YWW2795B4;
 					};
 					CADD3C521C7E46030085F014 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1139,7 +1139,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = todo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ios-cs378.todo";
+				PRODUCT_BUNDLE_IDENTIFIER = "demo-cs378.todo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1155,7 +1155,7 @@
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = todo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ios-cs378.todo";
+				PRODUCT_BUNDLE_IDENTIFIER = "demo-cs378.todo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
