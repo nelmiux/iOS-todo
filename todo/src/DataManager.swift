@@ -20,8 +20,6 @@ var tempUserPhoto = UIImage(named:"DefaultProfilePhoto.png")
 
 let registrationFields:[(String, String)] = [("First Name", "John"), ("Last Name", "Appleseed"),  ("Email Address", "jappleseed@gmail.com"), ("Username", "abc123"), ("Password", "password"), ("Major", "Computer Science") , ("Graduation Year", "2016")]
 
-let upperDivisionCourses:[String] = [String]()
-
 var courseDic = Dictionary<String, String>()
 
 var allCourses = Dictionary<String, String>()
@@ -799,6 +797,7 @@ func logOutUser () {
     
     notifications.removeAll()
     history.removeAll()
+    courseDic.removeAll()
 
     rootRef.unauth()
     

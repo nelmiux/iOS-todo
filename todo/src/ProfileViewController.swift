@@ -44,12 +44,15 @@ class ProfileViewController: UIViewController, UITextFieldDelegate, UITableViewD
         
         dispatch_sync(taskQueue) {
             for key in (user["courses"] as! [String: String]).keys {
-                coursesKeysCopy.append(key)
+                if key != "dummy" {
+                    coursesKeysCopy.append(key)
+                }
             }
             for value in (user["courses"] as! [String: String]).values{
-                coursesValuesCopy.append(value)
+                if value != "" {
+                    coursesValuesCopy.append(value)
+                }
             }
-            
         }
         return (coursesKeysCopy,coursesValuesCopy)
     }
